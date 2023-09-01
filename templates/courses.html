@@ -1,0 +1,290 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Courses Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- style css link -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
+</head>
+
+<body>
+    <!-- Navbar Section Start -->
+    <div class="section_1">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg p-0">
+                <div class="container-fluid p-0">
+                    <a class="navbar-brand navbar_brand" href="{% url "home" %}"><img src="{% static "images/logo.svg" %}" alt=""></a>
+                    <button class="navbar-toggler navbar_toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
+                            <li class="nav-item">
+                                <a class="nav-link nav_link" aria-current="page" href="{% url "home" %}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav_link href_active" href="{% url "courses" %}">Courses</a>
+                            </li>
+                            <!-- <li class="nav-item nav_item_register">
+                                <img src="images/Vector.svg" alt="">
+                                <a class="register_link" href="accounts/login_page.html">Login</a>
+                                <span class="register_link">/</span>
+                                <a class="register_link" href="accounts/signup_page.html">Register</a>
+                            </li> -->
+
+                            <div class="dropdown" style="display: flex; flex-direction: column; align-items: center;">
+                                <button class="dropdown-toggle header_dropdown_top" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user_name_and_iamge">
+                                        <h6 class="user_name_top">Dextersol</h6>
+                                        <img src="{% static "images/Rectangle 1393.png" %}" alt="">
+                                    </div>
+                                </button>
+                                <ul class="dropdown-menu dropdown_menu_item">
+                                    <li><a class="dropdown-item item_1" href="{% url "logout" %}">Logout</a></li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar Section End -->
+
+    <div class="courses_section_one">
+        <div class="container">
+            <div class="info_item_section">
+                <h5>Property Investment Masterclass</h5>
+
+                <div class="courses_video_details">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-7 col-sm-12">
+                            <img src="{% static "images/courses_video.png" %}" alt="" class="courses_video_image">
+                            <p class="video_desc">As Lorem Ipsum is simply dummy text of the printing and
+                                typesetting industry.
+                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                when an unknown printer took a galley of type and scrambled it to make a type
+                                specimen book. It has survived not only five centuries, but also the leap into
+                                electronic typesetting, remaining essentially unchanged.
+                            </p>
+                            <div class="instructor_text">
+                                <p>Instructor(s):</p>
+                                <h6>Sadeq Abbass & Jared Kirkwood</h6>
+                            </div>
+                            <div class="instructor_text" style="margin-top: 11px;">
+                                <p>Class Length:</p>
+                                <h6>30 + videos (4 + hours)</h6>
+                            </div>
+                            <div class="instructor_text" style="margin-top: 11px;">
+                                <p>Category:</p>
+                                <h6>Real Estate & Property Investing</h6>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-12 col-12">
+                            <div class="class_detail_section">
+                                <!-- <a href="#">
+                                    <div class="class_item_one">
+                                        <img src="images/play.svg" alt="">
+                                        <h6>Class Trailer</h6>
+                                    </div>
+                                </a>
+                                <a href="#">
+                                    <div class="class_item_one">
+                                        <img src="images/play.svg" alt="">
+                                        <h6>Class Sample</h6>
+                                    </div>
+                                </a> -->
+
+                                <div class="lesson_plan_section">
+                                    <h4>Browse Lesson Plan</h4>
+                                    <div class="accordion accordion-flush accordion_section" id="accordionFlushExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_button_one"
+                                                    type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                                    aria-controls="flush-collapseOne">
+                                                    1. Welcome to Property Investment Masterclass
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body accordion_body">
+                                                    <p class="accordion_body_desc">
+                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                        Nam velit itaque ex. Placeat libero blanditiis
+                                                        consequuntur a excepturi laboriosam voluptatibus!
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="disable_section">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed accordion_button_one"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                                        aria-controls="flush-collapseTwo" disabled>
+                                                        2. Mindset
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div class="accordion-body accordion_body">
+                                                        <p class="accordion_body_desc">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Nam velit itaque ex. Placeat libero blanditiis
+                                                            consequuntur a excepturi laboriosam voluptatibus!
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed accordion_button_one"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                                        aria-controls="flush-collapseThree" disabled>
+                                                        3. Financial Foundations
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div class="accordion-body accordion_body">
+                                                        <p class="accordion_body_desc">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Nam velit itaque ex. Placeat libero blanditiis
+                                                            consequuntur a excepturi laboriosam voluptatibus!
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed accordion_button_one"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                                        aria-controls="flush-collapseFour" disabled>
+                                                        4. Tax
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseFour" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div class="accordion-body accordion_body">
+                                                        <p class="accordion_body_desc">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Nam velit itaque ex. Placeat libero blanditiis
+                                                            consequuntur a excepturi laboriosam voluptatibus!
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed accordion_button_one"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                                        aria-controls="flush-collapseFive" disabled>
+                                                        5. Property Overview
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseFive" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div class="accordion-body accordion_body">
+                                                        <p class="accordion_body_desc">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Nam velit itaque ex. Placeat libero blanditiis
+                                                            consequuntur a excepturi laboriosam voluptatibus!
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed accordion_button_one"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseSix" aria-expanded="false"
+                                                        aria-controls="flush-collapseSix" disabled>
+                                                        6. Key Stakeholders
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseSix" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div class="accordion-body accordion_body">
+                                                        <p class="accordion_body_desc">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Nam velit itaque ex. Placeat libero blanditiis
+                                                            consequuntur a excepturi laboriosam voluptatibus!
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header">
+                                                    <button class="accordion-button collapsed accordion_button_one"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#flush-collapseSeven" aria-expanded="false"
+                                                        aria-controls="flush-collapseSeven" disabled>
+                                                        7. Next Steps
+                                                    </button>
+                                                </h2>
+                                                <div id="flush-collapseSeven" class="accordion-collapse collapse"
+                                                    data-bs-parent="#accordionFlushExample">
+                                                    <div class="accordion-body accordion_body">
+                                                        <p class="accordion_body_desc">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Nam velit itaque ex. Placeat libero blanditiis
+                                                            consequuntur a excepturi laboriosam voluptatibus!
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="#">
+                                            <div class="unlock_purchase_button">
+                                                <button type="button">Purchase Course to unlock</button>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                <div class="sign_button">
+                                    <a href="{% url "on-boarding1" %}">
+                                        <button type="button" class="about_signup_button">Purchase Course</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+        // user name only 8 character show 
+        $(".user_name_top").text(function (index, currentText) {
+            return currentText.substr(0, 9);
+        });
+    </script>
+</body>
+
+</html>

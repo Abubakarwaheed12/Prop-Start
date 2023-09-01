@@ -1,0 +1,86 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- style css link -->
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+
+<body>
+    <!-- Register Account Step 1 Start-->
+    <div class="account_section_one">
+        <div class="account_section_main">
+            <div class="login_account_section_one">
+                <div class="account_logo">
+                    <img src="{% static "images/logo.svg" %}" alt="">
+                </div>
+                <h4>Login to your Account</h4>
+                {% if error_msg %}
+                    <div class="alert alert-danger mt-2" role="alert">
+                        {{error_msg}}
+                    </div>
+                {% endif  %}
+                <form class="account_form" method="post">
+                    {% csrf_token %}
+                    <div class="input_group">
+                        <label for="exampleInputEmail1" class="form-label input_label">Email address</label>
+                        <input type="email" class="form-control account_input" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter Email Address" name="email">
+                    </div>
+                    <div class="input_group" style="position: relative;">
+                        <label for="" class="form-label input_label">Your Password</label>
+                        <input type="password" class="form-control password account_input" id=""
+                            placeholder="Enter Password" name="pass">
+                        <a id="s_show_hide" class="hide_show_text" onclick="show();">Show</a>
+                    </div>
+                    <div class="forget_group">
+                        <!-- <div class="form-check checkbox_input_group">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember_me">
+                            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+                        </div> -->
+                        <a href="{% url "forget-password" %}">Forgot Password?</a>
+                    </div>
+                    <a href="">
+                        <button type="submit" class="login_button">Login</button>
+                    </a>
+                    <p class="or_text">Or</p>
+
+                    <a href="#" class="login_with_google">
+                        <img src="{% static "images/flat-color-icons_google.svg" %}" alt="">
+                        <p>Register with Google</p>
+                    </a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        // password hide/show
+        function show() {
+            console.log('skldhksldhksahk')
+            if ($(".password").attr("type") == "password") {
+                $(".password").attr("type", "text");
+                document.getElementById('s_show_hide').innerHTML = "Hide";
+            }
+            else {
+                $(".password").attr("type", "password");
+                document.getElementById('s_show_hide').innerHTML = "Show";
+            }
+        }
+    </script>
+</body>
+
+</html>

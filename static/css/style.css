@@ -1,0 +1,3277 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+/* navbar css */
+.section_1 {
+    background-color: rgba(255, 255, 255, 1);
+    padding: 29.75px 0 28.24px 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+.navbar_brand {
+    padding: 0;
+}
+
+.navbar_brand img {
+    width: 151.249px;
+    height: 55px;
+}
+
+.href_active {
+    border-bottom: 1.08px solid #17E093;
+    /* margin-bottom: 0 !important; */
+    font-weight: 600 !important;
+}
+
+.nav_link {
+    padding: 0;
+    /* width: 74.549px; */
+    text-align: center;
+    color: #0D4949 !important;
+    font-weight: 500;
+    font-size: 18px;
+    font-style: normal;
+    font-family: 'Urbanist';
+    position: relative;
+    transition: all 0.4s;
+
+}
+
+/* hover css  */
+.nav_link::after {
+    content: "";
+    height: 1.08px;
+    width: 100%;
+    background-color: #17E093;
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    opacity: 0;
+    transition: all 0.2s;
+    pointer-events: none;
+
+}
+
+/* .nav_link:focus::after  */
+.nav_link:hover::after {
+    opacity: 1;
+}
+
+
+.nav_ul {
+    align-items: center;
+    gap: 30px;
+}
+
+.register_link {
+    color: #17E093;
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0;
+}
+
+.nav_item_register {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+}
+
+.nav_item_register img {
+    width: 11.523px;
+    height: 17.124px;
+    cursor: pointer;
+}
+
+.navbar_toggler {
+    border: none;
+    box-shadow: none !important;
+    outline: none;
+    /* filter: brightness(10); */
+    padding: 0;
+}
+
+.section_2 {
+    margin-top: 200px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.side_circle {
+    width: 36px;
+    height: 521px;
+    position: absolute;
+    left: -70px;
+    top: -53px;
+}
+
+.learning_text_section h6 {
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+.learning_text_section span {
+    font-weight: 700;
+}
+
+.learning_text_section p {
+    margin-bottom: 0;
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 28px;
+
+}
+
+.pre_order_button {
+    width: 170px;
+    height: 55px;
+    border-radius: 50px;
+    background: #17E093;
+    border: none;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.learning_text_button {
+    display: flex;
+    gap: 12px;
+    margin-top: 49px;
+}
+
+.rafiki_image {
+    width: 100%;
+    max-width: 709px;
+    /* height: 609px; */
+}
+
+.learning_text_main_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.arrow_bottom_image {
+    width: 48px;
+    height: 66.685px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+.section_3 {
+    margin-top: 157px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.buyend_image_sec {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+}
+
+.buyend_image {
+    border-radius: 20px;
+    width: 100%;
+    max-width: 438px;
+    height: 273px;
+    margin-right: 13px;
+}
+
+.beyond_text_div h5 {
+    margin-bottom: 0;
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 600;
+    width: 100%;
+    max-width: 470px;
+}
+
+.beyond_text_div p {
+    margin-bottom: 0;
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.396px;
+    width: 384px;
+    margin-top: 19px;
+}
+
+.pre_order_button2 {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 55px;
+    /* 305.556% */
+    text-transform: capitalize;
+    width: 170px;
+    height: 55px;
+    border-radius: 50px;
+    border: 1px solid #0D4949;
+    background: #17E093;
+    margin-top: 21px;
+}
+
+
+.invest_text_div h5 {
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 0;
+    /* 110.87% */
+    width: 100%;
+    max-width: 270px;
+}
+
+.invest_text_div p {
+    margin-bottom: 0;
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.396px;
+    margin-top: 19px;
+    width: 100%;
+    max-width: 400px;
+
+}
+
+.invest_text_main_section {
+    padding-left: 94px;
+}
+
+.back_a_button2 {
+    border-radius: 50px;
+    border: 1px solid #0D4949;
+    background: #0D4949;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: capitalize;
+    width: 170px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 19px;
+}
+
+.invest_text_main_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home_section_four {
+    margin-top: 157px;
+    background: rgba(23, 224, 147, 0.10) !important;
+    padding: 83px 0 83.001px 0;
+}
+
+.untitled_group_image {
+    display: flex;
+    justify-content: end;
+}
+
+.untitled_group_image img {
+    width: 100%;
+    max-width: 512px;
+    /* height: 511.999px; */
+}
+
+.propstart_text h4 {
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 600;
+    width: 100%;
+    max-width: 267px;
+    margin-bottom: 0;
+}
+
+.take_quiz_button {
+    border-radius: 50px;
+    background: #F4BF36;
+    color: #0D4949;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    width: 170px;
+    height: 55px;
+    border: none;
+    margin-top: 38px;
+}
+
+.propstart_text_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home_section_five {
+    margin-top: 92px;
+    padding: 163px 0px 162px 0px;
+    border-radius: 96px 96px 0px 0px;
+    background: #0D4949;
+}
+
+.journey_start_button {
+    border-radius: 50px;
+    border: 1px solid #FFF;
+    background: #17E093;
+    width: 170px;
+    height: 55px;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.journey_start_button_group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.journey_start_section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.journey_start_section h4 {
+    margin-bottom: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 600;
+    width: 404px;
+}
+
+
+/* foter css  */
+.footer_main_section {
+    padding: 74px 448.751px 74px 448px;
+    background-color: #000;
+}
+
+.footer_logo_img {
+    width: 151.249px;
+}
+
+.footer_item h5 {
+    color: #FFF;
+    font-family: 'Urbanist';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.footer_item a {
+    text-decoration: none;
+
+}
+
+.footer_item p {
+    margin-bottom: 0;
+    color: #FFF;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 27px;
+}
+
+.footer_item h6 {
+    color: #FFF;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 0;
+    display: contents;
+}
+
+.footer_item_about {
+    opacity: 0.75;
+
+}
+
+
+
+/* .background_filter1 {
+    border-radius: 757px;
+    background: rgba(23, 224, 147, 0.10);
+    filter: blur(250px);
+    width: 757px;
+    height: 719px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.background_filter2{
+    border-radius: 757px;
+    background: rgba(23, 224, 147, 0.10);
+    filter: blur(250px);
+    width: 757px;
+    height: 719px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+} */
+
+
+/* courses_section_one css */
+.courses_section_one {
+    margin-top: 113px;
+    padding: 35px 0 282px 0;
+    background-color: #FFF;
+}
+
+.nav_tab_main {
+    display: flex;
+    justify-content: center;
+}
+
+.info_buttons {
+    color: #0D4949 !important;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    padding: 18px 60.14px 22px 48px;
+    border-radius: 0 !important;
+    /* 150% */
+}
+
+.info_buttons.active {
+    color: #0D4949 !important;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    border-bottom: 2px solid #17E093;
+    background: none !important;
+    /* 150% */
+}
+
+.info_item_section {
+    margin-top: 87px;
+}
+
+.info_item_section h5 {
+    color: #0D4949;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.courses_video_image {
+    width: 100%;
+    border-radius: 3.395px;
+    height: 447px;
+}
+
+.courses_video_details {
+    margin-top: 90px;
+}
+
+.video_desc {
+    margin-bottom: 0;
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    /* 150% */
+    letter-spacing: 0.14px;
+    margin-top: 15px;
+}
+
+.instructor_text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+
+}
+
+.instructor_text p {
+    margin-bottom: 0;
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.14px;
+    opacity: 0.6;
+}
+
+.instructor_text h6 {
+    margin-bottom: 0;
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 17.5px;
+    /* 125% */
+}
+
+.class_item_one {
+    padding: 16px 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(13, 73, 73, 0.40);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.class_item_one img {
+    width: 24px;
+    height: 24px;
+}
+
+.class_item_one h6 {
+    margin-bottom: 0;
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    /* 150% */
+}
+
+.class_detail_section a {
+    text-decoration: none;
+}
+
+
+.lesson_plan_section h4 {
+    margin-bottom: 0;
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 17.5px;
+    letter-spacing: 0.14px;
+}
+
+.accordion_section {
+    margin-top: 9px;
+    position: relative;
+}
+
+.accordion_button_one {
+    padding: 16px;
+    background: none !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(13, 73, 73, 0.40) !important;
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0.14px;
+    margin-top: 4px;
+}
+
+.accordion_button_one:focus {
+    box-shadow: none !important;
+}
+
+.accordion_body {
+    padding: 16px;
+}
+
+.accordion_body_desc {
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.14px;
+}
+
+.accordion_button_one::after {
+    border: none;
+    background-image: url(../images/arrow.svg) !important;
+    --bs-accordion-btn-icon-width: 16px;
+    position: absolute;
+    right: 16px;
+    top: 21px;
+}
+
+.accordion_button_one:not(.collapsed)::after {
+    background-image: url(../images/arrow.svg) !important;
+    border: none;
+    top: 14px;
+}
+
+.about_signup_button {
+    border-radius: 50px;
+    border: 1px solid #0D4949;
+    background: #17E093;
+    width: 231px;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 55px;
+    /* 343.75% */
+    text-transform: capitalize;
+}
+
+.sign_button {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 32px;
+}
+
+
+
+.country-list {
+    width: 900px;
+}
+
+/* account css */
+.account_section_one {
+    background-color: #FFF;
+    position: relative;
+    background-image: url(../images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.login_account_section_one {
+    background-color: #FFF;
+    box-shadow: 0px 4px 10px 0px rgba(13, 73, 73, 0.15);
+    width: 100%;
+    max-width: 738px;
+    /* height: 987px; */
+    padding: 100px 150px 130px 150px;
+    position: relative;
+}
+
+.account_section_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
+    flex-direction: column;
+}
+
+.account_logo {
+    text-align: center;
+}
+
+.account_logo img {
+    width: 131.999px;
+}
+
+.login_account_section_one h4 {
+    margin-bottom: 0;
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    margin-top: 30px;
+
+}
+
+.input_label {
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    /* margin-bottom: 14px; */
+    margin-top: 18px;
+    margin-bottom: 0;
+}
+
+.account_input {
+    border-radius: 50px;
+    border: 1px solid #8692A6;
+    color: rgba(13, 73, 73, 0.60) !important;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 23px 22px 24px 30px;
+    margin-top: 14px;
+}
+
+.account_input::placeholder {
+    color: rgba(13, 73, 73, 0.60) !important;
+}
+
+.account_input:focus {
+    border: 1px solid #17E093;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+}
+
+.account_form {
+    padding-top: 54px;
+}
+
+.checkbox_input_group label {
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.checkbox_input_group {
+    display: flex;
+    align-items: end;
+    gap: 8px;
+    margin-bottom: 0;
+
+}
+
+.forget_group {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.forget_group a {
+    text-decoration: none;
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.checkbox_input_group input {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px !important;
+    border: 1px solid rgba(13, 73, 73, 0.60) !important;
+}
+
+.checkbox_input_group input:focus {
+    border: 1px solid #17E093 !important;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+}
+
+.checkbox_input_group input:checked {
+    background-color: rgba(23, 224, 147, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.login_button {
+    width: 100%;
+    border-radius: 50px;
+    background: #17E093;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 20px 0;
+    border: none;
+    margin-top: 30px;
+}
+
+.or_text {
+    margin-top: 25px;
+    margin-bottom: 0;
+    color: #BABABA;
+    text-align: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.login_with_google {
+    text-decoration: none;
+    display: flex;
+    border-radius: 6px;
+    background-color: #FFF;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.08);
+    padding: 20px 43px;
+    /* gap: 73px; */
+    margin-top: 25px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+
+}
+
+.login_with_google img {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 42px;
+}
+
+.login_with_google p {
+    margin-bottom: 0;
+    color: #0D4949;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.hide_show_text {
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    top: 78px;
+    text-decoration: none;
+    color: rgba(13, 73, 73, 0.60);
+    text-align: right;
+    font-family: 'Inter';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.forget_account_section_one {
+    background-color: #FFF;
+    box-shadow: 0px 4px 10px 0px rgba(13, 73, 73, 0.15);
+    padding: 84px 321px;
+    width: 100%;
+    max-width: 1080px;
+    margin-top: 85px;
+}
+
+.forget_account_section_one h4 {
+    color: #0D4949;
+    text-align: center;
+    font-family: Urbanist;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+.forget_p {
+    margin-bottom: 0;
+    color: rgba(13, 73, 73, 0.60);
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    width: 100%;
+    max-width: 332px;
+    /* 175% */
+    margin-top: 10px;
+}
+
+.account_forget_form {
+    padding-top: 46px;
+}
+
+.forget_button {
+    margin-top: 46px !important;
+}
+
+.forget_p span {
+    font-weight: 700;
+}
+
+.input_number_code_group {
+    display: flex;
+    gap: 18.1px;
+    justify-content: center;
+}
+
+.code_number_input {
+    width: 92.924px;
+    border-radius: 15px;
+    border: 1px solid #D8DADC;
+    text-align: center;
+    padding: 21px 0;
+    color: #0D4949;
+    font-family: 'Inter';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.code_number_input:focus {
+    border: 1px solid #17E093;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+}
+
+.code_number_input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.reset_password_sec {
+    padding-top: 160px !important;
+    padding-bottom: 170px !important;
+}
+
+.phone_input_group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+    background: none !important;
+}
+
+.iti__selected-flag {
+    padding-left: 30px !important;
+}
+
+.iti--allow-dropdown input[type=tel] {
+    padding-left: 120px !important;
+}
+
+.country_code_span {
+    position: absolute;
+    left: 62px;
+    bottom: 24px;
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.iti {
+    margin-top: 24px;
+}
+
+.iti__selected-flag {
+    padding-right: 57px !important;
+    outline: 0 !important;
+}
+
+.iti__arrow {
+    width: 7px;
+    position: absolute;
+    top: 30px;
+    left: 92px;
+    color: #0D4949;
+}
+
+.step_text {
+    color: #0D4949;
+    text-align: right;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0;
+    position: absolute;
+    right: 51px;
+    top: 32px;
+}
+
+/* .custom_select {
+    background-image: url(../images/Vector\ \(2\).svg);
+    background-repeat: no-repeat;
+    padding-right: 2.5rem;
+} */
+
+.resident_check_group {
+    display: flex;
+    margin-top: 16px;
+    gap: 38px;
+}
+
+.resident_check {
+    display: flex;
+    gap: 11px;
+    align-items: end;
+}
+
+.checkbox_resident {
+    width: 19px;
+    height: 19px;
+    border-radius: 3px;
+    border: 1px solid rgba(13, 73, 73, 0.60) !important;
+}
+
+.checkbox_resident:checked {
+    background-color: rgba(23, 224, 147, 1) !important;
+    color: #FFF !important;
+}
+
+.checkbox_resident {
+    box-shadow: none !important;
+}
+
+.resident_check p {
+    margin-bottom: 0;
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.custom_select {
+    transition: all .5s ease;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: 0;
+}
+
+.select_title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.select_menu {
+    position: absolute;
+    background: #D9D9D9;
+    width: 100%;
+    left: 0;
+    top: 64px;
+    border-radius: 0 1px 5px 5px;
+    overflow: hidden;
+    display: none;
+    max-height: 144px;
+    overflow-y: auto;
+    z-index: 9;
+    padding: 0;
+    list-style: none;
+    color: rgba(13, 73, 73, 0.60);
+
+}
+
+.select_menu>li {
+    padding: 10px 15px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.select_menu>li:hover {
+    background-color: #444;
+    color: #FFF;
+}
+
+.select_title img {
+    width: 14px;
+}
+
+
+/* paypal css  */
+.paypal_edit_main_section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 13px;
+}
+
+.paypal_btn {
+    width: 100%;
+    padding: 20px 30px 20px 30px;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+}
+
+.paypal_text_div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.paypal_btn.paypal_text_div p.active {
+    font-weight: 500 !important;
+}
+
+.paypal_text_div p {
+    margin-bottom: 0;
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.paypal_p_active p {
+    font-weight: 500 !important;
+}
+
+.paypal_p_active2 p {
+    font-weight: 500 !important;
+}
+
+.paypal_btn.active {
+    background: rgba(13, 73, 73, 0.05) !important;
+}
+
+.paypal_btn_2 {
+    width: 100%;
+    padding: 20px 30px 20px 30px;
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.paypal_btn_2.active {
+    background: rgba(13, 73, 73, 0.05);
+}
+
+.paypal_checkbox {
+    width: 16px;
+    height: 16px;
+    accent-color: #0D4949;
+}
+
+/* .paypal_checkbox:checked {
+    border: 2px solid #FFF;
+    color: #0D4949;
+    box-shadow: 0px 0px 0px 2px #0D4949;
+} */
+
+article {
+
+    display: none;
+}
+
+article.on {
+    display: block;
+}
+
+
+.card_image_group {
+    display: flex;
+    gap: 8px;
+    position: absolute;
+    right: 21px;
+    bottom: 25px;
+}
+
+.card_image_group img {
+    width: 23.929px;
+    height: 16px;
+}
+
+.money_card_input {
+    padding-right: 140px !important;
+}
+
+.date_input::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(../images/uil_calender.svg) no-repeat;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.step_1_add {
+    display: none;
+}
+
+/* quiz css start */
+.quiz_main_section {
+    /* min-height: 100vh; */
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 236px 0;
+}
+
+.quiz_item_section {
+    /* width: 100%; */
+    width: 879px;
+}
+
+.quiz_item_section p {
+    margin-bottom: 0;
+    color: #0D4949;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.quiz_item_section h5 {
+    margin-bottom: 0;
+    color: #0D4949;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 12px;
+}
+
+.quiz_label {
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.quiz_input {
+    padding: 23px 37px 22px 37px;
+    border-radius: 6px;
+    border: 1px solid rgba(13, 73, 73, 0.60);
+    background-color: #FFF;
+    margin-top: 14px;
+    color: rgba(13, 73, 73, 0.60) !important;
+    font-family: 'Urbanist';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.quiz_input::placeholder {
+    color: rgba(13, 73, 73, 0.60) !important;
+}
+
+.quiz_input:focus {
+    border: 1px solid #17E093;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+}
+
+.quiz_input_main_group {
+    margin-top: 29px;
+}
+
+.quiz_next_button {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 29px;
+}
+
+.quiz_next_button button {
+    border-radius: 50px;
+    border: 1px solid #0D4949;
+    background: #17E093;
+    width: 170px;
+    height: 55px;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.step {
+    display: none;
+}
+
+.step.visible {
+    display: block;
+}
+
+.step_2_question_1 {
+    /* width: 100%; */
+    width: 879px;
+    border-radius: 6px;
+    border: 1px solid rgba(13, 73, 73, 0.60);
+    background-color: #FFF;
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: capitalize;
+    padding: 23px 18px 22px 37px;
+    margin-top: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* .steps_focus {
+    color: #0D4949;
+    border: 1px solid #17E093;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+} */
+
+.step_2_question_1.clicked {
+    color: #0D4949;
+    border: 1px solid #17E093;
+    box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+}
+
+.plus-icon {
+    display: none;
+    font-size: 20px;
+    color: #17E093;
+}
+
+.step_2_question_1.clicked .plus-icon {
+    display: block;
+}
+
+.get_started_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 29px;
+}
+
+.get_started_button1 {
+    width: 170px;
+    height: 55px;
+    border-radius: 50px;
+    border: 1px solid #0D4949;
+    background: #17E093;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.unlock_purchase_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 217px;
+    left: 144px;
+}
+
+.unlock_purchase_button button {
+    width: 231px;
+    border-radius: 50px;
+    border: 1px solid #0D4949;
+    color: #0D4949;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 55px;
+    /* 343.75% */
+    background: none;
+    text-transform: capitalize;
+}
+
+.disable_section {
+    opacity: 0.5;
+}
+
+.user_name_and_iamge {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-left: 40px;
+}
+
+.user_name_and_iamge h6 {
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 0;
+}
+
+.user_name_and_iamge img {
+    border-radius: 30px;
+    width: 40px;
+    height: 40px;
+}
+
+.term_section_1 {
+    padding-top: 150px;
+}
+
+.term_section_1 h4 {
+    color: #0D4949;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: center;
+}
+
+.trem_desc {
+    padding: 17px 0 30px 0;
+}
+
+.trem_desc h6 {
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 0;
+    margin-top: 25px;
+    /* 120% */
+}
+
+.trem_desc p {
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 0;
+    margin-top: 25px;
+}
+
+.prop_email {
+    color: rgba(13, 73, 73, 0.60);
+    font-weight: 400;
+}
+
+.header_dropdown_top {
+    background: none !important;
+    border: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header_dropdown_top::after {
+    border: none;
+}
+
+.dropdown_menu_item {
+    border-radius: 8px;
+    border: 1px solid var(--neutral-80-outline-light, #C6CBD2);
+    background: var(--neutral-100-sur-bright, #FFF);
+    box-shadow: 0px 1px 3px 0px rgba(90, 100, 114, 0.12), 0px 4px 8px 3px rgba(90, 100, 114, 0.08);
+    border: none;
+}
+
+.dropdown_menu_item a {
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.an_account {
+    color: #0D4949;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 70px;
+    margin-bottom: 0;
+}
+
+.an_account a {
+    
+    font-weight: 700;
+    color: #0D4949 !important;
+    text-decoration: none;
+}
+
+@media screen and (min-width : 1400px) {
+    .side_circle {
+        top: -20px;
+    }
+
+    .buyend_image_sec {
+        justify-content: center;
+    }
+
+    .footer_main_section {
+        padding: 74px 280px 74px 280px;
+    }
+
+}
+
+@media screen and (max-width : 1400px) {
+    .footer_main_section {
+        padding: 74px 140.751px 74px 140px;
+    }
+
+}
+
+@media screen and (max-width : 1200px) {
+    .an_account {
+        font-size: 15px;
+        margin-top: 60px;
+    }    
+    .term_section_1 h4 {
+        font-size: 38px;
+    }
+
+    .trem_desc p {
+        font-size: 16px;
+    }
+
+    .trem_desc h6 {
+        font-size: 19px;
+    }
+
+    .user_name_and_iamge h6 {
+        font-size: 15px;
+    }
+
+    .unlock_purchase_button button {
+        width: 194px;
+        font-size: 14px;
+        line-height: 52px;
+    }
+
+    .unlock_purchase_button {
+        top: 194px;
+        left: 137px;
+    }
+
+    .quiz_item_section h5 {
+        font-size: 25px;
+    }
+
+    .quiz_item_section {
+        width: 752px;
+    }
+
+    .step_2_question_1 {
+        width: 752px;
+    }
+
+    .card_image_group {
+        bottom: 21px;
+    }
+
+    .step_text {
+        right: 33px;
+        top: 24px;
+    }
+
+    .iti__selected-flag {
+        padding-left: 28px !important;
+    }
+
+    .iti__arrow {
+        top: 26px;
+        left: 90px;
+    }
+
+    .country_code_span {
+        bottom: 21px;
+    }
+
+    .code_number_input {
+        width: 82.924px;
+        padding: 15px 0;
+        font-size: 29px;
+    }
+
+    .forget_account_section_one {
+        padding: 77px 200px;
+        max-width: 839px;
+        margin-top: 70px;
+    }
+
+    .forget_account_section_one h4 {
+        font-size: 28px;
+    }
+
+    .hide_show_text {
+        top: 75px;
+    }
+
+    .forget_p {
+        font-size: 15px;
+    }
+
+    .login_account_section_one {
+        max-width: 690px;
+        padding: 80px 120px 110px 120px;
+    }
+
+    .login_account_section_one h4 {
+        font-size: 28px;
+    }
+
+    .account_input {
+        font-size: 14px;
+        padding: 20px 22px 20px 25px;
+    }
+
+    .login_button {
+        font-size: 19px;
+        padding: 17px 0;
+    }
+
+    .login_with_google {
+        padding: 18px 43px;
+    }
+
+    .about_signup_button {
+        width: 208px;
+        font-size: 15px;
+        line-height: 52px;
+    }
+
+    .class_item_one {
+        padding: 15px 15px;
+    }
+
+    .accordion_body {
+        padding: 15px;
+    }
+
+    .accordion_body_desc {
+        font-size: 14px;
+    }
+
+    .instructor_text p {
+        font-size: 13px;
+    }
+
+    .instructor_text h6 {
+        font-size: 13px;
+
+    }
+
+    .video_desc {
+        font-size: 15px;
+    }
+
+    .courses_video_image {
+        height: 432px;
+    }
+
+    .accordion_button_one::after {
+        --bs-accordion-btn-icon-width: 16px;
+    }
+
+    .info_buttons {
+        font-size: 15px !important;
+        padding: 16px 35.14px 20px 35px;
+    }
+
+    .info_item_section h5 {
+        font-size: 43px;
+    }
+
+    .accordion_button_one {
+        padding: 15px;
+    }
+
+    .footer_main_section {
+        padding: 74px 80.751px 74px 80px;
+    }
+
+    .footer_item h5 {
+        font-size: 20px;
+    }
+
+    .footer_item h6 {
+        font-size: 13px;
+    }
+
+    .footer_item p {
+        font-size: 13px;
+    }
+
+    .footer_logo_img {
+        width: 143.249px;
+    }
+
+    .journey_start_section h4 {
+        font-size: 66px;
+    }
+
+    .journey_start_button {
+        width: 160px;
+    }
+
+    .propstart_text h4 {
+        font-size: 43px;
+        max-width: 250px;
+    }
+
+    .take_quiz_button {
+        width: 160px;
+    }
+
+    .invest_text_main_section {
+        padding-left: 60px;
+    }
+
+    .invest_text_div h5 {
+        font-size: 43px;
+    }
+
+    .invest_text_div p {
+        font-size: 17px;
+        max-width: 357px;
+    }
+
+    .back_a_button2 {
+        font-size: 17px;
+        width: 150px;
+        height: 52px;
+    }
+
+    .side_circle {
+        width: 31px;
+        height: 450px;
+        left: -50px;
+        top: -58px;
+    }
+
+    .learning_text_section h6 {
+        font-size: 58px;
+    }
+
+    .learning_text_section p {
+        font-size: 16px;
+        margin-top: 27px;
+    }
+
+    .pre_order_button {
+        width: 150px;
+        height: 52px;
+        font-size: 17px;
+    }
+
+    .learning_text_button {
+        margin-top: 42px;
+    }
+
+    .arrow_bottom_image {
+        width: 42px;
+        height: 54.685px;
+    }
+
+    .beyond_text_div h5 {
+        font-size: 43px;
+    }
+
+    .beyond_text_div p {
+        font-size: 17px;
+        width: 348px;
+        margin-top: 18px;
+    }
+
+    .pre_order_button2 {
+        font-size: 17px;
+        width: 150px;
+        height: 52px;
+        margin-top: 19px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .buyend_image {
+        max-width: 385px;
+        height: 265px;
+        margin-right: 10px;
+    }
+
+    .nav_link {
+        font-size: 17px;
+    }
+
+    .register_link {
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width : 992px) {
+    .user_name_and_iamge img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .user_name_and_iamge h6 {
+        font-size: 14px;
+    }
+
+    .term_section_1 h4 {
+        font-size: 34px;
+    }
+
+    .trem_desc p {
+        font-size: 15px;
+    }
+
+    .trem_desc h6 {
+        font-size: 18px;
+    }
+
+    .user_name_and_iamge {
+        margin-left: 0;
+    }
+
+    .unlock_purchase_button button {
+        width: 169px;
+        font-size: 12px;
+        line-height: 47px;
+    }
+
+    .unlock_purchase_button {
+        top: 191px;
+        left: 65px;
+    }
+
+    .step_2_question_1 {
+        width: 658px;
+        padding: 21px 37px 21px 37px;
+    }
+
+    .quiz_next_button button {
+        width: 142px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .get_started_button1 {
+        width: 142px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .quiz_item_section h5 {
+        font-size: 21px;
+    }
+
+    .quiz_item_section {
+        width: 658px;
+    }
+
+    .quiz_input {
+        padding: 21px 37px 21px 37px;
+    }
+
+    .date_input::-webkit-calendar-picker-indicator {
+        width: 18px;
+        height: 15px;
+    }
+
+    .paypal_btn {
+        padding: 18px 26px 18px 26px;
+    }
+
+    .paypal_btn_2 {
+        padding: 18px 26px 18px 26px;
+    }
+
+    .paypal_text_div p {
+        font-size: 15px;
+    }
+
+    .card_image_group {
+        bottom: 19px;
+    }
+
+    .card_image_group img {
+        width: 21.929px;
+        height: 15px;
+    }
+
+    .money_card_input {
+        padding-right: 130px !important;
+    }
+
+    .step_text {
+        right: 25px;
+        top: 22px;
+        font-size: 13px;
+    }
+
+    .iti__selected-flag {
+        padding-left: 26px !important;
+    }
+
+    .country_code_span {
+        bottom: 18px;
+    }
+
+    .iti__arrow {
+        top: 24px;
+        left: 92px;
+    }
+
+    .code_number_input {
+        width: 75.924px;
+        padding: 14px 0;
+        font-size: 24px;
+    }
+
+
+    .forget_account_section_one h4 {
+        font-size: 27px;
+    }
+
+    .forget_p {
+        font-size: 14px;
+    }
+
+    .account_forget_form {
+        padding-top: 40px;
+    }
+
+    .forget_account_section_one {
+        padding: 70px 85px;
+        max-width: 600px;
+        margin-top: 65px;
+    }
+
+    .hide_show_text {
+        top: 72px;
+        right: 27px;
+    }
+
+    .login_with_google img {
+        left: 38px;
+    }
+
+    .login_account_section_one h4 {
+        font-size: 27px;
+        margin-top: 22px;
+    }
+
+    .account_logo img {
+        width: 125.999px;
+    }
+
+    .account_form {
+        padding-top: 39px;
+    }
+
+    .input_label {
+        font-size: 15px;
+    }
+
+    .account_input {
+        padding: 18px 21px 17px 20px;
+    }
+
+    .login_button {
+        font-size: 18px;
+        padding: 15px 0;
+    }
+
+    .login_with_google {
+        padding: 16px 40px;
+    }
+
+    .login_with_google p {
+        font-size: 15px;
+    }
+
+    .account_section_main {
+        padding: 80px 0;
+    }
+
+    .login_account_section_one {
+        max-width: 590px;
+        padding: 70px 100px 100px 100px;
+    }
+
+    .about_signup_button {
+        width: 150px;
+        font-size: 14px;
+        line-height: 43px;
+    }
+
+    .accordion_body {
+        padding: 12px;
+    }
+
+    .accordion_body_desc {
+        font-size: 12px;
+    }
+
+    .accordion_button_one {
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .info_item_section h5 {
+        font-size: 40px;
+    }
+
+    .info_item_section {
+        margin-top: 70px;
+    }
+
+    .class_item_one {
+        padding: 12px 13px;
+    }
+
+    .lesson_plan_section h4 {
+        font-size: 13px;
+    }
+
+    .video_desc {
+        font-size: 12px;
+    }
+
+    .instructor_text p {
+        font-size: 12px;
+    }
+
+    .instructor_text h6 {
+        font-size: 12px;
+    }
+
+    .accordion_button_one::after {
+        --bs-accordion-btn-icon-width: 14px;
+        right: 13px;
+    }
+
+    .courses_video_image {
+        height: 358px;
+    }
+
+    .class_item_one img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .class_item_one h6 {
+        font-size: 12px;
+    }
+
+    .info_buttons {
+        padding: 16px 30.14px 17px 30px;
+    }
+
+    .footer_main_section {
+        padding: 74px 0px 74px 0px;
+    }
+
+    .footer_logo_img {
+        width: 133.249px;
+    }
+
+    .footer_item h5 {
+        font-size: 17px;
+    }
+
+    .footer_item p {
+        font-size: 12px;
+    }
+
+    .journey_start_section h4 {
+        font-size: 60px;
+    }
+
+    .journey_start_button {
+        width: 150px;
+    }
+
+    .home_section_five {
+        padding: 140px 0px 140px 0px;
+    }
+
+    .journey_start_section {
+        gap: 70px;
+    }
+
+    .propstart_text h4 {
+        font-size: 38px;
+        max-width: 200px;
+    }
+
+    .take_quiz_button {
+        font-size: 15px;
+        width: 150px;
+        height: 52px;
+    }
+
+    .invest_text_main_section {
+        padding-left: 0;
+    }
+
+    .invest_text_div h5 {
+        font-size: 33px;
+        max-width: 178px;
+
+    }
+
+    .invest_text_div p {
+        font-size: 14px;
+        max-width: 290px;
+        margin-top: 15px;
+    }
+
+    .back_a_button2 {
+        font-size: 16px;
+        width: 130px;
+        height: 48px;
+        margin-top: 17px;
+    }
+
+    .side_circle {
+        width: 30px;
+        height: 379px;
+        left: -40px;
+        top: -38px;
+    }
+
+    .buyend_image {
+        margin-right: 0;
+        height: 224px;
+    }
+
+    .beyond_text_div p {
+        font-size: 14px;
+        width: 285px;
+        margin-top: 15px;
+    }
+
+    .beyond_text_div h5 {
+        font-size: 33px;
+    }
+
+    .pre_order_button2 {
+        font-size: 16px;
+        width: 130px;
+        height: 48px;
+        margin-top: 17px;
+    }
+
+    .nav_ul {
+        margin-top: 25px;
+        padding-bottom: 30px;
+        gap: 25px;
+    }
+
+    .section_1 {
+        padding: 25.75px 0 25.24px 0;
+    }
+
+    .learning_text_section h6 {
+        font-size: 43px;
+    }
+
+    .learning_text_section p {
+        font-size: 14px;
+        margin-top: 25px;
+    }
+
+    .learning_text_button {
+        margin-top: 36px;
+    }
+
+    .pre_order_button {
+        width: 130px;
+        height: 45px;
+        font-size: 14px;
+    }
+
+    .rafiki_image {
+        height: 360px;
+    }
+
+    .arrow_bottom_image {
+        width: 36px;
+        height: 47.685px;
+    }
+
+}
+
+@media screen and (max-width : 768px) {
+    .term_section_1 h4 {
+        font-size: 30px;
+    }
+    .an_account {
+        margin-top: 49px;
+    }
+    
+    .trem_desc p {
+        font-size: 14px;
+        margin-top: 20px;
+
+    }
+
+    .trem_desc h6 {
+        font-size: 17px;
+        margin-top: 20px;
+
+    }
+
+    .quiz_main_section {
+        padding: 220px 0;
+    }
+
+    .info_item_section h5 {
+        font-size: 38px;
+    }
+
+    .unlock_purchase_button {
+        top: 193px;
+        left: 179px;
+    }
+
+    .quiz_next_button button {
+        width: 122px;
+        height: 46px;
+        font-size: 15px;
+    }
+
+    .get_started_button1 {
+        width: 122px;
+        height: 46px;
+        font-size: 15px;
+    }
+
+    .step_2_question_1 {
+        width: 503px;
+        padding: 18px 25px 18px 25px;
+        font-size: 15px;
+    }
+
+    .quiz_item_section {
+        width: 503px;
+    }
+
+    .quiz_label {
+        font-size: 15px;
+
+    }
+
+    .quiz_input {
+        padding: 18px 25px 18px 25px;
+    }
+
+    .quiz_item_section h5 {
+        font-size: 17px;
+    }
+
+    .paypal_btn {
+        padding: 16px 24px 16px 24px;
+    }
+
+    .paypal_btn_2 {
+        padding: 16px 24px 16px 24px;
+    }
+
+    .card_image_group img {
+        width: 19.929px;
+        height: 14px;
+    }
+
+    .money_card_input {
+        padding-right: 120px !important;
+    }
+
+    .step_text {
+        right: 19px;
+        top: 19px;
+    }
+
+    .iti__country {
+        font-size: 14px !important;
+    }
+
+    .iti__country-list {
+        width: 400px;
+        overflow-x: hidden;
+    }
+
+    .forget_account_section_one {
+        padding: 64px 70px;
+        max-width: 500px;
+        margin-top: 59px;
+    }
+
+    .code_number_input {
+        width: 68.924px;
+        padding: 14px 0;
+        font-size: 20px;
+    }
+
+    .account_section_main {
+        padding: 60px 0;
+    }
+
+    .login_account_section_one {
+        max-width: 470px;
+        padding: 50px 50px 70px 50px;
+    }
+
+    .courses_video_image {
+        height: 318px;
+    }
+
+    .class_detail_section {
+        margin-top: 45px;
+    }
+
+    .untitled_group_image img {
+        max-width: 450px;
+    }
+
+    .courses_video_details {
+        margin-top: 70px;
+    }
+
+    .untitled_group_image {
+        justify-content: center;
+    }
+
+    .navbar_brand img {
+        width: 140.249px;
+        height: 47px;
+    }
+
+    .footer_item_about {
+        opacity: 0.75;
+        margin-top: 53px;
+    }
+
+    .journey_start_section h4 {
+        font-size: 50px;
+    }
+
+    .home_section_five {
+        padding: 120px 0px 120px 0px;
+    }
+
+    .journey_start_button {
+        width: 140px;
+        height: 52px;
+        font-size: 15px;
+    }
+
+    .propstart_text_section {
+        margin-top: 80px;
+    }
+
+    .propstart_text h4 {
+        font-size: 40px;
+        max-width: 500px;
+        text-align: center;
+    }
+
+    .propstart_text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .invest_text_main_section {
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .invest_text_div h5 {
+        font-size: 34px;
+        max-width: 380px;
+        text-align: center;
+    }
+
+    .invest_text_div p {
+        max-width: 380px;
+        text-align: center;
+    }
+
+    .back_a_button2 {
+        margin-top: 45px;
+    }
+
+    .section_3_row {
+        flex-direction: column-reverse;
+    }
+
+    .side_circle {
+        width: 26px;
+        height: 320px;
+        left: -30px;
+        top: -31px;
+    }
+
+    .nav_link {
+        font-size: 16px;
+    }
+
+    .register_link {
+        font-size: 16px;
+    }
+
+    .nav_item_register img {
+        width: 10.523px;
+        height: 15.124px;
+    }
+
+    .section_3 {
+        margin-top: 140px;
+    }
+
+    .beyond_text_main_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .beyond_text_div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pre_order_button2 {
+        margin-top: 45px;
+    }
+
+    .buyend_image_sec {
+        justify-content: center;
+    }
+
+    .beyond_text_div p {
+        width: 353px;
+        text-align: center;
+    }
+
+    .beyond_text_div h5 {
+        font-size: 34px;
+        max-width: 380px;
+        text-align: center;
+    }
+
+    .learning_text_section h6 {
+        font-size: 48px;
+        text-align: center;
+    }
+
+    .learning_text_section p {
+        font-size: 15px;
+        margin-top: 22px;
+        text-align: center;
+    }
+
+    .learning_text_button {
+        margin-top: 42px;
+        justify-content: center;
+    }
+
+    .rafiki_image {
+        margin-top: 60px;
+    }
+}
+
+@media screen and (max-width : 578px) {
+    .term_section_1 h4 {
+        font-size: 26px;
+    }
+    .an_account {
+        margin-top: 40px;
+        font-size: 14px;
+    }
+    .term_section_1 {
+        padding-top: 136px;
+    }
+
+    .trem_desc p {
+        font-size: 13px;
+        margin-top: 15px;
+
+    }
+
+    .trem_desc h6 {
+        font-size: 15px;
+        margin-top: 15px;
+
+    }
+
+    .unlock_purchase_button button {
+        width: 156px;
+        font-size: 11px;
+        line-height: 43px;
+    }
+
+    .quiz_main_section {
+        padding: 197px 0;
+    }
+
+    .unlock_purchase_button button {
+        width: 145px;
+        font-size: 11px;
+        line-height: 39px;
+    }
+
+    .step_2_question_1 {
+        width: 360px;
+        padding: 16px 18px 16px 21px;
+    }
+
+    .quiz_item_section {
+        width: 360px;
+    }
+
+    .quiz_item_section p {
+        font-size: 13px;
+    }
+
+    .quiz_item_section h5 {
+        font-size: 16px;
+    }
+
+    .quiz_input {
+        padding: 16px 21px 16px 21px;
+    }
+
+    .quiz_next_button button {
+        width: 113px;
+        height: 44px;
+        font-size: 15px;
+    }
+
+    .get_started_button1 {
+        width: 113px;
+        height: 44px;
+        font-size: 15px;
+    }
+
+    .date_input::-webkit-calendar-picker-indicator {
+        width: 17px;
+        height: 13px;
+    }
+
+    .paypal_text_div p {
+        font-size: 14px;
+    }
+
+    .paypal_btn {
+        padding: 16px 20px 16px 20px;
+    }
+
+    .paypal_btn_2 {
+        padding: 16px 20px 16px 20px;
+    }
+
+    .card_image_group {
+        gap: 5px;
+        right: 18px;
+    }
+
+    .card_image_group img {
+        width: 18.929px;
+        height: 13px;
+    }
+
+    .money_card_input {
+        padding-right: 100px !important;
+    }
+
+    .checkbox_resident {
+        width: 17px;
+        height: 17px;
+    }
+
+    .select_menu>li {
+        font-size: 13px;
+    }
+
+    .select_title img {
+        width: 12px;
+    }
+
+    .step_text {
+        right: 17px;
+        top: 17px;
+    }
+
+    .iti--allow-dropdown input[type=tel] {
+        padding-left: 114px !important;
+    }
+
+    .iti__country {
+        font-size: 13px !important;
+    }
+
+    .iti__country-list {
+        width: 300px;
+    }
+
+    .iti__selected-flag {
+        padding-left: 23px !important;
+    }
+
+    .code_number_input {
+        width: 55.924px;
+        padding: 13px 0;
+        font-size: 14px;
+    }
+
+    .iti__arrow {
+        top: 22px;
+        left: 87px;
+    }
+
+    .country_code_span {
+        bottom: 16px;
+        left: 59px;
+    }
+
+    .input_number_code_group {
+        gap: 13.1px;
+    }
+
+    .account_forget_form {
+        padding-top: 35px;
+    }
+
+    .forget_account_section_one {
+        padding: 60px 28px;
+        margin-top: 50px;
+    }
+
+    .forget_account_section_one h4 {
+        font-size: 25px;
+    }
+
+    .forget_p {
+        font-size: 13px;
+        line-height: 25px;
+    }
+
+    .hide_show_text {
+        top: 69px;
+        right: 24px;
+    }
+
+    .account_section_main {
+        padding: 50px 30px;
+    }
+
+    .login_with_google {
+        padding: 16px 12px;
+    }
+
+    .login_with_google img {
+        width: 22px;
+        height: 22px;
+        left: 10px;
+    }
+
+    .account_input {
+        padding: 15px 19px 15px 23px;
+    }
+
+    .login_account_section_one h4 {
+        font-size: 25px;
+        margin-top: 22px;
+    }
+
+    .input_label {
+        font-size: 14px;
+    }
+
+    .account_form {
+        padding-top: 30px;
+    }
+
+    .login_button {
+        font-size: 16px;
+        padding: 13px 0;
+    }
+
+    .login_account_section_one {
+        max-width: 100%;
+        padding: 40px 30px 60px 30px;
+    }
+
+    .about_signup_button {
+        width: 140px;
+        font-size: 13px;
+        line-height: 40px;
+    }
+
+    .courses_section_one {
+        padding: 20px 0 170px 0;
+    }
+
+    .instructor_text p {
+        font-size: 11px;
+    }
+
+    .instructor_text h6 {
+        font-size: 11px;
+    }
+
+    .courses_video_image {
+        height: 270px;
+    }
+
+    .untitled_group_image img {
+        max-width: 380px;
+    }
+
+    .info_buttons {
+        padding: 16px 25.14px 15px 25px;
+        font-size: 14px !important;
+    }
+
+    .section_2 {
+        margin-top: 170px;
+    }
+
+    .info_item_section h5 {
+        font-size: 33px;
+    }
+
+    .accordion_body_desc {
+        font-size: 11px;
+    }
+
+    .accordion_button_one::after {
+        --bs-accordion-btn-icon-width: 13px;
+    }
+
+    .accordion_button_one {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .lesson_plan_section h4 {
+        font-size: 12px;
+    }
+
+    .courses_video_details {
+        margin-top: 50px;
+    }
+
+    .class_item_one h6 {
+        font-size: 11px;
+    }
+
+    .info_item_section {
+        margin-top: 50px;
+    }
+
+    .class_item_one {
+        padding: 10px 12px;
+    }
+
+    .video_desc {
+        font-size: 11px;
+    }
+
+    .footer_manage_colum {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer_item {
+        margin-top: 50px !important;
+    }
+
+    .footer_item_about {
+        margin-top: 0;
+    }
+
+    .footer_item p {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .footer_item_about {
+        text-align: center;
+    }
+
+    .footer_item h6 {
+        text-align: center;
+        display: unset;
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+    .journey_start_section h4 {
+        font-size: 43px;
+        width: 320px;
+    }
+
+    .navbar_brand img {
+        width: 130.249px;
+        height: 50px;
+    }
+
+    .home_section_five {
+        padding: 110px 0px 110px 0px;
+    }
+
+    .journey_start_section {
+        gap: 60px;
+    }
+
+    .journey_start_button {
+        width: 130px;
+        height: 48px;
+        font-size: 14px;
+    }
+
+    .home_section_four {
+        margin-top: 115px;
+    }
+
+    .propstart_text h4 {
+        font-size: 35px;
+        max-width: 350px;
+    }
+
+    .take_quiz_button {
+        font-size: 15px;
+        width: 140px;
+        height: 50px;
+    }
+
+    .section_3 {
+        margin-top: 115px;
+    }
+
+    .invest_text_div h5 {
+        font-size: 32px;
+    }
+
+    .back_a_button2 {
+        font-size: 15px;
+        width: 125px;
+        height: 45px;
+    }
+
+    .side_circle {
+        position: relative;
+        left: 0;
+        width: 20px;
+        height: 295px;
+        top: -29px;
+    }
+
+    .rafiki_image {
+        margin-top: 40px;
+    }
+
+    .learning_text_main_section {
+        flex-direction: unset;
+        justify-content: start;
+    }
+
+    .buyend_image {
+        height: 210px;
+    }
+
+    .beyond_text_div h5 {
+        font-size: 32px;
+    }
+
+    .pre_order_button2 {
+        font-size: 15px;
+        width: 125px;
+        height: 45px;
+    }
+
+    .section_1 {
+        padding: 20.75px 0 20.24px 0;
+    }
+
+    .learning_text_section h6 {
+        font-size: 41px;
+        width: 350px;
+    }
+
+    .learning_text_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+    }
+
+    .learning_text_section p {
+        font-size: 14px;
+        width: 363px;
+    }
+
+    .pre_order_button {
+        width: 120px;
+        height: 43px;
+        font-size: 14px;
+    }
+
+    .rafiki_image {
+        height: 320px;
+    }
+
+    .arrow_bottom_image {
+        width: 33px;
+        height: 35.685px;
+        left: 15px;
+    }
+}
+
+@media screen and (max-width : 400px) {
+    .quiz_item_section {
+        width: 275px;
+    }
+
+    .unlock_purchase_button {
+        top: 178px;
+        left: 121px;
+    }
+
+    .unlock_purchase_button {
+        top: 159px;
+        left: 71px;
+    }
+
+    .step_2_question_1 {
+        width: 275px;
+        padding: 15px 10px 15px 15px;
+        font-size: 14px;
+    }
+
+    .quiz_item_section h5 {
+        font-size: 15px;
+    }
+
+    .quiz_label {
+        font-size: 14px;
+    }
+
+    .quiz_input {
+        padding: 15px 18px 15px 18px;
+    }
+
+    .quiz_next_button button {
+        width: 107px;
+        height: 42px;
+        font-size: 14px;
+    }
+
+    .get_started_button1 {
+        width: 107px;
+        height: 42px;
+        font-size: 14px;
+    }
+
+    .card_image_group img {
+        width: 16.929px;
+        height: 12px;
+    }
+
+    .card_image_group {
+        bottom: 16px;
+        right: 14px;
+    }
+
+    .money_card_input {
+        padding-right: 95px !important;
+    }
+
+    .step_text {
+        right: 13px;
+        top: 13px;
+        font-size: 12px;
+    }
+
+    .country_code_span {
+        bottom: 15px;
+        left: 52px;
+        font-size: 13px;
+    }
+
+    .iti--allow-dropdown input[type=tel] {
+        padding-left: 100px !important;
+    }
+
+    .iti__arrow {
+        top: 20px;
+        left: 78px;
+    }
+
+    .iti__selected-flag {
+        padding-left: 22px !important;
+    }
+
+    .iti__country {
+        font-size: 12px !important;
+    }
+
+    .iti__country-list {
+        width: 240px;
+    }
+
+    .code_number_input {
+        width: 45.924px;
+        padding: 11px 0;
+        font-size: 12px;
+        border-radius: 12px;
+    }
+
+    .forget_account_section_one {
+        padding: 50px 17px;
+        margin-top: 40px;
+    }
+
+    .account_section_main {
+        padding: 50px 12px;
+    }
+
+    .forget_p {
+        font-size: 11px;
+        line-height: 23px;
+    }
+
+    .forget_account_section_one h4 {
+        font-size: 24px;
+    }
+
+    .hide_show_text {
+        top: 66px;
+        right: 23px;
+    }
+
+    .login_account_section_one {
+        max-width: 100%;
+        padding: 38px 15px 50px 15px;
+    }
+
+    .account_logo img {
+        width: 122.999px;
+    }
+
+    .login_account_section_one h4 {
+        font-size: 23px;
+        margin-top: 20px;
+    }
+
+    .account_input {
+        padding: 14px 14px 14px 17px;
+        font-size: 12px;
+    }
+
+    .login_button {
+        font-size: 15px;
+        padding: 12px 0;
+    }
+
+    .untitled_group_image img {
+        max-width: 330px;
+    }
+
+    .courses_video_image {
+        height: 240px;
+    }
+
+    .journey_start_section h4 {
+        font-size: 38px;
+        width: 240px;
+    }
+
+    .propstart_text h4 {
+        font-size: 29px;
+        max-width: 300px;
+    }
+
+    .info_item_section h5 {
+        font-size: 31px;
+    }
+
+    .journey_start_button {
+        width: 110px;
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .journey_start_button_group {
+        gap: 7px;
+    }
+
+    .take_quiz_button {
+        font-size: 14px;
+        width: 120px;
+        height: 46px;
+    }
+
+    .beyond_text_div h5 {
+        font-size: 22px;
+        max-width: 247px;
+    }
+
+    .back_a_button2 {
+        font-size: 13px;
+        width: 110px;
+        height: 42px;
+    }
+
+
+    .invest_text_div h5 {
+        font-size: 26px;
+    }
+
+    .learning_text_section h6 {
+        font-size: 31px;
+        width: auto;
+    }
+
+    .beyond_text_div p {
+        width: 242px;
+        text-align: center;
+        font-size: 11px;
+    }
+
+    .learning_text_section p {
+        font-size: 12px;
+        width: 234px;
+    }
+
+    .pre_order_button2 {
+        margin-top: 37px;
+    }
+
+    .pre_order_button2 {
+        font-size: 13px;
+        width: 110px;
+        height: 42px;
+    }
+
+    .pre_order_button {
+        width: 110px;
+        height: 40px;
+        font-size: 13px;
+    }
+
+    .learning_text_button {
+        gap: 6px;
+    }
+
+    .rafiki_image {
+        height: 260px;
+    }
+
+    .arrow_bottom_image {
+        width: 28px;
+        height: 31.685px;
+        left: 12px;
+    }
+}

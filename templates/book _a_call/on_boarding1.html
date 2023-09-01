@@ -1,0 +1,92 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>On-Boarding 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- style css link -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <!-- country code and flag link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+
+<body>
+    <!-- Register Account Step 1 Start-->
+    <div class="account_section_one">
+        <div class="account_section_main">
+            <div class="login_account_section_one">
+                <p class="step_text">Step 01/04</p>
+                <div class="account_logo">
+                    <img src="{% static "images/logo.svg" %}" alt="">
+                </div>
+                <h4>Book a Call</h4>
+                <form class="account_form">
+                    <div class="input_group">
+                        <label for="" class="form-label input_label">Your First Name</label>
+                        <input type="text" class="form-control account_input" id="" aria-describedby=""
+                            placeholder="Enter Your Full Name">
+                    </div>
+                    <div class="input_group">
+                        <label for="" class="form-label input_label">Your Last Name</label>
+                        <input type="text" class="form-control account_input" id="" aria-describedby=""
+                            placeholder="Enter Your Last Name">
+                    </div>
+                    <div class="phone_input_group">
+                        <label for="" class="form-label input_label">Your Phone Number</label>
+                        <input id="phone" type="tel" class="form-control account_input" style="outline: 0;" aria-describedby=""
+                            name="phone" />
+                        <span id="countryCode" class="country_code_span"></span>
+                    </div>
+
+                    <div class="input_group">
+                        <label for="exampleInputEmail1" class="form-label input_label">Email address</label>
+                        <input type="email" class="form-control account_input" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter Email Address">
+                    </div>
+
+                    <a href="">
+                        <button type="submit" class="login_button">Next</button>
+                    </a>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+
+        // country code with flag 
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+
+        // Get the selected country code
+        const selectedCountry = phoneInput.getSelectedCountryData();
+        const countryCode = selectedCountry.dialCode;
+
+        // Display the country code
+        const countryCodeElement = document.querySelector("#countryCode");
+        countryCodeElement.textContent = "+" + countryCode;
+
+        // Update the country code when the selection changes
+        phoneInputField.addEventListener("countrychange", function () {
+            const newSelectedCountry = phoneInput.getSelectedCountryData();
+            const newCountryCode = newSelectedCountry.dialCode;
+            countryCodeElement.textContent = "+" + newCountryCode;
+        });
+    </script>
+</body>
+
+</html>

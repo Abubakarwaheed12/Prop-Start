@@ -1,0 +1,145 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>On-Boarding 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- style css link -->
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <!-- country code and flag link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+
+<body>
+    <!-- Register Account Step 1 Start-->
+    <div class="account_section_one">
+        <div class="account_section_main">
+            <div class="login_account_section_one">
+                <p class="step_text">Step 02/04</p>
+                <div class="account_logo">
+                    <img src="{% static "images/logo.svg" %}" alt="">
+                </div>
+                <h4>Other Details</h4>
+                <form class="account_form">
+                    <div class="input_group">
+                        <label for="" class="form-label input_label">State</label>
+                        <div class="custom_select account_input">
+                            <div class="select_title">
+                                <span class="selected">Select</span>
+                                <img src="{% static "images/Vector (2).svg" %}" alt="">
+                            </div>
+                            <input type="hidden" name="date" id="data_input">
+                            <ul class="select_menu">
+                                <li value="1">QLD</li>
+                                <li value="2">VIC</li>
+                                <li value="3">NSW</li>
+                                <li value="3">SA</li>
+                                <li value="3">WA</li>
+                                <li value="3">NT</li>
+                                <li value="3">TAS</li>
+                                <li value="3">ACT</li>
+                            </ul>
+                            <img src="{% static "images/arrow-drop-down-line.svg" %}" alt="">
+                        </div>
+                    </div>
+                    <label for="" class="form-label input_label">Are you a permanent resident of Aus or NZ?</label>
+                    <div class="resident_check_group">
+                        <div class="resident_check">
+                            <input type="checkbox" class="form-check-input checkbox_resident" name="yes"
+                                id="exampleCheck1">
+                            <p>Yes</p>
+                        </div>
+                        <div class="resident_check">
+                            <input type="checkbox" class="form-check-input checkbox_resident" name="no"
+                                id="exampleCheck2">
+                            <p>No</p>
+                        </div>
+                    </div>
+                    <div class="input_group">
+                        <label for="" class="form-label input_label">What’s your combined Income?</label>
+                        <div class="custom_select account_input">
+                            <div class="select_title">
+                                <span class="selected">Select Income</span>
+                                <img src="{% static "images/Vector (2).svg" %}" alt="">
+                            </div>
+                            <input type="hidden" name="date" id="data_input">
+                            <ul class="select_menu">
+                                <li value="1">$0 - $70,000</li>
+                                <li value="2">$70,000 - $120,000</li>
+                                <li value="3">$120,000 - $180,000</li>
+                                <li value="3">$180,000 - $250,000</li>
+                                <li value="3">$250,000 +</li>
+                            </ul>
+                            <img src="{% static "images/arrow-drop-down-line.svg" %}" alt="">
+                        </div>
+                    </div>
+                    <div class="input_group">
+                        <label for="" class="form-label input_label">How many dependents do you have?</label>
+                        <input type="text" class="form-control account_input" id="" aria-describedby=""
+                            placeholder="Enter Number of Dependents">
+                    </div>
+                    <div class="input_group">
+                        <label for="" class="form-label input_label">Total Savings</label>
+                        <input type="text" class="form-control account_input" id="" aria-describedby=""
+                            placeholder="$ 0">
+                    </div>
+                    <div class="input_group">
+                        <label for="" class="form-label input_label">Total Current Home Loan</label>
+                        <input type="text" class="form-control account_input" id="" aria-describedby=""
+                            placeholder="$ 0">
+                    </div>
+
+                    <a href="{% url "on-boarding3" %}">
+                        <button type="button" class="login_button">Next</button>
+                    </a>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        // checkbox
+        $(document).ready(function () {
+
+            $('.checkbox_resident').click(function () {
+                $('.checkbox_resident').not(this).prop('checked', false);
+            });
+
+
+            // custom selector
+            $('.custom_select').on('click', function () {
+                const $this = $(this);
+                $this.toggleClass('active');
+                $this.find('.select_menu').slideToggle(300);
+            });
+
+            $('.custom_select').on('focusout', function () {
+                const $this = $(this);
+                $this.removeClass('active');
+                $this.find('.select_menu').slideUp(300);
+            });
+
+            $('.select_menu li').on('click', function () {
+                const $this = $(this);
+                const $customSelect = $this.parents('.custom_select');
+                $customSelect.find('.selected').text($this.text());
+                $customSelect.find('#data_input').val($this.attr('value'));
+            });
+
+        })
+    </script>
+</body>
+
+</html>
