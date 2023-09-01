@@ -33,25 +33,27 @@
                             <li class="nav-item">
                                 <a class="nav-link nav_link href_active" href="{% url "courses" %}">Courses</a>
                             </li>
-                            <!-- <li class="nav-item nav_item_register">
-                                <img src="images/Vector.svg" alt="">
-                                <a class="register_link" href="accounts/login_page.html">Login</a>
+                            {% if not request.user.is_authenticated %}
+                            <li class="nav-item nav_item_register">
+                                <img src="{% static "images/Vector.svg" %}" alt="">
+                                <a class="register_link" href="{% url "login" %}">Login</a>
                                 <span class="register_link">/</span>
-                                <a class="register_link" href="accounts/signup_page.html">Register</a>
-                            </li> -->
-
+                                <a class="register_link" href="{% url "signup" %}">Register</a>
+                            </li>
+                            {% else %}
                             <div class="dropdown" style="display: flex; flex-direction: column; align-items: center;">
                                 <button class="dropdown-toggle header_dropdown_top" type="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <div class="user_name_and_iamge">
-                                        <h6 class="user_name_top">Dextersol</h6>
-                                        <img src="{% static "images/Rectangle 1393.png" %}" alt="">
+                                        <h6 class="user_name_top">{{user.first_name}}</h6>
+                                        <img src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}" alt="">
                                     </div>
                                 </button>
                                 <ul class="dropdown-menu dropdown_menu_item">
-                                    <li><a class="dropdown-item item_1" href="{% url "logout" %}">Logout</a></li>
+                                    <li><a class="dropdown-item item_1" href="{% url "user_logout" %}">Logout</a></li>
                                 </ul>
                             </div>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
@@ -59,16 +61,34 @@
         </div>
     </div>
     <!-- Navbar Section End -->
-
+    {% comment %} {% if courses %} {% endcomment %}
+    
     <div class="courses_section_one">
         <div class="container">
             <div class="info_item_section">
-                <h5>Property Investment Masterclass</h5>
+                <h5>{{course.name}}</h5>
 
                 <div class="courses_video_details">
                     <div class="row">
                         <div class="col-lg-7 col-md-7 col-sm-12">
+                        {% if course %}
+                      {% with first_lesson=course.lessons.first %}
+                        {% if first_lesson %}
+                          {% with first_lecture=first_lesson.lectures.first %}
+                            {% if first_lecture %}
+                              <video controls class="courses_video_image">
+                                <source src="{{ first_lecture.video.url }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                              </video>
+                            {% endif %}
+                          {% endwith %}
+                        {% endif %}
+                      {% endwith %}
+
+
+                            {%else%}
                             <img src="{% static "images/courses_video.png" %}" alt="" class="courses_video_image">
+                            {% endif %}
                             <p class="video_desc">As Lorem Ipsum is simply dummy text of the printing and
                                 typesetting industry.
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
@@ -271,7 +291,11 @@
             </div>
         </div>
     </div>
+    {% comment %} {% else %}
+    <p style="color:red"> No Course Available at this time </p>
+    {% endif %} {% endcomment %}
 
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"

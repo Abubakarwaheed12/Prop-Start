@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 
@@ -8,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- style css link -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -17,7 +19,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg p-0">
                 <div class="container-fluid p-0">
-                    <a class="navbar-brand navbar_brand" href="index.html"><img src="images/logo.svg" alt=""></a>
+                    <a class="navbar-brand navbar_brand" href="{% url "home" %}"><img src="{% static "images/logo.svg" %}" alt=""></a>
                     <button class="navbar-toggler navbar_toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -26,17 +28,32 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
                             <li class="nav-item">
-                                <a class="nav-link nav_link href_active" aria-current="page" href="index.html">Home</a>
+                                <a class="nav-link nav_link" aria-current="page" href="{% url "home" %}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav_link" href="courses.html">Courses</a>
+                                <a class="nav-link nav_link href_active" href="{% url "courses" %}">Courses</a>
                             </li>
+                            {% if not request.user.is_authenticated %}
                             <li class="nav-item nav_item_register">
-                                <img src="images/Vector.svg" alt="">
-                                <a class="register_link" href="accounts/login_page.html">Login</a>
+                                <img src="{% static "images/Vector.svg" %}" alt="">
+                                <a class="register_link" href="{% url "login" %}">Login</a>
                                 <span class="register_link">/</span>
-                                <a class="register_link" href="#">Register</a>
+                                <a class="register_link" href="{% url "signup" %}">Register</a>
                             </li>
+                            {% else %}
+                            <div class="dropdown" style="display: flex; flex-direction: column; align-items: center;">
+                                <button class="dropdown-toggle header_dropdown_top" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user_name_and_iamge">
+                                        <h6 class="user_name_top">{{user.first_name}}</h6>
+                                        <img src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}" alt="">
+                                    </div>
+                                </button>
+                                <ul class="dropdown-menu dropdown_menu_item">
+                                    <li><a class="dropdown-item item_1" href="{% url "user_logout" %}">Logout</a></li>
+                                </ul>
+                            </div>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>

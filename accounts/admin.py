@@ -7,17 +7,17 @@ from django.contrib.auth.admin  import UserAdmin
 
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
-    list_display = ("email", "is_staff", "is_active",)
+    list_display = ("email","first_name", "last_name" , "profile_img","is_staff", "is_active",  )
     list_filter = ("email", "is_staff", "is_active",)
     fieldsets = (
-        (None, {"fields": ("email", "password")}),
+        (None, {"fields": ("email", "password","first_name", "last_name" , "profile_img")}),
         ("Permissions", {"fields": ("is_staff", "is_active", "groups", "user_permissions")}),
     )
     add_fieldsets = (
         (None, {
             "classes": ("wide",),
             "fields": (
-                "email", "password1", "password2", "is_staff",
+                "email", "password1","first_name", "last_name" , "profile_img" ,"is_staff",
                 "is_active", "groups", "user_permissions"
             )}
         ),
@@ -28,7 +28,4 @@ class CustomUserAdmin(UserAdmin):
 
 admin.site.register(CustomUser, CustomUserAdmin)
 
-# @admin.register(CustomUser)
-# class CustomUserAdmin(admin.ModelAdmin):
-#     list_display = ["id", "email",]
-
+# admin.site.register(CustomUser)

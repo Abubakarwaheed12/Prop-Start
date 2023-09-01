@@ -21,7 +21,7 @@
                 <div class="account_logo">
                     <img src="{% static "images/logo.svg" %}" alt="">
                 </div>
-                <h4>Login to your Account</h4>
+                <h4>Register your Account</h4>
                 {% if error_msg %}
                     <div class="alert alert-danger" role="alert">
                         {{error_msg}}
@@ -32,28 +32,28 @@
                     <div class="input_group">
                         <label for="" class="form-label input_label">First Name</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby="emailHelp"
-                            placeholder="Enter First Name" name="fname">
+                            placeholder="Enter First Name" name="fname" required>
                     </div>
                     <div class="input_group">
                         <label for="" class="form-label input_label">Last Name</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby="emailHelp"
-                            placeholder="Enter Last Name" name="lname">
+                            placeholder="Enter Last Name" name="lname" required>
                     </div>
                     <div class="input_group">
                         <label for="exampleInputEmail1" class="form-label input_label">Email address</label>
                         <input type="email" class="form-control account_input" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="Enter Email Address" name="email">
+                            aria-describedby="emailHelp" placeholder="Enter Email Address" name="email" required>
                     </div>
                     <div class="input_group" style="position: relative;">
                         <label for="" class="form-label input_label">Your Password</label>
                         <input type="password" class="form-control password account_input" id=""
-                            placeholder="Enter Password" name="password">
+                            placeholder="Enter Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                         <a id="s_show_hide" class="hide_show_text" onclick="show();">Show</a>
                     </div>
                     <div class="input_group" style="position: relative;">
                         <label for="" class="form-label input_label">Confirm Password</label>
                         <input type="password" class="form-control password account_input" id=""
-                            placeholder="Enter Password" name="cpass">
+                            placeholder="Enter Password" name="cpass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                         <a id="s_show_hide" class="hide_show_text" onclick="show();">Show</a>
                     </div>
                     <p class="an_account" style="margin-top: 5px; text-align: start;">Already have an account? <span><a

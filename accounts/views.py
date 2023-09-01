@@ -55,14 +55,17 @@ def send_code(request):
         otp_values = request.POST.getlist("code_number_input")
         print(otp_values)
         otp_ = "".join(otp_values)
-        otp_int = int(otp_)
-        print(otp_int)
-        # otp = request.session["otp"]
+        otp_int = ""
+        if otp_:
+            otp_int = int(otp_)
+            print(otp_int)
+
+        otp = request.session["otp"]
         email = request.session["email"]
         password = request.session["password"]
         fname = request.session["fname"]
         lname = request.session["lname"]
-        if otp_int:
+        if otp_ == otp:
             user = CustomUser(email=email,first_name=fname, last_name=lname)
             user.set_password(password)
             print(user)
@@ -103,13 +106,11 @@ def Login(request):
             return render(request,"accounts/login_page.html", {"error_msg":error_msg})
     return render(request,"accounts/login_page.html")
 
-def Logout(request):
-    logout(request)
-    return redirect("home")
 
 def forget_password(request):
     otp = random.randint(1111,9999)
     print(otp,"forget pass")
+    request.session["fotp"] = otp
     if request.method == "POST":
         email = request.POST.get("email")
         print(email)
@@ -130,16 +131,19 @@ def enter_otp_for_forgot_password(request):
         otp_values = request.POST.getlist("code_number_input")
         print(otp_values,"forgor password otp_value")
         email = request.session["email_for_forget_password"]
+        print(email)
+        fotp = request.session["fotp"]
         otp_ = "".join(otp_values)
         otp_int = int(otp_)
         print(otp_int,"forgor password otp_int")
-        if otp_int:
+        if  fotp == otp_int :
             user = CustomUser.objects.get(email=email)
             user.forget_password_token = otp_int
             user.save()
-            # request.session.delete("email_for_forget_password")
+            
             return redirect("reset-password")
         else:
+            print("else")
             error_msg="Otp does not match"
             return render(request,"accounts/forgot_password_otp.html",{"error_msg":error_msg})
     return render(request,"accounts/forgot_password_otp.html")
@@ -172,14 +176,7 @@ def reset_password(request):
 def password_successfuly(request):
     return render(request,"accounts/password_successfully.html")
 
-        
 
-
-
-
-
-
-# def login(request):
-#     return render(request,"book_a_call/on_boarding1.html")
-# def login(request):
-#     return render(request,"book_a_call/on_boarding2.html")
+def user_logout(requset):
+    logout(requset)
+    return redirect('/accounts/login/')
