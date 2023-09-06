@@ -25,44 +25,54 @@
                     <img src="{% static "images/logo.svg" %}" alt="">
                 </div>
                 <h4>Other Details</h4>
-                <form class="account_form">
+                <form class="account_form" method="post">
+                    {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message == "success" %}
+                                <p style='color:green;'>{{ message }}</p>
+                            {% else %}
+                                <p style='color:red;'>{{ message }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                     <div class="input_group">
                         <label for="" class="form-label input_label">Your Credit Card Limit</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby=""
-                            placeholder="Enter Number of Dependents">
+                            placeholder="Enter Number of Dependents" name="credit_card_limit">
                     </div>
                     <div class="input_group">
                         <label for="" class="form-label input_label">Total Current Car Loan</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby=""
-                            placeholder="$ 0">
+                            placeholder="$ 0" name="car_loan">
                     </div>
                     <div class="input_group">
                         <label for="" class="form-label input_label">Total Current Other Loans</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby=""
-                            placeholder="$ 0">
+                            placeholder="$ 0" name="other_loans">
                     </div>
                     <label for="" class="form-label input_label">Have you ever had bad credit history or
                         default?</label>
                     <div class="resident_check_group">
                         <div class="resident_check">
-                            <input type="checkbox" class="form-check-input checkbox_resident" name="yes" id="">
+                            <input type="checkbox" class="form-check-input checkbox_resident" name="bad_credit_history" id="">
                             <p>Yes</p>
                         </div>
                         <div class="resident_check">
-                            <input type="checkbox" class="form-check-input checkbox_resident" name="no"
+                            <input type="checkbox" class="form-check-input checkbox_resident" name="bad_credit_history"
                                 id="exampleCheck2">
                             <p>No</p>
                         </div>
                     </div>
                     <div class="form-check mt-3 checkbox_input_group">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1"  name="agree_to_terms"  required>
+                        <label class="form-check-label" for="exampleCheck1" name="gree_to_terms">
                             <a href="{% url "term-condition" %}" style="color: #0D4949;">
                                 I agree to terms & conditions
                             </a>
                         </label>
                     </div>
-                    <a href="{% url "on-boarding4" %}">
+                    <a href="">
                         <button type="submit" class="login_button">Next</button>
                     </a>
                 </form>

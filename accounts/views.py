@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.utils.crypto import get_random_string
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -37,11 +37,11 @@ def signup(request):
         request.session["fname"] = firstname
         request.session["lname"] = lastname
         if pass1!=cpass:
-            error_msg = "Password doesn't match. Try Again!"
-            return render(request, "accounts/signup_page.html", {"error_msg":error_msg})
+            messages.error(request,"Password doesn't match. Try Again!")
+            return redirect("signup")
         elif CustomUser.objects.filter(email=email).exists():
-            error_msg = "Username Already Exists"
-            return render(request,"accounts/signup_page.html", {"error_msg":error_msg})
+            messages.error(request,"Username Already Exists")
+            return redirect("signup")
         else:
             # Start a new thread to send the email
             email_thread =threading.Thread(target=send_otp_email, args=(email,otp)) 
@@ -76,8 +76,6 @@ def send_code(request):
             request.session.delete('password')
             request.session.delete('fname')
             request.session.delete('lname')
-
-
             messages.success(request,"you are successfully registered")
             return redirect("login")
         else:
@@ -85,6 +83,35 @@ def send_code(request):
             return redirect("send-code")
     return render(request,"accounts/send_code.html")
 
+
+# def Login(request):
+#     try:
+#         if request.method == 'POST':
+#             email = request.POST.get("email")
+#             print(email, "login email")
+#             pass1 = request.POST.get("pass")
+#             print(pass1, "login pass")
+#             remember_me = request.POST.get("remember_me") == "on"
+#             user = authenticate(request, email=email, password=pass1)
+#             print(user)
+#             if user is not None:
+#                 if user.is_active:
+#                     login(request, user)
+#                     if remember_me:
+#                         request.session.set_expiry(3600 * 24 * 30)  
+#                     else:
+#                         request.session.set_expiry(3600)
+#                     messages.success(request, "You are logged in successfully")
+#                     return redirect("courses")
+#                 else:
+#                     messages.error(request, 'User account is not active')
+#             else:
+#                 messages.error(request, 'Invalid credentials')
+#         # Handle GET request or any other cases
+#         return render(request, "accounts/login_page.html")
+#     except Exception as e:
+#         print(e)
+        # return HttpResponse(status=500)  # Return an error response in case of an exception
 
 def Login(request):
     if request.method == 'POST':
@@ -99,78 +126,85 @@ def Login(request):
                 login(request, user)
                 # if remember_me:
                 #     request.session.set_expiry(3600 * 24 * 30) 
-                return redirect("home")
-                # return render(request,"index.html")
+                return redirect("courses")
         else:
-            error_msg = "Invalid credentials"
-            return render(request,"accounts/login_page.html", {"error_msg":error_msg})
-    return render(request,"accounts/login_page.html")
+            messages.error(request,"Invalid credentials")
+            return redirect("login")
+    return render(request,"accounts\login_page.html")
+# D:\bproject\prop\Prop-Start\templates\accounts\login_page.html
+
 
 
 def forget_password(request):
-    otp = random.randint(1111,9999)
-    print(otp,"forget pass")
-    request.session["fotp"] = otp
-    if request.method == "POST":
-        email = request.POST.get("email")
-        print(email)
-        request.session['email_for_forget_password'] = email
-        user_email = CustomUser.objects.filter(email=email)
-        if user_email:
-            email_thread = threading.Thread(target=send_forget_password_mail, args=(email,otp))
-            email_thread.start()
-            return redirect("forgot-password-code")
-        else:
-            error_message = "No user found with this email"
-            return render(request,"accounts/forget_password.html", {"error_message":error_message})
-        
-    return render(request,"accounts/forget_password.html")
+    try:
+        otp = random.randint(1111,9999)
+        print(otp,"forget pass")
+        request.session["fotp"] = otp
+        if request.method == "POST":
+            email = request.POST.get("email")
+            print(email)
+            request.session['email_for_forget_password'] = email
+            user_email = CustomUser.objects.filter(email=email)
+            if user_email:
+                email_thread = threading.Thread(target=send_forget_password_mail, args=(email,otp))
+                email_thread.start()
+                return redirect("forgot-password-code")
+            else:
+                messages.error(request,"No user found with this email") 
+                return render("forget-password")   
+        return render(request,"accounts/forget_password.html")
+    except Exception as e:
+        print(e)
 
 def enter_otp_for_forgot_password(request):
-    if request.method == "POST":
-        otp_values = request.POST.getlist("code_number_input")
-        print(otp_values,"forgor password otp_value")
-        email = request.session["email_for_forget_password"]
-        print(email)
-        fotp = request.session["fotp"]
-        otp_ = "".join(otp_values)
-        otp_int = int(otp_)
-        print(otp_int,"forgor password otp_int")
-        if  fotp == otp_int :
-            user = CustomUser.objects.get(email=email)
-            user.forget_password_token = otp_int
-            user.save()
-            
-            return redirect("reset-password")
-        else:
-            print("else")
-            error_msg="Otp does not match"
-            return render(request,"accounts/forgot_password_otp.html",{"error_msg":error_msg})
-    return render(request,"accounts/forgot_password_otp.html")
+    try:
+        if request.method == "POST":
+            otp_values = request.POST.getlist("code_number_input")
+            print(otp_values,"forgor password otp_value")
+            email = request.session["email_for_forget_password"]
+            print(email)
+            fotp = request.session["fotp"]
+            otp_ = "".join(otp_values)
+            otp_int = int(otp_)
+            print(otp_int,"forgor password otp_int")
+            if  fotp == otp_int :
+                user = CustomUser.objects.get(email=email)
+                user.forget_password_token = otp_int
+                user.save()   
+                return redirect("reset-password")
+            else:
+                print("else")
+                messages.erro(request,"Otp does not match")
+                return render("forgot-password-code")
+        return render(request,"accounts/forgot_password_otp.html")
+    except Exception as e:
+        print(e)
 
 
 def reset_password(request):
-    if request.method == "POST":
-        password = request.POST.get("password")
-        print(password)
-        new_password = request.POST.get("new-password")
-        print (new_password)
-        email = request.session["email_for_forget_password"]
-        user = CustomUser.objects.get(email=email)
-        if password != new_password:
-            error_msg ="Passwords do not match"
-            return render(request,"accounts/reset_password.html", {"error_msg": error_msg})
-        elif new_password == user.password:     
-            error_msg ="This password matches the old password.Try new password"
-            return render(request,"accounts/reset_password.html", {"error_msg": error_msg})
-        else:
-            # success_message = "Password changes successfully"
-            # return render(request,"accounts/reset_password", {"success_message":success_message})
-            user.set_password(new_password)
-            user.save()
-            print(user.password)
-            return redirect("password-success")
-    return render(request,"accounts/reset_password.html")
+    try:
+        if request.method == "POST":
+            password = request.POST.get("password")
+            print(password)
+            new_password = request.POST.get("new-password")
+            print (new_password)
+            email = request.session["email_for_forget_password"]
+            user = CustomUser.objects.get(email=email)
+            if password != new_password:
+                messages.success(request,"Both password does not match")
+                return redirect("reset-password")
+            elif password == user.password:  
+                messages.error(request,"This password matches the old password.Try new password")
+                return redirect("reset-password")   
+            else:
+                user.set_password(password)
+                user.save()
+                print(user.password)
+                messages.success(request,"Password changed successfully")
+                return redirect("password-success")
+        return render(request,"accounts/reset_password.html")
+    except Exception as e:
+        print(e)
 
 
 def password_successfuly(request):
@@ -179,4 +213,4 @@ def password_successfuly(request):
 
 def user_logout(requset):
     logout(requset)
-    return redirect('/accounts/login/')
+    return redirect('/accounts/login')

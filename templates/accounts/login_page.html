@@ -24,11 +24,15 @@
                     <img src="{% static "images/logo.svg" %}" alt="">
                 </div>
                 <h4>Login to your Account</h4>
-                {% if error_msg %}
-                    <div class="alert alert-danger mt-2" role="alert">
-                        {{error_msg}}
-                    </div>
-                {% endif  %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message == "success" %}
+                                <p style='color:green;'>{{ message }}</p>
+                            {% else %}
+                                <p style='color:red;'>{{ message }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                 <form class="account_form" method="post">
                     {% csrf_token %}
                     <div class="input_group">
@@ -43,10 +47,10 @@
                         <a id="s_show_hide" class="hide_show_text" onclick="show();">Show</a>
                     </div>
                     <div class="forget_group">
-                        <!-- <div class="form-check checkbox_input_group">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember_me">
+                        <div class="form-check checkbox_input_group">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember_me" required>
                             <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                        </div> -->
+                        </div>
                         <a href="{% url "forget-password" %}">Forgot Password?</a>
                     </div>
                     <a href="">

@@ -13,6 +13,7 @@
     <!-- country code and flag link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <!-- <script src="https://js.stripe.com/v3/"></script> -->
 </head>
 
 <body>
@@ -25,13 +26,13 @@
                     <img src="{% static "images/logo.svg" %}" alt="">
                 </div>
                 <h4>Payment Details</h4>
-                <form class="account_form">
+                <form class="account_form" method="post">
                     <div class="input_group">
                         <label for="" class="form-label input_label">Select a payment method</label>
                         <div class="paypal_edit_main_section">
                             <div class="">
                                 <label for="tab1" class="paypal_btn active" id="paypal_button">
-                                    <input class="paypal_checkbox" type="radio" name="tab" id="tab1" checked>
+                                    <input class="paypal_checkbox" type="radio" name="payment-method " id="tab1" checked>
                                     <div class="paypal_text_div paypal_p_active">
                                         <p>Paypal</p>
                                         <p>$ 50</p>
@@ -43,8 +44,8 @@
                             <form action="">
                                 <div class="input_group" style="position: relative;">
                                     <label for="" class="form-label input_label">Card Number</label>
-                                    <input type="text" class="form-control account_input money_card_input" id=""
-                                        aria-describedby="" placeholder="Enter Card Number">
+                                    <input type="number" class="form-control account_input money_card_input" id=""
+                                        aria-describedby="" placeholder="Enter Card Number" name="card-number">
                                     <div class="card_image_group">
                                         <img src="{% static "images/card 1.svg" %}" alt="">
                                         <img src="{% static "images/card 2.svg" %}" alt="">
@@ -56,19 +57,21 @@
                                 <div class="input_group">
                                     <label for="" class="form-label input_label">Expiration Date</label>
                                     <input type="date" class="form-control account_input date_input" id=""
-                                        aria-describedby="" placeholder="">
+                                        aria-describedby="" pattern="^(0[1-9]|1[0-2])\/\d{4}$" placeholder="MM/YYYY" name="expiry_date" required>
                                 </div>
                                 <div class="input_group" style="position: relative;">
                                     <label for="" class="form-label input_label">CVC</label>
-                                    <input type="text" class="form-control account_input" id="" aria-describedby=""
-                                        placeholder="Enter CVC">
+                                    <input type="number" class="form-control account_input" id="" aria-describedby=""
+                                        placeholder="Enter CVC" name="cvc" required>
                                     <div class="card_image_group">
                                         <img src="{% static "images/card 5.svg" %}" alt="">
                                     </div>
                                 </div>
+                                <div id="card-element"></div>
+
                                 <div class="input_group">
                                     <label for="" class="form-label input_label">Promo Code</label>
-                                    <div class="custom_select account_input">
+                                    <div class="custom_select account_input" name="promocode">
                                         <div class="select_title">
                                             <span class="selected">Select Promocode</span>
                                             <img src="{% static "images/Vector (2).svg" %}" alt="">
@@ -116,7 +119,7 @@
                                 <div class="input_group" style="position: relative;">
                                     <label for="" class="form-label input_label">Card Number</label>
                                     <input type="text" class="form-control account_input money_card_input" id=""
-                                        aria-describedby="" placeholder="Enter Card Number">
+                                        aria-describedby="" placeholder="Enter Card Number" name="card_number">
                                     <div class="card_image_group">
                                         <img src="{% static "images/card 1.svg" %}" alt="">
                                         <img src="{% static "images/card 2.svg" %}" alt="">
@@ -128,12 +131,14 @@
                                 <div class="input_group">
                                     <label for="" class="form-label input_label">Expiration Date</label>
                                     <input type="date" class="form-control account_input date_input" id=""
-                                        aria-describedby="" placeholder="">
+                                        aria-describedby="" placeholder="" name="expiry_date">
                                 </div>
+                                <!-- <input type="hidden" name="stripeToken" id="stripeToken"> -->
+
                                 <div class="input_group" style="position: relative;">
                                     <label for="" class="form-label input_label">CVC</label>
                                     <input type="text" class="form-control account_input" id="" aria-describedby=""
-                                        placeholder="Enter CVC">
+                                        placeholder="Enter CVC" name="cvc">
                                     <div class="card_image_group">
                                         <img src="{% static "images/card 5.svg" %}" alt="">
                                     </div>
@@ -155,7 +160,7 @@
                                     </div>
                                 </div>
                                 <div class="form-check mt-2 checkbox_input_group">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="agreed">
                                     <label class="form-check-label" for="exampleCheck1">
                                         <a href="" style="color: #0D4949;">
                                             I agree to terms & conditions
@@ -256,6 +261,8 @@
             });
         })
     </script>
+  
+   
 </body>
 
 </html>

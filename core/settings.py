@@ -52,7 +52,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["templates"],
+        'DIRS': [BASE_DIR /"templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -169,3 +169,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 
 SOCIALACCOUNT_LOGIN_ON_GET = True
+
+# stripe settings 
+STRIPE_PUBLIC_KEY = "pk_test_51NCJXyJtByuQ9GWrcNRe6kHmekdIWbFyBVQ4g9cDVWqQTfU0aIEn1YrZsaMMd6NafA9oKsPnnLMDGmOToz95RicF00NdkgzsKk"
+STRIPE_SECRETE_KEY = ""
+STRIPE_WEBHOOK_KEY = ""

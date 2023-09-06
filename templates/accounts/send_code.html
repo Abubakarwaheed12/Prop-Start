@@ -25,7 +25,11 @@
                 <div style="display: flex; justify-content: center;">
                     {% if messages %}
                         {% for message in messages %}
-                            <p class="forget_p">{{message}}</span></p>
+                            {% if message == "success" %}
+                                <p style='color:green;'>{{ message }}</p>
+                            {% else %}
+                                <p style='color:red;'>{{ message }}</p>
+                            {% endif %}
                         {% endfor %}
                     {% endif %}
                     <!-- <p class="forget_p">We have sent a code to <span>helloworld@gmail.com</span></p> -->

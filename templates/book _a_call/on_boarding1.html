@@ -25,28 +25,38 @@
                     <img src="{% static "images/logo.svg" %}" alt="">
                 </div>
                 <h4>Book a Call</h4>
-                <form class="account_form">
+                <form class="account_form" method="post">
+                    {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message == "success" %}
+                                <p style='color:green;'>{{ message }}</p>
+                            {% else %}
+                                <p style='color:red;'>{{ message }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                     <div class="input_group">
                         <label for="" class="form-label input_label">Your First Name</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby=""
-                            placeholder="Enter Your Full Name">
+                            placeholder="Enter Your Full Name" name="fname" required>
                     </div>
                     <div class="input_group">
                         <label for="" class="form-label input_label">Your Last Name</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby=""
-                            placeholder="Enter Your Last Name">
+                            placeholder="Enter Your Last Name" name="lname" required>
                     </div>
                     <div class="phone_input_group">
                         <label for="" class="form-label input_label">Your Phone Number</label>
                         <input id="phone" type="tel" class="form-control account_input" style="outline: 0;" aria-describedby=""
-                            name="phone" />
+                            name="number" required />
                         <span id="countryCode" class="country_code_span"></span>
                     </div>
 
                     <div class="input_group">
                         <label for="exampleInputEmail1" class="form-label input_label">Email address</label>
                         <input type="email" class="form-control account_input" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="Enter Email Address">
+                            aria-describedby="emailHelp" placeholder="Enter Email Address" name="email" required>
                     </div>
 
                     <a href="">

@@ -25,7 +25,18 @@
                     <img src="{% static "images/logo.svg" %}" alt="">
                 </div>
                 <h4>Other Details</h4>
-                <form class="account_form">
+                <form class="account_form" method="post">
+                    {% csrf_token %}
+                    {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message == "success" %}
+                                <p style='color:green;'>{{ message }}</p>
+                            {% else %}
+                                <p style='color:red;'>{{ message }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                     <div class="input_group">
                         <label for="" class="form-label input_label">State</label>
                         <div class="custom_select account_input">
@@ -33,7 +44,7 @@
                                 <span class="selected">Select</span>
                                 <img src="{% static "images/Vector (2).svg" %}" alt="">
                             </div>
-                            <input type="hidden" name="date" id="data_input">
+                            <input type="hidden"  id="data_input" name="state">
                             <ul class="select_menu">
                                 <li value="1">QLD</li>
                                 <li value="2">VIC</li>
@@ -49,13 +60,13 @@
                     </div>
                     <label for="" class="form-label input_label">Are you a permanent resident of Aus or NZ?</label>
                     <div class="resident_check_group">
-                        <div class="resident_check">
-                            <input type="checkbox" class="form-check-input checkbox_resident" name="yes"
+                        <div class="resident_check"  required>
+                            <input type="checkbox" class="form-check-input checkbox_resident" name="is_resident"
                                 id="exampleCheck1">
                             <p>Yes</p>
                         </div>
                         <div class="resident_check">
-                            <input type="checkbox" class="form-check-input checkbox_resident" name="no"
+                            <input type="checkbox" class="form-check-input checkbox_resident" name="is_resident"
                                 id="exampleCheck2">
                             <p>No</p>
                         </div>
@@ -67,7 +78,7 @@
                                 <span class="selected">Select Income</span>
                                 <img src="{% static "images/Vector (2).svg" %}" alt="">
                             </div>
-                            <input type="hidden" name="date" id="data_input">
+                            <input type="hidden"  id="data_input" name="income" required>
                             <ul class="select_menu">
                                 <li value="1">$0 - $70,000</li>
                                 <li value="2">$70,000 - $120,000</li>
@@ -81,21 +92,21 @@
                     <div class="input_group">
                         <label for="" class="form-label input_label">How many dependents do you have?</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby=""
-                            placeholder="Enter Number of Dependents">
+                            placeholder="Enter Number of Dependents" name="dependents" required>
                     </div>
                     <div class="input_group">
                         <label for="" class="form-label input_label">Total Savings</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby=""
-                            placeholder="$ 0">
+                            placeholder="$ 0" name="total_savings" required>
                     </div>
                     <div class="input_group">
                         <label for="" class="form-label input_label">Total Current Home Loan</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby=""
-                            placeholder="$ 0">
+                            placeholder="$ 0" name="total_home_loan" required>
                     </div>
 
-                    <a href="{% url "on-boarding3" %}">
-                        <button type="button" class="login_button">Next</button>
+                    <a href="">
+                        <button type="submit" class="login_button">Next</button>
                     </a>
                 </form>
 

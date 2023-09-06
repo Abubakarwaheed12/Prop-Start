@@ -1,67 +1,10 @@
-<!doctype html>
+{% extends "base/navbar.html" %}
 {% load static %}
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Landing Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <!-- style css link -->
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-</head>
-
-<body>
-    <!-- Navbar Section Start -->
-    <div class="section_1">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg p-0">
-                <div class="container-fluid p-0">
-                    <a class="navbar-brand navbar_brand" href="{% url "home" %}"><img src="{% static "images/logo.svg" %}" alt=""></a>
-                    <button class="navbar-toggler navbar_toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
-                            <li class="nav-item">
-                                <a class="nav-link nav_link href_active" aria-current="page" href="{% url "home" %}">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav_link" href="{% url "courses" %}">Courses</a>
-                            </li>
-                            {% if not request.user.is_authenticated %}
-                            <li class="nav-item nav_item_register">
-                                <img src="{% static "images/Vector.svg" %}" alt="">
-                                <a class="register_link" href="{% url "login" %}">Login</a>
-                                <span class="register_link">/</span>
-                                <a class="register_link" href="{% url "signup" %}">Register</a>
-                            </li>
-                            {% else %}
-                            <div class="dropdown" style="display: flex; flex-direction: column; align-items: center;">
-                                <button class="dropdown-toggle header_dropdown_top" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div class="user_name_and_iamge">
-                                        <h6 class="user_name_top">{{user.first_name}}</h6>
-                                        <img src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}" alt="">
-                                    </div>
-                                </button>
-                                <ul class="dropdown-menu dropdown_menu_item">
-                                    <li><a class="dropdown-item item_1" href="{% url "user_logout" %}">Logout</a></li>
-                                </ul>
-                            </div>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <!-- Navbar Section End -->
-
+{% block css %}
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+{% endblock %}
     <!-- Smart Learning Strategic Buying Section Start -->
+    {% block content %}
     <div class="section_2">
         <div class="container" style="position: relative;">
             <div class="row">
@@ -76,7 +19,7 @@
                             <a href="{% url "courses" %}">
                                 <button type="button" class="pre_order_button">Pre-Order</button>
                             </a>
-                            <a href="">
+                            <a href="{% url "on-boarding1" %}">
                                 <button type="submit" class="pre_order_button"
                                     style="border: 1px solid #0D4949; background: #0D4949;">Book a Call</button>
                             </a>
@@ -191,67 +134,147 @@
         </div>
     </div>
     <!-- end -->
+  
+    <div class="section_2">
+        <div class="container" style="position: relative;">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 learning_text_main_section">
+                    <img src="{% static "images/Untitled.svg" %}" alt="" class="side_circle">
+                    <div class="learning_text_section">
+                        <h6>Smart Learning Strategic <span>Buying</span></h6>
+                        <p>Through a combination of lectures, readings, and discussions, students
+                            will gain a solid foundation in educational psychology.</p>
 
-    <!-- footer section  Start-->
-    <footer class="footer_main_section">
+                        <div class="learning_text_button">
+                            <a href="{% url "courses" %}">
+                                <button type="button" class="pre_order_button">Pre-Order</button>
+                            </a>
+                            <a href="{% url "on-boarding1" %}">
+                                <button type="submit" class="pre_order_button"
+                                    style="border: 1px solid #0D4949; background: #0D4949;">Book a Call</button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="position: relative;">
+                    <img src="{% static "images/rafiki.png" %}" alt="" class="rafiki_image">
+                    <img src="{% static "images/Group 21.svg" %}" alt="" class="arrow_bottom_image">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- end -->
+
+    <!-- Beyond the Conventional Classroom Start  -->
+    <div class="section_3">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-12 footer_manage_colum">
-                    <a href="{% url "home" %}">
-                        <img src="{% static "images/footer_logo.svg"" %}"" alt="" class="footer_logo_img">
-                    </a>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 buyend_image_sec">
+                    <img src="{% static "images/Rectangle 190.png" %}" alt="" class="buyend_image">
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-12 footer_manage_colum">
-                    <div class="footer_item">
-                        <h5>Apartment no, Address</h5>
-                        <a href="#">
-                            <p>(434) 546-4356</p>
-                        </a>
-                        <a href="#" style="text-decoration: underline; color: white;">
-                            <p>info@propstart.com.au"</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-12 footer_manage_colum">
-                    <div class="footer_item footer_item_about">
-                        <a href="{% url "courses" %}">
-                            <p>Courses</p>
-                        </a>
-                        <a href="{% url "on-boarding1" %}">
-                            <p>Book a Call</p>
-                        </a>
-                        <a href="{% url "courses" %}">
-                            <p>Pre-Order</p>
-                        </a>
-                        <a href="{% url "quiz-1" %}">
-                            <p>Take Quiz</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-6 col-12 footer_manage_colum">
-                    <div class="footer_item footer_item_about">
-                        <a href="#">
-                           <p> Facebook</p>
-                        </a>
-                        <a href="#">
-                            <p>Twitter</p>
-                        </a>
-                        <a href="#">
-                            <p>Linkedin</p>
-                        </a>
-                        <a href="#">
-                            <p>Instagram</p>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="beyond_text_main_section">
+                        <div class="beyond_text_div">
+                            <h5>Beyond the
+                                Conventional
+                                Classroom</h5>
+                            <p>At PropStart we believe owning property starts
+                                Not when you buy, but when you start thinking
+                                that you'd like to.</p>
+
+                        </div>
+                        <a href="" style="text-decoration: none;">
+                            <button type="submit" class="pre_order_button2">Pre-Order</button>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
 
-    </footer>
+    </div>
+    <!-- end -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
-</body>
+    <!-- Invest Without Compromise Start  -->
+    <div class="section_3">
+        <div class="container">
+            <div class="row section_3_row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="invest_text_main_section">
+                        <div class="invest_text_div">
+                            <h5>Invest
+                                Without
+                                Compromise</h5>
+                            <p>Investing shouldn't mean we need to compromise
+                                our standards of living, learn to invest whilst still
+                                enjoying your brunch and avocados</p>
 
-</html>
+                        </div>
+                        <a href="{% url "courses" %}" style="text-decoration: none;">
+                            <button type="submit" class="back_a_button2">Book a Call</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 buyend_image_sec">
+                    <img src="{% static "images/Rectangle 190.png" %}" alt="" class="buyend_image">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- end -->
+
+    <!-- Is PropStart Right for you Start -->
+    <div class="home_section_four">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 col-md-7 col-sm-12 col-12 untitled_group_image">
+                    <img src="{% static "images/Untitled (1).svg" %}" alt="">
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-12 col-12 propstart_text_section">
+                    <div class="propstart_text">
+                        <h4>Is PropStart Right for you?</h4>
+                        <a href="{% url "quiz-1" %}">
+                            <button type="submit" class="take_quiz_button">Take Quiz</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Your Journey Starts Here  Start -->
+    <div class="home_section_five">
+        <div class="container">
+            <div class="journey_start_section">
+                <h4>Your Journey Starts Here</h4>
+                <div class="journey_start_button_group">
+                    <a href="{% url "signup" %}">
+                        <button type="submit" class="journey_start_button">Sign Up</button>
+                    </a>
+                    <a href="{% url "on-boarding1" %}">
+                        <button type="submit" class="journey_start_button" style="background: none;">Book a
+                            Call</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- end -->
+    {% endblock content %}
+   
+    {% block footer %}
+    {% include "base/footer.html" %}
+    {% endblock footer %}
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+crossorigin="anonymous"></script>
+{% endblock js %}
+   
+<!-- </body>
+
+</html> -->
