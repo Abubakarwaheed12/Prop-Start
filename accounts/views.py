@@ -1,28 +1,22 @@
+import threading
+import random
 from django.shortcuts import render, redirect, HttpResponse
 from django.utils.crypto import get_random_string
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth import authenticate, login 
-from .models import CustomUser
 from django.contrib.auth import logout
-import threading
-from .helpers import send_forget_password_mail
-import random
+
+from .models import CustomUser
+from .emails import(
+    send_otp_email,
+    send_forget_password_mail
+)
 # Create your views here.
 
 
-
-
-def send_otp_email(email,otp):
-    subject = 'Your OTP Code'
-    message = f'Your OTP code is: {otp}'
-    from_email = settings.EMAIL_HOST_USER
-    print(from_email)
-    recipient_list = [email]
-    send_mail(subject, message, from_email, recipient_list, fail_silently=False)
-
-
+# Get all fields for signup and save in session till verify token 
 def signup(request):
     if request.method == 'POST':
         firstname = request.POST.get("fname")
@@ -39,18 +33,25 @@ def signup(request):
         if pass1!=cpass:
             messages.error(request,"Password doesn't match. Try Again!")
             return redirect("signup")
-        elif CustomUser.objects.filter(email=email).exists():
+        elif CustomUser.objects.filter(email__iexact=email.lower()).exists():
             messages.error(request,"Username Already Exists")
             return redirect("signup")
         else:
             # Start a new thread to send the email
-            email_thread =threading.Thread(target=send_otp_email, args=(email,otp)) 
+            subject = f"Registration OTP"
+            message = f"Your Registration Token is {otp}"
+
+            email_thread =threading.Thread(target=send_otp_email, args=(email, subject, message)) 
             email_thread.start()
             messages.success(request,"otp has been sent to your email")
             return redirect("send-code")
     return render(request,"accounts/signup_page.html")
 
+# Send Registratin Verification Code
 def send_code(request):
+    """
+    Function For Sending Verification Email
+    """
     if request.method == "POST":
         otp_values = request.POST.getlist("code_number_input")
         print(otp_values)
@@ -84,57 +85,25 @@ def send_code(request):
     return render(request,"accounts/send_code.html")
 
 
-# def Login(request):
-#     try:
-#         if request.method == 'POST':
-#             email = request.POST.get("email")
-#             print(email, "login email")
-#             pass1 = request.POST.get("pass")
-#             print(pass1, "login pass")
-#             remember_me = request.POST.get("remember_me") == "on"
-#             user = authenticate(request, email=email, password=pass1)
-#             print(user)
-#             if user is not None:
-#                 if user.is_active:
-#                     login(request, user)
-#                     if remember_me:
-#                         request.session.set_expiry(3600 * 24 * 30)  
-#                     else:
-#                         request.session.set_expiry(3600)
-#                     messages.success(request, "You are logged in successfully")
-#                     return redirect("courses")
-#                 else:
-#                     messages.error(request, 'User account is not active')
-#             else:
-#                 messages.error(request, 'Invalid credentials')
-#         # Handle GET request or any other cases
-#         return render(request, "accounts/login_page.html")
-#     except Exception as e:
-#         print(e)
-        # return HttpResponse(status=500)  # Return an error response in case of an exception
-
+# Login User
 def Login(request):
     if request.method == 'POST':
         email = request.POST.get("email")
         print(email,"login email")
         pass1 = request.POST.get("pass")
         print(pass1,"login pass")
-        # remember_me = request.POST.get("remember_me") == "on"
         user = authenticate(request, email=email,password=pass1)
         print(user)
         if user is not None:
                 login(request, user)
-                # if remember_me:
-                #     request.session.set_expiry(3600 * 24 * 30) 
                 return redirect("courses")
         else:
             messages.error(request,"Invalid credentials")
-            return redirect("login")
-    return render(request,"accounts\login_page.html")
-# D:\bproject\prop\Prop-Start\templates\accounts\login_page.html
+            return render(request, "accounts/login_page.html")
+    return render(request,"accounts/login_page.html")
 
 
-
+# Forgot Password 
 def forget_password(request):
     try:
         otp = random.randint(1111,9999)
@@ -146,41 +115,45 @@ def forget_password(request):
             request.session['email_for_forget_password'] = email
             user_email = CustomUser.objects.filter(email=email)
             if user_email:
-                email_thread = threading.Thread(target=send_forget_password_mail, args=(email,otp))
+                subject = "Forgot Password OTP"
+                message = f"your forgot password OTP IS : {otp}"
+                email_thread = threading.Thread(target=send_forget_password_mail, args=(email, subject, message))
                 email_thread.start()
+                messages.success(request,"Check the OTP code for password reset.")
                 return redirect("forgot-password-code")
             else:
-                messages.error(request,"No user found with this email") 
-                return render("forget-password")   
+                messages.error(request,"No user found with this email")
+                return redirect("forget-password")   
         return render(request,"accounts/forget_password.html")
+    
     except Exception as e:
         print(e)
 
+# for Password Token Verification 
 def enter_otp_for_forgot_password(request):
-    try:
-        if request.method == "POST":
-            otp_values = request.POST.getlist("code_number_input")
-            print(otp_values,"forgor password otp_value")
-            email = request.session["email_for_forget_password"]
-            print(email)
-            fotp = request.session["fotp"]
-            otp_ = "".join(otp_values)
-            otp_int = int(otp_)
-            print(otp_int,"forgor password otp_int")
-            if  fotp == otp_int :
-                user = CustomUser.objects.get(email=email)
-                user.forget_password_token = otp_int
-                user.save()   
-                return redirect("reset-password")
-            else:
-                print("else")
-                messages.erro(request,"Otp does not match")
-                return render("forgot-password-code")
-        return render(request,"accounts/forgot_password_otp.html")
-    except Exception as e:
-        print(e)
-
-
+    
+    if request.method == "POST":
+        otp_values = request.POST.getlist("code_number_input")
+        print(otp_values,"forgor password otp_value")
+        email = request.session["email_for_forget_password"]
+        print(email)
+        fotp = request.session["fotp"]
+        otp_ = "".join(otp_values)
+        otp_int = int(otp_)
+        print(otp_int,"forgor password otp_int")
+        if  fotp == otp_int :
+            user = CustomUser.objects.get(email=email)
+            user.forget_password_token = otp_int
+            user.save()   
+            return redirect("reset-password")
+        else:
+            print("else")
+            messages.error(request,"Otp does not match")
+            return render(request, "accounts/forgot_password_otp.html")
+    
+    return render(request,"accounts/forgot_password_otp.html")
+    
+# Reset Password 
 def reset_password(request):
     try:
         if request.method == "POST":

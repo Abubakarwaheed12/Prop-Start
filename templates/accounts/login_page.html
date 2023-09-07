@@ -26,11 +26,8 @@
                 <h4>Login to your Account</h4>
                     {% if messages %}
                         {% for message in messages %}
-                            {% if message == "success" %}
-                                <p style='color:green;'>{{ message }}</p>
-                            {% else %}
-                                <p style='color:red;'>{{ message }}</p>
-                            {% endif %}
+                                <p style='color:{% if message.tags == "success" %}green;{% else %}red;{% endif %}'>
+                                    {{ message }}</p>
                         {% endfor %}
                     {% endif %}
                 <form class="account_form" method="post">

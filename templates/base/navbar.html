@@ -24,10 +24,11 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
                             <li class="nav-item">
-                                <a class="nav-link nav_link href_active" aria-current="page" href="{% url "home" %}">Home</a>
+                                <a class="nav-link nav_link {% if request.path == '/' %}href_active{% endif %}" aria-current="page" href="{% url "home" %}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav_link" href="{% url "courses" %}">Courses</a>
+                                <a class="nav-link nav_link {% if request.path == '/courses/' %}href_active{% endif %}" href="{% url "courses" %}">Courses</a>
+                                
                             </li>
                             {% if not request.user.is_authenticated %}
                             <li class="nav-item nav_item_register">
@@ -64,6 +65,7 @@
 
 
     {% block content %}
+
     {% endblock %}
 
     {% block footer %}

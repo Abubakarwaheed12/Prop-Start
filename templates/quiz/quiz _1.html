@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- style css link -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- boxicons link -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Navbar Section Start -->
+    <div class="section_1">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg p-0">
+                <div class="container-fluid p-0">
+                    <a class="navbar-brand navbar_brand" href="../index.html"><img src="../images/logo.svg" alt=""></a>
+                    <button class="navbar-toggler navbar_toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
+                            <li class="nav-item">
+                                <a class="nav-link nav_link href_active" aria-current="page"
+                                    href="../index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav_link" href="../courses.html">Courses</a>
+                            </li>
+                            <li class="nav-item nav_item_register">
+                                <img src="images/Vector.svg" alt="">
+                                <a class="register_link" href="../accounts/login_page.html">Login</a>
+                                <span class="register_link">/</span>
+                                <a class="register_link" href="../accounts/signup_page.html">Register</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar Section End -->
+
+    <!-- Quiz Main Section Start -->
+    <div class="quiz_main_section">
+        <!-- <form action="" id="quiz-form"> -->
+
+        <!-- step 1 -->
+        <div class="quiz_item_section step step-1" id="step1">
+            <p>Question 01 / 15</p>
+            <h5>Before we get started, let us know your Email Address</h5>
+            <div class="quiz_input_main_group">
+                <div class="quiz_input_group">
+                    <label for="email" id="" class="form-label quiz_label">Your Email Address</label>
+                    <input type="email" class="form-control quiz_input" id="email" aria-describedby=""
+                        placeholder="Enter Your Email Address" required>
+                </div>
+                <div class="quiz_next_button">
+                    <button type="button" class="next-step" id="next-step1" disabled>Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- step 2 -->
+        <!-- quiz 2 -->
+        <div class="quiz_item_section step step-2" id="step2">
+            <p>Question 01 / 15</p>
+            <h5>What Would you Like to Learn?</h5>
+            <div class="quiz_input_main_group">
+                <div class="step_2_question_1 m-0" id="box1">
+                    How to Invest in Property
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1" id="box2">
+                    How to Buy Your Own Home
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1" id="box3">
+                    Where to Start?
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+            </div>
+
+            <div class="quiz_next_button">
+                <button class="next-step" id="next-step2" disabled>Next</button>
+            </div>
+        </div>
+        <!-- step 3 -->
+        <!-- quiz 3-->
+        <div class="quiz_item_section step step-3" id="step3">
+            <p>Question 01 / 15</p>
+            <h5>Are you Aus or NZ Permanent Resident?</h5>
+            <div class="quiz_input_main_group">
+                <div class="step_2_question_1 m-0" id="box4">
+                    Yes
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1" id="box5">
+                    No
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+            </div>
+            <div class="quiz_next_button">
+                <button type="button" class="next-step" id="next-step3" disabled>Next</button>
+            </div>
+        </div>
+        <!-- quiz 10-->
+        <div class="quiz_item_section step step-4" id="step4">
+            <p>Question 01 / 15</p>
+            <h5>Do you work Full Time?</h5>
+            <div class="quiz_input_main_group">
+                <div class="step_2_question_1 m-0" id="box6">
+                    Yes
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1" id="box7">
+                    No
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+            </div>
+            <div class="quiz_next_button">
+                <button type="button" class="next-step" id="next-step4" disabled>Next</button>
+            </div>
+        </div>
+        <!-- quiz 11-->
+        <div class="quiz_item_section step step-5" id="step5">
+            <p>Question 01 / 15</p>
+            <h5>Do you have savings of $50k or more?</h5>
+            <div class="quiz_input_main_group">
+                <div class="step_2_question_1 m-0" id="box8">
+                    Yes
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1" id="box9">
+                    No
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+            </div>
+            <div class="quiz_next_button">
+                <button type="button" class="next-step" id="next-step5" disabled>Next</button>
+            </div>
+        </div>
+        <!-- quiz 13--> <!-- quiz 9 and 15-->
+        <div class="quiz_item_section step step-6" id="step6" style="padding-top: 100px;">
+            <p>Recommendation</p>
+            <h5>You may be Eligible to Invest Now</h5>
+            <div class="get_started_button">
+                <button type="button" class="get_started_button1">Get Started</button>
+            </div>
+        </div>
+
+        <div class="quiz_item_section step step-7" id="step7">
+            <p>Question 01 / 15</p>
+            <h5>Do you have Capacity to Save?</h5>
+            <div class="quiz_input_main_group">
+                <div class="step_2_question_1 m-0" id="box10">
+                    Yes
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1" id="box11">
+                    No
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+            </div>
+
+            <div class="quiz_next_button">
+                <button id="next-step7" class="next-step" disabled>Next</button>
+            </div>
+        </div>
+        <!-- quiz 7-->
+        <div class="quiz_item_section step step-8" id="step8" style="padding-top: 100px;">
+            <p>Recommendation</p>
+            <h5>Roll in Our Property Education Course</h5>
+            <div class="get_started_button">
+                <button type="button" class="get_started_button1">Next</button>
+            </div>
+        </div>
+        <!-- quiz 8 and 17-->
+        <div class="quiz_item_section step step-9" id="step9">
+            <p>Question 01 / 15</p>
+            <h5>Do you Foresee getting a FT Job in next 6 years?</h5>
+            <div class="quiz_input_main_group">
+                <div class="step_2_question_1 m-0" id="box12">
+                    Yes
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1" id="box13">
+                    No
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+            </div>
+
+            <div class="quiz_next_button">
+                <button id="next-step9" class="next-step" disabled>Next</button>
+            </div>
+        </div>
+        <!-- </form> -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('.step');
+            const nextButtons = document.querySelectorAll('.next-step');
+            let currentStep = 0;
+
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    steps[currentStep].style.display = 'none';
+                    currentStep++;
+                    steps[currentStep].style.display = 'block';
+                });
+            });
+
+            steps[currentStep].style.display = 'block';
+
+            const boxes = document.querySelectorAll('.step_2_question_1');
+            const email = document.getElementById('email');
+            const nextButton1 = document.getElementById('next-step1');
+            const nextButton2 = document.getElementById('next-step2');
+            const nextButton3 = document.getElementById('next-step3');
+            const nextButton4 = document.getElementById('next-step4');
+            const nextButton5 = document.getElementById('next-step5');
+            // const nextButton6 = document.getElementById('next-step6');  // You may be Eligible to Invest Now id empty
+            const nextButton7 = document.getElementById('next-step7');
+            // const nextButton8 = document.getElementById('next-step8'); //Enrol in Our Property Education Course id empty
+            const nextButton9 = document.getElementById('next-step9'); //quiz 14 button
+
+            let selectedBoxId = null;
+
+            boxes.forEach(box => {
+                box.addEventListener('click', () => {
+                    // Remove 'clicked' class from all boxes
+                    boxes.forEach(b => {
+                        b.classList.remove('clicked');
+                    });
+                    box.classList.add('clicked'); // Use 'add' instead of 'toggle'
+
+                    // button enable jquery 
+                    let parentget = $(box).parent().parent('.quiz_item_section').children('.quiz_next_button').children('button');
+                    parentget.prop('disabled', false);
+
+                    selectedBoxId = box.id;
+
+
+
+                    console.log(selectedBoxId, 'box ID')
+                });
+            });
+
+
+            // email step jquery 
+            $('#email').keyup(function () {
+                // const thisVal = $(this).val();
+                if (validateEmail()) {
+                    $('#next-step1').prop("disabled", false);
+                    $('#email').css('border', '1px solid green')
+                }
+                else {
+                    $('#next-step1').prop("disabled", true);
+                    $('#email').css('border', '1px solid red')
+                }
+            });
+            function validateEmail() {
+                let reg = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                let email = $('#email').val();
+                if (reg.test(email)) {
+                    return true;
+
+                } else {
+                    return false;
+                }
+
+            }
+            // $('#email').keyup(function () {
+            //     const thisVal = $(this).val();
+            //     if (!(thisVal) == '') {
+            //         $('#next-step1').prop("disabled", false);
+            //     }
+            //     else {
+            //         $('#next-step1').prop("disabled", true);
+            //     }
+            // });
+
+            nextButton2.addEventListener('click', () => {
+                if (selectedBoxId) {
+                    // Show the appropriate step based on the selected box
+                    if (selectedBoxId === 'box1') {
+                        steps[2].style.display = 'block' || selectedBoxId === 'box1'; // Show step 3
+                    } else if (selectedBoxId === 'box2') {
+                        steps[2].style.display = 'block' || selectedBoxId === 'box2'; // Show step 3
+                    } else if (selectedBoxId === 'box3') {
+                        steps[2].style.display = 'none'; // Show step 3
+                        steps[6].style.display = 'block' || selectedBoxId === 'box3'; // Show step 3
+                    }
+                }
+
+            });
+            nextButton3.addEventListener('click', () => {
+                if (selectedBoxId) {
+                    console.log(`Next button clicked. Selected box ID: ${selectedBoxId}`);
+                    // Show the appropriate step based on the selected box
+                    if (selectedBoxId === 'box4') {
+                        steps[3].style.display = 'block'; // Show step 3
+
+                    } if (selectedBoxId === 'box5') {
+                        steps[3].style.display = 'none';
+                        steps[6].style.display = 'block'; // Show step 4
+                    }
+                }
+
+            });
+            nextButton4.addEventListener('click', () => {
+                if (selectedBoxId) {
+                    console.log(`Next button clicked. Selected box ID: ${selectedBoxId}`);
+                    // Show the appropriate step based on the selected box
+                    if (selectedBoxId === 'box6') {
+                        steps[4].style.display = 'block';
+                        // steps[5].style.display = 'block'; // Show step 4
+
+                    } if (selectedBoxId === 'box7') {
+                        steps[4].style.display = 'none';
+                        steps[6].style.display = 'block'; // Show step 5
+                    }
+                }
+
+            });
+
+            nextButton5.addEventListener('click', () => {
+                if (selectedBoxId) {
+                    console.log(`Next button clicked. Selected box ID: ${selectedBoxId}`);
+                    // Show the appropriate step based on the selected box
+                    if (selectedBoxId === 'box8') {
+                        steps[5].style.display = 'block';
+
+
+                    } if (selectedBoxId === 'box9') {
+                        steps[5].style.display = 'none';
+                        steps[6].style.display = 'block';
+                    }
+                }
+
+            });
+
+            nextButton7.addEventListener('click', () => {
+                if (selectedBoxId) {
+                    console.log(`Next button clicked. Selected box ID: ${selectedBoxId}`);
+                    // Show the appropriate step based on the selected box
+                    if (selectedBoxId === 'box10') {
+                        steps[4].style.display = 'none';
+                        steps[3].style.display = 'none';
+                        steps[6].style.display = 'none';
+                        steps[5].style.display = 'none';
+                        steps[8].style.display = 'block';
+
+                    } if (selectedBoxId === 'box11') {
+                        steps[4].style.display = 'none';
+                        steps[3].style.display = 'none';
+                        steps[6].style.display = 'none';
+                        steps[5].style.display = 'none';
+                        steps[7].style.display = 'block';
+                    }
+                }
+
+            });
+
+            nextButton9.addEventListener('click', () => {
+                if (selectedBoxId) {
+                    console.log(`Next button clicked. Selected box ID: ${selectedBoxId}`);
+                    // Show the appropriate step based on the selected box
+                    if (selectedBoxId === 'box12') {
+                        steps[5].style.display = 'block';
+                        steps[8].style.display = 'none';
+                        steps[6].style.display = 'none';
+                        steps[4].style.display = 'none';
+                        steps[7].style.display = 'none';
+
+                    } if (selectedBoxId === 'box13') {
+                        // steps[5].style.display = 'none';
+                        steps[8].style.display = 'none';
+                        steps[4].style.display = 'none';
+                        steps[5].style.display = 'none';
+                        steps[7].style.display = 'block';
+                    }
+                }
+
+            });
+
+            // form submited
+            // document.getElementById('quiz-form').addEventListener('submit', function (event) {
+            //     event.preventDefault();
+
+            //     // Collect form data and do something with it
+            //     const formData = new FormData(this);
+            //     for (const entry of formData.entries()) {
+            //         console.log(entry[0], entry[1]);
+            //     }
+            // });
+        });
+
+
+
+    </script>
+</body>
+
+</html>

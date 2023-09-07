@@ -1,5 +1,7 @@
 {% extends "base/navbar.html" %}
 {% load static %}
+
+{% block title %}Home{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static "css/style.css" %}">
 {% endblock %}
@@ -106,7 +108,7 @@
                     <div class="propstart_text">
                         <h4>Is PropStart Right for you?</h4>
                         <a href="{% url "quiz-1" %}">
-                            <button type="submit" class="take_quiz_button">Take Quiz</button>
+                            <button type="button" class="take_quiz_button">Take Quiz</button>
                         </a>
                     </div>
                 </div>
@@ -135,137 +137,9 @@
     </div>
     <!-- end -->
   
-    <div class="section_2">
-        <div class="container" style="position: relative;">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 learning_text_main_section">
-                    <img src="{% static "images/Untitled.svg" %}" alt="" class="side_circle">
-                    <div class="learning_text_section">
-                        <h6>Smart Learning Strategic <span>Buying</span></h6>
-                        <p>Through a combination of lectures, readings, and discussions, students
-                            will gain a solid foundation in educational psychology.</p>
-
-                        <div class="learning_text_button">
-                            <a href="{% url "courses" %}">
-                                <button type="button" class="pre_order_button">Pre-Order</button>
-                            </a>
-                            <a href="{% url "on-boarding1" %}">
-                                <button type="submit" class="pre_order_button"
-                                    style="border: 1px solid #0D4949; background: #0D4949;">Book a Call</button>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="position: relative;">
-                    <img src="{% static "images/rafiki.png" %}" alt="" class="rafiki_image">
-                    <img src="{% static "images/Group 21.svg" %}" alt="" class="arrow_bottom_image">
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- end -->
-
-    <!-- Beyond the Conventional Classroom Start  -->
-    <div class="section_3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 buyend_image_sec">
-                    <img src="{% static "images/Rectangle 190.png" %}" alt="" class="buyend_image">
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="beyond_text_main_section">
-                        <div class="beyond_text_div">
-                            <h5>Beyond the
-                                Conventional
-                                Classroom</h5>
-                            <p>At PropStart we believe owning property starts
-                                Not when you buy, but when you start thinking
-                                that you'd like to.</p>
-
-                        </div>
-                        <a href="" style="text-decoration: none;">
-                            <button type="submit" class="pre_order_button2">Pre-Order</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- end -->
-
-    <!-- Invest Without Compromise Start  -->
-    <div class="section_3">
-        <div class="container">
-            <div class="row section_3_row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="invest_text_main_section">
-                        <div class="invest_text_div">
-                            <h5>Invest
-                                Without
-                                Compromise</h5>
-                            <p>Investing shouldn't mean we need to compromise
-                                our standards of living, learn to invest whilst still
-                                enjoying your brunch and avocados</p>
-
-                        </div>
-                        <a href="{% url "courses" %}" style="text-decoration: none;">
-                            <button type="submit" class="back_a_button2">Book a Call</button>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 buyend_image_sec">
-                    <img src="{% static "images/Rectangle 190.png" %}" alt="" class="buyend_image">
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!-- end -->
-
-    <!-- Is PropStart Right for you Start -->
-    <div class="home_section_four">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-md-7 col-sm-12 col-12 untitled_group_image">
-                    <img src="{% static "images/Untitled (1).svg" %}" alt="">
-                </div>
-                <div class="col-lg-5 col-md-5 col-sm-12 col-12 propstart_text_section">
-                    <div class="propstart_text">
-                        <h4>Is PropStart Right for you?</h4>
-                        <a href="{% url "quiz-1" %}">
-                            <button type="submit" class="take_quiz_button">Take Quiz</button>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <!-- End -->
-
-    <!-- Your Journey Starts Here  Start -->
-    <div class="home_section_five">
-        <div class="container">
-            <div class="journey_start_section">
-                <h4>Your Journey Starts Here</h4>
-                <div class="journey_start_button_group">
-                    <a href="{% url "signup" %}">
-                        <button type="submit" class="journey_start_button">Sign Up</button>
-                    </a>
-                    <a href="{% url "on-boarding1" %}">
-                        <button type="submit" class="journey_start_button" style="background: none;">Book a
-                            Call</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-     <!-- end -->
+  
     {% endblock content %}
-   
+    
     {% block footer %}
     {% include "base/footer.html" %}
     {% endblock footer %}
