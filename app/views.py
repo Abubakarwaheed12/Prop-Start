@@ -17,7 +17,7 @@ def index(request):
 
 
 def quiz_1(request):
-    return render(request, "quiz/quiz_1.html")
+    return render(request, "quiz/quiz1.html")
 
 def on_boarding1(request):
     

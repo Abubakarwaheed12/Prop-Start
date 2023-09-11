@@ -39,12 +39,12 @@ class CourseCategory(models.Model):
 
 
 class Cousre(models.Model):
-    Instructor = models.ForeignKey(Instructor , on_delete=models.SET_NULL, null=True, blank=True , related_name="courses")
+    instructor = models.ForeignKey(Instructor , on_delete=models.SET_NULL, null=True, blank=True , related_name="courses")
     name =  models.CharField(max_length=200, help_text="Enter the Course Name.",)
     course_description = models.TextField(null=True , blank=True)
     course_legth = models.CharField(max_length=200)
     category = models.ForeignKey(CourseCategory , on_delete=models.CASCADE, related_name="courses" )
-
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

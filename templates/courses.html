@@ -33,24 +33,19 @@
                             {%else%}
                             <img src="{% static "images/courses_video.png" %}" alt="" class="courses_video_image">
                             {% endif %}
-                            <p class="video_desc">As Lorem Ipsum is simply dummy text of the printing and
-                                typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                when an unknown printer took a galley of type and scrambled it to make a type
-                                specimen book. It has survived not only five centuries, but also the leap into
-                                electronic typesetting, remaining essentially unchanged.
+                            <p class="video_desc">{{course.course_description}}
                             </p>
                             <div class="instructor_text">
                                 <p>Instructor(s):</p>
-                                <h6>Sadeq Abbass & Jared Kirkwood</h6>
+                                <h6>{{course.instructor.name}}</h6>
                             </div>
                             <div class="instructor_text" style="margin-top: 11px;">
                                 <p>Class Length:</p>
-                                <h6>30 + videos (4 + hours)</h6>
+                                <h6>{{course.course_legth}}</h6>
                             </div>
                             <div class="instructor_text" style="margin-top: 11px;">
                                 <p>Category:</p>
-                                <h6>Real Estate & Property Investing</h6>
+                                <h6>{{course.category.name}}</h6>
                             </div>
 
                         </div>

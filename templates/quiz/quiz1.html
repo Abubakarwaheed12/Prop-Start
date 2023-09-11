@@ -1,53 +1,11 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quiz 1</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <!-- style css link -->
-    <link rel="stylesheet" href="../css/style.css">
-    <!-- boxicons link -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-
-<body>
-    <!-- Navbar Section Start -->
-    <div class="section_1">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg p-0">
-                <div class="container-fluid p-0">
-                    <a class="navbar-brand navbar_brand" href="../index.html"><img src="../images/logo.svg" alt=""></a>
-                    <button class="navbar-toggler navbar_toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
-                            <li class="nav-item">
-                                <a class="nav-link nav_link href_active" aria-current="page"
-                                    href="../index.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav_link" href="../courses.html">Courses</a>
-                            </li>
-                            <li class="nav-item nav_item_register">
-                                <img src="images/Vector.svg" alt="">
-                                <a class="register_link" href="../accounts/login_page.html">Login</a>
-                                <span class="register_link">/</span>
-                                <a class="register_link" href="../accounts/signup_page.html">Register</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+{% extends "base/navbar.html" %}
+{% load static %}
+{% block title %}Quiz{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static "css/style.css" %}">
+{% endblock %}
     <!-- Navbar Section End -->
-
+    {% block content %}
     <!-- Quiz Main Section Start -->
     <div class="quiz_main_section">
         <!-- <form action="" id="quiz-form"> -->
@@ -152,7 +110,7 @@
             <p>Recommendation</p>
             <h5>You may be Eligible to Invest Now</h5>
             <div class="get_started_button">
-                <button type="button" class="get_started_button1">Get Started</button>
+              <a href="{% url 'on-boarding1' %}"><button type="button" class="get_started_button1">Get Started</button> <a>
             </div>
         </div>
 
@@ -179,7 +137,7 @@
             <p>Recommendation</p>
             <h5>Roll in Our Property Education Course</h5>
             <div class="get_started_button">
-                <button type="button" class="get_started_button1">Next</button>
+                <a href="{% url 'courses' %}"> <button type="button" class="get_started_button1">Next</button> </a>
             </div>
         </div>
         <!-- quiz 8 and 17-->
@@ -203,6 +161,10 @@
         </div>
         <!-- </form> -->
     </div>
+
+    {% endblock %}
+
+    {% block js %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
@@ -411,6 +373,5 @@
 
 
     </script>
-</body>
 
-</html>
+    {% endblock %}
