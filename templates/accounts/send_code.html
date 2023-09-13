@@ -25,10 +25,10 @@
                 <div style="display: flex; justify-content: center;">
                     {% if messages %}
                         {% for message in messages %}
-                        {% if message == "success" %}
-                        <p style='color:green;'>{{ message }}</p>
+                        {% if message.tags == "success" %}
+                                <p style='color:green;'>{{ message }}</p>
                         {% else %}
-                        <p style='color:red;'>{{ message }}</p>
+                            <p style='color:red;'>{{ message }}</p>
                         {% endif %}
                         {% endfor %}
                     {% endif %}
