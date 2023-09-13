@@ -18,7 +18,7 @@
                             will gain a solid foundation in educational psychology.</p>
 
                         <div class="learning_text_button">
-                            {% not request.user.is_authenticated %}
+                            {% if not request.user.is_authenticated %}
                             <a href="{% url 'signup' %}">
                                 <button type="button" class="pre_order_button">Pre-Order</button>
                             </a>
