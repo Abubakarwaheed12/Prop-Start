@@ -15,25 +15,23 @@
 
                 <div class="courses_video_details">
                     <div class="row">
-                        <div class="col-lg-7 col-md-7 col-sm-12">
-                        {% if course %}
-                      {% with first_lesson=course.lessons.first %}
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                  
+                      {% with first_lesson=course.lessons.last %}
                         {% if first_lesson %}
-                          {% with first_lecture=first_lesson.lectures.first %}
+                          {% with first_lecture=first_lesson.lectures.last %}
                             {% if first_lecture %}
-                              <video controls class="courses_video_image">
+                              <video controls id="video-player" class="courses_video_image">
                                 <source src="{{ first_lecture.video.url }}" type="video/mp4">
                                 Your browser does not support the video tag.
                               </video>
+                              {%else%}
+                            <img src="{% static 'images/courses_video.png' %}" alt="" class="courses_video_image">
                             {% endif %}
                           {% endwith %}
                         {% endif %}
                       {% endwith %}
 
-
-                            {%else%}
-                            <img src="{% static 'images/courses_video.png' %}" alt="" class="courses_video_image">
-                            {% endif %}
                             <p class="video_desc">{{course.course_description}}
                             </p>
                             <div class="instructor_text">
@@ -64,154 +62,37 @@
                                         <h6>Class Sample</h6>
                                     </div>
                                 </a> -->
-
+                                {% if not usercourse and not usercourse.is_paid %}
                                 <div class="lesson_plan_section">
                                     <h4>Browse Lesson Plan</h4>
                                     <div class="accordion accordion-flush accordion_section" id="accordionFlushExample">
-                                        <div class="accordion-item">
+                                        {% for less in course.lessons.all|dictsort:"id" %}
+                                        <div class="accordion-item 
+                                        {% if not forloop.first %} disable_section{% endif %}">
                                             <h2 class="accordion-header">
                                                 <button class="accordion-button collapsed accordion_button_one"
                                                     type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                                    aria-controls="flush-collapseOne">
-                                                    1. Welcome to Property Investment Masterclass
+                                                    data-bs-target="#flush-collapse{{less.id}}" aria-expanded="false"
+                                                    aria-controls="flush-collapse{{less.id}}" {% if not forloop.first %} disabled{% endif %}>
+                                                    1. {{less.name}}
                                                 </button>
                                             </h2>
-                                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                            <div id="flush-collapse{{less.id}}" class="accordion-collapse collapse"
                                                 data-bs-parent="#accordionFlushExample">
                                                 <div class="accordion-body accordion_body">
-                                                    <p class="accordion_body_desc">
-                                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                        Nam velit itaque ex. Placeat libero blanditiis
-                                                        consequuntur a excepturi laboriosam voluptatibus!
-                                                    </p>
+                                                    {% for lec in less.lectures.all %}
+                                        <p class="accordion_body_desc">
+                                            {{forloop.counter}}. 
+                                            <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.video.url }}');">{{lec.name}}</a>
+                                        </p>
+                                                    {% endfor %}
                                                 </div>
                                             </div>
                                         </div>
+                                        {% endfor %}
                                         <!-- class="disable_section"    -->
-                                        <div >
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <button class="accordion-button collapsed accordion_button_one"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                                        aria-controls="flush-collapseTwo" >
-                                                        2. Mindset
-                                                    </button>
-                                                </h2>
-                                                <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body accordion_body">
-                                                        <p class="accordion_body_desc">
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                            Nam velit itaque ex. Placeat libero blanditiis
-                                                            consequuntur a excepturi laboriosam voluptatibus!
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <button class="accordion-button collapsed accordion_button_one"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                                        aria-controls="flush-collapseThree" disabled>
-                                                        3. Financial Foundations
-                                                    </button>
-                                                </h2>
-                                                <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body accordion_body">
-                                                        <p class="accordion_body_desc">
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                            Nam velit itaque ex. Placeat libero blanditiis
-                                                            consequuntur a excepturi laboriosam voluptatibus!
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <button class="accordion-button collapsed accordion_button_one"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                                        aria-controls="flush-collapseFour" disabled>
-                                                        4. Tax
-                                                    </button>
-                                                </h2>
-                                                <div id="flush-collapseFour" class="accordion-collapse collapse"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body accordion_body">
-                                                        <p class="accordion_body_desc">
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                            Nam velit itaque ex. Placeat libero blanditiis
-                                                            consequuntur a excepturi laboriosam voluptatibus!
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <button class="accordion-button collapsed accordion_button_one"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseFive" aria-expanded="false"
-                                                        aria-controls="flush-collapseFive" disabled>
-                                                        5. Property Overview
-                                                    </button>
-                                                </h2>
-                                                <div id="flush-collapseFive" class="accordion-collapse collapse"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body accordion_body">
-                                                        <p class="accordion_body_desc">
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                            Nam velit itaque ex. Placeat libero blanditiis
-                                                            consequuntur a excepturi laboriosam voluptatibus!
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <button class="accordion-button collapsed accordion_button_one"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseSix" aria-expanded="false"
-                                                        aria-controls="flush-collapseSix" disabled>
-                                                        6. Key Stakeholders
-                                                    </button>
-                                                </h2>
-                                                <div id="flush-collapseSix" class="accordion-collapse collapse"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body accordion_body">
-                                                        <p class="accordion_body_desc">
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                            Nam velit itaque ex. Placeat libero blanditiis
-                                                            consequuntur a excepturi laboriosam voluptatibus!
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header">
-                                                    <button class="accordion-button collapsed accordion_button_one"
-                                                        type="button" data-bs-toggle="collapse"
-                                                        data-bs-target="#flush-collapseSeven" aria-expanded="false"
-                                                        aria-controls="flush-collapseSeven" disabled>
-                                                        7. Next Steps
-                                                    </button>
-                                                </h2>
-                                                <div id="flush-collapseSeven" class="accordion-collapse collapse"
-                                                    data-bs-parent="#accordionFlushExample">
-                                                    <div class="accordion-body accordion_body">
-                                                        <p class="accordion_body_desc">
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                            Nam velit itaque ex. Placeat libero blanditiis
-                                                            consequuntur a excepturi laboriosam voluptatibus!
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <a href="{% url 'courses_form' course.id %}">
+                                        
+                                        <a href="{% if request.user.is_authenticated %}{% url 'courses_form' course.id %}{% else %}{% url 'login' %}{% endif %}">
                                             <div class="unlock_purchase_button">
                                                 <button type="button"> Purchase Course to unlock</button>
                                             </div>
@@ -221,10 +102,46 @@
                                 </div>
 
                                 <div class="sign_button">
-                                    <a href="{% url 'courses_form' course.id %}">
+                                    <a href="{% if request.user.is_authenticated %}{% url 'courses_form' course.id %}{% else %}{% url 'login' %}{% endif %}">
                                         <button type="button" class="about_signup_button">Purchase Course</button>
                                     </a>
                                 </div>
+                                {% else %}
+                                <div class="lesson_plan_section">
+                                    <h4>Browse Lesson Plan</h4>
+                                    <div class="accordion accordion-flush accordion_section" id="accordionFlushExample">
+                                        {% for less in course.lessons.all|dictsort:"id" %}
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed accordion_button_one"
+                                                    type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapse{{less.id}}" aria-expanded="false"
+                                                    aria-controls="flush-collapse{{less.id}}" >
+                                                    1. {{less.name}}
+                                                </button>
+                                            </h2>
+                                            <div id="flush-collapse{{less.id}}" class="accordion-collapse collapse"
+                                                data-bs-parent="#accordionFlushExample">
+                                                <div class="accordion-body accordion_body">
+                                                    {% for lec in less.lectures.all %}
+                                        <p class="accordion_body_desc">
+                                            {{forloop.counter}}. 
+                                            <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.video.url }}');">{{lec.name}}</a>
+                                        </p>
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                      
+                                    </div>
+
+                                </div>
+                                {% endif %}
+
+
+                                
+
                             </div>
                         </div>
                     </div>
@@ -254,6 +171,19 @@
         $(".user_name_top").text(function (index, currentText) {
             return currentText.substr(0, 9);
         });
+    </script>
+
+    <script>
+        function changeVideoSource(newSource) {
+            var videoElement = document.getElementById('video-player');
+            var sourceElement = videoElement.getElementsByTagName('source')[0];
+            
+            sourceElement.src = newSource;
+            
+            // Load and play the new video source
+            videoElement.load();
+            videoElement.play();
+        }
     </script>
 </body>
 </html>

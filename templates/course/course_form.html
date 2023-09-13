@@ -25,7 +25,7 @@
                 <div class="account_logo">
                     <img src="{% static 'images/logo.svg' %}" alt="">
                 </div>
-                <h4>Course Payment Details</h4>
+                <h4>Course Payment </h4>
                 <form action="/checkout_session1/{{course_id}}" method="POST">
                     <input type="hidden" name="invoice_id" value="{{invoice_id}}">
                     {% csrf_token %}

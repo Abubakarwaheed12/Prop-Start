@@ -1,4 +1,5 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect 
+from django.http import HttpResponseNotFound
 import stripe
 from django.conf import settings
 from django.shortcuts import get_object_or_404
@@ -16,19 +17,29 @@ from courses.models import(
 
 def courses(request):
     courses = Cousre.objects.all().first()
-    usercourse=UserCourse.objects.filter()
-    context = {"course":courses}
+    print (courses)
+    
+    context = {
+        "course":courses,
+        }
+    if request.user.is_authenticated:
+        usercourses=UserCourse.objects.filter(user=request.user, course=courses).exists()
+        if usercourses:
+            usercourse = UserCourse.objects.get(user=request.user, course=courses)
+            context['usercourse'] = usercourse
+    
+    
     return render(request,"course/courses.html", context)
 
-def courses_payment_success(request):
-    return render(request,"course/course_success_payment.html")
-    
-def courses_payment_cancel(request):
-    return render(request,"course/course_cancel_payament.html")
+def course_form(request, course_id):
+    context = {'course_id':course_id,}
+    return render(request,'course/course_form.html' , context)
+
 
 def checkout_session1(request , course_id):
     # host = request.get_host()
     course = get_object_or_404(Cousre, id= course_id)
+    request.session["course_id"] = course_id
 
     price = course.price
     stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -50,16 +61,28 @@ def checkout_session1(request , course_id):
         success_url=request.build_absolute_uri(reverse('courses_payment_success'))+ "?session_id={CHECKOUT_SESSION_ID}",
         cancel_url=request.build_absolute_uri(reverse('courses_payment_cancel')),
     )
-     
-    # invoice_obj.stripe_payment_intent = checkout_session.id
-    # invoice_obj.save()
-
-    print(checkout_session.id)
-
-    print( 'Save Successfully')
 
     return redirect(checkout_session.url, code=303)
 
-def course_form(request, course_id):
-    context = {'course_id':course_id,}
-    return render(request,'course/course_form.html' , context)
+
+def courses_payment_success(request):
+    session_id = request.GET.get('session_id')
+    if session_id is None:
+        return HttpResponseNotFound()
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    session = stripe.checkout.Session.retrieve(session_id)
+    payment_id = session.payment_intent
+    total_amount = session.amount_total / 100
+
+    course_id = request.session["course_id"]
+    course_obj = Cousre.objects.get(id=course_id) 
+    course_obj = UserCourse.objects.create(course=course_obj, user=request.user, is_paid = True)
+
+
+    return render(request,"course/course_success_payment.html")
+
+
+
+def courses_payment_cancel(request):
+    return render(request,"course/course_cancel_payament.html")
+

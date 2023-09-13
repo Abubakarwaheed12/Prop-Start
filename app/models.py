@@ -16,6 +16,9 @@ class BookingCall(models.Model):
     car_loan = models.CharField(max_length=255)
     other_loans = models.CharField(max_length=255)
     bad_credit_history = models.CharField(max_length=255)
+
+    pay_with = models.CharField(max_length=200, null=True, blank=True)
+    payment_id = models.CharField(max_length=200, null=True, blank=True)
     is_paid = models.BooleanField(default=False)
 
     def calculate_booking_amount(self):
@@ -27,3 +30,6 @@ class BookingCall(models.Model):
             self.other_loans
         )
         return max(0, booking_amount)
+    
+    def __str__(self):
+        return self.email or self.first_name

@@ -1,16 +1,18 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect 
 from django.contrib.auth.models import User
 from django.utils.crypto import get_random_string
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth import authenticate, login 
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse , HttpResponseNotFound
 from .models import *
 import stripe
 from django.conf import settings
+from django.urls import reverse 
+from django.shortcuts import get_object_or_404
 stripe.api_key =settings.STRIPE_PUBLIC_KEY 
-from django.urls import reverse
+
 
 def index(request):
     return render(request,"index.html")
@@ -74,42 +76,43 @@ def on_boarding2(request):
 
 def on_boarding3(request):
 
-    # if request.method == "POST":
-    #     credit_card_limit = request.POST.get("credit_card_limit")
-    #     car_loan = request.POST.get("car_loan")
-    #     other_loans = request.POST.get("other_loans")
-    #     bad_credit_history = request.POST.get("bad_credit_history")
-    #     agree_to_terms = request.POST.get("agree_to_terms")
-    #     print(credit_card_limit, car_loan, other_loans,bad_credit_history, agree_to_terms)
-    #     booking_obj_id = request.session["booking_id"]
-    #     booking_obj = BookingCall.objects.get(id=booking_obj_id).first()
-    #     if booking_obj:
-    #         booking_obj.credit_card_limit = credit_card_limit
-    #         booking_obj.car_loan = car_loan
-    #         booking_obj.other_loans = other_loans
-    #         booking_obj.bad_credit_history = bad_credit_history
-    #         booking_obj.save()
-    #         return redirect('on-boarding4')
-    #     else:
-    #         messages.error(request, "Booking information not found. Please start the booking process again.")
-    #         return redirect('on-boarding1')    
+    if request.method == "POST":
+        credit_card_limit = request.POST.get("credit_card_limit")
+        car_loan = request.POST.get("car_loan")
+        other_loans = request.POST.get("other_loans")
+        bad_credit_history = request.POST.get("bad_credit_history")
+        agree_to_terms = request.POST.get("agree_to_terms")
+        print(credit_card_limit, car_loan, other_loans,bad_credit_history, agree_to_terms)
+        booking_obj_id = request.session["booking_id"]
+        booking_obj = BookingCall.objects.get(id=booking_obj_id)
+        if booking_obj:
+            booking_obj.credit_card_limit = credit_card_limit
+            booking_obj.car_loan = car_loan
+            booking_obj.other_loans = other_loans
+            booking_obj.bad_credit_history = bad_credit_history
+            booking_obj.save()
+            return redirect('on-boarding4')
+        else:
+            messages.error(request, "Booking information not found. Please start the booking process again.")
+            return redirect('on-boarding1')    
     return render(request, "bookcall/on_boarding3.html")
     
 
 def on_boarding4(request):
-    return render(request,"bookcall/on_boarding4.html")
+    booking_obj_id = request.session["booking_id"]
+    booking_obj = BookingCall.objects.get(id=booking_obj_id)
+    context = {
+        "booking_id": booking_obj.id
+    }
+
+    return render(request,"bookcall/on_boarding4.html", context)
    
 
 
-def checkout_session(request):
-    # host = request.get_host()
-    # invoice_obj = get_object_or_404(SellerInvoice, id= invoice_id)
-
-
-    # print('Price  : ' , invoice_obj.baakslot)
-    # price = invoice_obj.baakslot.product.pay_able_price
+def checkout_session(request, booking_id = None):
+    booking_obj_id = request.session["booking_id"]
     
-    
+    # booking_id = get_object_or_404(BookingCall, id= booking_id)
 
     stripe.api_key = settings.STRIPE_SECRET_KEY
     checkout_session = stripe.checkout.Session.create(
@@ -141,8 +144,25 @@ def checkout_session(request):
     return redirect(checkout_session.url, code=303)
 
 
-
+# after successfull payment
 def register_message(request):
+
+    session_id = request.GET.get('session_id')
+    if session_id is None:
+        return HttpResponseNotFound()
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    session = stripe.checkout.Session.retrieve(session_id)
+    payment_id = session.payment_intent
+    total_amount = session.amount_total / 100
+
+
+    booking_obj_id = request.session["booking_id"]
+    booking_obj = BookingCall.objects.get(id=booking_obj_id)
+    booking_obj.is_paid = True
+    booking_obj.pay_with = "stripe"
+    booking_obj.payment_id = payment_id 
+    booking_obj.save()
+
     return render(request,"bookcall/register_message.html")
 
 def cancel(request):
