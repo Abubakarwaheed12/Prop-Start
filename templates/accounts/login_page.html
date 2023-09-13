@@ -1,5 +1,5 @@
 {% load static %}
-{% load socialaccount %}
+
 
 <!doctype html>
 <html lang="en">
@@ -12,7 +12,7 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- style css link -->
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -21,13 +21,16 @@
         <div class="account_section_main">
             <div class="login_account_section_one">
                 <div class="account_logo">
-                    <img src="{% static "images/logo.svg" %}" alt="">
+                    <img src="{% static 'images/logo.svg' %}" alt="">
                 </div>
                 <h4>Login to your Account</h4>
                     {% if messages %}
                         {% for message in messages %}
-                                <p style='color:{% if message.tags == "success" %}green;{% else %}red;{% endif %}'>
-                                    {{ message }}</p>
+                            {% if message.tags == "success" %}
+                                <p style='color:green;'>{{ message }}</p>
+                            {% else %}
+                                <p style='color:red;'>{{ message }}</p>
+                            {% endif %}
                         {% endfor %}
                     {% endif %}
                 <form class="account_form" method="post">
@@ -48,15 +51,15 @@
                             <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember_me" required>
                             <label class="form-check-label" for="exampleCheck1">Remember Me</label>
                         </div>
-                        <a href="{% url "forget-password" %}">Forgot Password?</a>
+                        <a href="{% url 'forget-password' %}">Forgot Password?</a>
                     </div>
                     <a href="">
                         <button type="submit" class="login_button">Login</button>
                     </a>
                     <p class="or_text">Or</p>
-
-                    <a href="{% provider_login_url 'google' action='reauthenticate' %} " class="login_with_google">
-                        <img src="{% static "images/flat-color-icons_google.svg" %}" alt="">
+                    {% load socialaccount %}
+                    <a href="{% provider_login_url 'google' action='reauthenticate' %}" class="login_with_google">
+                        <img src="{% static 'images/flat-color-icons_google.svg' %}" alt="">
                         <p>Register with Google</p>
                     </a>
                 </form>

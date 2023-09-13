@@ -11,5 +11,7 @@ path("on-boarding4/",on_boarding4, name="on-boarding4"),
 path("register-message/",register_message, name="register-message"),
 path("payment-successfull/",payment_successfull, name="payment-successfull"), 
 path("term-condition/", term_condition, name="term-condition"),
-path("quiz-1/",quiz_1, name="quiz-1")
+path("quiz-1/",quiz_1, name="quiz-1"),
+path('checkout_session/', checkout_session , name="checkout_session"),
+path('cancel/' , cancel , name="cancel"),
 ]

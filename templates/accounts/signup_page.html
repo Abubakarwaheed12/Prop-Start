@@ -10,7 +10,7 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- style css link -->
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <div class="account_section_main">
             <div class="login_account_section_one">
                 <div class="account_logo">
-                    <img src="{% static "images/logo.svg" %}" alt="">
+                    <img src="{% static 'images/logo.svg' %}" alt="">
                 </div>
                 <h4>Register your Account</h4>
                 {% if messages %}
@@ -61,7 +61,7 @@
                         <a id="s_show_hide" class="hide_show_text" onclick="show();">Show</a>
                     </div>
                     <p class="an_account" style="margin-top: 5px; text-align: start;">Already have an account? <span><a
-                        href="{% url "login" %}">Login</a></span></p>
+                        href="{% url 'login' %}">Login</a></span></p>
             <a href="">
                 <button type="submit" class="login_button">Register</button>
             </a>

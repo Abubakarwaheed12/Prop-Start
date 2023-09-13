@@ -4,7 +4,8 @@ from courses.models import(
     CourseCategory,
     Cousre,
     Lesson,
-    Lectures
+    Lectures,
+    UserCourse
 )
 # Register your models here.
 
@@ -13,3 +14,4 @@ admin.site.register(CourseCategory)
 admin.site.register(Cousre)
 admin.site.register(Lesson)
 admin.site.register(Lectures)
+admin.site.register(UserCourse)

@@ -1,0 +1,129 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment Successfully</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- style css link -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- country code and flag link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <!-- <script src="https://js.stripe.com/v3/"></script> -->
+    <style>
+        .anchor_succ{
+            color:white
+        }
+        .anchor_succ:hover{
+            color:black
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Register Account Step 1 Start-->
+    <div class="account_section_one">
+        <div class="account_section_main">
+            <div class="login_account_section_one">
+                <p class="step_text">Step 01/01</p>
+                <div class="account_logo">
+                    <img src="{% static 'images/logo.svg' %}" alt="">
+                </div>
+                <h4>Course Payment Successfully Done.</h4>
+                <form action="/courses/" method="POST">
+                    <input type="hidden" name="invoice_id" value="{{invoice_id}}">
+                    {% csrf_token %}
+                    <div class="paybutton">
+                        <button type="submit" class="btn mybtnpay login_button" id="checkout-button">Visit course</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // paypal button active 
+            $("#paypal_button").click(function () {
+                $(".paypal_btn").addClass('active')
+                $(".paypal_btn_2").removeClass('active')
+                $(".paypal_text_div").addClass('paypal_p_active')
+                $(".paypal_text_div2").removeClass('paypal_p_active')
+                $('.step1_item').removeClass('step_1_add')
+
+                $(".paypal_btn_2").css('margin-top' , '14px')
+                
+
+            })
+            $("#paypal_button_2").click(function () {
+                $(".paypal_btn").removeClass('active')
+                $(".paypal_btn_2").addClass('active')
+                $(".paypal_text_div").removeClass('paypal_p_active')
+                $(".paypal_text_div2").addClass('paypal_p_active')
+
+                $('.step1_item').addClass('step_1_add')
+
+                $(".paypal_btn_2").css('margin-top' , '0')
+
+
+            })
+
+            // paypal tab 
+            $('[name=tab]').each(function (i, d) {
+                var p = $(this).prop('checked');
+                //   console.log(p);
+                if (p) {
+                    $('article').eq(i)
+                        .addClass('on');
+                }
+            });
+
+
+            $('[name=tab]').on('change', function () {
+                var p = $(this).prop('checked');
+
+                // $(type).index(this) == nth-of-type
+                var i = $('[name=tab]').index(this);
+
+                $('article').removeClass('on');
+                $('article').eq(i).addClass('on');
+            });
+
+
+
+            // custom selector
+            $('.custom_select').on('click', function () {
+                const $this = $(this);
+                $this.toggleClass('active');
+                $this.find('.select_menu').slideToggle(300);
+            });
+
+            $('.custom_select').on('focusout', function () {
+                const $this = $(this);
+                $this.removeClass('active');
+                $this.find('.select_menu').slideUp(300);
+            });
+
+            $('.select_menu li').on('click', function () {
+                const $this = $(this);
+                const $customSelect = $this.parents('.custom_select');
+                $customSelect.find('.selected').text($this.text());
+                $customSelect.find('#data_input').val($this.attr('value'));
+            });
+        })
+    </script>
+  
+   
+</body>
+
+</html>

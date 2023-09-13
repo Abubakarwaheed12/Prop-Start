@@ -1063,6 +1063,7 @@
     top: 32px;
 }
 
+
 /* .custom_select {
     background-image: url(../images/Vector\ \(2\).svg);
     background-repeat: no-repeat;
@@ -1668,6 +1669,7 @@ article.on {
         right: 33px;
         top: 24px;
     }
+    
 
     .iti__selected-flag {
         padding-left: 28px !important;
@@ -2004,6 +2006,7 @@ article.on {
         top: 22px;
         font-size: 13px;
     }
+   
 
     .iti__selected-flag {
         padding-left: 26px !important;
@@ -2388,6 +2391,7 @@ article.on {
         right: 19px;
         top: 19px;
     }
+   
 
     .iti__country {
         font-size: 14px !important;
@@ -2701,6 +2705,7 @@ article.on {
         right: 17px;
         top: 17px;
     }
+   
 
     .iti--allow-dropdown input[type=tel] {
         padding-left: 114px !important;
@@ -3093,6 +3098,7 @@ article.on {
         top: 13px;
         font-size: 12px;
     }
+  
 
     .country_code_span {
         bottom: 15px;

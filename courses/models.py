@@ -1,5 +1,5 @@
 from django.db import models
-
+from accounts.models import CustomUser
 # Create your models here.
 
 class Instructor(models.Model):
@@ -44,6 +44,7 @@ class Cousre(models.Model):
     course_description = models.TextField(null=True , blank=True)
     course_legth = models.CharField(max_length=200)
     category = models.ForeignKey(CourseCategory , on_delete=models.CASCADE, related_name="courses" )
+    price = models.IntegerField(default=0 , null=True, blank=True)
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -92,3 +93,22 @@ class Lectures(models.Model):
         ordering = ['-id']
         verbose_name = "Lecture"       
         verbose_name_plural = "Lectures"
+
+
+class UserCourse(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    cousre = models.ForeignKey(Cousre, on_delete=models.CASCADE,)
+    is_paid = models.BooleanField(default=False)
+    pay_with = models.CharField(max_length=200, null=True, blank=True)
+    payment = models.CharField(max_length=200, null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) :
+        return f'{self.user.email}' or ''
+    
+    class Meta:
+        ordering = ['-id']
+        verbose_name = "User Course"       
+        verbose_name_plural = "User Courses"

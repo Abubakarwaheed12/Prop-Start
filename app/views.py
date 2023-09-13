@@ -9,8 +9,8 @@ from django.http import JsonResponse, HttpResponse
 from .models import *
 import stripe
 from django.conf import settings
-stripe_key = stripe.api_key =settings.STRIPE_PUBLIC_KEY 
-
+stripe.api_key =settings.STRIPE_PUBLIC_KEY 
+from django.urls import reverse
 
 def index(request):
     return render(request,"index.html")
@@ -55,7 +55,7 @@ def on_boarding2(request):
         else:
             is_resident = False
         booking_obj_id = request.session.get("booking_id")
-        booking_obj = BookingCall.objects.get(id=booking_obj_id).first()
+        booking_obj = BookingCall.objects.get(id=booking_obj_id)
         if booking_obj:
             booking_obj.state=state,
             booking_obj.is_resident = is_resident
@@ -97,16 +97,57 @@ def on_boarding3(request):
     
 
 def on_boarding4(request):
-    
     return render(request,"bookcall/on_boarding4.html")
    
 
 
+def checkout_session(request):
+    # host = request.get_host()
+    # invoice_obj = get_object_or_404(SellerInvoice, id= invoice_id)
+
+
+    # print('Price  : ' , invoice_obj.baakslot)
+    # price = invoice_obj.baakslot.product.pay_able_price
+    
+    
+
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    checkout_session = stripe.checkout.Session.create(
+       
+       line_items=[
+            {
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                    'name': 'Invoice',
+                    },
+                    'unit_amount': 50 * 100 ,
+                },
+                'quantity': 1,
+            }
+        ],
+        mode='payment',
+        success_url=request.build_absolute_uri(reverse('register-message'))+ "?session_id={CHECKOUT_SESSION_ID}",
+        cancel_url=request.build_absolute_uri(reverse('cancel')),
+    )
+     
+    # invoice_obj.stripe_payment_intent = checkout_session.id
+    # invoice_obj.save()
+
+    print(checkout_session.id)
+
+    print( 'Save Successfully')
+
+    return redirect(checkout_session.url, code=303)
 
 
 
 def register_message(request):
     return render(request,"bookcall/register_message.html")
+
+def cancel(request):
+    return render(request,"bookcall/register_message.html")
+
 
 def term_condition(request):
     return render(request,"term_condition.html")

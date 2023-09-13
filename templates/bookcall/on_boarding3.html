@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- style css link -->
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- country code and flag link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
@@ -22,7 +22,7 @@
             <div class="login_account_section_one">
                 <p class="step_text">Step 03/04</p>
                 <div class="account_logo">
-                    <img src="{% static "images/logo.svg" %}" alt="">
+                    <img src="{% static 'images/logo.svg' %}" alt="">
                 </div>
                 <h4>Other Details</h4>
                 <form class="account_form" method="post">
@@ -67,7 +67,7 @@
                     <div class="form-check mt-3 checkbox_input_group">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1"  name="agree_to_terms"  required>
                         <label class="form-check-label" for="exampleCheck1" name="gree_to_terms">
-                            <a href="{% url "term-condition" %}" style="color: #0D4949;">
+                            <a href="{% url 'term-condition' %}" style="color: #0D4949;">
                                 I agree to terms & conditions
                             </a>
                         </label>

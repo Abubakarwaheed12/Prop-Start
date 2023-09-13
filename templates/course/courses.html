@@ -2,13 +2,14 @@
 {% load static %}
 {% block title %}Courses{% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{% static "css/style.css" %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
     <!-- Navbar Section End -->
     {% comment %} {% if courses %} {% endcomment %}
     {% block content %}
     <div class="courses_section_one">
         <div class="container">
+            {% if course %}
             <div class="info_item_section">
                 <h5>{{course.name}}</h5>
 
@@ -31,7 +32,7 @@
 
 
                             {%else%}
-                            <img src="{% static "images/courses_video.png" %}" alt="" class="courses_video_image">
+                            <img src="{% static 'images/courses_video.png' %}" alt="" class="courses_video_image">
                             {% endif %}
                             <p class="video_desc">{{course.course_description}}
                             </p>
@@ -87,13 +88,14 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="disable_section">
+                                        <!-- class="disable_section"    -->
+                                        <div >
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header">
                                                     <button class="accordion-button collapsed accordion_button_one"
                                                         type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                                        aria-controls="flush-collapseTwo" disabled>
+                                                        aria-controls="flush-collapseTwo" >
                                                         2. Mindset
                                                     </button>
                                                 </h2>
@@ -209,9 +211,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="{% url "on-boarding4" %}">
+                                        <a href="{% url 'courses_form' course.id %}">
                                             <div class="unlock_purchase_button">
-                                                <button type="button">Purchase Course to unlock</button>
+                                                <button type="button"> Purchase Course to unlock</button>
                                             </div>
                                         </a>
                                     </div>
@@ -219,7 +221,7 @@
                                 </div>
 
                                 <div class="sign_button">
-                                    <a href="{% url "on-boarding4" %}">
+                                    <a href="{% url 'courses_form' course.id %}">
                                         <button type="button" class="about_signup_button">Purchase Course</button>
                                     </a>
                                 </div>
@@ -228,6 +230,9 @@
                     </div>
                 </div>
             </div>
+            {% else %}
+            <p>No course Available at this time </p>
+            {% endif %}
         </div>
     </div>
     {% endblock %}

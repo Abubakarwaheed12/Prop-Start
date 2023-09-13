@@ -3,7 +3,7 @@
 
 {% block title %}Home{% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{% static "css/style.css" %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
     <!-- Smart Learning Strategic Buying Section Start -->
     {% block content %}
@@ -11,17 +11,17 @@
         <div class="container" style="position: relative;">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 learning_text_main_section">
-                    <img src="{% static "images/Untitled.svg" %}" alt="" class="side_circle">
+                    <img src="{% static 'images/Untitled.svg' %}" alt="" class="side_circle">
                     <div class="learning_text_section">
                         <h6>Smart Learning Strategic <span>Buying</span></h6>
                         <p>Through a combination of lectures, readings, and discussions, students
                             will gain a solid foundation in educational psychology.</p>
 
                         <div class="learning_text_button">
-                            <a href="{% url "courses" %}">
+                            <a href="{% url 'courses' %}">
                                 <button type="button" class="pre_order_button">Pre-Order</button>
                             </a>
-                            <a href="{% url "on-boarding1" %}">
+                            <a href="{% url 'on-boarding1' %}">
                                 <button type="submit" class="pre_order_button"
                                     style="border: 1px solid #0D4949; background: #0D4949;">Book a Call</button>
                             </a>
@@ -30,8 +30,8 @@
 
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="position: relative;">
-                    <img src="{% static "images/rafiki.png" %}" alt="" class="rafiki_image">
-                    <img src="{% static "images/Group 21.svg" %}" alt="" class="arrow_bottom_image">
+                    <img src="{% static 'images/rafiki.png' %}" alt="" class="rafiki_image">
+                    <img src="{% static 'images/Group 21.svg' %}" alt="" class="arrow_bottom_image">
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 buyend_image_sec">
-                    <img src="{% static "images/Rectangle 190.png" %}" alt="" class="buyend_image">
+                    <img src="{% static 'images/Rectangle 190.png' %}" alt="" class="buyend_image">
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="beyond_text_main_section">
@@ -83,13 +83,13 @@
                                 enjoying your brunch and avocados</p>
 
                         </div>
-                        <a href="{% url "on-boarding1" %}" style="text-decoration: none;">
+                        <a href="{% url 'on-boarding1' %}" style="text-decoration: none;">
                             <button type="submit" class="back_a_button2">Book a Call</button>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 buyend_image_sec">
-                    <img src="{% static "images/Rectangle 190.png" %}" alt="" class="buyend_image">
+                    <img src="{% static 'images/Rectangle 190.png' %}" alt="" class="buyend_image">
                 </div>
             </div>
         </div>
@@ -102,12 +102,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-7 col-sm-12 col-12 untitled_group_image">
-                    <img src="{% static "images/Untitled (1).svg" %}" alt="">
+                    <img src="{% static 'images/Untitled (1).svg' %}" alt="">
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-12 col-12 propstart_text_section">
                     <div class="propstart_text">
                         <h4>Is PropStart Right for you?</h4>
-                        <a href="{% url "quiz-1" %}">
+                        <a href="{% url 'quiz-1' %}">
                             <button type="button" class="take_quiz_button">Take Quiz</button>
                         </a>
                     </div>
@@ -124,10 +124,10 @@
             <div class="journey_start_section">
                 <h4>Your Journey Starts Here</h4>
                 <div class="journey_start_button_group">
-                    <a href="{% url "signup" %}">
+                    <a href="{% url 'signup' %}">
                         <button type="submit" class="journey_start_button">Sign Up</button>
                     </a>
-                    <a href="{% url "on-boarding1" %}">
+                    <a href="{% url 'on-boarding1' %}">
                         <button type="submit" class="journey_start_button" style="background: none;">Book a
                             Call</button>
                     </a>

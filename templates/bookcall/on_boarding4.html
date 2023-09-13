@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- style css link -->
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- country code and flag link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
@@ -23,10 +23,17 @@
             <div class="login_account_section_one">
                 <p class="step_text">Step 04/04</p>
                 <div class="account_logo">
-                    <img src="{% static "images/logo.svg" %}" alt="">
+                    <img src="{% static 'images/logo.svg' %}" alt="">
                 </div>
                 <h4>Payment Details</h4>
-                <form class="account_form" method="post">
+                <form action="/checkout_session/" method="POST">
+                    <input type="hidden" name="invoice_id" value="{{invoice_id}}">
+                    {% csrf_token %}
+                    <div class="paybutton">
+                        <button type="submit" class="btn mybtnpay login_button" id="checkout-button">Pay with Stripe</button>
+                    </div>
+                </form>
+                <!-- <form class="account_form" method="post">
                     <div class="input_group">
                         <label for="" class="form-label input_label">Select a payment method</label>
                         <div class="paypal_edit_main_section">
@@ -87,8 +94,8 @@
                                 </div>
                             </form>
                         </article>
-                        <!-- stripe tab -->
-                        <div class="">
+                        stripe tab -->
+                       <!--  <div class="">
                             <label for="tab2" class="paypal_btn_2" id="paypal_button_2">
                                 <input class="paypal_checkbox" type="radio" name="tab" id="tab2">
                                 <div class="paypal_text_div paypal_text_div2">
@@ -99,7 +106,7 @@
                         </div>
 
                         <!-- paypal tab item term and register button  -->
-                        <div class="step1_item">
+                       <!--  <div class="step1_item">
                             <div class="form-check mt-2 checkbox_input_group">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">
@@ -114,7 +121,7 @@
                         </div>
 
                         <!-- stripe tab item  -->
-                        <article>
+                      <!--   <article>
                             <form action="">
                                 <div class="input_group" style="position: relative;">
                                     <label for="" class="form-label input_label">Card Number</label>
@@ -135,7 +142,7 @@
                                 </div>
                                 <!-- <input type="hidden" name="stripeToken" id="stripeToken"> -->
 
-                                <div class="input_group" style="position: relative;">
+                      <!--           <div class="input_group" style="position: relative;">
                                     <label for="" class="form-label input_label">CVC</label>
                                     <input type="text" class="form-control account_input" id="" aria-describedby=""
                                         placeholder="Enter CVC" name="cvc">
@@ -176,7 +183,8 @@
                     <!-- <a href="#">
                         <button type="button" class="login_button">Register</button>
                     </a> -->
-                </form>
+                <!-- </form> -->
+
             </div>
 
 
