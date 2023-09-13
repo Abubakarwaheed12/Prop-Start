@@ -18,9 +18,11 @@
                             will gain a solid foundation in educational psychology.</p>
 
                         <div class="learning_text_button">
-                            <a href="{% url 'courses' %}">
+                            {% not request.user.is_authenticated %}
+                            <a href="{% url 'signup' %}">
                                 <button type="button" class="pre_order_button">Pre-Order</button>
                             </a>
+                            {% endif %}
                             <a href="{% url 'on-boarding1' %}">
                                 <button type="submit" class="pre_order_button"
                                     style="border: 1px solid #0D4949; background: #0D4949;">Book a Call</button>
@@ -57,7 +59,8 @@
                                 that you'd like to.</p>
 
                         </div>
-                        <a href="{% url 'courses' %}" style="text-decoration: none;">
+                        
+                        <a href="{% url 'signup' %}" style="text-decoration: none;">
                             <button type="submit" class="pre_order_button2">Pre-Order</button>
                         </a>
                     </div>
