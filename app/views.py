@@ -11,10 +11,17 @@ import stripe
 from django.conf import settings
 from django.urls import reverse 
 from django.shortcuts import get_object_or_404
-stripe.api_key =settings.STRIPE_PUBLIC_KEY 
+stripe.api_key =settings.STRIPE_PUBLIC_KEY
+from paypalrestsdk import Payment 
+import threading
+from .emails import(
+    send_book_call_email
+)
 
 
 def index(request):
+    email_thread = threading.Thread(target=send_book_call_email, args=('abubakarjutt6346527@gmail.com',))
+    email_thread.start()
     return render(request,"index.html")
 
 
@@ -85,16 +92,14 @@ def on_boarding3(request):
         print(credit_card_limit, car_loan, other_loans,bad_credit_history, agree_to_terms)
         booking_obj_id = request.session["booking_id"]
         booking_obj = BookingCall.objects.get(id=booking_obj_id)
-        if booking_obj:
-            booking_obj.credit_card_limit = credit_card_limit
-            booking_obj.car_loan = car_loan
-            booking_obj.other_loans = other_loans
-            booking_obj.bad_credit_history = bad_credit_history
-            booking_obj.save()
-            return redirect('on-boarding4')
-        else:
-            messages.error(request, "Booking information not found. Please start the booking process again.")
-            return redirect('on-boarding1')    
+
+        booking_obj.credit_card_limit = credit_card_limit
+        booking_obj.car_loan = car_loan
+        booking_obj.other_loans = other_loans
+        booking_obj.bad_credit_history = bad_credit_history
+        booking_obj.save()
+        return redirect('on-boarding4')
+        
     return render(request, "bookcall/on_boarding3.html")
     
 
@@ -109,10 +114,10 @@ def on_boarding4(request):
    
 
 
+# Stripe Checkout 
 def checkout_session(request, booking_id = None):
     booking_obj_id = request.session["booking_id"]
     
-    # booking_id = get_object_or_404(BookingCall, id= booking_id)
 
     stripe.api_key = settings.STRIPE_SECRET_KEY
     checkout_session = stripe.checkout.Session.create(
@@ -133,9 +138,7 @@ def checkout_session(request, booking_id = None):
         success_url=request.build_absolute_uri(reverse('register-message'))+ "?session_id={CHECKOUT_SESSION_ID}",
         cancel_url=request.build_absolute_uri(reverse('cancel')),
     )
-     
-    # invoice_obj.stripe_payment_intent = checkout_session.id
-    # invoice_obj.save()
+
 
     print(checkout_session.id)
 
@@ -144,7 +147,7 @@ def checkout_session(request, booking_id = None):
     return redirect(checkout_session.url, code=303)
 
 
-# after successfull payment
+# Stripe  successfull payment
 def register_message(request):
 
     session_id = request.GET.get('session_id')
@@ -162,6 +165,8 @@ def register_message(request):
     booking_obj.pay_with = "stripe"
     booking_obj.payment_id = payment_id 
     booking_obj.save()
+    email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email,))
+    email_thread.start()
 
     return render(request,"bookcall/register_message.html")
 
@@ -169,15 +174,81 @@ def cancel(request):
     return render(request,"bookcall/register_message.html")
 
 
-def term_condition(request):
-    return render(request,"term_condition.html")
 
-# payment_successfull 
-def payment_successfull(request):
-    return render(request,"book_a_call/payment_successfull.html")
+# Paypal 
+def create_payment(request, booking_id = None):
+    booking_obj_id = request.session["booking_id"]
+
+    price = 50
+    full_host = request.get_host()
+    schema = request.scheme
+
+    paypal_client_id = settings.PAYPAL_CLIENT_ID
+    paypal_client_secret = settings.PAYPAL_CLIENT_SECRET
+
+    import paypalrestsdk
+    paypalrestsdk.configure({
+        "mode": "sandbox",  # Use "live" for production
+        "client_id": paypal_client_id,
+        "client_secret": paypal_client_secret
+    })
+
+    payment = Payment({
+        "intent": "sale",
+        "payer": {
+            "payment_method": "paypal"
+        },
+        "redirect_urls": {
+            "return_url": f"{schema}://{full_host}/paypal_payment_successful/?amount={price}",
+            "cancel_url": f"{schema}://{full_host}/cancel/"
+        },
+        "transactions": [{
+            "amount": {
+                "total": price,
+                "currency": "USD"
+            },
+            "description": "Example Payment"
+        }]
+    })
+
+    if payment.create():
+        for link in payment.links:
+            if link.method == "REDIRECT":
+                return redirect(link.href)
+    else:
+        return render(request, 'seller/cancel.html')
+
+
+# Paypal Payment Successfull 
+def paypal_payment_successful(request):
+    paymentid = request.GET.get('paymentId')
+
+    amount = request.GET.get('amount')
+
+    booking_obj_id = request.session["booking_id"]
+    booking_obj = BookingCall.objects.get(id=booking_obj_id)
+    booking_obj.is_paid = True
+    booking_obj.pay_with = "stripe"
+    booking_obj.payment_id = paymentid 
+    booking_obj.save()
+    
+    email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email,))
+    email_thread.start()
+
+    return render(request, "bookcall/register_message.html")
+
 
 # payment_cancelled 
-
 def payment_cancelled(request):
     return render(request,"bookcall/payment_cancelled.html")
 
+def term_condition(request):
+    return render(request,"term_condition.html")
+
+
+# Function TO save Quiz Data 
+def take_quiz(request):
+    if request.method =="POST":
+        email = request.POST.get('email')
+                
+        quiz = TakeQuiz()

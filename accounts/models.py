@@ -4,7 +4,7 @@ from .managers import CustomUserManager
 
 # Create your models here.
 class CustomUser(AbstractUser):
-    username= None
+    username= models.CharField(max_length=200 , null=True ,blank=True)
     email = models.EmailField(unique=True)
     forget_password_token= models.CharField(max_length=255,  null=True , blank=True)
     profile_img = models.ImageField(upload_to="profile_imgs", null=True , blank=True)
