@@ -97,11 +97,11 @@ class Lectures(models.Model):
 
 class UserCourse(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    course = models.ForeignKey(Cousre, on_delete=models.CASCADE)
+    course = models.ForeignKey(Cousre, on_delete=models.SET_NULL, null=True, blank=True)
     is_paid = models.BooleanField(default=False)
     pay_with = models.CharField(max_length=200, null=True, blank=True)
     payment = models.CharField(max_length=200, null=True, blank=True)
-
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -112,3 +112,22 @@ class UserCourse(models.Model):
         ordering = ['-id']
         verbose_name = "User Course"       
         verbose_name_plural = "User Courses"
+
+
+
+class PreOrder(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    is_paid = models.BooleanField(default=False)
+    pay_with = models.CharField(max_length=200, null=True, blank=True)
+    payment = models.CharField(max_length=200, null=True, blank=True)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) :
+        return f'{self.user.email}' or ''
+    
+    class Meta:
+        ordering = ['-id']
+        verbose_name = "Pre Order"       
+        verbose_name_plural = "Pre Orders"

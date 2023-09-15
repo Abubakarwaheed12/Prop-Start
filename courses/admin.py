@@ -5,16 +5,25 @@ from courses.models import(
     Cousre,
     Lesson,
     Lectures,
-    UserCourse
+    UserCourse,
+    PreOrder,
 )
 # Register your models here.
 
 admin.site.register(Instructor)
 admin.site.register(CourseCategory)
-admin.site.register(Cousre)
-# admin.site.register(Lesson)
-# admin.site.register(Lectures)
 admin.site.register(UserCourse)
+admin.site.register(PreOrder)
+
+
+class CourseModelAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        if Cousre.objects.exists():
+            return False
+        return True
+
+
+admin.site.register(Cousre, CourseModelAdmin)
 
 class LecturesInline(admin.StackedInline):
     model = Lectures

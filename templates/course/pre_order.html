@@ -25,20 +25,26 @@
                 <div class="account_logo">
                     <img src="{% static 'images/logo.svg' %}" alt="">
                 </div>
-                <h4>Course Payment </h4>
-                <form action="/checkout_session1/{{course_id}}/" method="POST">
+                {% if order %}
+                <h4>You Already Book The Order</h4>
+                {% else %}
+                <h4>Pre Order Payment </h4>
+                <form action="/pre_order_stripe_checkout_session/" method="POST">
                     {% csrf_token %}
                     <div class="paybutton">
                         <button type="submit" class="btn mybtnpay login_button" id="checkout-button">Pay with Stripe</button>
                     </div>
                 </form>
 
-                <form action="/paypal_create_payment/{{course_id}}/" method="POST">
+                <form action="/pre_order_paypal_create_payment/" method="POST">
                     {% csrf_token %}
                     <div class="paybutton">
                         <button type="submit" class="btn mybtnpay login_button" id="checkout-button">Pay with Paypal</button>
                     </div>
                 </form>
+                {% endif %}
+               
+
             </div>
         </div>
     </div>

@@ -34,13 +34,11 @@
                     <img src="{% static 'images/logo.svg' %}" alt="">
                 </div>
                 <h4>Course Payment Successfully Done.</h4>
-                <form action="/courses/" method="POST">
-                    <input type="hidden" name="invoice_id" value="{{invoice_id}}">
-                    {% csrf_token %}
-                    <div class="paybutton">
+                        <div class="paybutton">
+                        <a href="{% url 'courses' %}">
                         <button type="submit" class="btn mybtnpay login_button" id="checkout-button">Visit course</button>
+                        </a>
                     </div>
-                </form>
             </div>
         </div>
     </div>

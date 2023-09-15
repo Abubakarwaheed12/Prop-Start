@@ -20,8 +20,7 @@ from .emails import(
 
 
 def index(request):
-    email_thread = threading.Thread(target=send_book_call_email, args=('abubakarjutt6346527@gmail.com',))
-    email_thread.start()
+
     return render(request,"index.html")
 
 
