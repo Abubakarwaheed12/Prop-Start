@@ -21,7 +21,7 @@
                         placeholder="Enter Your Email Address" required>
                 </div>
                 <div class="quiz_next_button">
-                    <button type="button" class="next-step"  id="next-step1" disabled>Next</button>
+                    <button type="button" class="next-step"  id="next-step1" onclick="getEmail()"  disabled>Next</button>
                 </div>
             </div>
         </div>
@@ -32,22 +32,22 @@
             <p>Question 01 / 15</p>
             <h5>What Would you Like to Learn?</h5>
             <div class="quiz_input_main_group">
-                <div class="step_2_question_1 cq_1 m-0" id="box1">
+                <div class="step_2_question_1  m-0" id="box1">
                     How to Invest in Property
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
-                <div class="step_2_question_1 cq_1" id="box2">
+                <div class="step_2_question_1 " id="box2">
                     How to Buy Your Own Home
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
-                <div class="step_2_question_1 cq_1" id="box3">
+                <div class="step_2_question_1 " id="box3">
                     Where to Start?
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
             </div>
 
             <div class="quiz_next_button">
-                <button class="next-step" id="next-step2" onclick="takeQuiz()"  disabled>Next</button>
+                <button class="next-step" id="next-step2"   disabled>Next</button>
             </div>
         </div>
         <!-- step 3 -->
@@ -56,11 +56,11 @@
             <p>Question 01 / 15</p>
             <h5>Are you Aus or NZ Permanent Resident?</h5>
             <div class="quiz_input_main_group">
-                <div class="step_2_question_1 m-0 cq_2" id="box4">
+                <div class="step_2_question_1 m-0 " id="box4">
                     Yes
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
-                <div class="step_2_question_1 cq_2" id="box5">
+                <div class="step_2_question_1 " id="box5">
                     No
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
@@ -74,11 +74,11 @@
             <p>Question 01 / 15</p>
             <h5>Do you work Full Time?</h5>
             <div class="quiz_input_main_group">
-                <div class="step_2_question_1 m-0 cq_3" id="box6">
+                <div class="step_2_question_1 m-0 " id="box6">
                     Yes
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
-                <div class="step_2_question_1 cq_3" id="box7">
+                <div class="step_2_question_1 " id="box7">
                     No
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
@@ -377,30 +377,69 @@
     
     {% comment %} Take Quiz {% endcomment %}
     <script>
-        function get_clicked(classname){
-        const boxes = document.querySelectorAll(`.${classname}`);
-        const clickedBox = Array.from(boxes).find(box => box.classList.contains('clicked'));
-        if (clickedBox) {
-            const content = clickedBox.textContent.trim();
-            return(content);
-          } else {
-            return('Element with the "clicked" class not found.');
-          }
+
+        const userAnswers = {};
+
+        function getEmail(){
+            userAnswers['email'] = $('#email').val()
         }
 
-        function takeQuiz(){
-            email = $('#email').val()
-            console.log(email)
 
-            const likeToLearn = get_clicked('cq_1');
-            //const perm_res = get_clicked('cq_2')
-            //const fulltime = get_clicked('cq_3')
-            console.log(likeToLearn)
-            //console.log(perm_res)
-            //console.log(fulltime)
+        function getClickedText(step) {
+            const clickedElement = document.querySelector('.step_2_question_1.clicked');
+            const h5Text = document.querySelector(`${step} h5`).textContent;            
+            if (clickedElement) {
+                const clickedText = clickedElement.textContent;
+                userAnswers[h5Text]= clickedText
+            }
+            for (const key in userAnswers) {
+                if (userAnswers.hasOwnProperty(key)) {
+                    userAnswers[key] = userAnswers[key].trim();
+                }
+            }
+            console.log('userAnswers', userAnswers)
 
-
-           
         }
+
+        // Attach a click event listener to your "Next" button
+        document.getElementById('next-step2').addEventListener('click', function() {
+            getClickedText('.step-2');
+        });
+        
+        document.getElementById('next-step3').addEventListener('click', function() {
+            getClickedText('.step-3');
+        });
+        document.getElementById('next-step4').addEventListener('click', function() {
+            getClickedText('.step-4');
+        });
+        document.getElementById('next-step5').addEventListener('click', function() {
+            getClickedText('.step-5');
+        });
+        document.getElementById('next-step7').addEventListener('click', function() {
+            getClickedText('.step-7');
+        });
+        document.getElementById('next-step9').addEventListener('click', function() {
+            getClickedText('.step-9');
+        });
+
+        // Function to send the cleaned JSON object via AJAX using jQuery
+        function sendUserAnswers(data) {
+            $.ajax({
+                url: '/your-server-endpoint', // Replace with your server endpoint
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (response) {
+                    // Handle the server's response here
+                    console.log('Server Response:', response);
+                },
+                error: function (error) {
+                    // Handle any errors here
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+ 
     </script>
     {% endblock %}

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .managers import CustomUserManager
+from vendor.hubspot.client import APIClient as HubspotAPIClient
 
 # Create your models here.
 class CustomUser(AbstractUser):
@@ -21,7 +22,12 @@ class CustomUser(AbstractUser):
     def user_email(self):
         return self.email   
 
-
+    def send_to_hubspot(self):
+        api = HubspotAPIClient()
+        api.create_or_update_contact({
+            "email": self.email,
+            
+        })
 
 
     
