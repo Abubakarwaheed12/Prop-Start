@@ -37,16 +37,8 @@ class BookingCall(models.Model):
 
 
 class TakeQuiz(models.Model):
-    email = models.EmailField(max_length=200, null=True, blank=True)
-
-    what_Like_to_Learn = models.CharField(max_length=200, help_text='What Would you Like to Learn?', null=True, blank=True)
-
-    is_nz_permanent = models.CharField(max_length=200, help_text='Are you Aus or NZ Permanent Resident?', null=True, blank=True)
-    is_full_time = models.CharField(max_length=200, help_text='Do you work Full Time?', null=True, blank=True)
-    is_saving_50k = models.CharField(max_length=200, help_text='Do you have savings of $50k or more?', null=True, blank=True)
-
-    is_capcity_to_save = models.CharField(max_length=200, help_text='Do you have Capacity to Save?', null=True, blank=True)
-    do_you_foresee_getting_a_FT_Job_in_next_6_years = models.CharField(max_length=200, help_text='Do you Foresee getting a FT Job in next 6 years?', null=True, blank=True)
+    email = models.EmailField(null=True, blank=True)
+    quiz = models.TextField(null=True, blank=True, help_text="Flow Of Quiz")
 
     def __str__(self):
-        return self.email or ""
+        return self.email or '-'

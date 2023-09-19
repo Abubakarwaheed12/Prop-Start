@@ -8,7 +8,6 @@
     {% block content %}
     <!-- Quiz Main Section Start -->
     <div class="quiz_main_section">
-        <!-- <form action="" id="quiz-form"> -->
 
         <!-- step 1 -->
         <div class="quiz_item_section step step-1" id="step1">
@@ -110,7 +109,7 @@
             <p>Recommendation</p>
             <h5>You may be Eligible to Invest Now</h5>
             <div class="get_started_button">
-              <a href="{% url 'on-boarding1' %}"><button type="button" class="get_started_button1">Get Started</button> <a>
+              <a href="{% url 'on-boarding1' %}"><button type="button" class="get_started_button1" onclick="sendUserAnswers()">Get Started</button> <a>
             </div>
         </div>
 
@@ -137,7 +136,7 @@
             <p>Recommendation</p>
             <h5>Roll in Our Property Education Course</h5>
             <div class="get_started_button">
-                <a href="{% url 'courses' %}"> <button type="button" class="get_started_button1">Next</button> </a>
+                <a href="{% url 'courses' %}"> <button type="button" class="get_started_button1" onclick="sendUserAnswers()">Next</button> </a>
             </div>
         </div>
         <!-- quiz 8 and 17-->
@@ -159,7 +158,6 @@
                 <button id="next-step9" class="next-step" disabled>Next</button>
             </div>
         </div>
-        <!-- </form> -->
     </div>
 
     {% endblock %}
@@ -423,18 +421,16 @@
         });
 
         // Function to send the cleaned JSON object via AJAX using jQuery
-        function sendUserAnswers(data) {
+        function sendUserAnswers() {
             $.ajax({
-                url: '/your-server-endpoint', // Replace with your server endpoint
+                url: '/take_quiz/', 
                 type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(data),
+                data: userAnswers,
                 success: function (response) {
-                    // Handle the server's response here
                     console.log('Server Response:', response);
+                    
                 },
                 error: function (error) {
-                    // Handle any errors here
                     console.error('Error:', error);
                 }
             });

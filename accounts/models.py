@@ -21,7 +21,7 @@ class CustomUser(AbstractUser):
     @property
     def user_email(self):
         return self.email   
-
+    
     def send_to_hubspot(self):
         api = HubspotAPIClient()
         api.create_or_update_contact({

@@ -15,6 +15,8 @@ stripe.api_key =settings.STRIPE_PUBLIC_KEY
 from paypalrestsdk import Payment 
 import paypalrestsdk
 import threading
+from django.views.decorators.csrf import csrf_exempt
+from .models import TakeQuiz
 from .emails import(
     send_book_call_email
 )
@@ -245,9 +247,18 @@ def term_condition(request):
     return render(request,"term_condition.html")
 
 
-# Function TO save Quiz Data 
+# Function TO save Quiz Data
+@csrf_exempt 
 def take_quiz(request):
     if request.method =="POST":
-        email = request.POST.get('email')
-                
-        quiz = TakeQuiz()
+        quiz = request.POST.dict()
+        email = quiz.get('email')
+        ans = ""
+        for q , a in quiz.items():
+            ans += f"Question :{q} ?\n\n"
+            ans += f"Answer :{a} \n\n"
+        take_quiz_obj = TakeQuiz.objects.create(quiz = ans, email=email)
+        
+        if take_quiz_obj:
+            return JsonResponse({'response':'Quiz Added Successfully'})
+        return JsonResponse({'error':'Error'})

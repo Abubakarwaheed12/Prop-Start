@@ -194,7 +194,7 @@ def pre_order_paypal_create_payment(request, ):
             if link.method == "REDIRECT":
                 return redirect(link.href)
     else:
-        return render(request, 'seller/cancel.html')
+        return render(request, 'course/course_cancel_payament.html')
     
 def pre_order_papal_success(request):
     paymentid = request.GET.get('paymentId')
