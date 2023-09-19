@@ -131,7 +131,7 @@ def paypal_create_payment(request, course_id = None):
             if link.method == "REDIRECT":
                 return redirect(link.href)
     else:
-        return render(request, 'seller/cancel.html')
+        return render(request, 'course/course_cancel_payament.html')
 
 # Payment successful
 def paypal_courses_payment_success(request):

@@ -13,6 +13,7 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404
 stripe.api_key =settings.STRIPE_PUBLIC_KEY
 from paypalrestsdk import Payment 
+import paypalrestsdk
 import threading
 from .emails import(
     send_book_call_email
@@ -185,7 +186,6 @@ def create_payment(request, booking_id = None):
     paypal_client_id = settings.PAYPAL_CLIENT_ID
     paypal_client_secret = settings.PAYPAL_CLIENT_SECRET
 
-    import paypalrestsdk
     paypalrestsdk.configure({
         "mode": "sandbox",  # Use "live" for production
         "client_id": paypal_client_id,
@@ -215,7 +215,7 @@ def create_payment(request, booking_id = None):
             if link.method == "REDIRECT":
                 return redirect(link.href)
     else:
-        return render(request, 'seller/cancel.html')
+        return render(request, 'bookcall/payment_cancelled.html')
 
 
 # Paypal Payment Successfull 
