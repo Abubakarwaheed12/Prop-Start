@@ -6,6 +6,7 @@ cryptography==41.0.3
 defusedxml==0.7.1
 Django==4.2.4
 django-allauth==0.55.2
+django-environ==0.11.2
 idna==3.4
 oauthlib==3.2.2
 Pillow==10.0.0
@@ -18,3 +19,5 @@ sqlparse==0.4.4
 stripe==6.3.0
 typing_extensions==4.7.1
 urllib3==2.0.4
+paypalrestsdk==1.13.1
+psycopg2-binary==2.9.7

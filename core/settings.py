@@ -1,21 +1,31 @@
 
+import environ
 from pathlib import Path
 import os
+
+env = environ.Env(
+    DEBUG = (bool, False),
+    ALLOWED_HOSTS = (list, []),
+    EMAIL_PORT = (int, 597),
+    EMAIL_USE_TLS = (bool, False),
+    EMAIL_USE_SSL = (bool, True),
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-55_u5*k=^(9ubb6k()tlkpq$mw#6tegf4zu7s)-3f2jm!%^zb&'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = env("ALLOWED_HOSTS", default=[])
 
 
 # Application definition
@@ -74,10 +84,7 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.db()
 }
 
 
@@ -132,13 +139,13 @@ MEDIA_ROOT = BASE_DIR / "media"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'   
-EMAIL_PORT = 587 
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False 
-EMAIL_HOST_USER = 'abubakarjutt6346527@gmail.com'  
-EMAIL_HOST_PASSWORD = 'apiwqxejvqqbnyrq' 
+EMAIL_BACKEND = env("EMAIL_BACKEND")
+EMAIL_HOST = env("EMAIL_HOST")   
+EMAIL_PORT = env("EMAIL_PORT") 
+EMAIL_USE_TLS = env("EMAIL_USE_TLS")
+EMAIL_USE_SSL = env("EMAIL_USE_SSL") 
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")  
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD") 
 
 
  
@@ -175,12 +182,12 @@ LOGOUT_REDIRECT_URL = '/'
 SOCIALACCOUNT_LOGIN_ON_GET = True
 
 # stripe settings 
-STRIPE_PUBLIC_KEY = "pk_live_51NqtLML1BHstIy6mAzxZ7ANGsRCeLtZkY9vmVSvgIkIQxv1F86uxeCPxKELIXe1xHGTDnyVQ2rvVWdDlODOOo2RT00lknVTVRB"
-STRIPE_SECRET_KEY  = "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"
+STRIPE_PUBLIC_KEY = env("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
 
-HUBSPOT_API_KEY = "akdjasdjajasjfsjajbh"
+HUBSPOT_API_KEY = env("HUBSPOT_API_KEY")
 
 # Paypal 
-PAYPAL_CLIENT_ID = 'ATvZbWgeKkzOgSq8ZUplNSA2O5oY9qQMJWeSrmqcaRgiSOAIEdQmj2CI6Mcgay1fEBhqIZ4sqXVwW1MT'
-PAYPAL_CLIENT_SECRET = 'EEvJnVMOTxii1lVWZf3tbbZFHZmROB8KW9ZTwB7HbSSGZMH8480xJbULwRypg4P7QbtZ71TMXnsIJLdl'
-PAYPAL_MODE = 'live'
+PAYPAL_CLIENT_ID = env("PAYPAL_CLIENT_ID")
+PAYPAL_CLIENT_SECRET = env("PAYPAL_CLIENT_SECRET")
+PAYPAL_MODE = env("PAYPAL_MODE")
