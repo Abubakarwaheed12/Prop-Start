@@ -243,8 +243,14 @@ def paypal_payment_successful(request):
 def payment_cancelled(request):
     return render(request,"bookcall/payment_cancelled.html")
 
-def term_condition(request):
-    return render(request,"term_condition.html")
+def term_conditions(request):
+    return render(request,"term_conditions.html")
+
+def privacy_policy(request):
+    return render(request,"privacy_policy.html")
+
+def website_disclaimer(request):
+    return render(request,"website_disclaimer.html")
 
 
 # Function TO save Quiz Data

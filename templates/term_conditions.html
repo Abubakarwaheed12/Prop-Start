@@ -1,0 +1,693 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PropStart</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- Favicon link  -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/Untitled_log.svg' %}">
+    <!-- style css link -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <!-- Navbar Section Start -->
+    <div class="section_1">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg p-0">
+          <div class="container-fluid p-0">
+            <a class="navbar-brand navbar_brand" href="{% url 'home' %}"
+              ><img src="{% static 'images/logo.svg' %}" alt=""
+            /></a>
+            <button
+              class="navbar-toggler navbar_toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
+                <li class="nav-item">
+                  <a
+                    class="nav-link nav_link href_active"
+                    aria-current="page"
+                    href="{% url 'home' %}"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link nav_link"
+                    href="{% url 'courses' %}"
+                    >Courses</a
+                  >
+                </li>
+                {% if not request.user.is_authenticated %}
+                <li class="nav-item nav_item_register">
+                  <img src="{% static 'images/Vector.svg' %}" alt="" />
+                  <a class="register_link" href="{% url 'login' %}">Login</a>
+                  <span class="register_link">/</span>
+                  <a class="register_link" href="{% url 'signup' %}"
+                    >Register</a
+                  >
+                </li>
+                {% else %}
+                <div
+                  class="dropdown"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  "
+                >
+                  <button
+                    class="dropdown-toggle header_dropdown_top"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <div class="user_name_and_iamge">
+                      <h6 class="user_name_top">{{user.first_name}}</h6>
+                      <img
+                        src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}"
+                        alt=""
+                      />
+                    </div>
+                  </button>
+                  <ul class="dropdown-menu dropdown_menu_item">
+                    <li>
+                      <a
+                        class="dropdown-item item_1"
+                        href="{% url 'user_logout' %}"
+                        >Logout</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Navbar Section End -->
+    <div class="terms_and_conditions_section">
+      <div class="container">
+        <div class="desc_section">
+          <h2>TERMS AND CONDITIONS OF USE</h2>
+          <h3>1. About the Website</h3>
+          <p>
+            Welcome to www.propstart.com.au (Website). The Website provides you
+            with an opportunity to browse and purchase various products that
+            have been listed for sale through the Website (Products). The
+            Website provides this service by way of granting you access to the
+            content on the Website (Services).
+          </p>
+          <p>
+            The Website is operated by PropStart Pty Ltd(ACN 667 595 155).
+            Access to and use of the Website, or any of its associated Products
+            or Services, is provided by PropStart Pty Ltd. Please read these
+            terms and conditions (Terms) carefully. By using, browsing and/or
+            reading the Website, this signifies that you have read, understood
+            and agree to be bound by the Terms. If you do not agree with the
+            Terms, you must cease usage of the Website, or any of Services,
+            immediately.
+          </p>
+          <p>
+            PropStart Pty Ltd reserves the right to review and change any of the
+            Terms by updating this page at its sole discretion. When PropStart
+            Pty Ltd updates the Terms, it will use reasonable endeavours to
+            provide you with notice of updates to the Terms. Any changes to the
+            Terms take immediate effect from the date of their publication.
+            Before you continue, we recommend you keep a copy of the Terms for
+            your records.
+          </p>
+          <h3>Acceptance of the Terms</h3>
+          <p>
+            You ("The customer") accept the Terms by remaining on the Website.
+            You may also accept the Terms by clicking to accept or agree to the
+            Terms where this option is made available to you by PropStart Pty
+            Ltd in the user interface.
+          </p>
+          <h3>Registration to use the Purchase Services</h3>
+          <p>
+            In order to access the Purchase Services, you must first register as
+            a user of the Website. As part of the registration process, or as
+            part of your continued use of the Purchase Services, you may be
+            required to provide personal information about yourself (such as
+            identification or contact details), including:
+          </p>
+          <p>(i) Email address</p>
+          <p class="mt-2">(ii) Telephone number</p>
+          <p class="mt-2">(iii) Full name</p>
+          <p>
+            You warrant that any information you give to PropStart Pty Ltd in
+            the course of completing the registration process will always be
+            accurate, correct and up to date.
+          </p>
+          <p>
+            Once you have completed the registration process, you will be a
+            registered member of the Website <span>(Member)</span> and agree to
+            be bound by the Terms. As a Member you will be granted immediate
+            access to the Purchase Services.
+          </p>
+          <p>
+            You may not use the Purchase Services and may not accept the Terms
+            if:
+          </p>
+          <p>
+            You are not of legal age to form a binding contract with PropStart
+            Pty Ltd; or
+          </p>
+          <p>
+            You are a person barred from receiving the Purchase Services under
+            the laws of Australia or other countries including the country in
+            which you are resident or from which you use the Purchase Services.
+          </p>
+          <h3>4. Your obligations as a Member</h3>
+          <p>
+            As a Member, you agree to comply with the following: You will use
+            the Purchase Services only for purposes that are permitted by:
+          </p>
+          <p>(i) The Terms;</p>
+          <p>
+            (ii) any applicable law, regulation or generally accepted practices
+            or guidelines in the relevant jurisdictions;
+          </p>
+          <p>
+            (iii) You have the sole responsibility for protecting the
+            confidentiality of your password and/or email address. Use of your
+            password by any other person may result in the immediate
+            cancellation of the Purchase Services;
+          </p>
+          <p>
+            (iv) Any use of your registration information by any other person,
+            or third parties, is strictly prohibited. You agree to immediately
+            notify PropStart Pty Ltd of any unauthorised use of your password or
+            email address or any breach of security of which you have become
+            aware;
+          </p>
+          <p>
+            (v) Access and use of the Website is limited, non-transferable and
+            allows for the sole use of the Website by you for the purposes of
+            PropStart Pty Ltd providing the Purchase Services;
+          </p>
+          <p>
+            (vi) You will not use the Purchase Services or Website for any
+            illegal and/or unauthorised use which includes collecting email
+            addresses of Members by electronic or other means for the purpose of
+            sending unsolicited email or unauthorised framing of or linking to
+            the Website;
+          </p>
+          <p>
+            (vii) You agree that commercial advertisements, affiliate links, and
+            other forms of solicitation may be removed from the Website without
+            notice and may result in termination of the Purchase Services.
+            Appropriate legal action will be taken by PropStart Pty Ltd for any
+            illegal or unauthorised use of the Website; and
+          </p>
+          <p>
+            (viii) You acknowledge and agree that any automated use of the
+            Website or its Purchase Services is prohibited.
+          </p>
+          <h3>5. Purchase of Products and Returns Policy</h3>
+          <p>
+            In using the Purchase Services to purchase the Product through the
+            Website, you agree to the payment of the purchase price listed on
+            the Website for the Product <span>(Purchase Price)</span>.
+          </p>
+          <p>
+            Payment of the Purchase Price may be made through Stripe or PayPal
+            <span>(Payment Gateway Provider)</span>. In using the Purchase
+            Services, you warrant that you have familiarised yourself with, and
+            agree to be bound by, the applicable Terms and Conditions of Use,
+            Privacy Policy and other relevant legal documentation provided by
+            the Payment Gateway Providers.
+          </p>
+          <p>
+            All sales of digital content, including educational videos are
+            deemed final. However, if the digital content is found to be
+            defective or not as described, PropStart Pty Ltd will either provide
+            a corrected version or a full refund.
+          </p>
+          <h3>6. Warranty</h3>
+          <p>
+            PropStart Pty Ltd's Products come with guarantees that cannot be
+            excluded under the Australian Consumer Law. You are entitled to a
+            refund for a major failure of the Product and compensation for any
+            other reasonably foreseeable loss or damage.
+          </p>
+          <p>
+            You may make a claim under this clause
+            <span>(Warranty Claim)</span> within 1 week from the date of
+            purchase <span>(Warranty Period)</span>.
+          </p>
+          <p>
+            In order to make a Warranty Claim during the Warranty Period, you
+            must provide proof of purchase to PropStart Pty Ltd showing the date
+            of purchase of the Products, provide a description of the Products
+            and the price paid for the Products by sending written notice to
+            PropStart Pty Ltd by email at <a href="#">info@propstart.com.au</a>.
+          </p>
+          <p>
+            The Warranty shall be the sole and exclusive warranty granted by
+            PropStart Pty Ltd and shall be the sole and exclusive remedy
+            available to you in addition to other rights and under a law in
+            relation to the Products to which this warranty relates.
+          </p>
+          <p>
+            All implied warranties including the warranties of merchantability
+            and fitness for use are limited to the Warranty Period.
+          </p>
+          <p>
+            The Warranty does not apply to any appearance of the supplied
+            Products nor to the additional excluded items set forth below nor to
+            any supplied Products where the exterior of which has been damaged
+            or defaced, which has been subjected to misuse, abnormal service or
+            handling, or which has been altered or modified in design or
+            construction.
+          </p>
+          <h3>7. Copyright and Intellectual Property</h3>
+          <p>
+            The Website, the Purchase Services and all of the related products
+            of PropStart Pty Ltd are subject to copyright. The material on the
+            Website is protected by copyright under the laws of Australia and
+            through international treaties. Unless otherwise indicated, all
+            rights (including copyright) in the site content and compilation of
+            the website (including text, graphics, logos, button icons, video
+            images, audio clips and software) (Content) are owned or controlled
+            for these purposes, and are reserved by PropStart Pty Ltd or its
+            contributors.
+          </p>
+          <p>
+            PropStart Pty Ltd retains all rights, title and interest in and to
+            the Website and all related content. Nothing you do on or in
+            relation to the Website will transfer to you:
+          </p>
+          <p>
+            The business name, trading name, domain name, trade mark, industrial
+            design, patent, registered design or copyright of PropStart Pty Ltd;
+            or
+          </p>
+          <p>
+            The right to use or exploit a business name, trading name, domain
+            name, trade mark or industrial design; or
+          </p>
+          <p>
+            A system or process that is the subject of a patent, registered
+            design or copyright (or an adaptation or modification of such a
+            system or process).
+          </p>
+          <p>
+            You may not, without the prior written permission of PropStart Pty
+            Ltd and the permission of any other relevant rights owners:
+            broadcast, republish, up-load to a third party, transmit, post,
+            distribute, show or play in public, adapt or change in any way the
+            Content or third party content for any purpose. This prohibition
+            does not extend to materials on the Website, which are freely
+            available for re-use or are in the public domain.
+          </p>
+          <h3>8. Privacy</h3>
+          <p>
+            PropStart Pty Ltd takes your privacy seriously and any information
+            provided through your use of the Website and/or the Purchase
+            Services are subject to PropStart Pty Ltd's Privacy Policy, which is
+            available on the Website.
+          </p>
+          <h3>9. General Disclaimer</h3>
+          <p>
+            You acknowledge that PropStart Pty Ltd does not make any terms,
+            guarantees, warranties, representations or conditions whatsoever
+            regarding the Products other than provided for pursuant to these
+            Terms.
+          </p>
+          <p>
+            PropStart Pty Ltd will make every effort to ensure a Product is
+            accurately depicted on the Website, however, you acknowledge that
+            sizes, colours and packaging may differ from what is displayed on
+            the Website.
+          </p>
+          <p>
+            Nothing in these Terms limits or excludes any guarantees,
+            warranties, representations or conditions implied or imposed by law,
+            including the Australian Consumer Law (or any liability under them)
+            which by law may not be limited or excluded.
+          </p>
+          <p>Subject to this clause, and to the extent permitted by law:</p>
+          <p>
+            (i) All terms, guarantees, warranties, representations or conditions
+            which are not expressly stated in these Terms are excluded; and
+          </p>
+          <p>
+            (ii) PropStart Pty Ltd will not be liable for any special, indirect
+            or consequential loss or damage (unless such loss or damage is
+            reasonably foreseeable resulting from our failure to meet an
+            applicable Consumer Guarantee), loss of profit or opportunity, or
+            damage to goodwill arising out of or in connection with the Purchase
+            Services or these Terms (including as a result of not being able to
+            use the Purchase Services or the late supply of the Purchase
+            Services), whether at common law, under contract, tort (including
+            negligence), in equity, pursuant to statute or otherwise.
+          </p>
+          <p>
+            Use of the Website, the Purchase Services, and any of the products
+            of PropStart Pty Ltd , is at your own risk. Everything on the
+            Website, the Purchase Services, and the Products of PropStart Pty
+            Ltd, are provided to you on an "as is" and "as available" basis,
+            without warranty or condition of any kind. None of the affiliates,
+            directors, officers, employees, agents, contributors, third party
+            content providers or licensors of PropStart Pty Ltd make any express
+            or implied representation or warranty about its Content or any
+            products or Purchase Services (including the products or Purchase
+            Services of PropStart Pty Ltd) referred to on the Website. This
+            includes (but is not restricted to) loss or damage you might suffer
+            as a result of any of the following:
+          </p>
+          <p>
+            (i) Failure of performance, error, omission, interruption, deletion,
+            defect, failure to correct defects, delay in operation or
+            transmission, computer virus or other harmful component, loss of
+            data, communication line failure, unlawful third party conduct, or
+            theft, destruction, alteration or unauthorised access to records;
+          </p>
+          <p>
+            (ii) The accuracy, suitability or currency of any information on the
+            Website, the Purchase Service, or any of its Content related
+            products (including third party material and advertisements on the
+            Website);
+          </p>
+          <p>
+            (iii) Costs incurred as a result of you using the Website, the
+            Purchase Services or any of the Products;
+          </p>
+          <p>
+            (iv) The Content or operation in respect to links which are provided
+            for the User's convenience;
+          </p>
+          <p>
+            (v) Any failure to complete a transaction, or any loss arising from
+            e-commerce transacted on the Website; or
+          </p>
+          <p>
+            (vi) Any defamatory, threatening, offensive or unlawful conduct of
+            third parties or publication of any materials relating to or
+            constituting such conduct.
+          </p>
+          <h3>10. Fair use of Content and Services</h3>
+          <p>
+            Scope: All content, products, and information available on this
+            website, including but not limited to educational videos on real
+            estate investing and materials related to our real estate buyer's
+            agent services, are provided for personal, non-commercial use and
+            are protected by copyright and intellectual property laws, both in
+            Australia and internationally.
+          </p>
+          <p>
+            Fair Use Agreement: By accessing, purchasing, or using any content,
+            products, or information from this website, you agree to use them in
+            a manner consistent with Fair Use principles under Australian
+            copyright law. This means that while certain uses are permitted
+            without obtaining prior authorization or paying additional fees,
+            they must be reasonable and not prejudice the copyright owner's
+            legitimate interests.
+          </p>
+          <p>Prohibited Uses: The customer agrees not to:</p>
+          <p>
+            (i) Distribute, reproduce, publicly display, or create derivative
+            works from the content, products, or information without explicit
+            written permission from PropStart Pty Ltd.
+          </p>
+          <p>
+            (ii) Use the content, products, or information for any commercial
+            purpose, including selling, renting, or licensing.
+          </p>
+          <p>
+            (iii) Misrepresent the content, products, or information, or use
+            them in any manner that implies an endorsement, association, or
+            sponsorship that has not been explicitly agreed upon with PropStart
+            Pty Ltd.
+          </p>
+          <p>
+            (iv) Use the content, products, or information in a way that
+            infringes upon the rights of others, including copyright, trademark,
+            privacy, or other personal or proprietary rights.
+          </p>
+          <p>
+            Acknowledgment: Customers must acknowledge PropStart Pty Ltd as the
+            source of the content, products, or information when using them,
+            especially when quoting or reproducing them.
+          </p>
+          <p>
+            Violation: Violation of this Fair Use agreement may lead to the
+            immediate termination of the customer's access to the content,
+            products, or services without a refund. Further legal action may
+            also be taken against users who violate these terms.
+          </p>
+          <p>
+            Changes and Updates: PropStart Pty Ltd reserves the right to amend
+            this Fair Use agreement at any time. Any changes will be effective
+            immediately upon posting to the website. It is the customer's
+            responsibility to check this agreement periodically for changes.
+            Your continued use of the website following the posting of changes
+            will indicate your acceptance of those changes.
+          </p>
+          <h3>11. Limitation of Liability</h3>
+          <p>
+            PropStart Pty Ltd's total liability arising out of or in connection
+            with the products, services or these Terms, however arising,
+            including under contract, tort (including negligence), in equity,
+            under statute or otherwise, will not exceed the most recent Purchase
+            Price paid by you under these Terms or where you have not paid the
+            Purchase Price, then the total liability of PropStart Pty Ltd is the
+            resupply of information or services to you.
+          </p>
+          <p>
+            You expressly understand and agree that PropStart Pty Ltd, its
+            affiliates, employees, agents, contributors, third party content
+            providers and licensors shall not be liable to you for any direct,
+            indirect, incidental, special consequential or exemplary damages
+            which may be incurred by you, however caused and under any theory of
+            liability. This shall include, but is not limited to, any loss of
+            profit (whether incurred directly or indirectly), any loss of
+            goodwill or business reputation and any other intangible loss.
+          </p>
+          <p>
+            PropStart Pty Ltd is not responsible or liable in any manner for any
+            site content (including the Content and Third Party Content) posted
+            on the Website or in connection with the products or services,
+            whether posted or caused by users of the website of PropStart Pty
+            Ltd, by third parties or by any of the products or services offered
+            by PropStart Pty Ltd.
+          </p>
+          <h3>12. Changes to Content and Information</h3>
+          <p>
+            Reservation of Rights: PropStart Pty Ltd reserves the right, at our
+            sole discretion, to modify, replace, or remove any information,
+            content, or digital products available on our website, including but
+            not limited to educational videos and our digital library, without
+            any obligation to provide prior notice to you ("the customer") or
+            any third party.
+          </p>
+          <p>
+            Access to Digital Content: If you have purchased access to specific
+            digital products or our digital library, we reserve the right to
+            update, amend, or replace any part or all of the content within
+            these digital resources. Such changes may be to enhance the
+            accuracy, comprehensiveness, or relevancy of the material, or for
+            any other purpose we deem appropriate.
+          </p>
+          <p>
+            Continued Use: Your continued use of our website or access to
+            purchased digital content after any such changes constitutes your
+            acceptance of the updated content. We encourage customers to
+            regularly review our content to stay informed about any potential
+            updates or changes.
+          </p>
+          <p>
+            No Guarantee on Unchanged Content: We do not guarantee that the
+            content you access today will remain in the same form or be
+            available indefinitely. It's your responsibility to ensure that
+            you're familiar with the latest version of any content or
+            information you rely upon.
+          </p>
+          <h3>13. Termination of Contract</h3>
+          <p>
+            The Terms will continue to apply until terminated by either you or
+            by PropStart Pty Ltd as set out below.
+          </p>
+          <p>If you want to terminate the Terms, you may do so by:</p>
+          <p>(i) Notifying PropStart Pty Ltd at any time; and</p>
+          <p>
+            (ii) Closing your accounts for all of the Purchase Services which
+            you use, where PropStart Pty Ltd has made this option available to
+            you.
+          </p>
+          <p>
+            Your notice should be sent, in writing, to PropStart Pty Ltd via the
+            'Contact Us' link on our homepage.
+          </p>
+          <p>
+            PropStart Pty Ltd may at any time, terminate the Terms with you if:
+          </p>
+          <p>
+            (i) You have breached any provision of the Terms or intend to breach
+            any provision;
+          </p>
+          <p>(ii) PropStart Pty Ltd is required to do so by law;</p>
+          <p>
+            (iii) The partner with whom PropStart Pty Ltd offered the Purchase
+            Services to you has terminated its relationship with PropStart Pty
+            Ltd or ceased to offer the Purchase Services to you;
+          </p>
+          <p>
+            (iv) PropStart Pty Ltd is transitioning to no longer providing the
+            Purchase Services to Users in the country in which you are resident
+            or from which you use the service; or
+          </p>
+          <p>
+            (v) The provision of the Purchase Services to you by PropStart Pty
+            Ltd is, in the opinion of PropStart Pty Ltd, no longer commercially
+            viable.
+          </p>
+          <p>
+            Subject to local applicable laws, PropStart Pty Ltd reserves the
+            right to discontinue or cancel your membership to the Website at any
+            time and may suspend or deny, in its sole discretion, your access to
+            all or any portion of the Website or the Purchase Services without
+            notice if you breach any provision of the Terms or any applicable
+            law or if your conduct impacts PropStart Pty Ltd's name or
+            reputation or violates the rights of those of another party.
+          </p>
+          <p>
+            When the Terms come to an end, all of the legal rights, obligations
+            and liabilities that you and PropStart Pty Ltd have benefited from,
+            been subject to (or which have accrued over time whilst the Terms
+            have been in force) or which are expressed to continue indefinitely,
+            shall be unaffected by this cessation, and the provisions of this
+            clause shall continue to apply to such rights, obligations and
+            liabilities indefinitely.
+          </p>
+          <h3>14. Indemnity</h3>
+          <p>
+            You agree to indemnify PropStart Pty Ltd, its affiliates, employees,
+            agents, contributors, third party content providers and licensors
+            from and against:
+          </p>
+          <p>
+            (i) All actions, suits, claims, demands, liabilities, costs,
+            expenses, loss and damage (including legal fees on a full indemnity
+            basis) incurred, suffered or arising out of or in connection with
+            any Content you post through the Website;
+          </p>
+          <p>
+            (ii) Any direct or indirect consequences of you accessing, using or
+            transacting on the Website or attempts to do so and any breach by
+            you or your agents of these Terms; and/or
+          </p>
+          <p>(iii) Any breach of the Terms.</p>
+          <h3>15. Dispute Resolution</h3>
+          <h5>15.1. Compulsory</h5>
+          <p>
+            If a dispute arises out of or relates to the Terms, either party may
+            not commence any Tribunal or Court proceedings in relation to the
+            dispute, unless the following clauses have been complied with
+            (except where urgent interlocutory relief is sought).
+          </p>
+
+          <h5>15.2. Notice</h5>
+          <p>
+            A party to the Terms claiming a dispute <span>(Dispute)</span> has
+            arisen under the Terms, must give written notice to the other party
+            detailing the nature of the dispute, the desired outcome and the
+            action required to settle the Dispute.
+          </p>
+
+          <h5>15.3. Resolution</h5>
+          <p>
+            On receipt of that notice <span>(Notice)</span> by that other party,
+            the parties to the Terms <span>(Parties)</span>
+            must:
+          </p>
+          <p>
+            (i) Within 28 days of the Notice endeavour in good faith to resolve
+            the Dispute expeditiously by negotiation or such other means upon
+            which they may mutually agree;
+          </p>
+          <p>
+            If for any reason whatsoever, 28 days after the date of the Notice,
+            the Dispute has not been resolved, the Parties must either agree
+            upon selection of a mediator or request that an appropriate mediator
+            be appointed by the President of the Australian Mediation
+            Association or his or her nominee;
+          </p>
+          <p>
+            (iii) The Parties are equally liable for the fees and reasonable
+            expenses of a mediator and the cost of the venue of the mediation
+            and without limiting the foregoing undertake to pay any amounts
+            requested by the mediator as a pre-condition to the mediation
+            commencing. The Parties must each pay their own costs associated
+            with the mediation;
+          </p>
+          <p>(iv) The mediation will be held in Melbourne, Australia.</p>
+          <h5>15.4. Confidential</h5>
+          <p>
+            All communications concerning negotiations made by the Parties
+            arising out of and in connection with this dispute resolution clause
+            are confidential and to the extent possible, must be treated as
+            "without prejudice" negotiations for the purpose of applicable laws
+            of evidence.
+          </p>
+          <h5>15.5. Termination of Mediation</h5>
+          <p>
+            If 2 months have elapsed after the start of a mediation of the
+            Dispute and the Dispute has not been resolved, either Party may ask
+            the mediator to terminate the mediation and the mediator must do so.
+          </p>
+          <h3>16. Venue and Jurisdiction</h3>
+          <p>
+            The Purchase Services offered by PropStart Pty Ltd are intended to
+            be used by residents of Australia. In the event of any dispute
+            arising out of or in relation to the Website, you agree that the
+            exclusive venue for resolving any dispute shall be in the courts of
+            Victoria, Australia.
+          </p>
+          <h3>17. Governing Law</h3>
+          <p>
+            The Terms are governed by the laws of Victoria, Australia. Any
+            dispute, controversy, proceeding or claim of whatever nature arising
+            out of or in any way relating to the Terms and the rights created
+            hereby shall be governed, interpreted and construed by, under and
+            pursuant to the laws of Victoria Australia, without reference to
+            conflict of law principles, notwithstanding mandatory rules. The
+            validity of this governing law clause is not contested. The Terms
+            shall be binding to the benefit of the parties hereto and their
+            successors and assigns.
+          </p>
+          <h3>18. Severance</h3>
+          <p>
+            If any part of these Terms is found to be void or unenforceable by a
+            Court of competent jurisdiction, that part shall be severed and the
+            rest of the Terms shall remain in force.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -206,7 +206,7 @@
     border-radius: 20px;
     width: 100%;
     max-width: 438px;
-    height: 273px;
+    /* height: 273px; */
     margin-right: 13px;
 }
 
@@ -1594,6 +1594,56 @@ article.on {
     color: #0D4949 !important;
     text-decoration: none;
 }
+.terms_and_conditions_section{
+    padding-top: 200px;
+    padding-bottom: 100px;
+}
+.desc_section h2{
+    color: #0D4949;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 46px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 86.957% */
+    margin-bottom: 5rem;
+}
+.desc_section h3{
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 120% */
+    margin-bottom: 0;
+    margin-top: 2rem;
+}
+.desc_section p{
+    margin-bottom: 0;
+    color: rgba(13, 73, 73, 0.60);
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top: 1.5rem;
+}
+.desc_section p span{
+    font-weight: bold;
+}
+.desc_section p a{
+    color: rgba(13, 73, 73, 0.60) !important;
+}
+.desc_section h5{
+    color: #0D4949;
+    font-family: 'Urbanist';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px; /* 120% */
+    margin-bottom: 0;
+    margin-top: 2rem;
+}
 
 @media screen and (min-width : 1400px) {
     .side_circle {
@@ -1618,6 +1668,18 @@ article.on {
 }
 
 @media screen and (max-width : 1200px) {
+    .desc_section h2 {
+        font-size: 40px;
+    }
+    .desc_section h3 {
+        font-size: 19px;
+    }
+    .desc_section p {
+        font-size: 17px;
+    }
+    .desc_section h5 {
+        font-size: 19px;
+    }
     .an_account {
         font-size: 15px;
         margin-top: 60px;
@@ -1892,7 +1954,7 @@ article.on {
 
     .buyend_image {
         max-width: 385px;
-        height: 265px;
+        /* height: 265px; */
         margin-right: 10px;
     }
 
@@ -1906,6 +1968,29 @@ article.on {
 }
 
 @media screen and (max-width : 992px) {
+    .terms_and_conditions_section{
+        padding-top: 160px;
+    }
+    .desc_section h2 {
+        font-size: 32px;
+        
+    }
+    .desc_section h3 {
+        font-size: 18px;
+        margin-top: 1.5rem;
+    }
+    .desc_section p {
+        font-size: 16px;
+        margin-top: 1rem;
+    }
+    .desc_section h5 {
+        font-size: 18px;
+        margin-top: 1.5rem;
+    }
+    .footer_manage_colum992{
+        display: flex;
+        justify-content: end;
+    }
     .user_name_and_iamge img {
         width: 35px;
         height: 35px;
@@ -2181,6 +2266,7 @@ article.on {
 
     .footer_item p {
         font-size: 12px;
+        margin-top: 18px;
     }
 
     .journey_start_section h4 {
@@ -2242,7 +2328,7 @@ article.on {
 
     .buyend_image {
         margin-right: 0;
-        height: 224px;
+        /* height: 224px; */
     }
 
     .beyond_text_div p {
@@ -2291,9 +2377,9 @@ article.on {
         font-size: 14px;
     }
 
-    .rafiki_image {
+    /* .rafiki_image {
         height: 360px;
-    }
+    } */
 
     .arrow_bottom_image {
         width: 36px;
@@ -2303,6 +2389,19 @@ article.on {
 }
 
 @media screen and (max-width : 768px) {
+    .desc_section h2 {
+        font-size: 26px;
+    }
+    .desc_section h3 {
+        font-size: 17px;
+    }
+    .desc_section p {
+        font-size: 15px;
+        margin-top: 1rem;
+    }
+    .desc_section h5 {
+        font-size: 17px;
+    }
     .term_section_1 h4 {
         font-size: 30px;
     }
@@ -2585,8 +2684,30 @@ article.on {
 }
 
 @media screen and (max-width : 578px) {
+    .desc_section h2 {
+        font-size: 21px;
+        margin-bottom: 4rem;
+    }
+    .desc_section h3 {
+        font-size: 16px;
+    }
+    .desc_section p {
+        font-size: 14px;
+        margin-top: 1rem;
+    }
+    .desc_section h5 {
+        font-size: 16px;
+    }
+    .terms_and_conditions_section{
+        padding-bottom: 50px;
+        padding-top: 130px;
+    }
     .term_section_1 h4 {
         font-size: 26px;
+    }
+    .address_footer_p{
+        width: 100%;
+        max-width: 300px;
     }
     .an_account {
         margin-top: 40px;
@@ -2982,9 +3103,9 @@ article.on {
         justify-content: start;
     }
 
-    .buyend_image {
+    /* .buyend_image {
         height: 210px;
-    }
+    } */
 
     .beyond_text_div h5 {
         font-size: 32px;

@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PropStart</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- Favicon link  -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/Untitled_log.svg' %}">
+    <!-- style.css link  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <!-- Navbar Section Start -->
+    <div class="section_1">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg p-0">
+          <div class="container-fluid p-0">
+            <a class="navbar-brand navbar_brand" href="{% url 'home' %}"
+              ><img src="{% static 'images/logo.svg' %}" alt=""
+            /></a>
+            <button
+              class="navbar-toggler navbar_toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
+                <li class="nav-item">
+                  <a
+                    class="nav-link nav_link href_active"
+                    aria-current="page"
+                    href="{% url 'home' %}"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link nav_link"
+                    href="{% url 'courses' %}"
+                    >Courses</a
+                  >
+                </li>
+                {% if not request.user.is_authenticated %}
+                <li class="nav-item nav_item_register">
+                  <img src="{% static 'images/Vector.svg' %}" alt="" />
+                  <a class="register_link" href="{% url 'login' %}">Login</a>
+                  <span class="register_link">/</span>
+                  <a class="register_link" href="{% url 'signup' %}"
+                    >Register</a
+                  >
+                </li>
+                {% else %}
+                <div
+                  class="dropdown"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  "
+                >
+                  <button
+                    class="dropdown-toggle header_dropdown_top"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <div class="user_name_and_iamge">
+                      <h6 class="user_name_top">{{user.first_name}}</h6>
+                      <img
+                        src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}"
+                        alt=""
+                      />
+                    </div>
+                  </button>
+                  <ul class="dropdown-menu dropdown_menu_item">
+                    <li>
+                      <a
+                        class="dropdown-item item_1"
+                        href="{% url 'user_logout' %}"
+                        >Logout</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- Navbar Section End -->
+    <div class="terms_and_conditions_section">
+      <div class="container">
+        <div class="desc_section">
+          <h2>WEBSITE PRIVACY POLICY</h2>
+          <p>
+            This Privacy Policy applies to all personal information collected by
+            PropStart Pty Ltd via the website located at
+            <a href="#">www.propstart.com.au</a>.
+          </p>
+          <h3>1. What is "personal information"?</h3>
+          <p>
+            The Privacy Act 1988 (Cth) currently defines "personal information"
+            as meaning information or an opinion about an identified individual
+            or an individual who is reasonably identifiable:
+          </p>
+          <p>(i) Whether the information or opinion is true or not; and</p>
+          <p>
+            (ii) Whether the information or opinion is recorded in a material
+            form or not.
+          </p>
+          <p>
+            If the information does not disclose your identity or enable your
+            identity to be ascertained, it will in most cases not be classified
+            as "personal information" and will not be subject to this privacy
+            policy.
+          </p>
+          <h3>2. What information do we collect?</h3>
+          <p>
+            The kind of personal information that we collect from you will
+            depend on how you use the website. The personal information which we
+            collect and hold about you may include: Full name, email address and
+            contact number.
+          </p>
+          <h3>3. How we collect your personal information</h3>
+          <p>
+            We may collect personal information from you whenever you input such
+            information into the website.
+          </p>
+          <p>
+            We also collect cookies from your computer which enable us to tell
+            when you use the website and also to help customise your website
+            experience. As a general rule, however, it is not possible to
+            identify you personally from our use of cookies.
+          </p>
+          <h3>4. Purpose of collection</h3>
+          <p>
+            The purpose for which we collect personal information is to provide
+            you with the best service experience possible on the website.
+          </p>
+          <p>
+            We customarily disclose personal information only to our service
+            providers who assist us in operating the website. Your personal
+            information may also be exposed from time to time to maintenance and
+            support personnel acting in the normal course of their duties.
+          </p>
+          <p>
+            By using our website, you consent to the receipt of direct marketing
+            material. We will only use your personal information for this
+            purpose if we have collected such information direct from you, and
+            if it is material of a type which you would reasonably expect to
+            receive from us. We do not use sensitive personal information in
+            direct marketing activity. Our direct marketing material will
+            include a simple means by which you can request not to receive
+            further communications of this nature.
+          </p>
+          <h3>5. Access and correction</h3>
+          <p>
+            Australian Privacy Principle 12 permits you to obtain access to the
+            personal information we hold about you in certain circumstances, and
+            Australian Privacy Principle 13 allows you to correct inaccurate
+            personal information subject to certain exceptions. If you would
+            like to obtain such access, please contact us as set out below.
+          </p>
+          <h3>6. Complaint procedure</h3>
+          <p>
+            If you have a complaint concerning the manner in which we maintain
+            the privacy of your personal information, please contact us as set
+            out below. All complaints will be considered by PropStart and we may
+            seek further information from you to clarify your concerns. If we
+            agree that your complaint is well founded, we will, in consultation
+            with you, take appropriate steps to rectify the problem. If you
+            remain dissatisfied with the outcome, you may refer the matter to
+            the Office of the Australian Information Commissioner.
+          </p>
+          <h3>7. Overseas transfer</h3>
+          <p>
+            Your personal information may be transferred to recipients located
+            in United States and Germany. United States and Germany has data
+            protection laws which protect personal information in a way which is
+            at least substantially similar to the Australian Privacy Principles,
+            and there will be mechanisms available to you to enforce protection
+            of your personal information under that overseas law. In the
+            circumstances, we do not require the overseas recipients to comply
+            with the Australian Privacy Principles and we will not be liable for
+            a breach of the Australian Privacy Principles if your personal
+            information is mishandled.
+          </p>
+          <h3>8. How to contact us about privacy</h3>
+          <p>
+            If you have any queries, or if you seek access to your personal
+            information, or if you have a complaint about our privacy practices,
+            you can contact us through: <a href="#">info@propstart.com.au</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

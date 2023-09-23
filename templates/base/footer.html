@@ -14,24 +14,25 @@
         <footer class="footer_main_section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-12 footer_manage_colum">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-12 footer_manage_colum">
                         <a href="index.html">
-                            <img src="images/footer_logo.svg" alt="" class="footer_logo_img">
+                            <img src="{% static '/images/footer_logo.svg' %}" alt="" class="footer_logo_img">
                         </a>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 footer_manage_colum">
+                    <div class="col-lg-3 col-md-5 col-sm-5 col-12 footer_manage_colum">
                         <div class="footer_item">
-                            <h5>Apartment no, Address</h5>
-                            <a href="#">
+                            <!-- <h5>Apartment no, Address</h5> -->
+                            <p class="address_footer_p">470 St Kilda Road, Melbourne VIC 3004  18/324 Queens Street, Brisbane QLD 4000</p>
+                            <!-- <a href="#">
                                 <p>(434) 546-4356</p>
-                            </a>
-                            <a href="#" style="text-decoration: underline; color: white;">
+                            </a> -->
+                            <a href="#" style="text-decoration: none; color: white;">
                                 <p>info@propstart.com.au"</p>
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-12 footer_manage_colum">
-                        <div class="footer_item footer_item_about">
+                    <div class="col-lg-2 col-md-3 col-sm-3 col-12 footer_manage_colum footer_manage_colum992">
+                        <div class="footer_item">
                             <a href="courses.html">
                                 <p>Courses</p>
                             </a>
@@ -46,7 +47,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-6 col-12 footer_manage_colum">
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-12 footer_manage_colum">
                         <div class="footer_item footer_item_about">
                             <a href="#">
                                <p> Facebook</p>
@@ -60,6 +61,20 @@
                             <a href="#">
                                 <p>Instagram</p>
                             </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-6 col-12 footer_manage_colum">
+                        <div class="footer_item footer_item_about">
+                            <a href="{% url 'privacy_policy' %}">
+                               <p>Privacy Policy</p>
+                            </a>
+                            <a href="{% url 'term_conditions' %}">
+                                <p>Terms & Conditions</p>
+                            </a>
+                            <a href="{% url 'website_disclaimer' %}">
+                                <p>Disclaimer</p>
+                            </a>
+                            
                         </div>
                     </div>
                 </div>

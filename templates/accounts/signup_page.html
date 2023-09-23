@@ -11,6 +11,8 @@
     <!-- style css link -->
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Favicon link  -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/Untitled_log.svg' %}">
 </head>
 
 <body>
@@ -52,13 +54,13 @@
                         <label for="" class="form-label input_label">Your Password</label>
                         <input type="password" class="form-control password account_input" id=""
                             placeholder="Enter Password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                        <a id="s_show_hide" class="hide_show_text" onclick="show();">Show</a>
+                        <a id="s_show_hide" class="hide_show_text" onclick="passwordShow1();">Show</a>
                     </div>
                     <div class="input_group" style="position: relative;">
                         <label for="" class="form-label input_label">Confirm Password</label>
-                        <input type="password" class="form-control password account_input" id=""
+                        <input type="password" class="form-control confirm_password account_input" id=""
                             placeholder="Enter Password" name="cpass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                        <a id="s_show_hide" class="hide_show_text" onclick="show();">Show</a>
+                        <a id="s_show_hide2" class="hide_show_text" onclick="passwordShow2();">Show</a>
                     </div>
                     <p class="an_account" style="margin-top: 5px; text-align: start;">Already have an account? <span><a
                         href="{% url 'login' %}">Login</a></span></p>
@@ -78,8 +80,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
         // password hide/show
-        function show() {
-            console.log('skldhksldhksahk')
+        function passwordShow1() {
             if ($(".password").attr("type") == "password") {
                 $(".password").attr("type", "text");
                 document.getElementById('s_show_hide').innerHTML = "Hide";
@@ -87,6 +88,16 @@
             else {
                 $(".password").attr("type", "password");
                 document.getElementById('s_show_hide').innerHTML = "Show";
+            }
+        }
+        function passwordShow2() {
+            if ($(".confirm_password").attr("type") == "password") {
+                $(".confirm_password").attr("type", "text");
+                document.getElementById('s_show_hide2').innerHTML = "Hide";
+            }
+            else {
+                $(".confirm_password").attr("type", "password");
+                document.getElementById('s_show_hide2').innerHTML = "Show";
             }
         }
     </script>
