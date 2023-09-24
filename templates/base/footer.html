@@ -33,16 +33,16 @@
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-3 col-12 footer_manage_colum footer_manage_colum992">
                         <div class="footer_item">
-                            <a href="courses.html">
+                            <a href="{% url 'courses' %}">
                                 <p>Courses</p>
                             </a>
-                            <a href="book _a_call/on_boarding1.html">
+                            <a href="{% url 'on-boarding1' %}">
                                 <p>Book a Call</p>
                             </a>
-                            <a href="courses.html">
+                            <a href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'signup' %}{%endif %}">
                                 <p>Pre-Order</p>
                             </a>
-                            <a href="take_quiz/quiz _1.html">
+                            <a href="{% url 'quiz-1' %}">
                                 <p>Take Quiz</p>
                             </a>
                         </div>

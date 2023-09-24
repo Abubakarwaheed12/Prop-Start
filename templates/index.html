@@ -10,7 +10,7 @@
     <div class="section_2">
         <div class="container" style="position: relative;">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 learning_text_main_section">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 learning_text_main_section">
                     <img src="{% static 'images/Untitled.svg' %}" alt="" class="side_circle">
                     <div class="learning_text_section">
                         <h6>Smart Learning Strategic <span>Buying</span></h6>
@@ -29,10 +29,10 @@
                     </div>
 
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12" style="position: relative;">
-                    <img src="{% static 'images/rafiki.png' %}" alt="" class="rafiki_image">
-                    <!-- <video src="{% static 'videos/IMG_0712 (2).mp4' %}" controls class="rafiki_image"></video> -->
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 two_images_div" style="position: relative;">
+                    <!-- <img src="{% static 'images/rafiki.png' %}" alt="" class="rafiki_image"> -->
                     <img src="{% static 'images/Group 21.svg' %}" alt="" class="arrow_bottom_image">
+                    <video src="{% static 'videos/IMG_0712 (2).mp4' %}" controls autoplay id="myVideo" class="rafiki_image"></video>
                 </div>
             </div>
         </div>
@@ -149,6 +149,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 crossorigin="anonymous"></script>
+<script>
+    var x = document.getElementById("myVideo").autoplay;
+    // console.log(x,'sadhjashdsads')
+</script>
 {% endblock js %}
    
 <!-- </body>
