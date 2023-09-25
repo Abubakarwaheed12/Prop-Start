@@ -19,7 +19,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 9;
+    z-index: 999;
 }
 
 .navbar_brand {
@@ -110,7 +110,7 @@
 }
 
 .section_2 {
-    margin-top: 200px;
+    margin-top: 177px;
     position: relative;
     background-color: rgba(255, 255, 255, 1);
 }
@@ -172,7 +172,7 @@
 .rafiki_image {
     width: 100%;
     /* max-width: 709px; */
-    height: 500px;
+    height: 530px;
 }
 
 .learning_text_main_section {
@@ -1654,15 +1654,14 @@ article.on {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: #333; */
-    width: 50px;
     position: fixed;
-    left: 50px;
+    left:235px;
     top: 153px;
+    z-index: 99;
 }
 .circle_line{
     width: 1.835px;
-    height: 50.262px;
+    height: 97.262px;
     opacity: 0.1;
 background-color: #0D4949;
 }
@@ -1670,7 +1669,7 @@ background-color: #0D4949;
     /* width: 36.702px;
 height: 36.702px; */
     border: 2px solid #86a4a4; /* Default border color for circle1 */
-    margin: 10px 0;
+    /* margin: 10px 0; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1695,6 +1694,18 @@ height: 25.692px;
 }
 
 /* JavaScript for scroll effect (same as previous example) */
+/* @media screen and (min-width : 2880px) {
+    .double-circles {
+        left: 569px;
+    }
+
+}
+@media screen and (min-width : 2400px) {
+    .double-circles {
+        left: 569px;
+    }
+
+} */
 
 @media screen and (min-width : 1400px) {
     .side_circle {
@@ -1710,8 +1721,93 @@ height: 25.692px;
     }
 
 }
+@media screen and (min-width : 1517px) {
+    .circle_line {
+        height: 84.262px;
+    }
+    .double-circles {
+        position: fixed;
+        left: 30px;
+    }
+}
+@media screen and (min-width : 1536px) {
+    .double-circles {
+        position: fixed;
+        left: 50px;
+    }
+}
+@media screen and (min-width : 1556px) {
+    .double-circles {
+        position: fixed;
+        left: 100px;
+    }
+}
+@media screen and (min-width : 1740px) {
+    .double-circles {
+        left: 150px;
+    }
+}
+@media screen and (min-width : 1920px) {
+    .double-circles {
+        left: 200px;
+    }
+}
+@media screen and (min-width : 2133px) {
+    .double-circles {
+        left: 350px;
+    }
+}
+@media screen and (min-width : 2400px) {
+    .double-circles {
+        left: 475px;
+    }
+}
+@media screen and (min-width : 2560px) {
+    .double-circles {
+        left: 550px;
+    }
+}
+@media screen and (min-width : 2800px) {
+    .double-circles {
+        left: 710px;
+    }
+}
+@media screen and (min-width : 3200px) {
+    .double-circles {
+        left: 1170px;
+    }
+}
+@media screen and (min-width : 4200px) {
+    .double-circles {
+        left: 2110px;
+    }
+}
 
 @media screen and (max-width : 1400px) {
+    .double-circles {
+        left: 20px;
+    }
+    .circle_line {
+        height: 67.262px;
+    }
+    .pre_order_button {
+        width: 150px;
+        height: 49px;
+        font-size: 17px;
+    }
+    .rafiki_image {
+        height: 450px;
+    }
+    .learning_text_section p {
+        margin-top: 22px;
+
+    }
+    .learning_text_button {
+        margin-top: 41px;
+    }
+    .learning_text_section h6 {
+        font-size: 60px;
+    }
     .footer_main_section {
         padding: 74px 140.751px 74px 140px;
     }
@@ -1719,8 +1815,26 @@ height: 25.692px;
 }
 
 @media screen and (max-width : 1200px) {
+    .circle_parent {
+        width: 30.702px;
+        height: 30.702px;
+    }
+    .circle.fill {
+        width: 20.692px;
+        height: 20.692px;
+    }
+    .circle {
+        width: 18.021px;
+        height: 18.021px;
+    }
     .rafiki_image {
-        height: 420px;
+        height: 360px;
+    }
+    .double-circles {
+        top: 142px;
+    }
+    .circle_line {
+        height: 63.262px;
     }
     .desc_section h2 {
         font-size: 40px;
@@ -1963,22 +2077,22 @@ height: 25.692px;
     }
 
     .learning_text_section h6 {
-        font-size: 58px;
+        font-size: 46px;
     }
 
     .learning_text_section p {
-        font-size: 16px;
-        margin-top: 27px;
+        font-size: 15px;
+        margin-top: 22px;
     }
 
     .pre_order_button {
-        width: 150px;
-        height: 52px;
-        font-size: 17px;
+        width: 140px;
+        height: 50px;
+        font-size: 16px;
     }
 
     .learning_text_button {
-        margin-top: 42px;
+        margin-top: 35px;
     }
 
     .arrow_bottom_image {
@@ -2023,6 +2137,12 @@ height: 25.692px;
 }
 
 @media screen and (max-width : 992px) {
+    .double-circles {
+        top: 132px;
+    }
+    .circle_line {
+        height: 57.262px;
+    }
     .learning_text_section{
         width: 100%;
         max-width: 470px;
@@ -2464,6 +2584,14 @@ height: 25.692px;
 }
 
 @media screen and (max-width : 768px) {
+    .circle_parent {
+        width: 26.702px;
+        height: 26.702px;
+    }
+    .circle.fill {
+        width: 18.692px;
+        height: 18.692px;
+    }
     .rafiki_image {
         /* height: 320px; */
         width: 481px;
@@ -2766,6 +2894,25 @@ height: 25.692px;
 }
 
 @media screen and (max-width : 578px) {
+    .circle_parent {
+        width: 21.702px;
+        height: 21.702px;
+    }
+    .circle.fill {
+        width: 14.692px;
+        height: 14.692px;
+    }
+    .circle {
+        width: 14.021px;
+        height: 14.021px;
+    }
+    .double-circles {
+        left: 7px;
+    }
+    .two_images_div {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
     .desc_section h2 {
         font-size: 21px;
         margin-bottom: 4rem;
@@ -3142,8 +3289,8 @@ height: 25.692px;
 
     .home_section_four {
         margin-top: 115px;
+        padding:  83px 25px;
     }
-
     .propstart_text h4 {
         font-size: 35px;
         max-width: 350px;
@@ -3157,6 +3304,7 @@ height: 25.692px;
 
     .section_3 {
         margin-top: 115px;
+        padding: 0 25px;
     }
 
     .invest_text_div h5 {
@@ -3185,7 +3333,7 @@ height: 25.692px;
 
     .learning_text_main_section {
         flex-direction: unset;
-        justify-content: start;
+        justify-content: center;
     }
 
     /* .buyend_image {
