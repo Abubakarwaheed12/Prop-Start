@@ -12,6 +12,27 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12 learning_text_main_section">
                     <img src="{% static 'images/Untitled.svg' %}" alt="" class="side_circle">
+                    <!-- <ol class="double-circles">
+                        <li class="circle1 circle_parent">
+                          <div class="circle fill"></div>
+                        </li>
+                        <div class="circle_line"></div>
+                        <li class="circle1">
+                          <div class="circle"></div>
+                        </li>
+                        <div class="circle_line"></div>
+                        <li class="circle1">
+                          <div class="circle"></div>
+                        </li>
+                        <div class="circle_line"></div>
+                        <li class="circle1">
+                          <div class="circle"></div>
+                        </li>
+                        <div class="circle_line"></div>
+                        <li class="circle1">
+                          <div class="circle"></div>
+                        </li>
+                      </ol> -->
                     <div class="learning_text_section">
                         <h6>Smart Learning Strategic <span>Buying</span></h6>
                         <p>Through a combination of lectures, readings, and discussions, students
@@ -152,6 +173,26 @@ crossorigin="anonymous"></script>
 <script>
     var x = document.getElementById("myVideo").autoplay;
     // console.log(x,'sadhjashdsads')
+     // script.js
+     const circles = document.querySelectorAll(".circle");
+
+    window.addEventListener("scroll", () => {
+    const scrollPosition = window.scrollY;
+    const sectionHeight = window.innerHeight;
+
+    circles.forEach((circle, index) => {
+        if (
+        scrollPosition >= index * sectionHeight &&
+        scrollPosition < (index + 1) * sectionHeight
+        ) {
+        circle.classList.add("fill");
+        circle.parentElement.classList.add("circle_parent");
+        } else {
+        circle.classList.remove("fill");
+        circle.parentElement.classList.remove("circle_parent");
+        }
+    });
+    });
 </script>
 {% endblock js %}
    

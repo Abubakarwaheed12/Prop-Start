@@ -1647,6 +1647,55 @@ article.on {
 .video_div{
     width: 100%;
 }
+.double-circles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #333; */
+    width: 50px;
+    position: fixed;
+    left: 50px;
+    top: 153px;
+}
+.circle_line{
+    width: 1.835px;
+    height: 50.262px;
+    opacity: 0.1;
+background-color: #0D4949;
+}
+.circle1 {
+    /* width: 36.702px;
+height: 36.702px; */
+    border: 2px solid #86a4a4; /* Default border color for circle1 */
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.3s; /* Add a transition for smoother color change */
+    border-radius: 50%;
+}
+.circle_parent{
+    width: 36.702px;
+height: 36.702px; 
+border: 2px solid #0D4949;
+}
+.circle {
+    width: 22.021px;
+    height: 22.021px;
+    border-radius: 50%;
+}
+
+.circle.fill {
+    background-color: rgba(13, 73, 73, 1); /* Filled circle color */
+    width: 25.692px;
+height: 25.692px;
+}
+
+/* JavaScript for scroll effect (same as previous example) */
+
 @media screen and (min-width : 1400px) {
     .side_circle {
         top: -20px;
@@ -2283,7 +2332,7 @@ article.on {
 
     .footer_item p {
         font-size: 12px;
-        margin-top: 18px;
+        margin-top: 18px !important;
     }
 
     .journey_start_section h4 {
@@ -2769,7 +2818,7 @@ article.on {
     }
 
     .quiz_main_section {
-        padding: 197px 0;
+        padding: 197px 25px;
     }
 
     .unlock_purchase_button button {
@@ -2779,12 +2828,13 @@ article.on {
     }
 
     .step_2_question_1 {
-        width: 360px;
+        width: 100%;
         padding: 16px 18px 16px 21px;
     }
 
     .quiz_item_section {
-        width: 360px;
+        width: 100%;
+        max-width: 360px;
     }
 
     .quiz_item_section p {
@@ -3190,9 +3240,9 @@ article.on {
 }
 
 @media screen and (max-width : 400px) {
-    .quiz_item_section {
+    /* .quiz_item_section {
         width: 275px;
-    }
+    } */
 
     .unlock_purchase_button {
         top: 178px;
@@ -3205,7 +3255,6 @@ article.on {
     }
 
     .step_2_question_1 {
-        width: 275px;
         padding: 15px 10px 15px 15px;
         font-size: 14px;
     }

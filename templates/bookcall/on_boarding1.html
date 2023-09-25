@@ -77,13 +77,15 @@
     <!-- jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-
-        // country code with flag 
+        // pervious code 
+        // // country code with flag 
         const phoneInputField = document.querySelector("#phone");
         const phoneInput = window.intlTelInput(phoneInputField, {
             utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
         });
 
+        // Set the default country to Australia
+        phoneInput.setCountry("au");
         // Get the selected country code
         const selectedCountry = phoneInput.getSelectedCountryData();
         const countryCode = selectedCountry.dialCode;
@@ -98,6 +100,10 @@
             const newCountryCode = newSelectedCountry.dialCode;
             countryCodeElement.textContent = "+" + newCountryCode;
         });
+
+
+
+        
     </script>
 </body>
 

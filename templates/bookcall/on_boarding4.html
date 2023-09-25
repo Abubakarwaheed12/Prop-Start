@@ -27,7 +27,7 @@
                 <div class="account_logo">
                     <img src="{% static 'images/logo.svg' %}" alt="">
                 </div>
-                <h4>Book Call Payment</h4>
+                <h4>Book a Call Payment - $50</h4>
                 <form action="/checkout_session/" method="POST">
                     <input type="hidden" name="invoice_id" value="{{invoice_id}}">
                     {% csrf_token %}
