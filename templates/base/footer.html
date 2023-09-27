@@ -22,58 +22,67 @@
                     <div class="col-lg-3 col-md-5 col-sm-5 col-12 footer_manage_colum">
                         <div class="footer_item">
                             <!-- <h5>Apartment no, Address</h5> -->
-                            <p class="address_footer_p">470 St Kilda Road, Melbourne VIC 3004</p>
-                            <p class="address_footer_p" style="margin-top: 6px;">18/324 Queens Street, Brisbane QLD 4000</p>
+                            <div class="footer_icon"> 
+                                <span class="material-symbols-outlined footer_icon_span"> home</span>
+                                <p class="address_footer_p">470 St Kilda Road, Melbourne VIC 3004</p>
+                            </div>
+                            <div class="footer_icon footer_icon2">
+                                <span class="material-symbols-outlined footer_icon_span"> home</span>
+                                <p class="address_footer_p">18/324 Queens Street, Brisbane QLD 4000</p>
+                            </div>
                             <!-- <a href="#">
                                 <p>(434) 546-4356</p>
                             </a> -->
+                           <div class="footer_icon footer_icon2" style="align-items: center;">
+                            <span class="material-symbols-outlined footer_icon_span">mail</span>
                             <a href="#" style="text-decoration: none; color: white;">
-                                <p>info@propstart.com.au"</p>
+                                <p><span>info@propstart.com.au</span></p>
                             </a>
+                           </div>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-3 col-12 footer_manage_colum footer_manage_colum992">
                         <div class="footer_item">
                             <a href="{% url 'courses' %}">
-                                <p>Courses</p>
+                                <p><span>Courses</span></p>
                             </a>
                             <a href="{% url 'on-boarding1' %}">
-                                <p>Book a Call</p>
+                                <p><span>Book a Call</span></p>
                             </a>
                             <a href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'signup' %}{%endif %}">
-                                <p>Pre-Order</p>
+                                <p><span>Pre-Order</span></p>
                             </a>
                             <a href="{% url 'quiz-1' %}">
-                                <p>Take Quiz</p>
+                                <p><span>Take Quiz</span></p>
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-4 col-12 footer_manage_colum">
                         <div class="footer_item footer_item_about">
                             <a href="#">
-                               <p> Facebook</p>
+                               <p><span> Facebook</span></p>
                             </a>
                             <a href="#">
-                                <p>Twitter</p>
+                                <p><span>Twitter</span></p>
                             </a>
                             <a href="#">
-                                <p>Linkedin</p>
+                                <p><span>Linkedin</span></p>
                             </a>
                             <a href="#">
-                                <p>Instagram</p>
+                                <p><span>Instagram</span></p>
                             </a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 footer_manage_colum">
                         <div class="footer_item footer_item_about">
                             <a href="{% url 'privacy_policy' %}">
-                               <p>Privacy Policy</p>
+                               <p><span>Privacy Policy</span></p>
                             </a>
                             <a href="{% url 'term_conditions' %}">
-                                <p>Terms & Conditions</p>
+                                <p><span>Terms & Conditions</span></p>
                             </a>
                             <a href="{% url 'website_disclaimer' %}">
-                                <p>Disclaimer</p>
+                                <p><span>Disclaimer</span></p>
                             </a>
                             
                         </div>

@@ -161,8 +161,13 @@
     font-style: normal;
     font-weight: 600;
     text-transform: capitalize;
+    transition: all 300ms ease;
 }
 
+.pre_order_button:hover {
+    transform: scale(1.08);
+    opacity: 0.8;
+}
 .learning_text_button {
     display: flex;
     gap: 12px;
@@ -205,9 +210,9 @@
 .buyend_image {
     border-radius: 20px;
     width: 100%;
-    max-width: 438px;
+    /* max-width: 438px; */
     /* height: 273px; */
-    margin-right: 13px;
+    /* margin-right: 13px; */
 }
 
 .beyond_text_div h5 {
@@ -246,11 +251,18 @@
     width: 170px;
     height: 55px;
     border-radius: 50px;
-    border: 1px solid #0D4949;
+    /* border: 1px solid #0D4949; */
+    border: none;
     background: #17E093;
     margin-top: 21px;
+    transition: all 300ms ease;
 }
 
+
+.pre_order_button2:hover {
+    transform: scale(1.08);
+    opacity: 0.8;
+}
 
 .invest_text_div h5 {
     color: #0D4949;
@@ -299,8 +311,12 @@
     justify-content: center;
     align-items: center;
     margin-top: 19px;
+    transition: all 300ms ease;
 }
-
+.back_a_button2:hover{
+    transform: scale(1.08);
+    opacity: 0.8;
+}
 .invest_text_main_section {
     display: flex;
     flex-direction: column;
@@ -348,6 +364,11 @@
     height: 55px;
     border: none;
     margin-top: 38px;
+    transition: all 300ms ease;
+}
+.take_quiz_button:hover{
+    transform: scale(1.08);
+    opacity: 0.8;
 }
 
 .propstart_text_section {
@@ -376,8 +397,26 @@
     font-style: normal;
     font-weight: 600;
     text-transform: capitalize;
+    transition: all 300ms ease;
 }
-
+.journey_start_button:hover{
+    transform: scale(1.08);
+    opacity: 0.8;
+    
+}
+.journey_start_button_sign{
+    border: none;
+}
+.journey_start_button_sign:hover{
+    background: none;
+    border: 1px solid #FFF;
+}
+.journey_start_button_call:hover{
+    background: none;
+    border: none;
+    color: #0D4949;
+    background-color: #F4BF36 !important;
+}
 .journey_start_button_group {
     display: flex;
     justify-content: center;
@@ -426,6 +465,9 @@
 .footer_item a {
     text-decoration: none;
 
+}
+.footer_item a p span:hover{
+    border-bottom: 1.08px solid #17E093 !important;
 }
 
 .footer_item p {
@@ -679,7 +721,7 @@
 
 .about_signup_button {
     border-radius: 50px;
-    border: 1px solid #0D4949;
+    border: none;
     background: #17E093;
     width: 231px;
     color: #FFF;
@@ -691,8 +733,12 @@
     line-height: 55px;
     /* 343.75% */
     text-transform: capitalize;
+    transition: all 300ms ease;
 }
-
+.about_signup_button:hover{
+    transform: scale(1.08);
+    opacity: 0.8;
+}
 .sign_button {
     display: flex;
     justify-content: end;
@@ -1473,6 +1519,12 @@ article.on {
     /* 343.75% */
     background: none;
     text-transform: capitalize;
+    transition: all 300ms ease;
+}
+.unlock_purchase_button button:hover{
+    transform: scale(1.08);
+    opacity: 0.8;
+
 }
 
 .disable_section {
@@ -1693,20 +1745,73 @@ border: 2px solid #0D4949;
 height: 25.692px;
 }
 
-/* JavaScript for scroll effect (same as previous example) */
-/* @media screen and (min-width : 2880px) {
-    .double-circles {
-        left: 569px;
-    }
-
+/* .play-button-wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: auto;
+	pointer-events: none;
 }
-@media screen and (min-width : 2400px) {
-    .double-circles {
-        left: 569px;
-    }
-
+#circle-play-b {
+    cursor: pointer;
+    pointer-events: auto;
+}
+.svg_play {
+    width: 100px;
+    height: 100px;
+    fill: #fff;
+    stroke: #fff;
+    cursor: pointer;
+    background-color: rgba(black, 0.2);
+    border-radius: 50%;
+    opacity: 0.9;
 } */
 
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#myVideo{
+    cursor: pointer;
+}
+.video-container{
+    position: relative;
+}
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    fill: #ffffff; /* Fill color for both play and pause buttons */
+    background-color: rgba(0, 0, 0, 0.5); /* Background opacity for play button */
+    border-radius: 50%; /* Rounded button */
+    display: none;
+}
+.footer_icon{
+    display: flex;
+    align-items: start;
+    margin-top: 27px;
+    gap: 10px;
+}
+.footer_icon_span {
+    color: #FFF;
+    font-size: 23px;
+}
+.footer_icon2{
+    margin-top: 44px;
+}
+.footer_icon p{
+    margin-top: 0;
+}
 @media screen and (min-width : 1400px) {
     .side_circle {
         top: -20px;
@@ -1815,6 +1920,13 @@ height: 25.692px;
 }
 
 @media screen and (max-width : 1200px) {
+    .footer_icon_span {
+        color: #FFF;
+        font-size: 22px;
+    }
+    .footer_icon2 {
+        margin-top: 30px;
+    }
     .circle_parent {
         width: 30.702px;
         height: 30.702px;
@@ -2120,12 +2232,12 @@ height: 25.692px;
         align-items: center;
         justify-content: center;
     }
-
+/* 
     .buyend_image {
         max-width: 385px;
-        /* height: 265px; */
+        height: 265px;
         margin-right: 10px;
-    }
+    } */
 
     .nav_link {
         font-size: 17px;
@@ -2134,9 +2246,15 @@ height: 25.692px;
     .register_link {
         font-size: 17px;
     }
+    .buyend_image {
+        height: 290px;
+    }
 }
 
 @media screen and (max-width : 992px) {
+    .buyend_image {
+        height: 250px;
+    }
     .double-circles {
         top: 132px;
     }
@@ -2452,7 +2570,7 @@ height: 25.692px;
 
     .footer_item p {
         font-size: 12px;
-        margin-top: 18px !important;
+        /* margin-top: 18px !important; */
     }
 
     .journey_start_section h4 {
@@ -2512,10 +2630,7 @@ height: 25.692px;
         top: -38px;
     }
 
-    .buyend_image {
-        margin-right: 0;
-        /* height: 224px; */
-    }
+
 
     .beyond_text_div p {
         font-size: 14px;
@@ -2584,6 +2699,9 @@ height: 25.692px;
 }
 
 @media screen and (max-width : 768px) {
+    .buyend_image {
+        height: auto;
+    }
     .circle_parent {
         width: 26.702px;
         height: 26.702px;
@@ -2894,6 +3012,12 @@ height: 25.692px;
 }
 
 @media screen and (max-width : 578px) {
+    .footer_icon{
+        justify-content: center;
+    }
+    .footer_main_section {
+        padding: 74px 25px 74px 25px;
+    }
     .circle_parent {
         width: 21.702px;
         height: 21.702px;
@@ -3249,7 +3373,7 @@ height: 25.692px;
 
     .footer_item p {
         text-align: center;
-        margin-top: 15px;
+        /* margin-top: 15px; */
     }
 
     .footer_item_about {
