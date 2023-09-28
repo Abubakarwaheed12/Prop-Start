@@ -21,6 +21,10 @@ from .emails import(
     send_book_call_email
 )
 
+def copy_index(request):
+
+    return render(request,"index_copy.html")
+
 
 def index(request):
 

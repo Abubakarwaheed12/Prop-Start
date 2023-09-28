@@ -26,6 +26,9 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+
+    <!-- aos link  -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     {% block css %}{% endblock %}
   </head>
   <body>
@@ -128,6 +131,11 @@
       </div>
     </div>
     <!-- Navbar Section End -->
+    <!-- aos link  -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
     <script>
       // Select the "Sign up" button
       const signupButton = document.getElementById("signupButton");

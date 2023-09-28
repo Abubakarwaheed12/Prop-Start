@@ -7,7 +7,7 @@
 {% endblock %}
     <!-- Smart Learning Strategic Buying Section Start -->
     {% block content %}
-    <div class="section_2 all_sections">
+    <div class="section_2">
         <div class="container" style="position: relative;">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12 learning_text_main_section">
@@ -33,7 +33,7 @@
                           <div class="circle"></div>
                         </li>
                       </ol>
-                    <div class="learning_text_section" data-aos="fade-down" data-aos-duration="3000">
+                    <div class="learning_text_section">
                         <h6>Smart Learning Strategic <span>Buying</span></h6>
                         <p>Through a combination of lectures, readings, and discussions, students
                             will gain a solid foundation in educational psychology.</p>
@@ -52,18 +52,9 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12 two_images_div" style="position: relative;">
                     <!-- <img src="{% static 'images/rafiki.png' %}" alt="" class="rafiki_image"> -->
-                    <!-- <img src="{% static 'images/Group 21.svg' %}" alt="" class="arrow_bottom_image"> -->
-                    <div class="scrollcontainer">
-                        <div class="chevron"></div>
-                        <div class="chevron"></div>
-                        <div class="chevron"></div>
-                        <div class="chevron"></div>
-                        <div class="chevron"></div>
-                      </div>
+                    <img src="{% static 'images/Group 21.svg' %}" alt="" class="arrow_bottom_image">
                     <div class="video-container">
-                        <div class="video-wrapper" id="video-wrapper" data-aos="fade-down"
-                        data-aos-easing="linear"
-                        data-aos-duration="1500">
+                        <div class="video-wrapper" id="video-wrapper">
                             <video src="{% static 'videos/IMG_0712 (2).mp4' %}" muted autoplay id="myVideo" class="rafiki_image"></video>
                             <!-- SVG Play/Pause Button -->
                             <svg class="play-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
@@ -83,14 +74,14 @@
     <!-- end -->
 
     <!-- Beyond the Conventional Classroom Start  -->
-    <div class="section_3 all_sections">
+    <div class="section_3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 buyend_image_sec">
-                    <img src="{% static 'videos/gift1.gif' %}" alt="" class="buyend_image" data-aos="zoom-in" data-aos-duration="3000">
+                    <img src="{% static 'videos/gift1.gif' %}" alt="" class="buyend_image">
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="beyond_text_main_section"  data-aos="fade-down" data-aos-duration="3000">
+                    <div class="beyond_text_main_section">
                         <div class="beyond_text_div">
                             <h5>Beyond the
                                 Conventional
@@ -102,7 +93,7 @@
                         </div>
                         
                         <a href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'signup' %}{%endif %}" style="text-decoration: none;">
-                            <button type="submit" class="pre_order_button2" data-aos="flip-up" data-aos-duration="2000">Pre-Order</button>
+                            <button type="submit" class="pre_order_button2">Pre-Order</button>
                         </a>
                     </div>
                 </div>
@@ -113,11 +104,11 @@
     <!-- end -->
 
     <!-- Invest Without Compromise Start  -->
-    <div class="section_4 all_sections">
+    <div class="section_3">
         <div class="container">
             <div class="row section_3_row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="invest_text_main_section" data-aos="fade-down" data-aos-duration="3000">
+                    <div class="invest_text_main_section">
                         <div class="invest_text_div">
                             <h5>Invest
                                 Without
@@ -127,13 +118,13 @@
                                 enjoying your brunch and avocados</p>
 
                         </div>
-                        <a href="{% url 'on-boarding1' %}" style="text-decoration: none;" data-aos="flip-up" data-aos-duration="2000">
+                        <a href="{% url 'on-boarding1' %}" style="text-decoration: none;">
                             <button type="submit" class="back_a_button2">Book a Call</button>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 buyend_image_sec">
-                    <img src="{% static 'videos/gift2.gif' %}" alt="" class="buyend_image" data-aos="zoom-in" data-aos-duration="3000">
+                    <img src="{% static 'videos/gift2.gif' %}" alt="" class="buyend_image">
                 </div>
             </div>
         </div>
@@ -142,17 +133,17 @@
     <!-- end -->
 
     <!-- Is PropStart Right for you Start -->
-    <div class="home_section_four all_sections">
+    <div class="home_section_four">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-7 col-sm-12 col-12 untitled_group_image">
-                    <img src="{% static 'images/Untitled (1).svg' %}" alt="" data-aos="zoom-in" data-aos-duration="3000">
+                    <img src="{% static 'images/Untitled (1).svg' %}" alt="">
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-12 col-12 propstart_text_section">
-                    <div class="propstart_text" data-aos="fade-down" data-aos-duration="3000">
+                    <div class="propstart_text">
                         <h4>Is PropStart Right for you?</h4>
                         <a href="{% url 'quiz-1' %}">
-                            <button type="button" class="take_quiz_button" data-aos="flip-up" data-aos-duration="2000">Take Quiz</button>
+                            <button type="button" class="take_quiz_button">Take Quiz</button>
                         </a>
                     </div>
                 </div>
@@ -163,14 +154,11 @@
     <!-- End -->
 
     <!-- Your Journey Starts Here  Start -->
-    <div class="home_section_five all_sections">
+    <div class="home_section_five">
         <div class="container">
             <div class="journey_start_section">
-                <h4 data-aos="fade-down"
-                data-aos-easing="linear"
-                data-aos-duration="1500">Your Journey Starts Here</h4>
-                <div class="journey_start_button_group" data-aos="fade-up"
-                data-aos-anchor-placement="top-bottom" >
+                <h4>Your Journey Starts Here</h4>
+                <div class="journey_start_button_group">
                     <a href="{% url 'signup' %}">
                         <button type="submit" class="journey_start_button journey_start_button_sign">Sign Up</button>
                     </a>
@@ -198,42 +186,35 @@ crossorigin="anonymous"></script>
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-const circles = document.querySelectorAll(".circle");
-const allSections = document.querySelectorAll(".all_sections"); // Updated class name for sections
-const sectionHeight = window.innerHeight;
-let currentSectionIndex = 0;
+    // var x = document.getElementById("myVideo").autoplay;
+    // console.log(x,'sadhjashdsads')
+    const circles = document.querySelectorAll(".circle");
+let sectionHeight = 500; // Default section height
 
-// Filter out sections that have the "all_sections" class
-const sections = Array.from(allSections);
+// Check if the screen width is less than or equal to 768px
+if (window.matchMedia("(max-width: 992px)").matches) {
+    sectionHeight = 600; // Update section height for screens <= 768px
+    console.log(sectionHeight,'asdsadsad')
+}
+// Check if the screen width is less than or equal to 768px
+if (window.matchMedia("(max-width: 768px)").matches) {
+    sectionHeight = 700; // Update section height for screens <= 768px
+    console.log(sectionHeight,'asdsadsad')
+}
+// Check if the screen width is less than or equal to 768px
+if (window.matchMedia("(max-width: 576px)").matches) {
+    sectionHeight = 600; // Update section height for screens <= 768px
+    console.log(sectionHeight,'asdsadsad')
+}
 
-window.addEventListener("wheel", (e) => {
-    e.preventDefault();
+window.addEventListener("scroll", () => {
+    const scrollPosition = window.scrollY;
 
-    if (e.deltaY > 0) {
-        // Scrolling down
-        if (currentSectionIndex < sections.length - 1) {
-            currentSectionIndex++;
-        }
-    } else {
-        // Scrolling up
-        if (currentSectionIndex > 0) {
-            currentSectionIndex--;
-        }
-    }
+    circles.forEach((circle, index) => {
+        const sectionStart = index * sectionHeight;
+        const sectionEnd = (index + 1) * sectionHeight;
 
-    scrollToSection(currentSectionIndex);
-});
-
-function scrollToSection(index) {
-    const targetScrollY = sections[index].getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({
-        top: targetScrollY,
-        behavior: 'smooth'
-    });
-
-    // Update circle fill and circle_parent
-    circles.forEach((circle, circleIndex) => {
-        if (circleIndex === index) {
+        if (scrollPosition >= sectionStart && scrollPosition < sectionEnd) {
             circle.classList.add("fill");
             circle.closest(".circle1").classList.add("circle_parent");
         } else {
@@ -241,12 +222,7 @@ function scrollToSection(index) {
             circle.closest(".circle1").classList.remove("circle_parent");
         }
     });
-}
-
-// Initial fill and circle_parent setup for the first section
-scrollToSection(currentSectionIndex);
-
-
+});
 
 // video play button js 
         $(document).ready(function() {

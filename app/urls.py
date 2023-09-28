@@ -19,5 +19,7 @@ path('cancel/' , cancel , name="cancel"),
 path('create_payment/',create_payment , name="create_payment"),
 path('paypal_payment_successful/', paypal_payment_successful, name="paypal_payment_successful"),
 # take_quiz
-path('take_quiz/', take_quiz, name="take_quiz")
+path('take_quiz/', take_quiz, name="take_quiz"),
+path('copy_index/', copy_index, name="copy_index"),
+
 ]
