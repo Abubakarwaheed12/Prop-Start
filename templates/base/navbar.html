@@ -1,81 +1,154 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Navbar{% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <!-- Favicon link  -->
-        <link rel="icon" type="image/x-icon" href="{% static 'images/Untitled_log.svg' %}">
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- Favicon link  -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'images/Untitled_log.svg' %}"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     {% block css %}{% endblock %}
-</head>
-<body>
+  </head>
+  <body>
     <div class="section_1">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg p-0">
-                <div class="container-fluid p-0">
-                    <a class="navbar-brand navbar_brand" href="{% url 'home' %}"><img src="{% static 'images/logo.svg' %}" alt=""></a>
-                    <button class="navbar-toggler navbar_toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
-                            <li class="nav-item">
-                                <a class="nav-link nav_link {% if request.path == '/' %}href_active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link nav_link {% if request.path == '/courses/' %}href_active{% endif %}" href="{% url 'courses' %}">Courses</a>
-                                
-                            </li>
-                            {% if not request.user.is_authenticated %}
-                            <li class="nav-item nav_item_register">
-                                <img src="{% static 'images/Vector.svg' %}" alt="">
-                                <a class="register_link" href="{% url 'login' %}">Login</a>
-                                <span class="register_link">/</span>
-                                <a class="register_link" href="{% url 'signup' %}">Register</a>
-                            </li>
-                            {% else %}
-                            <div class="dropdown" style="display: flex; flex-direction: column; align-items: center;">
-                                <button class="dropdown-toggle header_dropdown_top" type="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <div class="user_name_and_iamge">
-                                        {% load custom_tags %}
-                                        <h6 class="user_name_top">{% first_two_words user.first_name %}
-                                        </h6>
-                                        <img src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}" alt="">
-                                    </div>
-                                </button>
-                                <ul class="dropdown-menu dropdown_menu_item">
-                                    <li><a class="dropdown-item item_1" href="{% url 'user_logout' %}">Logout</a></li>
-                                </ul>
-                            </div>
-                            {% endif %}
-                        </ul>
+      <div class="container">
+        <nav class="navbar navbar-expand-lg p-0">
+          <div class="container-fluid p-0">
+            <a class="navbar-brand navbar_brand" href="{% url 'home' %}"
+              ><img src="{% static 'images/logo.svg' %}" alt=""
+            /></a>
+            <div class="nav_button_group">
+              <a href="{% url 'signup' %}">
+                <button
+                  id="signupButton"
+                  type="button"
+                  class="navbar_signup_button"
+                >
+                  Sign up
+                </button>
+              </a>
+              <button
+                class="navbar-toggler navbar_toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
+                <li class="nav-item">
+                  <a
+                    class="nav-link nav_link {% if request.path == '/' %}href_active{% endif %}"
+                    aria-current="page"
+                    href="{% url 'home' %}"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link nav_link {% if request.path == '/courses/' %}href_active{% endif %}"
+                    href="{% url 'courses' %}"
+                    >Courses</a
+                  >
+                </li>
+                {% if not request.user.is_authenticated %}
+                <li class="nav-item nav_item_register">
+                  <img src="{% static 'images/Vector.svg' %}" alt="" />
+                  <a class="register_link" href="{% url 'login' %}">Login</a>
+                  <span class="register_link">/</span>
+                  <a class="register_link" href="{% url 'signup' %}"
+                    >Register</a
+                  >
+                </li>
+                {% else %}
+                <div
+                  class="dropdown"
+                  style="
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  "
+                >
+                  <button
+                    class="dropdown-toggle header_dropdown_top"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <div class="user_name_and_iamge">
+                      {% load custom_tags %}
+                      <h6 class="user_name_top">
+                        {% first_two_words user.first_name %}
+                      </h6>
+                      <img
+                        src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}"
+                        alt=""
+                      />
                     </div>
+                  </button>
+                  <ul class="dropdown-menu dropdown_menu_item">
+                    <li>
+                      <a
+                        class="dropdown-item item_1"
+                        href="{% url 'user_logout' %}"
+                        >Logout</a
+                      >
+                    </li>
+                  </ul>
                 </div>
-            </nav>
-        </div>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
     </div>
     <!-- Navbar Section End -->
+    <script>
+      // Select the "Sign up" button
+      const signupButton = document.getElementById("signupButton");
 
+      // Function to toggle the "hidden" class based on scroll position and viewport width
+      function toggleSignupButtonVisibility() {
+        if (window.innerWidth <= 992 && window.scrollY > 0) {
+          signupButton.classList.remove("hidden");
+        } else {
+          signupButton.classList.add("hidden");
+        }
+      }
 
+      // Add a scroll event listener and a resize event listener to call the function
+      window.addEventListener("scroll", toggleSignupButtonVisibility);
+      window.addEventListener("resize", toggleSignupButtonVisibility);
 
-
-    {% block content %}
-
-    {% endblock %}
-
-    {% block footer %}
-      
-    {% endblock footer %}
-    {% block js %}
-    {% endblock js %}
-</body>
+      // Initial call to set the initial state based on scroll position and viewport width
+      toggleSignupButtonVisibility();
+    </script>
+    {% block content %} {% endblock %} {% block footer %} {% endblock footer %}
+    {% block js %} {% endblock js %}
+  </body>
 </html>

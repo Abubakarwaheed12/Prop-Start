@@ -893,7 +893,7 @@
 .login_button {
     width: 100%;
     border-radius: 50px;
-    background: #17E093;
+    background-color: #17E093;
     color: #FFF;
     text-align: center;
     font-family: 'Urbanist';
@@ -904,6 +904,11 @@
     padding: 20px 0;
     border: none;
     margin-top: 30px;
+    transition: all 300ms ease;
+}
+.login_button:hover{
+    transform: scale(1.06);
+    opacity: 0.8;
 }
 
 .or_text {
@@ -1410,7 +1415,7 @@ article.on {
 
 .quiz_next_button button {
     border-radius: 50px;
-    border: 1px solid #0D4949;
+    border: none;
     background: #17E093;
     width: 170px;
     height: 55px;
@@ -1421,8 +1426,12 @@ article.on {
     font-style: normal;
     font-weight: 600;
     text-transform: capitalize;
+    transition: all 300ms ease;
 }
-
+.quiz_next_button button:hover{
+transform: scale(1.08);
+opacity: 0.8;
+}
 .step {
     display: none;
 }
@@ -1485,7 +1494,7 @@ article.on {
     width: 170px;
     height: 55px;
     border-radius: 50px;
-    border: 1px solid #0D4949;
+    border: none;
     background: #17E093;
     color: #FFF;
     text-align: center;
@@ -1494,6 +1503,11 @@ article.on {
     font-style: normal;
     font-weight: 600;
     text-transform: capitalize;
+    transition: all 300ms ease;
+}
+.get_started_button1:hover{
+    transform: scale(1.08);
+    opacity: 0.8;
 }
 
 .unlock_purchase_button {
@@ -1811,6 +1825,52 @@ height: 25.692px;
 }
 .footer_icon p{
     margin-top: 0;
+}
+.nav_button_group{
+    display: flex; flex-direction: row; gap: 25px;
+}
+.navbar_signup_button{
+    background-color: #0D4949;
+    width: 100%;
+    transition: background-color 0.2s ease-out 0s, border-color, color, opacity;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: none;
+    color: #FFF;
+    text-align: center;
+    font-family: 'Urbanist';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+}
+.navbar_signup_button.hidden {
+    display: none;
+}
+.navbar_signup_button:hover {
+    transition: 0.6s;
+    opacity: 0.6;
+}
+.mybtnpay1{
+    background-color: #6c76e6;
+    font-weight: 700;
+    font-family: 'Urbanist';
+    font-size: 27px !important;
+}
+.mybtnpay2{
+    background-color: #ffbf41;
+    font-weight: 700;
+    font-family: 'Urbanist';
+    font-size: 27px !important;
+}
+.pay_span_1{
+    color: #082670;
+    font-weight: 700;
+    font-family: 'Urbanist';
+}
+.pay_span_2{
+    color: #089de1;
+    font-weight: 700;
+    font-family: 'Urbanist';
 }
 @media screen and (min-width : 1400px) {
     .side_circle {
@@ -2252,6 +2312,12 @@ height: 25.692px;
 }
 
 @media screen and (max-width : 992px) {
+    .mybtnpay1 {
+        font-size: 25px !important;
+    }
+    .mybtnpay2 {
+        font-size: 25px !important;
+    }
     .buyend_image {
         height: 250px;
     }
@@ -2699,6 +2765,15 @@ height: 25.692px;
 }
 
 @media screen and (max-width : 768px) {
+    .mybtnpay1 {
+        font-size: 22px !important;
+    }
+    .mybtnpay2 {
+        font-size: 22px !important;
+    }
+    .nav_button_group {
+        gap: 20px;
+    }
     .buyend_image {
         height: auto;
     }
@@ -3012,6 +3087,18 @@ height: 25.692px;
 }
 
 @media screen and (max-width : 578px) {
+    .mybtnpay1 {
+        font-size: 20px !important;
+    }
+    .mybtnpay2 {
+        font-size: 20px !important;
+    }
+    .login_button:hover {
+        transform: scale(1.04);
+    }
+    .nav_button_group {
+        gap: 15px;
+    }
     .footer_icon{
         justify-content: center;
     }
