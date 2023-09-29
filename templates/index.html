@@ -146,11 +146,43 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-7 col-sm-12 col-12 untitled_group_image">
-                    <img src="{% static 'images/Untitled (1).svg' %}" alt="" data-aos="zoom-in" data-aos-duration="3000">
+                    <!-- data-aos="zoom-in" data-aos-duration="3000" -->
+                    <img src="{% static 'images/Untitled (1).svg' %}" alt="" class="untitled_group_image_img group_img_block" data-aos="zoom-in" data-aos-duration="3000">
+                    <div class="right_of_you" data-aos="zoom-in" data-aos-duration="3000">
+                        <img src="{% static 'images/Group 62.svg' %}" alt="" class="untitled_group_image_img">
+                        <div>
+                            <div class="icon_number icon_number01">
+                                <h6>01</h6>
+                                <p class="icon_text text01">Education</p>
+                            </div>
+                            <div class="icon_number icon_number02">
+                                <h6>02</h6>
+                                <p class="icon_text">Consult</p>
+                            </div>
+                            <div class="icon_number icon_number03">
+                                <h6>03</h6>
+                                <p class="icon_text">Invest</p>
+                            </div>
+                            <div class="icon_number icon_number04">
+                                <h6>04</h6>
+                                <p class="icon_text">Grow</p>
+                            </div>
+                            <div class="icon_number icon_number05">
+                                <h6>05</h6>
+                                <p class="icon_text">DreamHouse</p>
+                            </div>
+                            <img src="{% static 'images/01.svg' %}" alt="" class="right_of_you_icon img01">
+                            <img src="{% static 'images/02.svg' %}" alt="" class="right_of_you_icon img02">
+                            <img src="{% static 'images/03.svg' %}" alt="" class="right_of_you_icon img03">
+                            <img src="{% static 'images/04.svg' %}" alt="" class="right_of_you_icon img04">
+                            <img src="{% static 'images/05.svg' %}" alt="" class="right_of_you_icon img05">
+                        </div>
+
+                    </div>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-12 col-12 propstart_text_section">
                     <div class="propstart_text" data-aos="fade-down" data-aos-duration="3000">
-                        <h4>Is PropStart Right for you?</h4>
+                        <h4 class="text_append_h4">Is PropStart Right for you?</h4>
                         <a href="{% url 'quiz-1' %}">
                             <button type="button" class="take_quiz_button" data-aos="flip-up" data-aos-duration="2000">Take Quiz</button>
                         </a>
@@ -249,37 +281,76 @@ scrollToSection(currentSectionIndex);
 
 
 // video play button js 
-        $(document).ready(function() {
-            const video = $("#myVideo")[0];
-            const playButton = $(".play-button");
+    $(document).ready(function() {
+        const video = $("#myVideo")[0];
+        const playButton = $(".play-button");
 
-            // Function to toggle play/pause and show/hide buttons
-            function togglePlay() {
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-                // Show buttons and start the fadeout timer
-                playButton.fadeIn();
-                setTimeout(function() {
-                    playButton.fadeOut();
-                }, 900); // Hide buttons after 3 seconds
+        // Function to toggle play/pause and show/hide buttons
+        function togglePlay() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
             }
+            // Show buttons and start the fadeout timer
+            playButton.fadeIn();
+            setTimeout(function() {
+                playButton.fadeOut();
+            }, 900); // Hide buttons after 3 seconds
+        }
 
-            $("#video-wrapper").click(togglePlay);
+        $("#video-wrapper").click(togglePlay);
 
-            video.addEventListener("play", function() {
-                $(".play-icon").show();
-                $(".pause-icon").hide();
-            });
-
-            video.addEventListener("pause", function() {
-                $(".play-icon").hide();
-                $(".pause-icon").show();
-            });
+        video.addEventListener("play", function() {
+            $(".play-icon").show();
+            $(".pause-icon").hide();
         });
+
+        video.addEventListener("pause", function() {
+            $(".play-icon").hide();
+            $(".pause-icon").show();
+        });
+
+        // text append on hover
+        // When hovering over .img01
+        // Store the original text
+        // Store the original text
+        var originalText = $(".text_append_h4").text();
+
+        // Function to handle hover and text appending logic
+        function handleImageHover(imgClass, iconNumberClass) {
+            $(imgClass).mouseenter(function () {
+                // Get the text value of the associated .icon_text element
+                var textValue = $(iconNumberClass + " .icon_text").text();
+
+                // Append the text value as an h4 element with the class "text_append_h4"
+                $(".text_append_h4").empty().append('<h4 class="text_append_span text-center">' + textValue + '</h4>');
+
+                // Fade in the appended h4 element
+                $(".text_append_h4").fadeIn(200);
+            });
+
+            $(imgClass).mouseleave(function () {
+                // Hide the appended h4 element
+                $(".text_append_h4").fadeOut(200, function () {
+                    // Show the original text
+                    $(".text_append_h4").text(originalText).fadeIn(200);
+                });
+            });
+        }
+
+        // Call the function for each image and associated icon_number
+        handleImageHover(".img01", ".icon_number01");
+        handleImageHover(".img02", ".icon_number02");
+        handleImageHover(".img03", ".icon_number03");
+        handleImageHover(".img04", ".icon_number04");
+        handleImageHover(".img05", ".icon_number05");
+        // Repeat for other images as needed
+    });
+
+        
 </script>
+
 {% endblock js %}
    
 <!-- </body>
