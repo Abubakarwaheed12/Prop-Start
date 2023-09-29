@@ -3,11 +3,10 @@ import random
 from django.shortcuts import render, redirect, HttpResponse
 from django.utils.crypto import get_random_string
 from django.contrib import messages
-from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth import authenticate, login 
 from django.contrib.auth import logout
-
+from django.contrib.auth.decorators import login_required
 from .models import CustomUser
 from .emails import(
     send_otp_email,
@@ -56,10 +55,6 @@ def send_code(request):
         otp_values = request.POST.getlist("code_number_input")
         print(otp_values)
         otp_ = "".join(otp_values)
-        otp_int = ""
-        if otp_:
-            otp_int = int(otp_)
-            print(otp_int)
 
         otp = request.session["otp"]
         email = request.session["email"]
@@ -162,20 +157,16 @@ def enter_otp_for_forgot_password(request):
     
     if request.method == "POST":
         otp_values = request.POST.getlist("code_number_input")
-        print(otp_values,"forgor password otp_value")
         email = request.session["email_for_forget_password"]
-        print(email)
         fotp = request.session["fotp"]
         otp_ = "".join(otp_values)
         otp_int = int(otp_)
-        print(otp_int,"forgor password otp_int")
         if  fotp == otp_int :
             user = CustomUser.objects.get(email=email)
             user.forget_password_token = otp_int
             user.save()   
             return redirect("reset-password")
         else:
-            print("else")
             messages.error(request,"Otp does not match")
             return render(request, "accounts/forgot_password_otp.html")
     
@@ -186,9 +177,7 @@ def reset_password(request):
     try:
         if request.method == "POST":
             password = request.POST.get("password")
-            print(password)
             new_password = request.POST.get("new-password")
-            print (new_password)
             email = request.session["email_for_forget_password"]
             user = CustomUser.objects.get(email=email)
             if password != new_password:
@@ -215,3 +204,35 @@ def password_successfuly(request):
 def user_logout(requset):
     logout(requset)
     return redirect('/accounts/login')
+
+
+# Change Password 
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        current_password = request.POST.get('current_password')
+        new_password = request.POST.get('new_password')
+        cnew_password = request.POST.get('cnew_password')
+        print(current_password, new_password, cnew_password)
+        if new_password != cnew_password:
+            messages.error(request, 'New password and confirm password should be same.')
+            return redirect('change_password')
+            
+        if request.user.check_password(current_password):
+            request.user.set_password(new_password)
+            request.user.save()
+            messages.success(request, 'Password changed successfully.')
+            
+            login(request, request.user, backend='django.contrib.auth.backends.ModelBackend')
+            
+            return redirect('change_password')  
+        else:
+            messages.error(request, 'Invalid current password.')
+    return render(request, 'accounts/change_password.html')
+
+
+# Profile
+@login_required
+def profile(request):
+    
+    return render(request, 'accounts/profile.html')
