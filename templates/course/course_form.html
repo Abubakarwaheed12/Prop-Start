@@ -29,18 +29,18 @@
                         <img src="{% static 'images/logo.svg' %}" alt="">
                        </a>
                 </div>
-                <h4>Course Payment </h4>
+                <h4>Course Payment - ${{course.price}} </h4>
                 <form action="/checkout_session1/{{course_id}}/" method="POST">
                     {% csrf_token %}
                     <div class="paybutton">
-                        <button type="submit" class="btn mybtnpay login_button" id="checkout-button">Pay with Stripe</button>
+                        <button type="submit" class="mybtnpay1 mybtnpay login_button" id="checkout-button">Stripe</button>
                     </div>
                 </form>
 
                 <form action="/paypal_create_payment/{{course_id}}/" method="POST">
                     {% csrf_token %}
                     <div class="paybutton">
-                        <button type="submit" class="btn mybtnpay login_button" id="checkout-button">Pay with Paypal</button>
+                        <button type="submit" class="mybtnpay2 mybtnpay login_button" id="checkout-button"><span class="pay_span_1">Pay</span><span class="pay_span_2">Pal</span></button>
                     </div>
                 </form>
             </div>

@@ -89,18 +89,46 @@ def send_code(request):
 def Login(request):
     if request.method == 'POST':
         email = request.POST.get("email")
-        print(email,"login email")
         pass1 = request.POST.get("pass")
-        print(pass1,"login pass")
+        otp = get_random_string(length=4, allowed_chars='0123456789')
+        request.session["otp"] = otp
+        request.session["email"] = email
+        request.session["password"] = pass1
         user = authenticate(request, email=email,password=pass1)
-        print(user)
         if user is not None:
-                login(request, user)
-                return redirect("courses")
+                # login(request, user)
+                # Start a new thread to send the email
+                subject = f"Login OTP"
+                message = f"Your Login OTP is {otp}"
+
+                email_thread =threading.Thread(target=send_otp_email, args=(email, subject, message)) 
+                email_thread.start()
+                messages.success(request,"otp has been sent to your email")
+                return redirect("verify_login_otp")
         else:
             messages.error(request,"Invalid credentials")
             return render(request, "accounts/login_page.html")
     return render(request,"accounts/login_page.html")
+
+
+# Login Otp Verification: 
+def verify_login_otp(request):
+    if request.method == "POST":
+        otp_values = request.POST.getlist("code_number_input")
+        print(otp_values)
+        otp_ = "".join(otp_values)
+        otp = request.session["otp"]
+        pass1 = request.session["password"]
+        email = request.session["email"]
+        if otp_ == otp:
+            user = authenticate(request, email=email,password=pass1)
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            print(email, pass1)
+        messages.error(request, 'Otp is not correct.')
+
+    return render(request, 'accounts/login_otp.html')
 
 
 # Forgot Password 

@@ -38,8 +38,8 @@ def courses(request):
 
 
 def course_form(request, course_id):
-    
-    context = {'course_id':course_id,}
+    course = get_object_or_404(Cousre, id=course_id)
+    context = {'course_id':course_id,'course':course}
     return render(request,'course/course_form.html' , context)
 
 
