@@ -25,21 +25,23 @@
             <div class="login_account_section_one">
                 <p class="step_text">Step 04/04</p>
                 <div class="account_logo">
-                    <img src="{% static 'images/logo.svg' %}" alt="">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'images/logo.svg' %}" alt="">
+                       </a>
                 </div>
                 <h4>Book a Call Payment - $50</h4>
                 <form action="/checkout_session/" method="POST">
                     <input type="hidden" name="invoice_id" value="{{invoice_id}}">
                     {% csrf_token %}
                     <div class="paybutton">
-                        <button type="submit" class="btn mybtnpay login_button" id="checkout-button">Pay with Stripe</button>
+                        <button type="submit" class="mybtnpay mybtnpay1 login_button" id="checkout-button">Stripe</button>
                     </div>
                 </form>
                 
                 <form action="/create_payment/" method="POST">
                     {% csrf_token %}
                     <div class="paybutton">
-                        <button type="submit" class="btn mybtnpay login_button" id="create_payment">Pay with Paypal</button>
+                        <button type="submit" class="mybtnpay mybtnpay2 login_button" id="create_payment"><span class="pay_span_1">Pay</span><span class="pay_span_2">Pal</span></button>
                     </div>
                 </form>
                 <!-- <form class="account_form" method="post">

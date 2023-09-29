@@ -25,7 +25,9 @@
             <div class="login_account_section_one">
                 <p class="step_text">Step 01/01</p>
                 <div class="account_logo">
-                    <img src="{% static 'images/logo.svg' %}" alt="">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'images/logo.svg' %}" alt="">
+                       </a>
                 </div>
                 {% if order %}
                 <h4>You Already Book The Order</h4>

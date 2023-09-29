@@ -24,7 +24,9 @@
             <div class="login_account_section_one">
                 <p class="step_text">Step 02/04</p>
                 <div class="account_logo">
-                    <img src="{% static 'images/logo.svg' %}" alt="">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'images/logo.svg' %}" alt="">
+                       </a>
                 </div>
                 <h4>Other Details</h4>
                 <form class="account_form" method="post">

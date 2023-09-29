@@ -21,7 +21,9 @@
         <div class="account_section_main">
             <div class="login_account_section_one">
                 <div class="account_logo">
-                    <img src="{% static 'images/logo.svg' %}" alt="">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'images/logo.svg' %}" alt="">
+                       </a>
                 </div>
                 <h4>Register your Account</h4>
                 {% if messages %}

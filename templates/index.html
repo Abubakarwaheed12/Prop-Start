@@ -7,7 +7,7 @@
 {% endblock %}
     <!-- Smart Learning Strategic Buying Section Start -->
     {% block content %}
-    <div class="section_2">
+    <div class="section_2 all_sections">
         <div class="container" style="position: relative;">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12 learning_text_main_section">
@@ -33,7 +33,7 @@
                           <div class="circle"></div>
                         </li>
                       </ol>
-                    <div class="learning_text_section">
+                    <div class="learning_text_section" data-aos="fade-down" data-aos-duration="3000">
                         <h6>Smart Learning Strategic <span>Buying</span></h6>
                         <p>Through a combination of lectures, readings, and discussions, students
                             will gain a solid foundation in educational psychology.</p>
@@ -44,7 +44,7 @@
                             </a>
                             <a href="{% url 'on-boarding1' %}">
                                 <button type="submit" class="pre_order_button"
-                                    style="border: 1px solid #0D4949; background: #0D4949;">Book a Call</button>
+                                    style="background: #0D4949;">Book a Call</button>
                             </a>
                         </div>
                     </div>
@@ -52,8 +52,29 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-12 two_images_div" style="position: relative;">
                     <!-- <img src="{% static 'images/rafiki.png' %}" alt="" class="rafiki_image"> -->
-                    <img src="{% static 'images/Group 21.svg' %}" alt="" class="arrow_bottom_image">
-                    <video src="{% static 'videos/IMG_0712 (2).mp4' %}" controls autoplay id="myVideo" class="rafiki_image"></video>
+                    <!-- <img src="{% static 'images/Group 21.svg' %}" alt="" class="arrow_bottom_image"> -->
+                    <div class="scrollcontainer">
+                        <div class="chevron"></div>
+                        <div class="chevron"></div>
+                        <div class="chevron"></div>
+                        <div class="chevron"></div>
+                        <div class="chevron"></div>
+                      </div>
+                    <div class="video-container">
+                        <div class="video-wrapper" id="video-wrapper" data-aos="fade-down"
+                        data-aos-easing="linear"
+                        data-aos-duration="1500">
+                            <video src="{% static 'videos/IMG_0712 (2).mp4' %}" muted autoplay id="myVideo" class="rafiki_image"></video>
+                            <!-- SVG Play/Pause Button -->
+                            <svg class="play-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+                                <!-- Play icon -->
+                                <path class="play-icon" d="M26 61.56V18.44L64 40z" />
+                                <!-- Pause icon -->
+                                <rect class="pause-icon" x="25" y="20" width="10" height="40" />
+                                <rect class="pause-icon" x="45" y="20" width="10" height="40" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,14 +83,14 @@
     <!-- end -->
 
     <!-- Beyond the Conventional Classroom Start  -->
-    <div class="section_3">
+    <div class="section_3 all_sections">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 buyend_image_sec">
-                    <img src="{% static 'videos/gift1.gif' %}" alt="" class="buyend_image">
+                    <img src="{% static 'videos/gift1.gif' %}" alt="" class="buyend_image" data-aos="zoom-in" data-aos-duration="3000">
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="beyond_text_main_section">
+                    <div class="beyond_text_main_section"  data-aos="fade-down" data-aos-duration="3000">
                         <div class="beyond_text_div">
                             <h5>Beyond the
                                 Conventional
@@ -81,7 +102,7 @@
                         </div>
                         
                         <a href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'signup' %}{%endif %}" style="text-decoration: none;">
-                            <button type="submit" class="pre_order_button2">Pre-Order</button>
+                            <button type="submit" class="pre_order_button2" data-aos="flip-up" data-aos-duration="2000">Pre-Order</button>
                         </a>
                     </div>
                 </div>
@@ -92,11 +113,11 @@
     <!-- end -->
 
     <!-- Invest Without Compromise Start  -->
-    <div class="section_3">
+    <div class="section_4 all_sections">
         <div class="container">
             <div class="row section_3_row">
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="invest_text_main_section">
+                    <div class="invest_text_main_section" data-aos="fade-down" data-aos-duration="3000">
                         <div class="invest_text_div">
                             <h5>Invest
                                 Without
@@ -106,13 +127,13 @@
                                 enjoying your brunch and avocados</p>
 
                         </div>
-                        <a href="{% url 'on-boarding1' %}" style="text-decoration: none;">
+                        <a href="{% url 'on-boarding1' %}" style="text-decoration: none;" data-aos="flip-up" data-aos-duration="2000">
                             <button type="submit" class="back_a_button2">Book a Call</button>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-12 buyend_image_sec">
-                    <img src="{% static 'videos/gift2.gif' %}" alt="" class="buyend_image">
+                    <img src="{% static 'videos/gift2.gif' %}" alt="" class="buyend_image" data-aos="zoom-in" data-aos-duration="3000">
                 </div>
             </div>
         </div>
@@ -121,17 +142,49 @@
     <!-- end -->
 
     <!-- Is PropStart Right for you Start -->
-    <div class="home_section_four">
+    <div class="home_section_four all_sections">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-7 col-sm-12 col-12 untitled_group_image">
-                    <img src="{% static 'images/Untitled (1).svg' %}" alt="">
+                    <!-- data-aos="zoom-in" data-aos-duration="3000" -->
+                    <img src="{% static 'images/Untitled (1).svg' %}" alt="" class="untitled_group_image_img group_img_block" data-aos="zoom-in" data-aos-duration="3000">
+                    <div class="right_of_you" data-aos="zoom-in" data-aos-duration="3000">
+                        <img src="{% static 'images/Group 62.svg' %}" alt="" class="untitled_group_image_img">
+                        <div>
+                            <div class="icon_number icon_number01">
+                                <h6>01</h6>
+                                <p class="icon_text text01">Education</p>
+                            </div>
+                            <div class="icon_number icon_number02">
+                                <h6>02</h6>
+                                <p class="icon_text">Consult</p>
+                            </div>
+                            <div class="icon_number icon_number03">
+                                <h6>03</h6>
+                                <p class="icon_text">Invest</p>
+                            </div>
+                            <div class="icon_number icon_number04">
+                                <h6>04</h6>
+                                <p class="icon_text">Grow</p>
+                            </div>
+                            <div class="icon_number icon_number05">
+                                <h6>05</h6>
+                                <p class="icon_text">DreamHouse</p>
+                            </div>
+                            <img src="{% static 'images/01.svg' %}" alt="" class="right_of_you_icon img01">
+                            <img src="{% static 'images/02.svg' %}" alt="" class="right_of_you_icon img02">
+                            <img src="{% static 'images/03.svg' %}" alt="" class="right_of_you_icon img03">
+                            <img src="{% static 'images/04.svg' %}" alt="" class="right_of_you_icon img04">
+                            <img src="{% static 'images/05.svg' %}" alt="" class="right_of_you_icon img05">
+                        </div>
+
+                    </div>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-12 col-12 propstart_text_section">
-                    <div class="propstart_text">
-                        <h4>Is PropStart Right for you?</h4>
+                    <div class="propstart_text" data-aos="fade-down" data-aos-duration="3000">
+                        <h4 class="text_append_h4">Is PropStart Right for you?</h4>
                         <a href="{% url 'quiz-1' %}">
-                            <button type="button" class="take_quiz_button">Take Quiz</button>
+                            <button type="button" class="take_quiz_button" data-aos="flip-up" data-aos-duration="2000">Take Quiz</button>
                         </a>
                     </div>
                 </div>
@@ -142,16 +195,19 @@
     <!-- End -->
 
     <!-- Your Journey Starts Here  Start -->
-    <div class="home_section_five">
+    <div class="home_section_five all_sections">
         <div class="container">
             <div class="journey_start_section">
-                <h4>Your Journey Starts Here</h4>
-                <div class="journey_start_button_group">
+                <h4 data-aos="fade-down"
+                data-aos-easing="linear"
+                data-aos-duration="1500">Your Journey Starts Here</h4>
+                <div class="journey_start_button_group" data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom" >
                     <a href="{% url 'signup' %}">
-                        <button type="submit" class="journey_start_button">Sign Up</button>
+                        <button type="submit" class="journey_start_button journey_start_button_sign">Sign Up</button>
                     </a>
                     <a href="{% url 'on-boarding1' %}">
-                        <button type="submit" class="journey_start_button" style="background: none;">Book a
+                        <button type="submit" class="journey_start_button journey_start_button_call" style="background: none;">Book a
                             Call</button>
                     </a>
                 </div>
@@ -170,36 +226,46 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 crossorigin="anonymous"></script>
+
+<!-- jquery cdn -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    var x = document.getElementById("myVideo").autoplay;
-    // console.log(x,'sadhjashdsads')
-    const circles = document.querySelectorAll(".circle");
-let sectionHeight = 500; // Default section height
+const circles = document.querySelectorAll(".circle");
+const allSections = document.querySelectorAll(".all_sections"); // Updated class name for sections
+const sectionHeight = window.innerHeight;
+let currentSectionIndex = 0;
 
-// Check if the screen width is less than or equal to 768px
-if (window.matchMedia("(max-width: 992px)").matches) {
-    sectionHeight = 600; // Update section height for screens <= 768px
-    console.log(sectionHeight,'asdsadsad')
-}
-// Check if the screen width is less than or equal to 768px
-if (window.matchMedia("(max-width: 768px)").matches) {
-    sectionHeight = 700; // Update section height for screens <= 768px
-    console.log(sectionHeight,'asdsadsad')
-}
-// Check if the screen width is less than or equal to 768px
-if (window.matchMedia("(max-width: 576px)").matches) {
-    sectionHeight = 600; // Update section height for screens <= 768px
-    console.log(sectionHeight,'asdsadsad')
-}
+// Filter out sections that have the "all_sections" class
+const sections = Array.from(allSections);
 
-window.addEventListener("scroll", () => {
-    const scrollPosition = window.scrollY;
+window.addEventListener("wheel", (e) => {
+    e.preventDefault();
 
-    circles.forEach((circle, index) => {
-        const sectionStart = index * sectionHeight;
-        const sectionEnd = (index + 1) * sectionHeight;
+    if (e.deltaY > 0) {
+        // Scrolling down
+        if (currentSectionIndex < sections.length - 1) {
+            currentSectionIndex++;
+        }
+    } else {
+        // Scrolling up
+        if (currentSectionIndex > 0) {
+            currentSectionIndex--;
+        }
+    }
 
-        if (scrollPosition >= sectionStart && scrollPosition < sectionEnd) {
+    scrollToSection(currentSectionIndex);
+});
+
+function scrollToSection(index) {
+    const targetScrollY = sections[index].getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({
+        top: targetScrollY,
+        behavior: 'smooth'
+    });
+
+    // Update circle fill and circle_parent
+    circles.forEach((circle, circleIndex) => {
+        if (circleIndex === index) {
             circle.classList.add("fill");
             circle.closest(".circle1").classList.add("circle_parent");
         } else {
@@ -207,9 +273,84 @@ window.addEventListener("scroll", () => {
             circle.closest(".circle1").classList.remove("circle_parent");
         }
     });
-});
+}
 
+// Initial fill and circle_parent setup for the first section
+scrollToSection(currentSectionIndex);
+
+
+
+// video play button js 
+    $(document).ready(function() {
+        const video = $("#myVideo")[0];
+        const playButton = $(".play-button");
+
+        // Function to toggle play/pause and show/hide buttons
+        function togglePlay() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+            // Show buttons and start the fadeout timer
+            playButton.fadeIn();
+            setTimeout(function() {
+                playButton.fadeOut();
+            }, 900); // Hide buttons after 3 seconds
+        }
+
+        $("#video-wrapper").click(togglePlay);
+
+        video.addEventListener("play", function() {
+            $(".play-icon").show();
+            $(".pause-icon").hide();
+        });
+
+        video.addEventListener("pause", function() {
+            $(".play-icon").hide();
+            $(".pause-icon").show();
+        });
+
+        // text append on hover
+        // When hovering over .img01
+        // Store the original text
+        // Store the original text
+        var originalText = $(".text_append_h4").text();
+
+        // Function to handle hover and text appending logic
+        function handleImageHover(imgClass, iconNumberClass) {
+            $(imgClass).mouseenter(function () {
+                // Get the text value of the associated .icon_text element
+                var textValue = $(iconNumberClass + " .icon_text").text();
+
+                // Append the text value as an h4 element with the class "text_append_h4"
+                $(".text_append_h4").empty().append('<h4 class="text_append_span text-center">' + textValue + '</h4>');
+
+                // Fade in the appended h4 element
+                $(".text_append_h4").fadeIn(200);
+            });
+
+            $(imgClass).mouseleave(function () {
+                // Hide the appended h4 element
+                $(".text_append_h4").fadeOut(200, function () {
+                    // Show the original text
+                    $(".text_append_h4").text(originalText).fadeIn(200);
+                });
+            });
+        }
+
+        // Call the function for each image and associated icon_number
+        handleImageHover(".img01", ".icon_number01");
+        handleImageHover(".img02", ".icon_number02");
+        handleImageHover(".img03", ".icon_number03");
+        handleImageHover(".img04", ".icon_number04");
+        handleImageHover(".img05", ".icon_number05");
+        // Repeat for other images as needed
+    });
+
+        
 </script>
+
 {% endblock js %}
    
 <!-- </body>
