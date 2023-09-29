@@ -12,10 +12,13 @@ from .emails import(
     send_otp_email,
     send_forget_password_mail
 )
+from .forms import CustomUserUpdateForm
+from .decorator import redirect_authenticated_user
 # Create your views here.
 
 
 # Get all fields for signup and save in session till verify token 
+@redirect_authenticated_user
 def signup(request):
     if request.method == 'POST':
         firstname = request.POST.get("fname")
@@ -47,6 +50,7 @@ def signup(request):
     return render(request,"accounts/signup_page.html")
 
 # Send Registratin Verification Code
+@redirect_authenticated_user
 def send_code(request):
     """
     Function For Sending Verification Email
@@ -64,9 +68,10 @@ def send_code(request):
         if otp_ == otp:
             user = CustomUser(email=email,first_name=fname, last_name=lname)
             user.set_password(password)
-            print(user)
             user.save()
-            print(user)
+            # send to hubspot
+            user.send_to_hubspot()
+            
             request.session.delete('otp')
             request.session.delete('email')
             request.session.delete('password')
@@ -81,6 +86,7 @@ def send_code(request):
 
 
 # Login User
+@redirect_authenticated_user
 def Login(request):
     if request.method == 'POST':
         email = request.POST.get("email")
@@ -107,6 +113,7 @@ def Login(request):
 
 
 # Login Otp Verification: 
+@redirect_authenticated_user
 def verify_login_otp(request):
     if request.method == "POST":
         otp_values = request.POST.getlist("code_number_input")
@@ -127,6 +134,7 @@ def verify_login_otp(request):
 
 
 # Forgot Password 
+@redirect_authenticated_user
 def forget_password(request):
     try:
         otp = random.randint(1111,9999)
@@ -152,7 +160,8 @@ def forget_password(request):
     except Exception as e:
         print(e)
 
-# for Password Token Verification 
+# for Password Token Verification
+@redirect_authenticated_user 
 def enter_otp_for_forgot_password(request):
     
     if request.method == "POST":
@@ -173,6 +182,7 @@ def enter_otp_for_forgot_password(request):
     return render(request,"accounts/forgot_password_otp.html")
     
 # Reset Password 
+@redirect_authenticated_user
 def reset_password(request):
     try:
         if request.method == "POST":
@@ -196,7 +206,7 @@ def reset_password(request):
     except Exception as e:
         print(e)
 
-
+@redirect_authenticated_user
 def password_successfuly(request):
     return render(request,"accounts/password_successfully.html")
 
@@ -234,5 +244,15 @@ def change_password(request):
 # Profile
 @login_required
 def profile(request):
+    user = request.user 
+    if request.method == 'POST':
+        form = CustomUserUpdateForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            messages.success(request, 'Profile Updated Successfully!')
+            form.save()
+            return redirect('profile')
+    else:
+        form = CustomUserUpdateForm(instance=user)
     
-    return render(request, 'accounts/profile.html')
+    context = {'form': form}
+    return render(request, 'accounts/profile.html', context)
