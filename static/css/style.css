@@ -1653,7 +1653,7 @@ article.on {
 }
 
 .header_dropdown_top::after {
-    border: none;
+    /* border: none; */
 }
 
 .dropdown_menu_item {
