@@ -16,6 +16,7 @@ class CustomUser(AbstractUser):
         help_text='Enter your phone number in international format (e.g., +1234567890).',
         null=True,
         blank=True,
+        max_length=50
     )
 
     

@@ -340,7 +340,7 @@
 }
 
 .home_section_four {
-    margin-top: 157px;
+    margin-top: 100px;
     background: rgba(23, 224, 147, 0.10) !important;
     padding: 108px 0 83.001px 0;
 }
@@ -1652,9 +1652,9 @@ article.on {
     position: relative;
 }
 
-.header_dropdown_top::after {
-    /* border: none; */
-}
+/* .header_dropdown_top::after {
+    border: none;
+} */
 
 .dropdown_menu_item {
     border-radius: 8px;
@@ -2662,6 +2662,17 @@ height: 36.702px; */
 }
 
 @media screen and (max-width : 992px) {
+    /* .section_3{
+        padding-top: 80px;
+        padding-bottom: 90px;
+    }
+    .section_4{
+        padding-top: 80px;
+        padding-bottom: 90px;
+    } */
+    .home_section_four {
+        margin-top: 50px;
+    }
     .icon_number h6 {
         font-size: 25.704px;
     }
@@ -3193,6 +3204,15 @@ height: 36.702px; */
 }
 
 @media screen and (max-width : 768px) {
+    .section_3{
+        padding-top: 50px;
+    }
+    .section_4{
+        padding-top: 50px;
+    }
+    .home_section_four {
+        margin-top: 50px;
+    }
     .img01 {
         width: 28.323px;
         top: 64px;
@@ -3577,15 +3597,9 @@ height: 36.702px; */
 
 
 }
-@media screen and (max-width : 470px) {
-    .right_of_you{
-        display: none;
-    }
-    .group_img_block{
-        display: block;
-    }
-}
+
 @media screen and (max-width : 578px) {
+
     .img01 {
         width: 26.323px;
         top: 52px;
@@ -3676,12 +3690,10 @@ height: 36.702px; */
 
     .double-circles {
         left: 7px;
+        display: none;
     }
 
-    .two_images_div {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
+
 
     .desc_section h2 {
         font-size: 21px;
@@ -3968,7 +3980,7 @@ height: 36.702px; */
     }
 
     .section_2 {
-        padding: 150px 25px 90px 0;
+        padding: 150px 25px 70px 25px;
     }
 
     .info_item_section h5 {
@@ -4066,8 +4078,8 @@ height: 36.702px; */
     }
 
     .home_section_four {
-        margin-top: 115px;
-        padding: 83px 25px;
+        margin-top: 40px;
+        padding: 73px 25px;
     }
 
     .propstart_text h4 {
@@ -4082,11 +4094,11 @@ height: 36.702px; */
     }
 
     .section_3 {
-        padding: 150px 25px 100px 25px;
+        padding: 0 25px 80px 25px;
     }
 
     .section_4 {
-        padding: 150px 25px 100px 25px;
+        padding: 50px 25px 80px 25px;
     }
 
     .invest_text_div h5 {
@@ -4110,7 +4122,7 @@ height: 36.702px; */
     .rafiki_image {
         /* margin-top: 40px; */
         width: 100%;
-        margin-top: 7rem;
+        margin-top: 6rem;
         height: 320px;
     }
 
@@ -4170,7 +4182,14 @@ height: 36.702px; */
     }
 }
 
-
+@media screen and (max-width : 470px) {
+    .right_of_you{
+        display: none;
+    }
+    .group_img_block{
+        display: block;
+    }
+}
 @media screen and (max-width : 400px) {
     .nav_button_group {
         gap: 10px;

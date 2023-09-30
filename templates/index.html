@@ -230,55 +230,57 @@ crossorigin="anonymous"></script>
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-const circles = document.querySelectorAll(".circle");
-const allSections = document.querySelectorAll(".all_sections"); // Updated class name for sections
-const sectionHeight = window.innerHeight;
-let currentSectionIndex = 0;
+const isDesktop = window.innerWidth >= 576; // Set the threshold for desktop screens
 
-// Filter out sections that have the "all_sections" class
-const sections = Array.from(allSections);
+if (isDesktop) {
+    const circles = document.querySelectorAll(".circle");
+    const allSections = document.querySelectorAll(".all_sections"); // Updated class name for sections
+    const sectionHeight = window.innerHeight;
+    let currentSectionIndex = 0;
 
-window.addEventListener("wheel", (e) => {
-    e.preventDefault();
+    // Filter out sections that have the "all_sections" class
+    const sections = Array.from(allSections);
 
-    if (e.deltaY > 0) {
-        // Scrolling down
-        if (currentSectionIndex < sections.length - 1) {
-            currentSectionIndex++;
+    window.addEventListener("wheel", (e) => {
+        e.preventDefault();
+
+        if (e.deltaY > 0) {
+            // Scrolling down
+            if (currentSectionIndex < sections.length - 1) {
+                currentSectionIndex++;
+            }
+        } else {
+            // Scrolling up
+            if (currentSectionIndex > 0) {
+                currentSectionIndex--;
+            }
         }
-    } else {
-        // Scrolling up
-        if (currentSectionIndex > 0) {
-            currentSectionIndex--;
-        }
+
+        scrollToSection(currentSectionIndex);
+    });
+
+    function scrollToSection(index) {
+        const targetScrollY = sections[index].getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+            top: targetScrollY,
+            behavior: 'smooth'
+        });
+
+        // Update circle fill and circle_parent
+        circles.forEach((circle, circleIndex) => {
+            if (circleIndex === index) {
+                circle.classList.add("fill");
+                circle.closest(".circle1").classList.add("circle_parent");
+            } else {
+                circle.classList.remove("fill");
+                circle.closest(".circle1").classList.remove("circle_parent");
+            }
+        });
     }
 
+    // Initial fill and circle_parent setup for the first section
     scrollToSection(currentSectionIndex);
-});
-
-function scrollToSection(index) {
-    const targetScrollY = sections[index].getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({
-        top: targetScrollY,
-        behavior: 'smooth'
-    });
-
-    // Update circle fill and circle_parent
-    circles.forEach((circle, circleIndex) => {
-        if (circleIndex === index) {
-            circle.classList.add("fill");
-            circle.closest(".circle1").classList.add("circle_parent");
-        } else {
-            circle.classList.remove("fill");
-            circle.closest(".circle1").classList.remove("circle_parent");
-        }
-    });
 }
-
-// Initial fill and circle_parent setup for the first section
-scrollToSection(currentSectionIndex);
-
-
 
 // video play button js 
     $(document).ready(function() {
