@@ -10,5 +10,7 @@ urlpatterns = [
   path("reset-password/",reset_password, name="reset-password"),
   path("password-success/",password_successfuly, name="password-success"),
   path("user_logout/", user_logout, name="user_logout"),
-  
+  path('verify_login_otp/', verify_login_otp, name="verify_login_otp"),
+  path('profile/', profile, name="profile"),
+  path('change_password/', change_password, name="change_password"),
 ]

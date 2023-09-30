@@ -32,18 +32,18 @@
                 {% if order %}
                 <h4>You Already Book The Order</h4>
                 {% else %}
-                <h4>Pre Order Payment </h4>
+                <h4>Pre Order Payment - $375</h4>
                 <form action="/pre_order_stripe_checkout_session/" method="POST">
                     {% csrf_token %}
                     <div class="paybutton">
-                        <button type="submit" class="btn mybtnpay login_button" id="checkout-button">Pay with Stripe</button>
+                        <button type="submit" class="mybtnpay mybtnpay1 login_button" id="checkout-button">Stripe</button>
                     </div>
                 </form>
 
                 <form action="/pre_order_paypal_create_payment/" method="POST">
                     {% csrf_token %}
                     <div class="paybutton">
-                        <button type="submit" class="btn mybtnpay login_button" id="checkout-button">Pay with Paypal</button>
+                        <button type="submit" class="mybtnpay mybtnpay2 login_button" id="checkout-button"><span class="pay_span_1">Pay</span><span class="pay_span_2">Pal</span></button>
                     </div>
                 </form>
                 {% endif %}

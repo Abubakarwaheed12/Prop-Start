@@ -3,20 +3,22 @@ import random
 from django.shortcuts import render, redirect, HttpResponse
 from django.utils.crypto import get_random_string
 from django.contrib import messages
-from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth import authenticate, login 
 from django.contrib.auth import logout
-
+from django.contrib.auth.decorators import login_required
 from .models import CustomUser
 from .emails import(
     send_otp_email,
     send_forget_password_mail
 )
+from .forms import CustomUserUpdateForm
+from .decorator import redirect_authenticated_user
 # Create your views here.
 
 
 # Get all fields for signup and save in session till verify token 
+@redirect_authenticated_user
 def signup(request):
     if request.method == 'POST':
         firstname = request.POST.get("fname")
@@ -48,6 +50,7 @@ def signup(request):
     return render(request,"accounts/signup_page.html")
 
 # Send Registratin Verification Code
+@redirect_authenticated_user
 def send_code(request):
     """
     Function For Sending Verification Email
@@ -56,10 +59,6 @@ def send_code(request):
         otp_values = request.POST.getlist("code_number_input")
         print(otp_values)
         otp_ = "".join(otp_values)
-        otp_int = ""
-        if otp_:
-            otp_int = int(otp_)
-            print(otp_int)
 
         otp = request.session["otp"]
         email = request.session["email"]
@@ -69,9 +68,10 @@ def send_code(request):
         if otp_ == otp:
             user = CustomUser(email=email,first_name=fname, last_name=lname)
             user.set_password(password)
-            print(user)
             user.save()
-            print(user)
+            # send to hubspot
+            user.send_to_hubspot()
+            
             request.session.delete('otp')
             request.session.delete('email')
             request.session.delete('password')
@@ -86,24 +86,55 @@ def send_code(request):
 
 
 # Login User
+@redirect_authenticated_user
 def Login(request):
     if request.method == 'POST':
         email = request.POST.get("email")
-        print(email,"login email")
         pass1 = request.POST.get("pass")
-        print(pass1,"login pass")
+        otp = get_random_string(length=4, allowed_chars='0123456789')
+        request.session["otp"] = otp
+        request.session["email"] = email
+        request.session["password"] = pass1
         user = authenticate(request, email=email,password=pass1)
-        print(user)
         if user is not None:
-                login(request, user)
-                return redirect("courses")
+                # login(request, user)
+                # Start a new thread to send the email
+                subject = f"Login OTP"
+                message = f"Your Login OTP is {otp}"
+
+                email_thread =threading.Thread(target=send_otp_email, args=(email, subject, message)) 
+                email_thread.start()
+                messages.success(request,"otp has been sent to your email")
+                return redirect("verify_login_otp")
         else:
             messages.error(request,"Invalid credentials")
             return render(request, "accounts/login_page.html")
     return render(request,"accounts/login_page.html")
 
 
+# Login Otp Verification: 
+@redirect_authenticated_user
+def verify_login_otp(request):
+    if request.method == "POST":
+        otp_values = request.POST.getlist("code_number_input")
+        print(otp_values)
+        otp_ = "".join(otp_values)
+        otp = request.session["otp"]
+        pass1 = request.session["password"]
+        email = request.session["email"]
+        if otp_ == otp:
+            user = authenticate(request, email=email,password=pass1)
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            print(email, pass1)
+        messages.error(request, 'Otp is not correct.')
+
+    return render(request, 'accounts/login_otp.html')
+
+
 # Forgot Password 
+@redirect_authenticated_user
 def forget_password(request):
     try:
         otp = random.randint(1111,9999)
@@ -129,38 +160,34 @@ def forget_password(request):
     except Exception as e:
         print(e)
 
-# for Password Token Verification 
+# for Password Token Verification
+@redirect_authenticated_user 
 def enter_otp_for_forgot_password(request):
     
     if request.method == "POST":
         otp_values = request.POST.getlist("code_number_input")
-        print(otp_values,"forgor password otp_value")
         email = request.session["email_for_forget_password"]
-        print(email)
         fotp = request.session["fotp"]
         otp_ = "".join(otp_values)
         otp_int = int(otp_)
-        print(otp_int,"forgor password otp_int")
         if  fotp == otp_int :
             user = CustomUser.objects.get(email=email)
             user.forget_password_token = otp_int
             user.save()   
             return redirect("reset-password")
         else:
-            print("else")
             messages.error(request,"Otp does not match")
             return render(request, "accounts/forgot_password_otp.html")
     
     return render(request,"accounts/forgot_password_otp.html")
     
 # Reset Password 
+@redirect_authenticated_user
 def reset_password(request):
     try:
         if request.method == "POST":
             password = request.POST.get("password")
-            print(password)
             new_password = request.POST.get("new-password")
-            print (new_password)
             email = request.session["email_for_forget_password"]
             user = CustomUser.objects.get(email=email)
             if password != new_password:
@@ -179,7 +206,7 @@ def reset_password(request):
     except Exception as e:
         print(e)
 
-
+@redirect_authenticated_user
 def password_successfuly(request):
     return render(request,"accounts/password_successfully.html")
 
@@ -187,3 +214,45 @@ def password_successfuly(request):
 def user_logout(requset):
     logout(requset)
     return redirect('/accounts/login')
+
+
+# Change Password 
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        current_password = request.POST.get('current_password')
+        new_password = request.POST.get('new_password')
+        cnew_password = request.POST.get('cnew_password')
+        print(current_password, new_password, cnew_password)
+        if new_password != cnew_password:
+            messages.error(request, 'New password and confirm password should be same.')
+            return redirect('change_password')
+            
+        if request.user.check_password(current_password):
+            request.user.set_password(new_password)
+            request.user.save()
+            messages.success(request, 'Password changed successfully.')
+            
+            login(request, request.user, backend='django.contrib.auth.backends.ModelBackend')
+            
+            return redirect('change_password')  
+        else:
+            messages.error(request, 'Invalid current password.')
+    return render(request, 'accounts/change_password.html')
+
+
+# Profile
+@login_required
+def profile(request):
+    user = request.user 
+    if request.method == 'POST':
+        form = CustomUserUpdateForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            messages.success(request, 'Profile Updated Successfully!')
+            form.save()
+            return redirect('profile')
+    else:
+        form = CustomUserUpdateForm(instance=user)
+    
+    context = {'form': form}
+    return render(request, 'accounts/profile.html', context)
