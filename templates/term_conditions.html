@@ -78,7 +78,10 @@
                     aria-expanded="false"
                   >
                     <div class="user_name_and_iamge">
-                      <h6 class="user_name_top">{{user.first_name}}</h6>
+                      {% load custom_tags %}
+                      <h6 class="user_name_top">
+                        {% first_two_words user.first_name %}
+                      </h6>
                       <img
                         src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}"
                         alt=""
@@ -86,6 +89,20 @@
                     </div>
                   </button>
                   <ul class="dropdown-menu dropdown_menu_item">
+                    <li>
+                      <a
+                        class="dropdown-item item_1"
+                        href="{% url 'profile' %}"
+                        >Profile</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item item_1"
+                        href="{% url 'change_password' %}"
+                        >Change Password</a
+                      >
+                    </li>
                     <li>
                       <a
                         class="dropdown-item item_1"
@@ -109,7 +126,7 @@
           <h2>TERMS AND CONDITIONS OF USE</h2>
           <h3>1. About the Website</h3>
           <p>
-            Welcome to www.propstart.com.au (Website). The Website provides you
+            Welcome to www.propstart.com.au <span>(Website)</span>. The Website provides you
             with an opportunity to browse and purchase various products that
             have been listed for sale through the Website (Products). The
             Website provides this service by way of granting you access to the
@@ -119,7 +136,7 @@
             The Website is operated by PropStart Pty Ltd(ACN 667 595 155).
             Access to and use of the Website, or any of its associated Products
             or Services, is provided by PropStart Pty Ltd. Please read these
-            terms and conditions (Terms) carefully. By using, browsing and/or
+            terms and conditions <span>(Terms)</span> carefully. By using, browsing and/or
             reading the Website, this signifies that you have read, understood
             and agree to be bound by the Terms. If you do not agree with the
             Terms, you must cease usage of the Website, or any of Services,
@@ -134,14 +151,14 @@
             Before you continue, we recommend you keep a copy of the Terms for
             your records.
           </p>
-          <h3>Acceptance of the Terms</h3>
+          <h3>2. Acceptance of the Terms</h3>
           <p>
             You ("The customer") accept the Terms by remaining on the Website.
             You may also accept the Terms by clicking to accept or agree to the
             Terms where this option is made available to you by PropStart Pty
             Ltd in the user interface.
           </p>
-          <h3>Registration to use the Purchase Services</h3>
+          <h3>3. Registration to use the Purchase Services</h3>
           <p>
             In order to access the Purchase Services, you must first register as
             a user of the Website. As part of the registration process, or as
@@ -183,7 +200,7 @@
           </p>
           <p>(i) The Terms;</p>
           <p>
-            (ii) any applicable law, regulation or generally accepted practices
+            (ii) Any applicable law, regulation or generally accepted practices
             or guidelines in the relevant jurisdictions;
           </p>
           <p>

@@ -146,7 +146,8 @@
 
 .learning_text_section p {
     margin-bottom: 0;
-    color: rgba(13, 73, 73, 0.60);
+    color: black;
+    /* color: rgba(13, 73, 73, 0.60); */
     font-family: 'Urbanist';
     font-size: 18px;
     font-style: normal;
@@ -242,7 +243,8 @@
 
 .beyond_text_div p {
     margin-bottom: 0;
-    color: rgba(13, 73, 73, 0.60);
+    /* color: rgba(13, 73, 73, 0.60); */
+    color: black;
     font-family: 'Urbanist';
     font-size: 18px;
     font-style: normal;
@@ -292,7 +294,8 @@
 
 .invest_text_div p {
     margin-bottom: 0;
-    color: rgba(13, 73, 73, 0.60);
+    /* color: rgba(13, 73, 73, 0.60); */
+    color: black;
     font-family: 'Urbanist';
     font-size: 18px;
     font-style: normal;
@@ -419,7 +422,7 @@
 
 .journey_start_button:hover {
     transform: scale(1.08);
-    opacity: 0.8;
+    /* opacity: 0.8; */
 
 }
 
@@ -427,16 +430,12 @@
     border: none;
 }
 
-.journey_start_button_sign:hover {
-    background: none;
-    border: 1px solid #FFF;
-}
+
 
 .journey_start_button_call:hover {
-    background: none;
     border: none;
-    color: #0D4949;
-    background-color: #F4BF36 !important;
+    background-color: black !important;
+    opacity: 0.8;
 }
 
 .journey_start_button_group {
@@ -1722,7 +1721,8 @@ article.on {
 
 .desc_section p {
     margin-bottom: 0;
-    color: rgba(13, 73, 73, 0.60);
+    /* color: rgba(13, 73, 73, 0.60); */
+    color: black;
     font-family: 'Urbanist';
     font-size: 18px;
     font-style: normal;
@@ -1736,7 +1736,8 @@ article.on {
 }
 
 .desc_section p a {
-    color: rgba(13, 73, 73, 0.60) !important;
+    /* color: rgba(13, 73, 73, 0.60) !important; */
+    color: black;
 }
 
 .desc_section h5 {

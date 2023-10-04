@@ -79,7 +79,10 @@
                     aria-expanded="false"
                   >
                     <div class="user_name_and_iamge">
-                      <h6 class="user_name_top">{{user.first_name}}</h6>
+                      {% load custom_tags %}
+                      <h6 class="user_name_top">
+                        {% first_two_words user.first_name %}
+                      </h6>
                       <img
                         src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}"
                         alt=""
@@ -87,6 +90,20 @@
                     </div>
                   </button>
                   <ul class="dropdown-menu dropdown_menu_item">
+                    <li>
+                      <a
+                        class="dropdown-item item_1"
+                        href="{% url 'profile' %}"
+                        >Profile</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item item_1"
+                        href="{% url 'change_password' %}"
+                        >Change Password</a
+                      >
+                    </li>
                     <li>
                       <a
                         class="dropdown-item item_1"
