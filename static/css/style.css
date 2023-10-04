@@ -117,7 +117,7 @@
 
 .section_2 {
     /* margin-top: 177px; */
-    padding: 170px 0 100px 0;
+    /* padding: 170px 0 100px 0; */
     position: relative;
     background-color: rgba(255, 255, 255, 1);
 }
@@ -206,12 +206,12 @@
 
 .section_3 {
     /* margin-top: 157px; */
-    padding: 150px 0 100px 0;
+    /* padding: 150px 0 100px 0; */
     background-color: rgba(255, 255, 255, 1);
 }
 
 .section_4 {
-    padding: 150px 0 100px 0;
+    /* padding: 150px 0 100px 0; */
     background-color: rgba(255, 255, 255, 1);
 }
 
@@ -343,9 +343,9 @@
 }
 
 .home_section_four {
-    margin-top: 100px;
+    /* margin-top: 100px; */
     background: rgba(23, 224, 147, 0.10) !important;
-    padding: 108px 0 83.001px 0;
+    /* padding: 108px 0 83.001px 0; */
 }
 
 .untitled_group_image {
@@ -398,8 +398,8 @@
 }
 
 .home_section_five {
-    margin-top: 92px;
-    padding: 163px 0px 162px 0px;
+    /* margin-top: 92px; */
+    /* padding: 163px 0px 162px 0px; */
     border-radius: 96px 96px 0px 0px;
     background: #0D4949;
 }
@@ -1757,7 +1757,12 @@ article.on {
 }
 
 .all_sections {
-    height: auto;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+
 }
 
 .double-circles {
@@ -2235,6 +2240,8 @@ height: 36.702px; */
 }
 
 @media screen and (max-width : 1400px) {
+
+
     .double-circles {
         left: 20px;
     }
@@ -2663,6 +2670,10 @@ height: 36.702px; */
 }
 
 @media screen and (max-width : 992px) {
+    .section_2 {
+        margin-top: 180px !important;
+        height: auto !important;
+    }
     /* .section_3{
         padding-top: 80px;
         padding-bottom: 90px;
@@ -2671,9 +2682,9 @@ height: 36.702px; */
         padding-top: 80px;
         padding-bottom: 90px;
     } */
-    .home_section_four {
+    /* .home_section_four {
         margin-top: 50px;
-    }
+    } */
     .icon_number h6 {
         font-size: 25.704px;
     }
@@ -3083,9 +3094,9 @@ height: 36.702px; */
         width: 150px;
     }
 
-    .home_section_five {
+    /* .home_section_five {
         padding: 140px 0px 140px 0px;
-    }
+    } */
 
     .journey_start_section {
         gap: 70px;
@@ -3205,15 +3216,25 @@ height: 36.702px; */
 }
 
 @media screen and (max-width : 768px) {
-    .section_3{
-        padding-top: 50px;
+     .section_2 {
+        margin-top: 150px !important;
     }
-    .section_4{
-        padding-top: 50px;
+    .all_sections{
+        height: auto;
+        padding: 100px 0;
     }
-    .home_section_four {
+    .all_sections.footer_sections{
+        padding: 0 !important;
+    }
+    /* .section_3{
+        padding-top: 50px;
+    } */
+    /* .section_4{
+        padding-top: 50px;
+    } */
+    /* .home_section_four {
         margin-top: 50px;
-    }
+    } */
     .img01 {
         width: 28.323px;
         top: 64px;
@@ -3475,9 +3496,9 @@ height: 36.702px; */
         font-size: 50px;
     }
 
-    .home_section_five {
+    /* .home_section_five {
         padding: 120px 0px 120px 0px;
-    }
+    } */
 
     .journey_start_button {
         width: 140px;
@@ -3600,7 +3621,9 @@ height: 36.702px; */
 }
 
 @media screen and (max-width : 578px) {
-
+    .section_2 {
+        margin-top: 100px !important;
+    }
     .img01 {
         width: 26.323px;
         top: 52px;
@@ -3980,9 +4003,9 @@ height: 36.702px; */
         font-size: 14px !important;
     }
 
-    .section_2 {
+    /* .section_2 {
         padding: 150px 25px 70px 25px;
-    }
+    } */
 
     .info_item_section h5 {
         font-size: 33px;
@@ -4064,9 +4087,9 @@ height: 36.702px; */
         height: 50px;
     }
 
-    .home_section_five {
+    /* .home_section_five {
         padding: 110px 0px 110px 0px;
-    }
+    } */
 
     .journey_start_section {
         gap: 60px;
@@ -4078,10 +4101,10 @@ height: 36.702px; */
         font-size: 14px;
     }
 
-    .home_section_four {
+    /* .home_section_four {
         margin-top: 40px;
         padding: 73px 25px;
-    }
+    } */
 
     .propstart_text h4 {
         font-size: 35px;
@@ -4094,13 +4117,13 @@ height: 36.702px; */
         height: 50px;
     }
 
-    .section_3 {
+    /* .section_3 {
         padding: 0 25px 80px 25px;
-    }
+    } */
 
-    .section_4 {
+    /* .section_4 {
         padding: 50px 25px 80px 25px;
-    }
+    } */
 
     .invest_text_div h5 {
         font-size: 32px;
