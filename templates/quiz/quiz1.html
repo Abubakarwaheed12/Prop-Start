@@ -11,12 +11,12 @@
 
         <!-- step 1 -->
         <div class="quiz_item_section step step-1" id="step1" >
-            <h5>Before we get started, let us know your Email Address</h5>
+            <h5>Lets Start With Your Name</h5>
             <div class="quiz_input_main_group">
                 <div class="quiz_input_group">
-                    <label for="email" id="" class="form-label quiz_label">Your Email Address</label>
-                    <input type="email" class="form-control quiz_input" id="email" aria-describedby=""
-                        placeholder="Enter Your Email Address" required>
+                    <label for="email" id="" class="form-label quiz_label">Your Nmae</label>
+                    <input type="text" class="form-control quiz_input" id="email" aria-describedby=""
+                        placeholder="Enter Your Name" required>
                 </div>
                 <div class="quiz_next_button">
                     <button type="button" class="next-step"  id="next-step1" onclick="getEmail()"  disabled>Next</button>
@@ -27,18 +27,18 @@
         <!-- step 2 -->
         <!-- quiz 2 -->
         <div class="quiz_item_section step step-2" id="step2">
-            <h5>What Would you Like to Learn?</h5>
+            <h5 id='would_like'> What Would you Like to Learn?</h5>
             <div class="quiz_input_main_group">
                 <div class="step_2_question_1  m-0" id="box1">
-                    How to Invest in Property
+                   A. How to Invest in Property
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
                 <div class="step_2_question_1 " id="box2">
-                    How to Buy Your Own Home
+                   B. How to Buy Your Own Home
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
                 <div class="step_2_question_1 " id="box3">
-                    Where to Start?
+                   C. Where to Start?
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
             </div>
@@ -53,11 +53,11 @@
             <h5>Are you Aus or NZ Permanent Resident?</h5>
             <div class="quiz_input_main_group">
                 <div class="step_2_question_1 m-0 " id="box4">
-                    Yes
+                    A. Yes
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
                 <div class="step_2_question_1 " id="box5">
-                    No
+                    B. No
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
             </div>
@@ -67,14 +67,26 @@
         </div>
         <!-- quiz 10-->
         <div class="quiz_item_section step step-4" id="step4">
-            <h5>Do you work Full-Time?</h5>
+            <h5>What is your current employment status?</h5>
             <div class="quiz_input_main_group">
                 <div class="step_2_question_1 m-0 " id="box6">
-                    Yes
+                    A. Full-Time
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
                 <div class="step_2_question_1 " id="box7">
-                    No
+                    B. Part-Time
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1 " id="box8">
+                    C. Casual
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1 " id="box9">
+                    D. Self-Employed
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1 " id="box10">
+                    E. In between jobs
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
             </div>
@@ -84,14 +96,26 @@
         </div>
         <!-- quiz 11-->
         <div class="quiz_item_section step step-5" id="step5">
-            <h5>Do you have savings of $50k or more?</h5>
+            <h5>How much do you have saved up?</h5>
             <div class="quiz_input_main_group">
-                <div class="step_2_question_1 m-0" id="box8">
-                    Yes
+                <div class="step_2_question_1" id="box9">
+                    A. $0 - $15,000
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
                 <div class="step_2_question_1" id="box9">
-                    No
+                    B. $15,000 - $30,000
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1" id="box9">
+                    C. $30,000 - $45,000
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1 m-0" id="box8">
+                    D. $45,000 - $60,000
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1 m-0" id="box8">
+                    E. $60,000 +
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
             </div>
@@ -100,22 +124,44 @@
             </div>
         </div>
         <div class="quiz_item_section step step-6" id="step6" style="padding-top: 100px;">
-            <p>Recommendation</p>
-            <h5>You may be eligible to Invest Now</h5>
-            <div class="get_started_button">
-              <a href="{% url 'on-boarding1' %}"><button type="button" class="get_started_button1" onclick="sendUserAnswers()">Get Started</button> <a>
+            <h5>When you will start full time employment?</h5>
+            <div class="quiz_input_main_group">
+                <div class="step_2_question_1 m-0" id="box10">
+                    A. Within 2 months
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1 m-0" id="box10">
+                    B. Within 4 months
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1 m-0" id="box10">
+                    C. Within 6 months
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1" id="box11">
+                    D. within 12 months
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+                <div class="step_2_question_1" id="box11">
+                    D. Not in the foreseeable future
+                    <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
+                </div>
+            </div>
+
+            <div class="quiz_next_button">
+                <button id="next-step8" class="next-step" disabled>Next</button>
             </div>
         </div>
 
         <div class="quiz_item_section step step-7" id="step7">
-            <h5>Do you have capacity to save?</h5>
+            <h5>Will you become and AUS /NZ permanent resident within next 2 years?</h5>
             <div class="quiz_input_main_group">
                 <div class="step_2_question_1 m-0" id="box10">
-                    Yes
+                    A. Yes
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
                 <div class="step_2_question_1" id="box11">
-                    No
+                    B. No
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
             </div>
@@ -134,14 +180,14 @@
         </div>
         <!-- quiz 8 and 17-->
         <div class="quiz_item_section step step-9" id="step9">
-            <h5>Do you foresee getting a Full-Time job within the next 6 months?</h5>
+            <h5>Would you like to buy property one day in Australia?</h5>
             <div class="quiz_input_main_group">
                 <div class="step_2_question_1 m-0" id="box12">
-                    Yes
+                    A. Yes
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
                 <div class="step_2_question_1" id="box13">
-                    No
+                    B. No
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
             </div>
@@ -185,7 +231,7 @@
             const nextButton5 = document.getElementById('next-step5');
             // const nextButton6 = document.getElementById('next-step6');  // You may be Eligible to Invest Now id empty
             const nextButton7 = document.getElementById('next-step7');
-            // const nextButton8 = document.getElementById('next-step8'); //Enrol in Our Property Education Course id empty
+            const nextButton8 = document.getElementById('next-step8'); 
             const nextButton9 = document.getElementById('next-step9'); //quiz 14 button
 
             let selectedBoxId = null;
@@ -224,9 +270,11 @@
                 }
             });
             function validateEmail() {
-                let reg = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                let email = $('#email').val();
-                if (reg.test(email)) {
+                //let reg = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                let reg = /^[a-zA-Z\s]+$/;
+                
+                let name = $('#email').val();
+                if (reg.test(name)) {
                     return true;
 
                 } else {
@@ -234,15 +282,7 @@
                 }
 
             }
-            // $('#email').keyup(function () {
-            //     const thisVal = $(this).val();
-            //     if (!(thisVal) == '') {
-            //         $('#next-step1').prop("disabled", false);
-            //     }
-            //     else {
-            //         $('#next-step1').prop("disabled", true);
-            //     }
-            // });
+          
 
             nextButton2.addEventListener('click', () => {
                 if (selectedBoxId) {
@@ -252,8 +292,8 @@
                     } else if (selectedBoxId === 'box2') {
                         steps[2].style.display = 'block' || selectedBoxId === 'box2'; // Show step 3
                     } else if (selectedBoxId === 'box3') {
-                        steps[2].style.display = 'none'; // Show step 3
-                        steps[6].style.display = 'block' || selectedBoxId === 'box3'; // Show step 3
+                        //steps[2].style.display = 'none'; // Show step 3
+                        steps[2].style.display = 'block' || selectedBoxId === 'box2'; // Show step 3
                     }
                 }
 
@@ -278,13 +318,25 @@
                     // Show the appropriate step based on the selected box
                     if (selectedBoxId === 'box6') {
                         steps[4].style.display = 'block';
-                        // steps[5].style.display = 'block'; // Show step 4
 
                     } if (selectedBoxId === 'box7') {
                         steps[4].style.display = 'none';
-                        steps[6].style.display = 'block'; // Show step 5
+                        steps[5].style.display = 'block'; // Show step 5
+                    }
+                    if (selectedBoxId === 'box8') {
+                        steps[4].style.display = 'none';
+                        steps[5].style.display = 'block'; // Show step 5
+
+                    } 
+                    if (selectedBoxId === 'box9' ) {
+                        steps[4].style.display = 'block';
+                    }
+                    if (selectedBoxId === 'box10') {
+                        steps[4].style.display = 'none';
+                        steps[5].style.display = 'block'; // Show step 5
                     }
                 }
+
 
             });
 
@@ -310,21 +362,43 @@
                     // Show the appropriate step based on the selected box
                     if (selectedBoxId === 'box10') {
                         steps[4].style.display = 'none';
-                        steps[3].style.display = 'none';
+                        steps[3].style.display = 'block';
                         steps[6].style.display = 'none';
                         steps[5].style.display = 'none';
-                        steps[8].style.display = 'block';
+                        steps[8].style.display = 'none';
 
                     } if (selectedBoxId === 'box11') {
                         steps[4].style.display = 'none';
                         steps[3].style.display = 'none';
                         steps[6].style.display = 'none';
                         steps[5].style.display = 'none';
-                        steps[7].style.display = 'block';
+                        steps[8].style.display = 'block';
                     }
                 }
 
             });
+            nextButton8.addEventListener('click', () => {
+                if (selectedBoxId) {
+                    console.log(`Next button clicked. Selected box ID: ${selectedBoxId}`);
+                    // Show the appropriate step based on the selected box
+                    if (selectedBoxId === 'box10') {
+                        steps[4].style.display = 'block';
+                        steps[3].style.display = 'none';
+                        steps[6].style.display = 'none';
+                        steps[5].style.display = 'none';
+                        steps[8].style.display = 'none';
+
+                    } if (selectedBoxId === 'box11') {
+                        steps[4].style.display = 'none';
+                        steps[3].style.display = 'none';
+                        steps[6].style.display = 'none';
+                        steps[5].style.display = 'none';
+                        steps[8].style.display = 'block';
+                    }
+                }
+
+            });
+
 
             nextButton9.addEventListener('click', () => {
                 if (selectedBoxId) {
@@ -348,16 +422,7 @@
 
             });
 
-            // form submited
-            // document.getElementById('quiz-form').addEventListener('submit', function (event) {
-            //     event.preventDefault();
-
-            //     // Collect form data and do something with it
-            //     const formData = new FormData(this);
-            //     for (const entry of formData.entries()) {
-            //         console.log(entry[0], entry[1]);
-            //     }
-            // });
+            
         });
 
 
@@ -372,6 +437,9 @@
 
         function getEmail(){
             userAnswers['email'] = $('#email').val()
+            name = $('#email').val()
+            $('#would_like').text(name + $('#would_like').text());
+
         }
 
 
