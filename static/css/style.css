@@ -359,6 +359,11 @@
     /* height: 511.999px; */
 }
 
+.msgg{
+    text-align: center;
+    text-transform: capitalize;
+}
+
 .propstart_text h4 {
     color: #0D4949;
     font-family: 'Urbanist';
