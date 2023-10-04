@@ -38,8 +38,8 @@
                         <p>Unless you've been living under a rock, we are all aware how difficult it is to buy a home. PropStart is founded by two millennials, who have found a way.</p>
 
                         <div class="learning_text_button">
-                            <a href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'signup' %}{%endif %}">
-                                <button type="button" class="pre_order_button">Pre-Order</button>
+                            <a href="{% url 'courses' %}">
+                                <button type="button" class="pre_order_button">Learn More</button>
                             </a>
                             <a href="{% url 'on-boarding1' %}">
                                 <button type="submit" class="pre_order_button"
@@ -90,7 +90,7 @@
 
                         </div>
                         
-                        <a href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'courses' %}{%endif %}" style="text-decoration: none;">
+                        <a href="{% url 'courses' %}" style="text-decoration: none;">
                             <button type="submit" class="pre_order_button2">Learn more</button>
                         </a>
                     </div>

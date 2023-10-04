@@ -52,6 +52,14 @@
                         <input type="email" class="form-control account_input" id="exampleInputEmail1"
                             aria-describedby="emailHelp" placeholder="Enter Email Address" name="email" required>
                     </div>
+
+                    <div class="phone_input_group">
+                        <label for="" class="form-label input_label">Your Phone Number</label>
+                        <input id="phone" type="number" class="form-control account_input" style="outline: 0;" aria-describedby=""
+                            name="number" required />
+                        <span id="countryCode" class="country_code_span"></span>
+                    </div>
+
                     <div class="input_group" style="position: relative;">
                         <label for="" class="form-label input_label">Your Password</label>
                         <input type="password" class="form-control password account_input" id=""
@@ -102,6 +110,35 @@
                 document.getElementById('s_show_hide2').innerHTML = "Show";
             }
         }
+    </script>
+    <script>
+        // pervious code 
+        // // country code with flag 
+        const phoneInputField = document.querySelector("#phone");
+        const phoneInput = window.intlTelInput(phoneInputField, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+        });
+
+        // Set the default country to Australia
+        phoneInput.setCountry("au");
+        // Get the selected country code
+        const selectedCountry = phoneInput.getSelectedCountryData();
+        const countryCode = selectedCountry.dialCode;
+
+        // Display the country code
+        const countryCodeElement = document.querySelector("#countryCode");
+        countryCodeElement.textContent = "+" + countryCode;
+
+        // Update the country code when the selection changes
+        phoneInputField.addEventListener("countrychange", function () {
+            const newSelectedCountry = phoneInput.getSelectedCountryData();
+            const newCountryCode = newSelectedCountry.dialCode;
+            countryCodeElement.textContent = "+" + newCountryCode;
+        });
+
+
+
+        
     </script>
 </body>
 
