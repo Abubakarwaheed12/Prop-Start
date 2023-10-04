@@ -26,12 +26,19 @@ def signup(request):
         email = request.POST.get("email")
         pass1 = request.POST.get("password")
         cpass = request.POST.get("cpass")
+        phone = request.POST.get("number")
+        print(type(phone))
+        if len(str(phone)) > 15:
+            messages.error(request,"Please enter correct number!")
+            return redirect("signup")
         otp = get_random_string(length=4, allowed_chars='0123456789')
         request.session["email"] = email
         request.session["password"] = pass1
         request.session["otp"] = otp
         request.session["fname"] = firstname
         request.session["lname"] = lastname
+        request.session["phone"] = phone
+        
         if pass1!=cpass:
             messages.error(request,"Password doesn't match. Try Again!")
             return redirect("signup")
@@ -65,8 +72,9 @@ def send_code(request):
         password = request.session["password"]
         fname = request.session["fname"]
         lname = request.session["lname"]
+        phone = request.session["phone"]
         if otp_ == otp:
-            user = CustomUser(email=email,first_name=fname, last_name=lname)
+            user = CustomUser(email=email,first_name=fname, last_name=lname, phone_number=phone)
             user.set_password(password)
             user.save()
             # send to hubspot
@@ -126,7 +134,7 @@ def verify_login_otp(request):
             user = authenticate(request, email=email,password=pass1)
             if user is not None:
                 login(request, user)
-                return redirect('home')
+                return redirect('courses')
             print(email, pass1)
         messages.error(request, 'Otp is not correct.')
 

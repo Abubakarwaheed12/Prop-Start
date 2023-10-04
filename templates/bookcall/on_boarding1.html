@@ -43,24 +43,27 @@
                     <div class="input_group">
                         <label for="" class="form-label input_label">Your First Name</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby=""
-                            placeholder="Enter Your Full Name" name="fname" required>
+                            placeholder="Enter Your Full Name" name="fname" 
+                            value="{% if request.user %}{{request.user.first_name}}{% endif %}" required>
                     </div>
                     <div class="input_group">
                         <label for="" class="form-label input_label">Your Last Name</label>
                         <input type="text" class="form-control account_input" id="" aria-describedby=""
-                            placeholder="Enter Your Last Name" name="lname" required>
+                            placeholder="Enter Your Last Name" name="lname"
+                            value="{% if request.user %}{{request.user.last_name}}{% endif %}" required>
                     </div>
                     <div class="phone_input_group">
                         <label for="" class="form-label input_label">Your Phone Number</label>
-                        <input id="phone" type="tel" class="form-control account_input" style="outline: 0;" aria-describedby=""
-                            name="number" required />
+                        <input id="phone" type="tel" class="form-control account_input" style="outline: 0;" aria-describedby="" name="number"
+                        value="{% if request.user %}{{request.user.phone_number}}{% endif %}" required />
                         <span id="countryCode" class="country_code_span"></span>
                     </div>
 
                     <div class="input_group">
                         <label for="exampleInputEmail1" class="form-label input_label">Email address</label>
                         <input type="email" class="form-control account_input" id="exampleInputEmail1"
-                            aria-describedby="emailHelp" placeholder="Enter Email Address" name="email" required>
+                            aria-describedby="emailHelp" placeholder="Enter Email Address" name="email"
+                            value="{% if request.user %}{{request.user.email}}{% endif %}" required>
                     </div>
 
                     <a href="">
