@@ -30,10 +30,10 @@
                 <h4>Login to your Account</h4>
                     {% if messages %}
                         {% for message in messages %}
-                            {% if message.tags == "success" %}
-                                <p style='color:green;'>{{ message }}</p>
+                            {% if  message.tags == "success" %}
+                                <p class='msgg' style='color:green;'>{{ message }}</p>
                             {% else %}
-                                <p style='color:red;'>{{ message }}</p>
+                                <p class='msgg' style='color:red;'>{{ message }}</p>
                             {% endif %}
                         {% endfor %}
                     {% endif %}

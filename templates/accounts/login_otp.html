@@ -30,9 +30,9 @@
                 {% if messages %}
                         {% for message in messages %}
                             {% if message.tags == "success" %}
-                                <p style='color:green;'>{{ message }}</p>
+                                <p class='msgg' style='color:green;'>{{ message }}</p>
                             {% else %}
-                                <p style='color:red;'>{{ message }}</p>
+                                <p class='msgg' style='color:red;'>{{ message }}</p>
                             {% endif %}
                         {% endfor %}
                 {% endif %}
