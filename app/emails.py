@@ -22,7 +22,17 @@ To confirm the call and set the details, please reply to this email with your pr
 We're looking forward to a productive and engaging conversation. If you have any immediate questions or require further assistance before our scheduled call, please don't hesitate to reach out to us at [your contact information].
 
 Thank you for your time, and we can't wait to connect with you!"""
-    from_email = settings.EMAIL_HOST_USER
+    from_email = settings.DEFAULT_FROM_EMAIL
+    print('Send Email to the user')
+    recipient_list = [email]
+    send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+
+
+
+def send_quiz_email(email, message):
+    subject = "You Quiz"
+    message = message
+    from_email = settings.DEFAULT_FROM_EMAIL
     print('Send Email to the user')
     recipient_list = [email]
     send_mail(subject, message, from_email, recipient_list, fail_silently=False)

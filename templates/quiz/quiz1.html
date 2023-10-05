@@ -110,11 +110,11 @@
                     C. $30,000 - $45,000
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
-                <div class="step_2_question_1 m-0" id="box8">
+                <div class="step_2_question_1 " id="box8">
                     D. $45,000 - $60,000
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
-                <div class="step_2_question_1 m-0" id="box8">
+                <div class="step_2_question_1 " id="box8">
                     E. $60,000 +
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
@@ -126,15 +126,15 @@
         <div class="quiz_item_section step step-6" id="step6" style="padding-top: 100px;">
             <h5>When you will start full time employment?</h5>
             <div class="quiz_input_main_group">
-                <div class="step_2_question_1 m-0" id="box10">
+                <div class="step_2_question_1 " id="box10">
                     A. Within 2 months
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
-                <div class="step_2_question_1 m-0" id="box10">
+                <div class="step_2_question_1 " id="box10">
                     B. Within 4 months
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
-                <div class="step_2_question_1 m-0" id="box10">
+                <div class="step_2_question_1 " id="box10">
                     C. Within 6 months
                     <span class="plus-icon"><i class='bx bxs-check-circle'></i></span>
                 </div>
@@ -171,11 +171,15 @@
             </div>
         </div>
         <!-- quiz 7-->
-        <div class="quiz_item_section step step-8" id="step8" style="padding-top: 100px;">
-            <p>Recommendation</p>
-            <h5>Enrol in our Property Education Course</h5>
+        <div class="quiz_item_section step step-8" id="step8" style="padding-top:10px;">
+            <h5>Are you Ready to see you results?</h5>
+            <div class="quiz_input_group">
+                <label for="email" id="" class="form-label quiz_label">Your Email</label>
+                <input type="email" class="form-control quiz_input" id="useremail" aria-describedby=""
+                    placeholder=" Your Email" required>
+            </div>
             <div class="get_started_button">
-                <a href="{% url 'courses' %}"> <button type="button" class="get_started_button1" onclick="sendUserAnswers()">Next</button> </a>
+                <button type="button" class="get_started_button1" id="next-step111" disabled onclick="sendUserAnswers()">Yes, tell me </button> 
             </div>
         </div>
         <!-- quiz 8 and 17-->
@@ -195,6 +199,10 @@
             <div class="quiz_next_button">
                 <button id="next-step9" class="next-step" disabled>Next</button>
             </div>
+        </div>
+
+        <div class="quiz_item_section step step-20" id="step20" style="padding-top:10px;">
+            <h5 id="result_name" > Your results have been emailed to you.</h5>
         </div>
     </div>
 
@@ -282,6 +290,31 @@
                 }
 
             }
+
+            // email step jquery 
+            $('#useremail').keyup(function () {
+                // const thisVal = $(this).val();
+                if (validateEmails()) {
+                    $('#next-step111').prop("disabled", false);
+                    $('#useremail').css('border', '1px solid green')
+                }
+                else {
+                    $('#next-step111').prop("disabled", true);
+                    $('#useremail').css('border', '1px solid red')
+                }
+            });
+            function validateEmails() {
+                let reg = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                
+                let name = $('#useremail').val();
+                if (reg.test(name)) {
+                    return true;
+
+                } else {
+                    return false;
+                }
+
+            }
           
 
             nextButton2.addEventListener('click', () => {
@@ -318,24 +351,39 @@
                     // Show the appropriate step based on the selected box
                     if (selectedBoxId === 'box6') {
                         steps[4].style.display = 'block';
-                        // steps[4].style.display = 'block';
-                        
+                        steps[3].style.display = 'none';
+                        steps[5].style.display = 'none';
+                        steps[6].style.display = 'none';
+                        steps[7].style.display = 'none';                        
 
                     } if (selectedBoxId === 'box7') {
                         steps[4].style.display = 'none';
-                        steps[5].style.display = 'block'; // Show step 5
+                        steps[3].style.display = 'none';
+                        steps[5].style.display = 'block';
+                        steps[6].style.display = 'none';
+                        steps[7].style.display = 'none';
                     }
                     if (selectedBoxId === 'box8') {
                         steps[4].style.display = 'none';
+                        steps[3].style.display = 'none';
                         steps[5].style.display = 'block'; // Show step 5
+                        steps[6].style.display = 'none';
+                        steps[7].style.display = 'none';
 
                     } 
                     if (selectedBoxId === 'box9' ) {
                         steps[4].style.display = 'block';
+                        steps[3].style.display = 'none';
+                        steps[5].style.display = 'none';
+                        steps[6].style.display = 'none';
+                        steps[7].style.display = 'none';
                     }
                     if (selectedBoxId === 'box10') {
                         steps[4].style.display = 'none';
-                        steps[5].style.display = 'block'; // Show step 5
+                        steps[3].style.display = 'none';
+                        steps[5].style.display = 'block'; 
+                        steps[6].style.display = 'none';
+                        steps[7].style.display = 'none';
                     }
                 }
 
@@ -347,12 +395,13 @@
                     console.log(`Next button clicked. Selected box ID: ${selectedBoxId}`);
                     // Show the appropriate step based on the selected box
                     if (selectedBoxId === 'box8') {
-                        steps[5].style.display = 'block';
-
+                        steps[5].style.display = 'none';
+                        steps[6].style.display = 'none';
+                        steps[7].style.display = 'block';
 
                     } if (selectedBoxId === 'box9') {
-                        steps[5].style.display = 'none';
-                        steps[6].style.display = 'block';
+                        steps[5].style.display = 'block';
+                        steps[6].style.display = 'none';
                     }
                 }
 
@@ -384,11 +433,12 @@
                     console.log(`Next button clicked. Selected box ID: ${selectedBoxId}`);
                     // Show the appropriate step based on the selected box
                     if (selectedBoxId === 'box10') {
-                        steps[4].style.display = 'block';
+                        steps[4].style.display = 'none';
                         steps[3].style.display = 'none';
                         steps[6].style.display = 'none';
                         steps[5].style.display = 'none';
-                        steps[8].style.display = 'none';
+                        steps[8].style.display = 'block';
+                        //$('#step9').css('display', 'none');
 
                     } if (selectedBoxId === 'box11') {
                         steps[4].style.display = 'none';
@@ -396,6 +446,8 @@
                         steps[6].style.display = 'none';
                         steps[5].style.display = 'none';
                         steps[8].style.display = 'block';
+                        //$('#step9').css('display', 'none');
+
                     }
                 }
 
@@ -407,17 +459,18 @@
                     console.log(`Next button clicked. Selected box ID: ${selectedBoxId}`);
                     // Show the appropriate step based on the selected box
                     if (selectedBoxId === 'box12') {
-                        steps[5].style.display = 'block';
+                        steps[5].style.display = 'none';
                         steps[8].style.display = 'none';
                         steps[6].style.display = 'none';
                         steps[4].style.display = 'none';
-                        steps[7].style.display = 'none';
+                        steps[7].style.display = 'block';
 
                     } if (selectedBoxId === 'box13') {
                         // steps[5].style.display = 'none';
                         steps[8].style.display = 'none';
                         steps[4].style.display = 'none';
                         steps[5].style.display = 'none';
+                        steps[6].style.display = 'none';
                         steps[7].style.display = 'block';
                     }
                 }
@@ -438,9 +491,10 @@
         const userAnswers = {};
 
         function getEmail(){
-            userAnswers['email'] = $('#email').val()
+            userAnswers['Your name'] = $('#email').val()
             name = $('#email').val()
             $('#would_like').text(name + $('#would_like').text());
+            $('#result_name').text('Thanks ' + name + $('#result_name').text());
 
         }
 
@@ -484,6 +538,10 @@
 
         // Function to send the cleaned JSON object via AJAX using jQuery
         function sendUserAnswers() {
+            $('.step-20').css('display', 'block');
+            $('.step-8').css('display', 'none');
+            userAnswers['email'] = $('#useremail').val()
+
             $.ajax({
                 url: '/take_quiz/', 
                 type: 'POST',
