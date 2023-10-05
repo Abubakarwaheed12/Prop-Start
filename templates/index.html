@@ -216,17 +216,20 @@ crossorigin="anonymous"></script>
 <script>
     const isDesktop = window.innerWidth >= 768; // Set the threshold for desktop screens
 
-    if (isDesktop) {
-        const circles = document.querySelectorAll(".circle");
-        const allSections = document.querySelectorAll(".all_sections"); // Updated class name for sections
-        const sectionHeight = window.innerHeight;
-        let currentSectionIndex = 0;
+if (isDesktop) {
+    const circles = document.querySelectorAll(".circle");
+    const allSections = document.querySelectorAll(".all_sections"); // Updated class name for sections
+    let currentSectionIndex = 0;
+    let isScrolling = false; // Flag to control scrolling
 
-        // Filter out sections that have the "all_sections" class
-        const sections = Array.from(allSections);
+    // Filter out sections that have the "all_sections" class
+    const sections = Array.from(allSections);
 
-        window.addEventListener("wheel", (e) => {
-            e.preventDefault();
+    window.addEventListener("wheel", (e) => {
+        e.preventDefault();
+
+        if (!isScrolling) {
+            isScrolling = true;
 
             if (e.deltaY > 0) {
                 // Scrolling down
@@ -241,30 +244,37 @@ crossorigin="anonymous"></script>
             }
 
             scrollToSection(currentSectionIndex);
+
+            // Allow scrolling again after a short delay
+            setTimeout(() => {
+                isScrolling = false;
+            }, 500); // Adjust the delay as needed (500 milliseconds in this example)
+        }
+    });
+
+    function scrollToSection(index) {
+        const targetScrollY = sections[index].getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+            top: targetScrollY,
+            behavior: 'smooth'
         });
 
-        function scrollToSection(index) {
-            const targetScrollY = sections[index].getBoundingClientRect().top + window.scrollY;
-            window.scrollTo({
-                top: targetScrollY,
-                behavior: 'smooth'
-            });
-
-            // Update circle fill and circle_parent
-            circles.forEach((circle, circleIndex) => {
-                if (circleIndex === index) {
-                    circle.classList.add("fill");
-                    circle.closest(".circle1").classList.add("circle_parent");
-                } else {
-                    circle.classList.remove("fill");
-                    circle.closest(".circle1").classList.remove("circle_parent");
-                }
-            });
-        }
-
-        // Initial fill and circle_parent setup for the first section
-        scrollToSection(currentSectionIndex);
+        // Update circle fill and circle_parent
+        circles.forEach((circle, circleIndex) => {
+            if (circleIndex === index) {
+                circle.classList.add("fill");
+                circle.closest(".circle1").classList.add("circle_parent");
+            } else {
+                circle.classList.remove("fill");
+                circle.closest(".circle1").classList.remove("circle_parent");
+            }
+        });
     }
+
+    // Initial fill and circle_parent setup for the first section
+    scrollToSection(currentSectionIndex);
+}
+
     // next page render
     $('#nextPage').click(function(){
         window.location.href=" {% url 'on-boarding1' %} ";
@@ -304,37 +314,37 @@ crossorigin="anonymous"></script>
         // When hovering over .img01
         // Store the original text
         // Store the original text
-        var originalText = $(".text_append_h4").text();
+        // var originalText = $(".text_append_h4").text();
 
-        // Function to handle hover and text appending logic
-        function handleImageHover(imgClass, iconNumberClass) {
-            $(imgClass).mouseenter(function () {
-                // Get the text value of the associated .icon_text element
-                var textValue = $(iconNumberClass + " .icon_text").text();
+        // // Function to handle hover and text appending logic
+        // function handleImageHover(imgClass, iconNumberClass) {
+        //     $(imgClass).mouseenter(function () {
+        //         // Get the text value of the associated .icon_text element
+        //         var textValue = $(iconNumberClass + " .icon_text").text();
 
-                // Append the text value as an h4 element with the class "text_append_h4"
-                $(".text_append_h4").empty().append('<h4 class="text_append_span text-center">' + textValue + '</h4>');
+        //         // Append the text value as an h4 element with the class "text_append_h4"
+        //         $(".text_append_h4").empty().append('<h4 class="text_append_span text-center">' + textValue + '</h4>');
 
-                // Fade in the appended h4 element
-                $(".text_append_h4").fadeIn(200);
-            });
+        //         // Fade in the appended h4 element
+        //         $(".text_append_h4").fadeIn(200);
+        //     });
 
-            $(imgClass).mouseleave(function () {
-                // Hide the appended h4 element
-                $(".text_append_h4").fadeOut(200, function () {
-                    // Show the original text
-                    $(".text_append_h4").text(originalText).fadeIn(200);
-                });
-            });
-        }
+        //     $(imgClass).mouseleave(function () {
+        //         // Hide the appended h4 element
+        //         $(".text_append_h4").fadeOut(200, function () {
+        //             // Show the original text
+        //             $(".text_append_h4").text(originalText).fadeIn(200);
+        //         });
+        //     });
+        // }
 
-        // Call the function for each image and associated icon_number
-        handleImageHover(".img01", ".icon_number01");
-        handleImageHover(".img02", ".icon_number02");
-        handleImageHover(".img03", ".icon_number03");
-        handleImageHover(".img04", ".icon_number04");
-        handleImageHover(".img05", ".icon_number05");
-        // Repeat for other images as needed
+        // // Call the function for each image and associated icon_number
+        // handleImageHover(".img01", ".icon_number01");
+        // handleImageHover(".img02", ".icon_number02");
+        // handleImageHover(".img03", ".icon_number03");
+        // handleImageHover(".img04", ".icon_number04");
+        // handleImageHover(".img05", ".icon_number05");
+        // // Repeat for other images as needed
     });
 
         
