@@ -259,6 +259,9 @@ def take_quiz(request):
     if request.method =="POST":
         quiz = request.POST.dict()
         email = quiz.get('email')
+        name = quiz.get('name')
+        print(quiz)
+        print(email, name)
         ans = ""
         for q , a in quiz.items():
             ans += f"Question :{q} ?\n\n"

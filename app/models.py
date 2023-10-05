@@ -1,5 +1,7 @@
+from collections.abc import Iterable
 from django.db import models
-
+import threading
+from .emails import send_quiz_email
 # Create your models here.
 class BookingCall(models.Model):
     first_name = models.CharField(max_length=255)
@@ -42,3 +44,9 @@ class TakeQuiz(models.Model):
 
     def __str__(self):
         return self.email or '-'
+    
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        email_thread = threading.Thread(target=send_quiz_email, args=(self.email, self.quiz))
+        email_thread.start()
