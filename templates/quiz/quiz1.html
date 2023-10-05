@@ -395,13 +395,19 @@
                     console.log(`Next button clicked. Selected box ID: ${selectedBoxId}`);
                     // Show the appropriate step based on the selected box
                     if (selectedBoxId === 'box8') {
+                        steps[4].style.display = 'none';
+                        steps[3].style.display = 'none';
                         steps[5].style.display = 'none';
                         steps[6].style.display = 'none';
                         steps[7].style.display = 'block';
 
                     } if (selectedBoxId === 'box9') {
+                        steps[4].style.display = 'none';
+                        steps[3].style.display = 'none';
                         steps[5].style.display = 'block';
                         steps[6].style.display = 'none';
+                        steps[7].style.display = 'none';
+
                     }
                 }
 
