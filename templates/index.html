@@ -1,3 +1,4 @@
+
 {% extends "base/navbar.html" %} {% load static %} {% block title %}Home{% endblock %} {% block css %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 {% endblock %}
@@ -180,11 +181,11 @@
               <h6>05</h6>
               <p class="icon_text">DreamHouse</p>
             </div>
-            <img src="{% static 'images/01.svg' %}" alt="" class="right_of_you_icon img01">
-            <img src="{% static 'images/02.svg' %}" alt="" class="right_of_you_icon img02">
-            <img src="{% static 'images/03.svg' %}" alt="" class="right_of_you_icon img03">
-            <img src="{% static 'images/04.svg' %}" alt="" class="right_of_you_icon img04">
-            <img src="{% static 'images/05.svg' %}" alt="" class="right_of_you_icon img05">
+            <img src="{% static 'images/01.svg' %}" alt="" class="right_of_you_icon img01" onmouseover="addHoverEffect('subtractImg01')" onmouseout="removeHoverEffect('subtractImg01')">
+            <img src="{% static 'images/02.svg' %}" alt="" class="right_of_you_icon img02" onmouseover="addHoverEffect('subtractImg02')" onmouseout="removeHoverEffect('subtractImg02')">
+            <img src="{% static 'images/03.svg' %}" alt="" class="right_of_you_icon img03" onmouseover="addHoverEffect('subtractImg03')" onmouseout="removeHoverEffect('subtractImg03')">
+            <img src="{% static 'images/04.svg' %}" alt="" class="right_of_you_icon img04" onmouseover="addHoverEffect('subtractImg04')" onmouseout="removeHoverEffect('subtractImg04')">
+            <img src="{% static 'images/05.svg' %}" alt="" class="right_of_you_icon img05" onmouseover="addHoverEffect('subtractImg05')" onmouseout="removeHoverEffect('subtractImg05')">
             </div>
         </div>
     </div>
@@ -245,6 +246,22 @@
   crossorigin="anonymous"
 ></script>
 
+<script>
+  function addHoverEffect(elementClass) {
+    const element = document.querySelector('.' + elementClass);
+    if (element) {
+        element.classList.add('hovered');
+    }
+}
+
+function removeHoverEffect(elementClass) {
+    const element = document.querySelector('.' + elementClass);
+    if (element) {
+        element.classList.remove('hovered');
+    }
+}
+
+</script>
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

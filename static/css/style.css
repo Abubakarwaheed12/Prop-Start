@@ -2067,14 +2067,7 @@ height: 36.702px; */
     position: relative;
 }
 
-.right_of_you_icon {
-    cursor: pointer;
-    transition: all 300ms ease;
-}
 
-.right_of_you_icon:hover {
-    transform: scale(1.2);
-}
 
 .img01 {
     width: 38.323px;
@@ -2294,29 +2287,48 @@ height: 205.215px;
     position: absolute;
     top: 28px;
     right: 39px;
-    transition: all 300ms ease;
+    transition: all 0.4s;
     cursor: pointer;
 }
 
-.subtractImg01:hover {
+.right_of_you_icon {
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.right_of_you_icon:hover {
+    transform: scale(1.2);
+}
+.subtractImg01.hovered {
     transform: scale(1.01);
     z-index: 1;
 }
-
+.subtractImg02.hovered {
+    transform: scale(1.01);
+    z-index: 1;
+}
+.subtractImg03.hovered {
+    transform: scale(1.01);
+    z-index: 1;
+}
+.subtractImg04.hovered {
+    transform: scale(1.01);
+    z-index: 1;
+}
+.subtractImg05.hovered {
+    transform: scale(1.01);
+    z-index: 1;
+}
 .subtractImg02 {
     width: 159.483px;
     height: 287.941px;
     position: absolute;
     right: 38px;
     top: 114px;
-    /* transition: all 300ms ease; */
+    transition: all 0.4s;
     cursor: pointer;
 }
 
-.subtractImg02:hover {
-    transform: scale(1.01);
-    z-index: 2;
-}
 
 .subtractImg03 {
     width: 305.655px;
@@ -2324,14 +2336,10 @@ height: 205.215px;
     position: absolute;
     bottom: 50px;
     right: 60px;
-    transition: all 300ms ease;
+    transition: all 0.4s;
     cursor: pointer;
 }
 
-.subtractImg03:hover {
-    transform: scale(1.01);
-    z-index: 3;
-}
 
 .subtractImg04 {
     width: 167.942px;
@@ -2339,13 +2347,8 @@ height: 205.215px;
     position: absolute;
     bottom: 65px;
     right: 252px;
-    transition: all 300ms ease;
+    transition: all 0.4s;
     cursor: pointer;
-}
-
-.subtractImg04:hover {
-    transform: scale(1.01);
-    z-index: 4;
 }
 
 .subtractImg05 {
@@ -2354,15 +2357,11 @@ height: 205.215px;
     position: absolute;
     top: 28px;
     right: 173px;
-    transition: all 300ms ease;
+    transition: all 0.4s;
     cursor: pointer;
 }
 
-.subtractImg05:hover {
-    transform: scale(1.01);
-    z-index: 5;
 
-}
 
 @media screen and (min-width : 1400px) {
     .side_circle {
@@ -3143,16 +3142,9 @@ height: 205.215px;
         top: 118px;
         left: -25px;
     }
-
-    /* .section_3 {
-    margin-top: 220px;
-    } */
     .scrollcontainer {
-        /* bottom: -33px;
-        left: 350px; */
         position: unset;
-        /* display: flex;
-        justify-content: center; */
+        margin-left: -32px;
     }
 
     .mybtnpay1 {
