@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404
 from django.urls import reverse
 import paypalrestsdk
 from paypalrestsdk import Payment 
-
+import threading
 from courses.models import(
     Instructor,
     CourseCategory,
@@ -16,7 +16,10 @@ from courses.models import(
     UserCourse,
     PreOrder
 )
-
+from app.emails import(
+    course_confirmation_email
+)
+from app.models import PaymentHistory
 # Create your views here.
 
 
@@ -85,8 +88,11 @@ def courses_payment_success(request):
     course_id = request.session["course_id"]
     course_obj = Cousre.objects.get(id=course_id) 
     course_obj = UserCourse.objects.create(course=course_obj, user=request.user, is_paid = True, payment=payment_id, pay_with='Stripe')
+    PaymentHistory.objects.create(email=request.user.email, payment_purpose="Course Payment", pay_with = "stripe", payment_id=payment_id, is_paid=True)
     request.session.delete("course_id")
 
+    ethread = threading.Thread(target=course_confirmation_email, args=(request,))
+    ethread.start()
     return render(request,"course/course_success_payment.html")
 
 
@@ -142,7 +148,10 @@ def paypal_courses_payment_success(request):
     course_id = request.session["course_id"]
     course_obj = Cousre.objects.get(id=course_id) 
     course_obj = UserCourse.objects.create(course=course_obj, user=request.user, is_paid = True, payment=paymentid, pay_with='Paypal' )
+    PaymentHistory.objects.create(email=request.user.email, payment_purpose="Course Payment", pay_with = "Paypal", payment_id=paymentid, is_paid=True)
     request.session.delete("course_id")
+    ethread = threading.Thread(target=course_confirmation_email, args=(request,))
+    ethread.start()
     return render(request,"course/course_success_payment.html")
 
 def courses_payment_cancel(request):
@@ -199,7 +208,8 @@ def pre_order_paypal_create_payment(request, ):
 def pre_order_papal_success(request):
     paymentid = request.GET.get('paymentId')
     amount = request.GET.get('amount')
-    ore_order = PreOrder.objects.create(user = request.user, is_paid = True , payment=paymentid, pay_with='Paypal') 
+    ore_order = PreOrder.objects.create(user = request.user, is_paid = True , payment=paymentid, pay_with='Paypal')
+    PaymentHistory.objects.create(email=request.user.email, payment_purpose="Pre Order", pay_with = "Paypal", payment_id=paymentid, is_paid=True)
     return redirect('/')
 
 def pre_order_stripe_checkout_session(request):
@@ -233,7 +243,7 @@ def pre_order_stripe_checkout_session_success(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     session = stripe.checkout.Session.retrieve(session_id)
     payment_id = session.payment_intent
-
-    ore_order = PreOrder.objects.create(user = request.user, is_paid = True , payment=payment_id, pay_with='Strpe') 
+    ore_order = PreOrder.objects.create(user = request.user, is_paid = True , payment=payment_id, pay_with='Stripe') 
+    PaymentHistory.objects.create(email=request.user.email, payment_purpose="Pre Order", pay_with = "Stripe", payment_id=payment_id, is_paid=True)
     return redirect('/')
 

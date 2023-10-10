@@ -15,7 +15,7 @@ from .emails import(
 from .forms import CustomUserUpdateForm
 from .decorator import redirect_authenticated_user
 from vendor.gclander.client import GoogleAPIClient
-
+from app.models import BookingCall, PaymentHistory
 # Create your views here.
 
 
@@ -255,7 +255,9 @@ def change_password(request):
 # Profile
 @login_required
 def profile(request):
-    user = request.user 
+    user = request.user
+    calls =  BookingCall.objects.filter(email=user.email).order_by("-id")
+    payments = PaymentHistory.objects.filter(email=user.email).order_by("-id")
     if request.method == 'POST':
         form = CustomUserUpdateForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
@@ -265,5 +267,5 @@ def profile(request):
     else:
         form = CustomUserUpdateForm(instance=user)
     
-    context = {'form': form}
+    context = {'form': form,'calls':calls, "payments":payments}
     return render(request, 'accounts/profile.html', context)
