@@ -3704,6 +3704,7 @@ height: 205.215px;
     }
 
     .section_2 {
+        padding-top: 0 !important;
         margin-top: 150px !important;
     }
 

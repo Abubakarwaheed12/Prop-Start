@@ -343,34 +343,37 @@
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  const sectionsContainer = document.querySelector(".sections-container");
-  const sections = document.querySelectorAll(".all_sections");
-  let currentSectionIndex = 0;
-  let isScrolling = false;
+if (window.innerWidth >= 768) {
+    const sectionsContainer = document.querySelector('.sections-container');
+    const sections = document.querySelectorAll('.all_sections');
+    let currentSectionIndex = 0;
+    let isScrolling = false;
 
-  sectionsContainer.addEventListener("wheel", (e) => {
-    e.preventDefault();
+    sectionsContainer.addEventListener('wheel', (e) => {
+        e.preventDefault();
 
-    if (!isScrolling) {
-      isScrolling = true;
+        if (!isScrolling) {
+            isScrolling = true;
 
-      if (e.deltaY > 0 && currentSectionIndex < sections.length - 1) {
-        currentSectionIndex++;
-      } else if (e.deltaY < 0 && currentSectionIndex > 0) {
-        currentSectionIndex--;
-      }
+            if (e.deltaY > 0 && currentSectionIndex < sections.length - 1) {
+                currentSectionIndex++;
+            } else if (e.deltaY < 0 && currentSectionIndex > 0) {
+                currentSectionIndex--;
+            }
 
-      scrollToSection(currentSectionIndex);
+            scrollToSection(currentSectionIndex);
 
-      setTimeout(() => {
-        isScrolling = false;
-      }, 500); // Adjust the delay as needed
+            setTimeout(() => {
+                isScrolling = false;
+            }, 500); // Adjust the delay as needed
+        }
+    });
+
+    function scrollToSection(index) {
+        sections[index].scrollIntoView({ behavior: 'smooth' });
     }
-  });
+}
 
-  function scrollToSection(index) {
-    sections[index].scrollIntoView({ behavior: "smooth" });
-  }
 
   // next page render
   $("#nextPage").click(function () {
