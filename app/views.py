@@ -16,9 +16,11 @@ from paypalrestsdk import Payment
 import paypalrestsdk
 import threading
 from django.views.decorators.csrf import csrf_exempt
-from .models import TakeQuiz
+from .models import TakeQuiz , PaymentHistory
 from .emails import(
-    send_book_call_email
+    send_book_call_email,
+    send_quiz_email,
+    send_course_quiz_email
 )
 
 
@@ -167,7 +169,8 @@ def register_message(request):
     booking_obj.pay_with = "stripe"
     booking_obj.payment_id = payment_id 
     booking_obj.save()
-    email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email,))
+    PaymentHistory.objects.create(email=booking_obj.email, payment_purpose="Book Call", pay_with = "stripe", payment_id=payment_id, is_paid=True)
+    email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email, booking_obj.first_name, booking_obj.contact_number))
     email_thread.start()
 
     return render(request,"bookcall/register_message.html")
@@ -232,8 +235,8 @@ def paypal_payment_successful(request):
     booking_obj.pay_with = "stripe"
     booking_obj.payment_id = paymentid 
     booking_obj.save()
-    
-    email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email,))
+    PaymentHistory.objects.create(email=booking_obj.email, payment_purpose="Book Call", pay_with = "PayPal", payment_id=paymentid, is_paid=True)
+    email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email, booking_obj.first_name, booking_obj.contact_number))
     email_thread.start()
 
     return render(request, "bookcall/register_message.html")
@@ -259,15 +262,18 @@ def take_quiz(request):
     if request.method =="POST":
         quiz = request.POST.dict()
         email = quiz.get('email')
-        name = quiz.get('name')
+        name = quiz.get('Your name')
         print(quiz)
         print(email, name)
         ans = ""
         for q , a in quiz.items():
-            ans += f"Question :{q} ?\n\n"
+            ans += f"Question :{q} \n\n"
             ans += f"Answer :{a} \n\n"
         take_quiz_obj = TakeQuiz.objects.create(quiz = ans, email=email)
-        
+        email_thread = threading.Thread(target=send_quiz_email, args=(request, email, name))
+        email_thread.start()
+        # email_thread_2 = threading.Thread(target=send_course_quiz_email, args=(request, email, name))
+        # email_thread_2.start()
         if take_quiz_obj:
             return JsonResponse({'response':'Quiz Added Successfully'})
         return JsonResponse({'error':'Error'})

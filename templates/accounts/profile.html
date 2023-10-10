@@ -76,6 +76,31 @@
 
     </form>
       </div>  
+      <h3> Upcoming Calls </h3>
+      {% if calls %}
+      {% for call in calls %}
+      <p>first-name: {{call.first_name}} </p>
+      <p>last-name {{call.last_name}} </p>
+      <p>Phone- {{call.contact_number}} </p>
+      
+
+      {% endfor %}
+      {% else %}
+      <h4> No calls found </h4>
+      {% endif %}
+
+      <h3>Payment History</h3>
+      {% if payments %}
+      {% for payment in payments %}
+      <p>purpose: {{payment.payment_purpose}} </p>
+      <p>payment-id: {{payment.payment_id}} </p>
+      <p>pay-with:  {{payment.pay_with}} </p>
+      
+      {% endfor %}
+      {% else %}
+      <h4> No payment found </h4>
+      {% endif %}
+
 </div>
 {% endblock %}
 

@@ -48,5 +48,16 @@ class TakeQuiz(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        email_thread = threading.Thread(target=send_quiz_email, args=(self.email, self.quiz))
-        email_thread.start()
+        
+
+
+
+class PaymentHistory(models.Model):
+    email = models.CharField(max_length=200, null=True, blank=True)
+    payment_purpose = models.CharField(max_length=200, null=True, blank=True)
+    pay_with = models.CharField(max_length=200, null=True, blank=True)
+    payment_id = models.CharField(max_length=200, null=True, blank=True)
+    is_paid = models.BooleanField(default=False)
+
+    def __str__(self) :
+        return self.pay_with or '-'
