@@ -38,7 +38,7 @@
 }
 
 .href_active {
-    border-bottom: 1.08px solid #17E093;
+    border-bottom: 1.99px solid #17E093;
     /* margin-bottom: 0 !important; */
     font-weight: 600 !important;
 }
@@ -52,30 +52,30 @@
     font-size: 18px;
     font-style: normal;
     font-family: 'Urbanist';
-    position: relative;
-    transition: all 0.4s;
+    
 
 }
-
+.nav_link span{
+    width: max-content;
+    position: relative;
+    cursor: pointer;
+}
 /* hover css  */
-.nav_link::after {
+.nav_link span::after {
     content: "";
-    height: 1.08px;
+    position: absolute;
+    bottom: -1px;
+    height: 1.48px;
+    left: 0;
     width: 100%;
     background-color: #17E093;
-    display: block;
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    opacity: 0;
-    transition: all 0.2s;
-    pointer-events: none;
-
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+    transform: scaleX(0);
 }
 
-/* .nav_link:focus::after  */
-.nav_link:hover::after {
-    opacity: 1;
+.nav_link span:hover:after {
+    transform: scaleX(1);
 }
 
 
@@ -481,8 +481,12 @@
 
 .footer_logo_img {
     width: 151.249px;
+    transition: all 300ms ease;
 }
 
+.footer_logo_img:hover{
+    transform: scale(1.08);
+}
 .footer_item h5 {
     color: #FFF;
     font-family: 'Urbanist';
@@ -494,13 +498,33 @@
 
 .footer_item a {
     text-decoration: none;
+    display: block;
+    width: max-content;
 
 }
 
-.footer_item a p span:hover {
+/* .footer_item a p span:hover {
     border-bottom: 1.08px solid #17E093 !important;
+} */
+.footer_item a p span{
+    width: max-content;
+    position: relative;
 }
-
+.footer_item a p span::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 1.48px;
+    left: 0;
+    width: 100%;
+    background-color: #17E093;
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+    transform: scaleX(0);
+}
+.footer_item a p span:hover:after{
+    transform: scaleX(1);
+}
 .footer_item p {
     margin-bottom: 0;
     color: #FFF;
@@ -1705,7 +1729,7 @@ article.on {
 }
 
 .desc_section h2 {
-    color: #0D4949;
+    color: black;
     text-align: center;
     font-family: 'Urbanist';
     font-size: 46px;
@@ -1717,7 +1741,7 @@ article.on {
 }
 
 .desc_section h3 {
-    color: #0D4949;
+    color: black;
     font-family: 'Urbanist';
     font-size: 20px;
     font-style: normal;
@@ -1750,7 +1774,7 @@ article.on {
 }
 
 .desc_section h5 {
-    color: #0D4949;
+    color: black;
     font-family: 'Urbanist';
     font-size: 20px;
     font-style: normal;
@@ -1895,6 +1919,11 @@ height: 36.702px; */
 .footer_icon_span {
     color: #FFF;
     font-size: 23px;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+.footer_icon_span:hover{
+    transform: scale(1.2);
 }
 
 .footer_icon2 {
@@ -1963,7 +1992,7 @@ height: 36.702px; */
 
 .scrollcontainer {
     position: absolute;
-    bottom: 42px;
+    bottom: 0;
     left: -26px;
 }
 
@@ -2178,7 +2207,7 @@ height: 36.702px; */
 
 .alpha_a {
     font-size: 16px;
-    font-weight: 500;
+    /* font-weight: 500; */
     margin-top: 1.5rem;
 }
 
@@ -2294,6 +2323,10 @@ height: 205.215px;
 .right_of_you_icon {
     cursor: pointer;
     transition: all 300ms ease;
+}
+.sections-container {
+    /* overflow-y: scroll; */
+    scroll-snap-type: y mandatory; /* Enable vertical snap scrolling */
 }
 
 .right_of_you_icon:hover {

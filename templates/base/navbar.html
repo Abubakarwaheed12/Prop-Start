@@ -65,17 +65,14 @@
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav_ul">
                 <li class="nav-item">
                   <a
-                    class="nav-link nav_link {% if request.path == '/' %}href_active{% endif %}"
-                    aria-current="page"
-                    href="{% url 'home' %}"
-                    >Home</a
+                    class="nav-link nav_link" aria-current="page" href="{% url 'home' %}"><span class="{% if request.path == '/' %}href_active{% endif %}">Home</span></a
                   >
                 </li>
                 <li class="nav-item">
                   <a
-                    class="nav-link nav_link {% if request.path == '/courses/' %}href_active{% endif %}"
+                    class="nav-link nav_link"
                     href="{% url 'courses' %}"
-                    >Courses</a
+                    ><span class="{% if request.path == '/courses/' %}href_active{% endif %}">Courses</span></a
                   >
                 </li>
                 {% if not request.user.is_authenticated %}
