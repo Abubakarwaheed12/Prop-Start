@@ -1,4 +1,4 @@
-{% extends "base/navbar.html" %} {% load static %}
+{% extends "base/navbar.html" %} {% load static %} 
 {% block title %}Home{% endblock %} {% block css %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 {% endblock %}
@@ -353,7 +353,16 @@
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+window.addEventListener('load', () => {
+    // Smoothly scroll to the top of the page when the page is loaded or refreshed
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 if (window.innerWidth >= 768) {
+    // Your existing code for snap scrolling here
     const sectionsContainer = document.querySelector('.sections-container');
     const sections = document.querySelectorAll('.all_sections');
     let currentSectionIndex = 0;
@@ -383,6 +392,7 @@ if (window.innerWidth >= 768) {
         sections[index].scrollIntoView({ behavior: 'smooth' });
     }
 }
+
 
 
   // next page render
