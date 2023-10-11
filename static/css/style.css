@@ -192,7 +192,7 @@
 .learning_text_main_section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: end;
 }
 
 .arrow_bottom_image {
@@ -2330,13 +2330,14 @@ height: 205.215px;
     /* overflow-y: scroll; */
     scroll-snap-type: y mandatory; /* Enable vertical snap scrolling */
 }
-/* .footer_book_call{
+.footer_book_call{
     transition: all 300ms ease;
-
+    cursor: pointer;
+    display: block;
 }
 .footer_book_call:hover{
     transform: scale(1.2);
-} */
+}
 .right_of_you_icon:hover {
     transform: scale(1.2);
 }
@@ -2393,7 +2394,7 @@ height: 205.215px;
 }
 
 .subtractImg05 {
-    width: 249.39px;
+    width: 247.39px;
     height: 212.286px;
     position: absolute;
     top: 28px;
@@ -2405,7 +2406,52 @@ height: 205.215px;
     display:flex; align-items:center;position:relative;left:130px;top:70px; color:#17E093;text-decoration:underline;
 }
 
+.profile_heading_txt{
+    color: black;
+    font-family: 'Urbanist';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 0;
+    margin-top: 10rem;
+}
+.table_heading_txt{
+    color: black;
+    font-family: 'Urbanist';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 3rem; 
 
+}
+.table_thead th{
+    color: black;
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+}
+.table_tbody td{
+    /* color: rgba(13, 73, 73, 0.60); */
+    color: black;
+    font-family: 'Urbanist';
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+}
+.no_found_txt{
+    color: black;
+    font-family: 'Urbanist';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.table_main_sec{
+    margin-bottom: 7rem;
+}
 @media screen and (min-width : 1400px) {
     .side_circle {
         top: -20px;
@@ -2421,80 +2467,14 @@ height: 205.215px;
 
 }
 
-@media screen and (min-width : 1517px) {
-    .circle_line {
-        height: 84.262px;
-    }
-
-    .double-circles {
-        position: fixed;
-        left: 30px;
-    }
-}
-
-@media screen and (min-width : 1536px) {
-    .double-circles {
-        position: fixed;
-        left: 50px;
-    }
-}
-
-@media screen and (min-width : 1556px) {
-    .double-circles {
-        position: fixed;
-        left: 100px;
-    }
-}
-
-@media screen and (min-width : 1740px) {
-    .double-circles {
-        left: 150px;
-    }
-}
-
-@media screen and (min-width : 1920px) {
-    .double-circles {
-        left: 200px;
-    }
-}
-
-@media screen and (min-width : 2133px) {
-    .double-circles {
-        left: 350px;
-    }
-}
-
-@media screen and (min-width : 2400px) {
-    .double-circles {
-        left: 475px;
-    }
-}
-
-@media screen and (min-width : 2560px) {
-    .double-circles {
-        left: 550px;
-    }
-}
-
-@media screen and (min-width : 2800px) {
-    .double-circles {
-        left: 710px;
-    }
-}
-
-@media screen and (min-width : 3200px) {
-    .double-circles {
-        left: 1170px;
-    }
-}
-
-@media screen and (min-width : 4200px) {
-    .double-circles {
-        left: 2110px;
-    }
-}
 
 @media screen and (max-width : 1400px) {
+    /* .scrollcontainer {
+        bottom: 39px;
+    } */
+    .learning_text_main_section {
+        justify-content: end;
+    }
     .subtractImg01 {
         width: 170.006px;
         height: 193.215px;
@@ -2636,7 +2616,7 @@ height: 205.215px;
     }
 
     .learning_text_section h6 {
-        font-size: 60px;
+        font-size: 54px;
     }
 
     .footer_main_section {
@@ -3659,6 +3639,21 @@ height: 205.215px;
 }
 
 @media screen and (max-width : 768px) {
+    .table_main_sec {
+        margin-bottom: 5rem;
+    }
+    .table_thead th {
+        font-size: 16px;
+    }
+    .table_tbody td {
+        font-size: 15px;
+    }
+    .table_heading_txt {
+        font-size: 26px;
+    } 
+    .no_found_txt{
+        font-size: 16px;
+    }  
     .subtractImg01 {
         width: 170.006px;
         height: 193.215px;
@@ -4120,6 +4115,30 @@ height: 205.215px;
 }
 
 @media screen and (max-width : 578px) {
+    .table_main_sec {
+        margin-bottom: 4rem;
+    }
+    .table_thead th {
+        font-size: 14px;
+    }
+    .table_tbody td {
+        font-size: 13px;
+    }
+    .table_heading_txt {
+        font-size: 22px;
+        margin-bottom: 2rem;
+    } 
+    .no_found_txt{
+        font-size: 15px;
+    }
+    .profile_heading_txt {
+        font-size: 27px;
+        margin-top: 8rem;
+    }
+    /* .table_main_sec{
+        width: 400px;
+        overflow-y: scroll;
+    } */
     #profileImage{
         width: 130px !important;
         height: 130px !important;    

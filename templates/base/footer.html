@@ -47,9 +47,6 @@
                     18/324 Queens Street, Brisbane QLD 4000
                   </p>
                 </div>
-                <!-- <a href="#">
-                                <p>(434) 546-4356</p>
-                            </a> -->
                 <div
                   class="footer_icon footer_icon2"
                   style="align-items: center"
@@ -71,7 +68,7 @@
                   <p><span>Courses</span></p>
                 </a>
                 <a href="{% url 'on-boarding1' %}">
-                  <p><span class="footer_book_call">Book a Call</span></p>
+                  <p><label class="footer_book_call">Book a Call</label></p>
                 </a>
                 <a
                   href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'signup' %}{%endif %}"

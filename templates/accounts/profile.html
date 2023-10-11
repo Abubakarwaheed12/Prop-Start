@@ -8,7 +8,7 @@
 
 {% block content %}
 <div class="container">
-    <h4 class="" style="margin-top:150px">Profile</h4>
+    <h4 class="profile_heading_txt">Profile</h4>
 
     {% if messages %}
 <div class="alert alert-success">
@@ -30,19 +30,18 @@
 </div>
 {% endif %}
 
-    <div class="row" style="margin-bottom:90px;" >
-        <div class="col-12">
-            <form method="post" enctype='multipart/form-data'>
-            {% csrf_token %}
-           
-            <div class="profile_img" style="display:flex; justify-content:center;"> <img id="profileImage" style="width: 160px;height: 160px;border-radius: 15px;" src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}">   
+<div class="row" style="margin-bottom:110px;" >
+    <div class="col-12 mb-5">
+        <form method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        
+        <div class="profile_img" style="display:flex; justify-content:center;"> <img id="profileImage" style="width: 160px;height: 160px;border-radius: 15px;" src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}">   
 
-                <label for="fileInput" style="position: absolute; cursor:pointer;">
-                    <p style="display:flex; align-items:center;position:relative;left:130px;top:70px; color:#17E093;text-decoration:underline;"> Edit Image </p>
-                </label>
-                <input id="fileInput" name="{{ form.profile_img.name }}" type="file" accept="image/*" style="display: none;">
-            </div>
-          </div>
+            <label for="fileInput" style="position: absolute; cursor:pointer;">
+                <p class="edit_txt"> Edit Image </p>
+            </label>
+            <input id="fileInput" name="{{ form.profile_img.name }}" type="file" accept="image/*" style="display: none;">
+        </div>
         <div class="col-6">
             <div class="form-group">
                 <label for="{{form.first_name.id_for_label}}" class="input_label">First Name</label>
@@ -72,35 +71,65 @@
                 <div id="phone_number_error" style="color: red;"></div>
             </div>
         </div>
-        <button type="submit" id="submitButton" class="login_button forget_button">Save Changes</button>
-
+        <div style="display:flex; justify-content: center; margin-top: 2rem; padding: 12px;">
+            <button type="submit" id="submitButton" class="login_button forget_button" style="width:100%; max-width:600px;">Save Changes</button>
+        </div>
     </form>
-      </div>  
-      <h3> Upcoming Calls </h3>
-      {% if calls %}
-      {% for call in calls %}
-      <p>first-name: {{call.first_name}} </p>
-      <p>last-name {{call.last_name}} </p>
-      <p>Phone- {{call.contact_number}} </p>
+    </div>
+</div>  
       
+<div class="container">
+    <h3 class="table_heading_txt"> Upcoming Calls </h3>
+    <div class="table_main_sec">
+        <table class="table">
+            <thead class="table_thead">
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Phone Num</th>
+            </tr>
+            </thead>
+            <tbody class="table_tbody">
+                {% if calls %}
+                {% for call in calls %}
+                        <tr>
+                            <td>{{call.first_name}}</td>
+                            <td>{{call.last_name}}</td>
+                            <td>{{call.contact_number}}</td>
+                        </tr>
+                {% endfor %}
+            {% else %}
+            <p class="no_found_txt">No calls found </p>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
 
-      {% endfor %}
-      {% else %}
-      <h4> No calls found </h4>
-      {% endif %}
-
-      <h3>Payment History</h3>
-      {% if payments %}
-      {% for payment in payments %}
-      <p>purpose: {{payment.payment_purpose}} </p>
-      <p>payment-id: {{payment.payment_id}} </p>
-      <p>pay-with:  {{payment.pay_with}} </p>
-      
-      {% endfor %}
-      {% else %}
-      <h4> No payment found </h4>
-      {% endif %}
-
+    <h3 class="table_heading_txt mt-4">Payment History</h3>
+    <div class="table_main_sec">
+        <table class="table">
+            <thead class="table_thead">
+            <tr>
+                <th scope="col">Purpose</th>
+                <th scope="col">Payment-Id</th>
+                <th scope="col">Pay-With</th>
+            </tr>
+            </thead>
+            <tbody class="table_tbody">
+                {% if payments %}
+                    {% for payment in payments %}
+                        <tr>
+                            <td>{{payment.payment_purpose}}</td>
+                            <td>{{payment.payment_id}}</td>
+                            <td>{{payment.pay_with}}</td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <p class="no_found_txt">No payment found</p>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}
 
