@@ -42,40 +42,42 @@
             </label>
             <input id="fileInput" name="{{ form.profile_img.name }}" type="file" accept="image/*" style="display: none;">
         </div>
-        <div class="col-6">
-            <div class="form-group">
-                <label for="{{form.first_name.id_for_label}}" class="input_label">First Name</label>
-                <input type="text" class="form-control account_input" id="{{form.first_name.id_for_label}}"
-                name="{{ form.first_name.name }}" value="{{form.first_name.value}}" >
+        <div class="row mt-5">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="{{form.first_name.id_for_label}}" class="input_label">First Name</label>
+                    <input type="text" class="form-control account_input" id="{{form.first_name.id_for_label}}"
+                    name="{{ form.first_name.name }}" value="{{form.first_name.value}}" >
+                    </div>
+            </div>
+    
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="{{ form.last_name.id_for_label }}" class="input_label">Last Name</label>
+                    <input type="text" class="form-control account_input" id="{{form.last_name.id_for_label}}" 
+                    name="{{ form.last_name.name }}" 
+                    value="{{form.last_name.value}}" required >
+                    </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}" class="input_label">Email (readonly) </label>
+                    <input type="text" class="form-control account_input" id="{{ form.email.id_for_label }}" name="{{ form.email.name }}" value="{{form.email.value}}" readonly>
+                    </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="{{ form.phone_number.id_for_label }}" class="input_label">Phone number</label>
+                    <input type="text"  pattern="^\+?[0-9]+$" title="Enter a valid number start with + (non-negative integer)" class="form-control account_input" id="{{ form.phone_number.id_for_label }}" name="{{ form.phone_number.name }}" value="{{form.phone_number.value}}" required>
+                    <div id="phone_number_error" style="color: red;"></div>
                 </div>
-        </div>
-
-        <div class="col-6">
-            <div class="form-group">
-                <label for="{{ form.last_name.id_for_label }}" class="input_label">Last Name</label>
-                <input type="text" class="form-control account_input" id="{{form.last_name.id_for_label}}" 
-                name="{{ form.last_name.name }}" 
-                value="{{form.last_name.value}}" required >
-                </div>
-        </div>
-        <div class="col-6">
-            <div class="form-group">
-                <label for="{{ form.email.id_for_label }}" class="input_label">Email (readonly) </label>
-                <input type="text" class="form-control account_input" id="{{ form.email.id_for_label }}" name="{{ form.email.name }}" value="{{form.email.value}}" readonly>
-                </div>
-        </div>
-        <div class="col-6">
-            <div class="form-group">
-                <label for="{{ form.phone_number.id_for_label }}" class="input_label">Phone number</label>
-                <input type="text"  pattern="^\+?[0-9]+$" title="Enter a valid number start with + (non-negative integer)" class="form-control account_input" id="{{ form.phone_number.id_for_label }}" name="{{ form.phone_number.name }}" value="{{form.phone_number.value}}" required>
-                <div id="phone_number_error" style="color: red;"></div>
             </div>
         </div>
         <div style="display:flex; justify-content: center; margin-top: 2rem; padding: 12px;">
             <button type="submit" id="submitButton" class="login_button forget_button" style="width:100%; max-width:600px;">Save Changes</button>
         </div>
     </form>
-    </div>
+</div>
 </div>  
       
 <div class="container">
