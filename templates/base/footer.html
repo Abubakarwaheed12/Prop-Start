@@ -15,7 +15,7 @@
   </head>
   <body>
     <!-- footer section  Start-->
-    <div class="all_sections footer_sections" style="display: unset">
+    <div class="footer_sections section">
       <footer class="footer_main_section">
         <div class="container">
           <div class="row">
@@ -68,7 +68,7 @@
                   <p><span>Courses</span></p>
                 </a>
                 <a href="{% url 'on-boarding1' %}">
-                  <p><label class="footer_book_call">Book a Call</label></p>
+                  <p><span>Book a Call</span></p>
                 </a>
                 <a
                   href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'signup' %}{%endif %}"

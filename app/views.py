@@ -255,6 +255,9 @@ def privacy_policy(request):
 def website_disclaimer(request):
     return render(request,"website_disclaimer.html")
 
+# new add 
+def on_boarding5_date(request):
+    return render(request, "bookcall/on_boarding5_date.html")
 
 # Function TO save Quiz Data
 @csrf_exempt 
@@ -277,3 +280,6 @@ def take_quiz(request):
         if take_quiz_obj:
             return JsonResponse({'response':'Quiz Added Successfully'})
         return JsonResponse({'error':'Error'})
+
+
+
