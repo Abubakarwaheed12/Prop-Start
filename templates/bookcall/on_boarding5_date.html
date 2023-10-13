@@ -30,59 +30,75 @@
                 </div>
                 <h4>Call Timing</h4>
                 <form class="account_form" method="post">
-                    <div class="input_group">
+                    <div class="input_group" style="position: relative;">
                         <label for="" class="form-label input_label">Date</label>
-                        <div class="custom_select account_input">
+                        <div class="custom_select account_input" id="dateInput">
                             <div class="select_title">
-                                <span class="selected">Select</span>
+                                <span class="selected" id="selected-date">Select</span>
                                 <img src="{% static 'images/Vector (2).svg' %}" alt="">
                             </div>
-                            <input type="hidden"  id="data_input" name="state">
-                            <ul class="select_menu">
-                                <li value="1">12</li>
-                            </ul>
                             <img src="{% static 'images/arrow-drop-down-line.svg' %}" alt="">
                         </div>
+                        <div class="calendar_main_div detail_calendar_1" id="calendarId">
+                            <div class="calendar">
+                                <button class="next_pervious_btn" id="prev-btn">&#8249;</button>
+                                <span id="current-date" class="month_header">August</span>
+                                <button class="next_pervious_btn" id="next-btn">&#8250;</button>
+                            </div>
+                            <div class="days-of-week">
+                                <div>S</div>
+                                <div>M</div>
+                                <div>T</div>
+                                <div>W</div>
+                                <div>T</div>
+                                <div>F</div>
+                                <div>S</div>
+                            </div>
+                            <div class="dates">
+                                <!-- The dates will be dynamically generated using JavaScript -->
+                            </div>
+                        </div>
                     </div>
-                    <div class="input_group">
+                    <div class="input_group" style="position: relative;">
                         <label for="" class="form-label input_label">Time</label>
-                        <div class="custom_select account_input">
+                        <div class="custom_select account_input" id="setTime_dive">
                             <div class="select_title">
-                                <span class="selected">Select Time</span>
+                                <span class="selected" id="clock">Select Time</span>
                                 <img src="{% static 'images/Vector (2).svg' %}" alt="">
                             </div>
-                            <input type="hidden"  id="data_input" name="state">
-                            <ul class="select_menu">
-                                <li value="1">12</li>
-                            </ul>
                             <img src="{% static 'images/arrow-drop-down-line.svg' %}" alt="">
                         </div>
+                        <div class="clockDive" id="clockShow">
+                            <div class="timeInput_disabled">
+                                <input type="number" class="disable_time_input" placeholder="06" min="1" max="12" disabled>
+                                <input type="number" class="disable_time_input" placeholder="27" min="0" max="59" disabled>
+                                <input type="number" class="disable_time_input" placeholder="54" min="0" max="59" disabled>
+                            </div>
+                            <div class="timeInput_unDisabled">
+                                <input type="number" class="unDisable_time_input" id="hourInput" placeholder="06" min="1" max="12">
+                                <span> : </span>
+                                <input type="number" class="unDisable_time_input" id="minuteInput" placeholder="28" min="0" max="59">
+                                <span> : </span>
+                                <input type="number" class="unDisable_time_input" id="secondInput" placeholder="55" min="0" max="59">
+                                <select id="ampmInput">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
+                            <div class="timeInput_disabled">
+                                <input type="number" class="disable_time_input" placeholder="06" min="1" max="12" disabled>
+                                <input type="number" class="disable_time_input" placeholder="27" min="0" max="59" disabled>
+                                <input type="number" class="disable_time_input" placeholder="54" min="0" max="59" disabled>
+                            </div>
+                        </div>
+                        <!-- <button onclick="setClock()">Set Time</button> -->
                     </div>
-                    
                     <a href="">
                         <button type="submit" class="login_button mt-5">Next</button>
                     </a>
                 </form>
             </div>
-            <div class="calendar_main_div detail_calendar_1" id="">
-                <div class="calendar">
-                    <button class="next_pervious_btn" id="prev-btn">&#8249;</button>
-                    <span id="current-date" class="month_header">August</span>
-                    <button class="next_pervious_btn" id="next-btn">&#8250;</button>
-                </div>
-                <div class="days-of-week">
-                    <div>S</div>
-                    <div>M</div>
-                    <div>T</div>
-                    <div>W</div>
-                    <div>T</div>
-                    <div>F</div>
-                    <div>S</div>
-                </div>
-                <div class="dates">
-                    <!-- The dates will be dynamically generated using JavaScript -->
-                </div>
-            </div>
+          
         </div>
     </div>
     </div>
@@ -120,7 +136,44 @@
                 $customSelect.find('.selected').text($this.text());
                 $customSelect.find('#data_input').val($this.attr('value'));
             });
+
+            // calendar hide and show 
+            $("body").click(function (event) {
+                if (!$(event.target).closest("#dateInput").length && !$(event.target).closest("#calendarId").length) {
+                    $("#calendarId").hide();
+                }
+            });
+            $("#dateInput").click(function(){
+                $("#calendarId").toggle();
+            });
+
+            // clock show and hide 
+            $("body").click(function (event) {
+                if (!$(event.target).closest("#setTime_dive").length && !$(event.target).closest("#clockShow").length) {
+                    $("#clockShow").hide();
+                }
+            });
+
+            $("#setTime_dive").click(function(){
+                $("#clockShow").toggle();
+            });
         })
+
+       
+        function setClock() {
+            const hourInput = document.getElementById('hourInput').value.padStart(2, '0');
+            const minuteInput = document.getElementById('minuteInput').value.padStart(2, '0');
+            const secondInput = document.getElementById('secondInput').value.padStart(2, '0');
+            const ampmInput = document.getElementById('ampmInput').value;
+            const clock = document.getElementById('clock');
+            clock.innerText = `${hourInput} : ${minuteInput} : ${secondInput} ${ampmInput}`;
+        }
+        
+        // Show the current time by default
+        updateClock();
+        
+        // Update the clock immediately and every second
+        setInterval(updateClock, 1000);
     </script>
 </body>
 

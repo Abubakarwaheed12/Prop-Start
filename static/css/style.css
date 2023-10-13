@@ -2278,6 +2278,17 @@ height: 205.215px;
     right: 186px;
     rotate: 143deg;
 } */
+/* .subtractImg01:hover{
+  scale: 1.5;
+} */
+path {
+  transition: all 300ms ease;
+}
+
+path:hover {
+  fill: #f00;
+  transform: scale(1.08);
+}
 .subtractImg01 {
   width: 196.006px;
   height: 226.215px;
@@ -2292,18 +2303,146 @@ height: 205.215px;
   cursor: pointer;
   transition: all 300ms ease;
 }
+#calendarId {
+  display: none;
+  position: absolute;
+  z-index: 99;
+  /* left: 8px; */
+  top: 124px;
+}
+.clockDive {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  filter: drop-shadow(0px 0px 19.25px rgba(0, 0, 0, 0.07));
+  padding: 0 26px;
+}
+.timeInput_disabled {
+  display: flex;
+  padding: 22px 13.75px;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 48px;
+}
+.disable_time_input {
+  width: 50.875px;
+  height: 33px;
+  color: rgba(60, 60, 60, 0.5) !important;
+  text-align: center;
+  font-family: Inter;
+  font-size: 27.5px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background: none;
+  border: none;
+}
+.timeInput_unDisabled {
+  display: flex;
+  align-items: center;
+  padding: 22px 7.75px;
+  gap: 19px;
+  border-top: 0.688px solid #8b8b8b;
+  border-bottom: 0.688px solid #8b8b8b;
+}
+.timeInput_unDisabled span {
+  color: #454545;
+  text-align: center;
+  font-family: Inter;
+  font-size: 27.5px;
+  font-style: normal;
+  font-weight: 600;
+}
+.unDisable_time_input::-webkit-outer-spin-button,
+.unDisable_time_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.unDisable_time_input {
+  width: 50.875px;
+  height: 33px;
+  background: none;
+  border: none;
+  color: #454545 !important;
+  text-align: center;
+  font-family: Inter;
+  font-size: 27.5px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  outline: 0;
+}
+.unDisable_time_input::placeholder {
+  color: #454545 !important;
+}
+#ampmInput {
+  width: 63.25px;
+  height: 33px;
+  color: #454545;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24.5px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  background: none;
+  outline: 0;
+}
+.timeInput_unDisabled::-webkit-outer-spin-button,
+.timeInput_unDisabled::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#clockShow {
+  display: none;
+  position: absolute;
+  z-index: 77;
+  /* left: 8px; */
+  top: 124px;
+}
+/* .clock {
+  font-family: 'Digital', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  background-color: #333;
+  color: #00ff00;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+} */
+
+/* .time-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.time-input input {
+  width: 50px;
+  margin: 0 5px;
+}
+
+.time-input select {
+  margin: 0 5px;
+}
+
+#set-time-button {
+  margin: 0 5px;
+  background-color: #333;
+  color: #00ff00;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+} */
 .sections-container {
   /* overflow-y: scroll; */
   scroll-snap-type: y mandatory; /* Enable vertical snap scrolling */
 }
-.footer_book_call {
-  transition: all 300ms ease;
-  cursor: pointer;
-  display: block;
-}
-.footer_book_call:hover {
-  transform: scale(1.2);
-}
+
 .right_of_you_icon:hover {
   transform: scale(1.2);
 }
@@ -2421,16 +2560,9 @@ height: 205.215px;
 .table_main_sec {
   margin-bottom: 7rem;
 }
-.on_boarding_calendar {
-  justify-content: end !important;
-  flex-direction: unset !important;
-  gap: 100px;
-  /* padding-left: 100px; */
-  /* padding-right: 100px; */
-}
+
 .calendar_main_div {
   width: 100%;
-  max-width: 418px;
   border-radius: 14.977px;
   background: var(--White, #fff);
   box-shadow: 0px 0px 19.06189px 0px rgba(0, 0, 0, 0.07);
@@ -2491,6 +2623,34 @@ height: 205.215px;
   font-style: normal;
   font-weight: 400;
 }
+.on_boarding_calendar_setup {
+  padding-bottom: 210px !important;
+}
+.on_boarding_text_div {
+  padding: 5rem 0;
+}
+.on_boarding_text_div p {
+  color: rgba(13, 73, 73, 0.6);
+  font-family: "Urbanist";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 133.333% */
+  letter-spacing: -0.396px;
+  margin-top: 1rem;
+}
+.on_boarding_text_div_main {
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+}
+.on_boarding_text_div h6 {
+  color: #0d4949;
+  font-family: "Urbanist";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 600;
+  margin-top: 2rem;
+}
 @media screen and (min-width: 1400px) {
   .side_circle {
     top: -20px;
@@ -2506,14 +2666,6 @@ height: 205.215px;
 }
 
 @media screen and (max-width: 1400px) {
-  .on_boarding_calendar_setup {
-    padding-left: 110px;
-    padding-right: 110px;
-  }
-  .on_boarding_calendar {
-    gap: 80px;
-  }
-
   .subtractImg01 {
     width: 170.006px;
     height: 193.215px;
@@ -2659,16 +2811,17 @@ height: 205.215px;
 }
 
 @media screen and (max-width: 1200px) {
-  .on_boarding_calendar {
-    gap: 60px;
+  .on_boarding_text_div {
+    padding: 4rem 0;
   }
-  .on_boarding_calendar_setup {
-    padding-left: 70px !important;
-    padding-right: 70px !important;
+  .on_boarding_text_div p {
+    font-size: 17px;
+  }
+  .on_boarding_text_div h6 {
+    font-size: 18px;
   }
   .calendar_main_div {
     padding: 27px 20px;
-    max-width: 380px;
   }
   .date-item {
     font-size: 14.339px;
@@ -3095,16 +3248,41 @@ height: 205.215px;
 }
 
 @media screen and (max-width: 992px) {
+  .on_boarding_text_div p {
+    font-size: 16px;
+  }
+  .on_boarding_text_div {
+    padding: 3rem 0;
+  }
+  .on_boarding_text_div h6 {
+    font-size: 16px;
+  }
+  .disable_time_input {
+    font-size: 24.5px;
+  }
+  .unDisable_time_input {
+    font-size: 24.5px;
+  }
+  .timeInput_unDisabled span {
+    font-size: 24.5px;
+  }
+  #ampmInput {
+    font-size: 20.5px;
+  }
+  .timeInput_unDisabled {
+    gap: 16px;
+  }
+  .timeInput_disabled {
+    gap: 41px;
+  }
+  #calendarId {
+    top: 109px;
+  }
+  #clockShow {
+    top: 109px;
+  }
   .calendar {
     padding: 0 35px;
-  }
-
-  .calendar_main_div {
-    width: 100%;
-    max-width: 590px;
-  }
-  .on_boarding_calendar {
-    flex-direction: column !important;
   }
   .img01 {
     width: 35.323px;
@@ -3487,7 +3665,7 @@ height: 205.215px;
 
   .login_account_section_one {
     max-width: 590px;
-    padding: 70px 100px 100px 100px !important;
+    padding: 70px 100px 100px 100px;
   }
 
   .about_signup_button {
@@ -3704,11 +3882,28 @@ height: 205.215px;
 }
 
 @media screen and (max-width: 768px) {
+  .on_boarding_text_div_main {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
+  
+  .unDisable_time_input {
+    font-size: 21.5px;
+  }
+  .timeInput_unDisabled span {
+    font-size: 21.5px;
+  }
+  #ampmInput {
+    font-size: 18.5px;
+  }
+  .timeInput_unDisabled {
+    gap: 13px;
+  }
+  .timeInput_disabled {
+    gap: 33px;
+  }
   .calendar {
     padding: 0px 26px;
-  }
-  .calendar_main_div {
-    max-width: 470px;
   }
   .learning_text_section {
     align-items: center;
@@ -3777,7 +3972,7 @@ height: 205.215px;
 
   .section_2 {
     padding-top: 0 !important;
-    margin-top: 90px !important;
+    margin-top: 150px !important;
   }
 
   .all_sections {
@@ -4030,7 +4225,7 @@ height: 205.215px;
 
   .login_account_section_one {
     max-width: 470px;
-    padding: 50px 50px 70px 50px !important;
+    padding: 50px 50px 70px 50px;
   }
 
   .courses_video_image {
@@ -4185,9 +4380,26 @@ height: 205.215px;
     margin-top: 42px;
     justify-content: center;
   }
+  .footer_main_section {
+    padding: 0 0px 0 0px;
+  }
 }
 
 @media screen and (max-width: 578px) {
+  .on_boarding_text_div p {
+    font-size: 14px;
+  }
+  .on_boarding_text_div h6 {
+    font-size: 15px;
+    margin-top: 1rem;
+  }
+  .disable_time_input {
+    font-size: 21.5px;
+  }
+  .on_boarding_text_div_main {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
   .date-item {
     padding: 7px;
   }
@@ -4301,7 +4513,7 @@ height: 205.215px;
         margin-top: 1rem;
     } */
   .section_2 {
-    margin-top: 80px !important;
+    margin-top: 130px !important;
   }
 
   .img01 {
@@ -4654,7 +4866,7 @@ height: 205.215px;
 
   .login_account_section_one {
     max-width: 100%;
-    padding: 40px 30px 60px 30px !important;
+    padding: 40px 30px 60px 30px;
   }
 
   .about_signup_button {
@@ -4889,6 +5101,29 @@ height: 205.215px;
 }
 
 @media screen and (max-width: 470px) {
+  .clockDive {
+    padding: 0 6px;
+  }
+  #ampmInput {
+    font-size: 16.5px;
+    width: 50.25px;
+  }
+  .timeInput_unDisabled {
+    gap: 7px;
+  }
+  .timeInput_disabled {
+    gap: 20px;
+  }
+
+  .unDisable_time_input {
+    font-size: 18.5px;
+  }
+  .timeInput_unDisabled span {
+    font-size: 18.5px;
+  }
+  .disable_time_input {
+    font-size: 18.5px;
+  }
   .right_of_you {
     display: none;
   }
@@ -4899,6 +5134,16 @@ height: 205.215px;
 }
 
 @media screen and (max-width: 400px) {
+  .on_boarding_text_div_main {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+  #calendarId {
+    top: 103px;
+  }
+  #clockShow {
+    top: 103px;
+  }
   .calendar_main_div {
     padding: 20px 10px;
   }
@@ -5045,7 +5290,7 @@ height: 205.215px;
 
   .login_account_section_one {
     max-width: 100%;
-    padding: 38px 15px 50px 15px !important;
+    padding: 38px 15px 50px 15px;
   }
 
   .account_logo img {
@@ -5164,5 +5409,28 @@ height: 205.215px;
     width: 28px;
     /* height: 31.685px; */
     left: 12px;
+  }
+}
+
+@media screen and (max-width: 335px) {
+  .timeInput_disabled {
+    padding: 18px 8.75px;
+    gap: 14px;
+  }
+  .timeInput_unDisabled {
+    padding: 18px 1px;
+    gap: 4px;
+  }
+  .unDisable_time_input {
+    font-size: 16.5px;
+    width: 46.875px;
+  }
+  .disable_time_input {
+    font-size: 16.5px;
+    width: 46.875px;
+  }
+  #ampmInput {
+    font-size: 14.5px;
+    width: 44.25px;
   }
 }
