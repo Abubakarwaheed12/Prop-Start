@@ -25,6 +25,10 @@ function updateDisplayedDate1() {
 function updateSelectedDate(selectedDate) {
   const selectedDateDisplay = document.getElementById("selected-date");
   selectedDateDisplay.textContent = selectedDate.toDateString();
+
+  const selecteddates = document.getElementById("selecteddate");
+  selecteddates.value = selectedDate.toDateString();
+  
 }
 
 // Function to generate the static calendar dates

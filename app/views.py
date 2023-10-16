@@ -1,22 +1,20 @@
 from django.shortcuts import render, redirect 
-from django.contrib.auth.models import User
-from django.utils.crypto import get_random_string
+from datetime import datetime
 from django.contrib import messages
-from django.core.mail import send_mail
 from django.conf import settings
-from django.contrib.auth import authenticate, login 
-from django.http import JsonResponse, HttpResponse , HttpResponseNotFound
+from django.http import JsonResponse , HttpResponseNotFound
 from .models import *
 import stripe
 from django.conf import settings
 from django.urls import reverse 
-from django.shortcuts import get_object_or_404
 stripe.api_key =settings.STRIPE_PUBLIC_KEY
 from paypalrestsdk import Payment 
 import paypalrestsdk
 import threading
+from django.core.serializers.json import DjangoJSONEncoder
 from django.views.decorators.csrf import csrf_exempt
 from .models import TakeQuiz , PaymentHistory
+from vendor.gclander.client import GoogleAPIClient
 from .emails import(
     send_book_call_email,
     send_quiz_email,
@@ -102,10 +100,29 @@ def on_boarding3(request):
         booking_obj.other_loans = other_loans
         booking_obj.bad_credit_history = bad_credit_history
         booking_obj.save()
-        return redirect('on-boarding4')
+        return redirect('on_boarding5_date')
         
     return render(request, "bookcall/on_boarding3.html")
-    
+
+# new add 
+def on_boarding5_date(request):
+    if request.method == "POST":
+        call_date = request.POST.get("selecteddate")
+        call_time = request.POST.get("clockinput")
+        if not call_date or not call_time:
+            messages.error(request, "Please enter call date and time")
+            return render(request, "bookcall/on_boarding5_date.html")  
+        
+        date_time_string = f"{call_date} {call_time}"
+        parsed_datetime = datetime.strptime(date_time_string, '%a %b %d %Y %I:%M:%S %p')
+        booking_obj_id = request.session["booking_id"]
+        booking_obj = BookingCall.objects.get(id=booking_obj_id)
+        booking_obj.meeting_date_time=parsed_datetime
+        booking_obj.save()
+        return redirect('on-boarding4')
+
+    return render(request, "bookcall/on_boarding5_date.html")    
+
 
 def on_boarding4(request):
     booking_obj_id = request.session["booking_id"]
@@ -133,7 +150,7 @@ def checkout_session(request, booking_id = None):
                     'product_data': {
                     'name': 'Invoice',
                     },
-                    'unit_amount': 50 * 100 ,
+                    'unit_amount': 375 * 100 ,
                 },
                 'quantity': 1,
             }
@@ -169,9 +186,14 @@ def register_message(request):
     booking_obj.pay_with = "stripe"
     booking_obj.payment_id = payment_id 
     booking_obj.save()
+    # History 
     PaymentHistory.objects.create(email=booking_obj.email, payment_purpose="Book Call", pay_with = "stripe", payment_id=payment_id, is_paid=True)
-    email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email, booking_obj.first_name, booking_obj.contact_number))
+    # email to user 
+    email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email, booking_obj.first_name, booking_obj.contact_number, booking_obj.meeting_date_time))
     email_thread.start()
+    # send to user calender 
+    calender = GoogleAPIClient()
+    calender.gc_event( booking_obj.email, booking_obj.meeting_date_time)
 
     return render(request,"bookcall/register_message.html")
 
@@ -184,7 +206,7 @@ def cancel(request):
 def create_payment(request, booking_id = None):
     booking_obj_id = request.session["booking_id"]
 
-    price = 50
+    price = 375
     full_host = request.get_host()
     schema = request.scheme
 
@@ -235,10 +257,15 @@ def paypal_payment_successful(request):
     booking_obj.pay_with = "stripe"
     booking_obj.payment_id = paymentid 
     booking_obj.save()
+    # Payment History
     PaymentHistory.objects.create(email=booking_obj.email, payment_purpose="Book Call", pay_with = "PayPal", payment_id=paymentid, is_paid=True)
-    email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email, booking_obj.first_name, booking_obj.contact_number))
+    # Send mail
+    email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email, booking_obj.first_name, booking_obj.contact_number, booking_obj.meeting_date_time))
     email_thread.start()
-
+    # send to user calender 
+    calender = GoogleAPIClient()
+    calender.gc_event( booking_obj.email, booking_obj.meeting_date_time)
+    
     return render(request, "bookcall/register_message.html")
 
 
@@ -255,9 +282,7 @@ def privacy_policy(request):
 def website_disclaimer(request):
     return render(request,"website_disclaimer.html")
 
-# new add 
-def on_boarding5_date(request):
-    return render(request, "bookcall/on_boarding5_date.html")
+
 
 def on_boarding_text(request):
     return render(request, "bookcall/on_boarding_text.html")

@@ -111,8 +111,6 @@ def Login(request):
                 # Start a new thread to send the email
                 subject = f"Login OTP"
                 message = f"Your Login OTP is {otp}"
-                # calender = GoogleAPIClient()
-                # calender.gc_event('sasas', 'dasdas', 'abubakarjutt6346527@gmail.com')
                 email_thread =threading.Thread(target=send_otp_email, args=(email, subject, message)) 
                 email_thread.start()
                 messages.success(request,"otp has been sent to your email")

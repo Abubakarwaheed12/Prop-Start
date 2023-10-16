@@ -18,28 +18,28 @@ class GoogleAPIClient:
             './gclient_secret.json',
             scopes=SCOPES,
         )
-        credentials = credentials.with_subject('noreply@propstart.com.au')
-        service_account_email = "noreply@propstart.com.au"
+        credentials = credentials.with_subject('info@propstart.com.au')
+        service_account_email = "info@propstart.com.au"
         
 
         self.service = build('calendar', 'v3', credentials=credentials)
     # start_datetime.isoformat()
-    def gc_event(self, title, description, attendee):
+    def gc_event(self, attendee, start_date):
         
         service = self.service
         start_datetime = datetime.datetime.now(tz=pytz.utc)
         event = (
             service.events()
             .insert(
-                calendarId="noreply@propstart.com.au",
+                calendarId="info@propstart.com.au",
                 body={
                     "summary": "Book A Call",
-                    "description": "Book A Call Meeting",
-                    "start": {"dateTime": start_datetime.isoformat()},
+                    "description": "Strategy Call",
+                    "start": {"dateTime": start_date.isoformat()},
                     "end": {
-                        "dateTime": (start_datetime + timedelta(minutes=15)).isoformat()
+                        "dateTime": (start_date + timedelta(minutes=30)).isoformat()
                     },
-                    "attendees": [{"email":"abubakarjutt6346527@gmail.com", }],
+                    "attendees": [{"email":attendee, }],
                     'sendNotifications': True,
                 },
             )

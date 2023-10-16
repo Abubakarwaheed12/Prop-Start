@@ -4,14 +4,14 @@ import threading
 
 
 # On Book Call
-def send_book_call_email(email, name, phone):
+def send_book_call_email(email, name, phone, meeting_date_time):
     subject = "Schedule A Call"
     message = f"""
 Hey {name},
 
 This is a confirmation email for your Strategy Call.
 
-We will reach out to you on {phone}  on <date and time>, please make yourself available for the call.
+We will reach out to you on {phone}  on {meeting_date_time}, please make yourself available for the call.
 
 I want to take a moment to answer the most frequently asked questions:
 

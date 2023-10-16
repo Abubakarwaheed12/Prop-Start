@@ -89,6 +89,7 @@
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Phone Num</th>
+                <th scope="col">Date/Time</th>
             </tr>
             </thead>
             <tbody class="table_tbody">
@@ -98,6 +99,7 @@
                             <td>{{call.first_name}}</td>
                             <td>{{call.last_name}}</td>
                             <td>{{call.contact_number}}</td>
+                            <td>{{call.meeting_date_time}}</td>
                         </tr>
                 {% endfor %}
             {% else %}

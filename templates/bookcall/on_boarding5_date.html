@@ -22,7 +22,7 @@
     <div class="account_section_one">
         <div class="container account_section_main on_boarding_calendar">
             <div class="login_account_section_one on_boarding_calendar_setup">
-                <p class="step_text">Step 04/05</p>
+                <p class="step_text">Step 05/06</p>
                 <div class="account_logo">
                     <a href="{% url 'home' %}">
                         <img src="{% static 'images/logo.svg' %}" alt="">
@@ -30,11 +30,22 @@
                 </div>
                 <h4>Call Timing</h4>
                 <form class="account_form" method="post">
+                    {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            {% if message == "success" %}
+                                <p class='msgg' style='color:green;'>{{ message }}</p>
+                            {% else %}
+                                <p class='msgg' style='color:red;'>{{ message }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
                     <div class="input_group" style="position: relative;">
                         <label for="" class="form-label input_label">Date</label>
                         <div class="custom_select account_input" id="dateInput">
                             <div class="select_title">
                                 <span class="selected" id="selected-date">Select</span>
+                                <input type="hidden" value="" name="selecteddate" id="selecteddate">
                                 <img src="{% static 'images/Vector (2).svg' %}" alt="">
                             </div>
                             <img src="{% static 'images/arrow-drop-down-line.svg' %}" alt="">
@@ -64,6 +75,7 @@
                         <div class="custom_select account_input" id="setTime_dive">
                             <div class="select_title">
                                 <span class="selected" id="clock">Select Time</span>
+                                <input type='hidden' value="" name="clockinput" id="clockinput">
                                 <img src="{% static 'images/Vector (2).svg' %}" alt="">
                             </div>
                             <img src="{% static 'images/arrow-drop-down-line.svg' %}" alt="">
@@ -109,7 +121,7 @@
     <!-- jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!-- Load fullPage.js first -->
-    <script src="{% static 'js/calendar.js' %}"></script>
+    {% comment %} <script src="{% static 'js/calendar.js' %}"></script> {% endcomment %}
     <script>
         // checkbox
         $(document).ready(function () {
@@ -171,6 +183,7 @@
                 hours >= 0 && hours <= 23 && minutes >= 0 && minutes <= 59 && seconds >= 0 && seconds <= 59) {
                 const timeString = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} ${ampm}`;
                 $("#clock").text(timeString);
+                $("#clockinput").val(timeString)
             } else {
                 $("#clock").text("Select Time"); // Handle invalid input
             }
@@ -243,6 +256,142 @@
                     event.preventDefault();
                 });
     </script>
+
+    {% comment %} calender {% endcomment %}
+    <script>
+// Get the current date
+let currentDate = new Date();
+
+// Function to update the displayed date and year
+function updateDisplayedDate1() {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  document.getElementById("current-date").textContent =
+    months[currentDate.getMonth()] + " " + currentDate.getFullYear();
+}
+
+// Function to update the selected date
+function updateSelectedDate(selectedDate) {
+  const selectedDateDisplay = document.getElementById("selected-date");
+  selectedDateDisplay.textContent = selectedDate.toDateString();
+
+  const selecteddates = document.getElementById("selecteddate");
+  selecteddates.value = selectedDate.toDateString();
+  
+}
+
+// Function to generate the static calendar dates
+function generateCalendarDates1() {
+  const datesElement = document.querySelector(".dates");
+  datesElement.innerHTML = "";
+
+  // Get the first day of the month
+  const firstDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    1
+  );
+
+  // Get the last day of the month
+  const lastDayOfMonth = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 1,
+    0
+  );
+
+  // Get the starting day of the week for the first day of the month (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+  const startingDayOfWeek = firstDayOfMonth.getDay();
+
+  // Populate the previous month's days (if any)
+  const prevMonthLastDay = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    0
+  );
+  const prevMonthLastDate = prevMonthLastDay.getDate();
+
+  for (let i = startingDayOfWeek - 1; i >= 0; i--) {
+    const prevMonthDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() - 1,
+      prevMonthLastDate - i
+    );
+
+    const dateItem = document.createElement("div");
+    dateItem.className = "date-item previous-month";
+    dateItem.textContent = prevMonthDate.getDate();
+    dateItem.addEventListener("click", () => {
+      updateSelectedDate(prevMonthDate);
+      dateItem.classList.add("current-date");
+      const dateItems = document.querySelectorAll(".date-item");
+      dateItems.forEach((item) => {
+        if (item !== dateItem) {
+          item.classList.remove("current-date");
+        }
+      });
+    });
+
+    datesElement.appendChild(dateItem);
+  }
+
+  // Create the date items for each day in the current month
+  for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
+    const date = new Date(currentDate.getFullYear(), currentDate.getMonth(), i);
+
+    const dateItem = document.createElement("div");
+    dateItem.className = "date-item";
+    dateItem.textContent = i;
+    dateItem.addEventListener("click", () => {
+      updateSelectedDate(date);
+      dateItem.classList.add("current-date");
+      const dateItems = document.querySelectorAll(".date-item");
+      dateItems.forEach((item) => {
+        if (item !== dateItem) {
+          item.classList.remove("current-date");
+        }
+      });
+    });
+
+    // Highlight the current date
+    if (date.toDateString() === new Date().toDateString()) {
+      dateItem.classList.add("current-date");
+    }
+
+    datesElement.appendChild(dateItem);
+  }
+}
+
+// Event listeners for previous and next buttons
+document.getElementById("prev-btn").addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  updateDisplayedDate1();
+  generateCalendarDates1();
+});
+
+document.getElementById("next-btn").addEventListener("click", () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  updateDisplayedDate1();
+  generateCalendarDates1();
+});
+
+// Initial setup
+updateDisplayedDate1();
+generateCalendarDates1();
+
+    </script>
+
 </body>
 
 </html>

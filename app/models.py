@@ -18,6 +18,7 @@ class BookingCall(models.Model):
     car_loan = models.CharField(max_length=255, null=True, blank=True)
     other_loans = models.CharField(max_length=255, null=True, blank=True)
     bad_credit_history = models.CharField(max_length=255, null=True, blank=True)
+    meeting_date_time = models.DateTimeField(null=True, blank=True)
 
     pay_with = models.CharField(max_length=200, null=True, blank=True)
     payment_id = models.CharField(max_length=200, null=True, blank=True)
