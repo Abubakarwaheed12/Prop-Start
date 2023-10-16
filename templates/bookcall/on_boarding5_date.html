@@ -1,0 +1,180 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PropStart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- style css link -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Favicon link  -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/Untitled_log.svg' %}">
+    <!-- country code and flag link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+</head>
+
+<body>
+    <!-- Register Account Step 1 Start-->
+    <div class="account_section_one">
+        <div class="container account_section_main on_boarding_calendar">
+            <div class="login_account_section_one on_boarding_calendar_setup">
+                <p class="step_text">Step 04/05</p>
+                <div class="account_logo">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'images/logo.svg' %}" alt="">
+                       </a>
+                </div>
+                <h4>Call Timing</h4>
+                <form class="account_form" method="post">
+                    <div class="input_group" style="position: relative;">
+                        <label for="" class="form-label input_label">Date</label>
+                        <div class="custom_select account_input" id="dateInput">
+                            <div class="select_title">
+                                <span class="selected" id="selected-date">Select</span>
+                                <img src="{% static 'images/Vector (2).svg' %}" alt="">
+                            </div>
+                            <img src="{% static 'images/arrow-drop-down-line.svg' %}" alt="">
+                        </div>
+                        <div class="calendar_main_div detail_calendar_1" id="calendarId">
+                            <div class="calendar">
+                                <button class="next_pervious_btn" id="prev-btn">&#8249;</button>
+                                <span id="current-date" class="month_header">August</span>
+                                <button class="next_pervious_btn" id="next-btn">&#8250;</button>
+                            </div>
+                            <div class="days-of-week">
+                                <div>S</div>
+                                <div>M</div>
+                                <div>T</div>
+                                <div>W</div>
+                                <div>T</div>
+                                <div>F</div>
+                                <div>S</div>
+                            </div>
+                            <div class="dates">
+                                <!-- The dates will be dynamically generated using JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input_group" style="position: relative;">
+                        <label for="" class="form-label input_label">Time</label>
+                        <div class="custom_select account_input" id="setTime_dive">
+                            <div class="select_title">
+                                <span class="selected" id="clock">Select Time</span>
+                                <img src="{% static 'images/Vector (2).svg' %}" alt="">
+                            </div>
+                            <img src="{% static 'images/arrow-drop-down-line.svg' %}" alt="">
+                        </div>
+                        <div class="clockDive" id="clockShow">
+                            <div class="timeInput_disabled">
+                                <input type="number" class="disable_time_input" placeholder="06" min="1" max="12" disabled>
+                                <input type="number" class="disable_time_input" placeholder="27" min="0" max="59" disabled>
+                                <input type="number" class="disable_time_input" placeholder="54" min="0" max="59" disabled>
+                            </div>
+                            <div class="timeInput_unDisabled">
+                                <input type="number" class="unDisable_time_input" id="hourInput" placeholder="06" min="1" max="12">
+                                <span> : </span>
+                                <input type="number" class="unDisable_time_input" id="minuteInput" placeholder="28" min="0" max="59">
+                                <span> : </span>
+                                <input type="number" class="unDisable_time_input" id="secondInput" placeholder="55" min="0" max="59">
+                                <select id="ampmInput">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+                            </div>
+                            <div class="timeInput_disabled">
+                                <input type="number" class="disable_time_input" placeholder="06" min="1" max="12" disabled>
+                                <input type="number" class="disable_time_input" placeholder="27" min="0" max="59" disabled>
+                                <input type="number" class="disable_time_input" placeholder="54" min="0" max="59" disabled>
+                            </div>
+                        </div>
+                        <!-- <button onclick="setClock()">Set Time</button> -->
+                    </div>
+                    <a href="">
+                        <button type="submit" class="login_button mt-5">Next</button>
+                    </a>
+                </form>
+            </div>
+          
+        </div>
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- Load fullPage.js first -->
+    <script src="{% static 'js/calendar.js' %}"></script>
+    <script>
+        // checkbox
+        $(document).ready(function () {
+            $('.checkbox_resident').click(function () {
+                $('.checkbox_resident').not(this).prop('checked', false);
+            });
+
+            // custom selector
+            $('.custom_select').on('click', function () {
+                const $this = $(this);
+                $this.toggleClass('active');
+                $this.find('.select_menu').slideToggle(300);
+            });
+
+            $('.custom_select').on('focusout', function () {
+                const $this = $(this);
+                $this.removeClass('active');
+                $this.find('.select_menu').slideUp(300);
+            });
+
+            $('.select_menu li').on('click', function () {
+                const $this = $(this);
+                const $customSelect = $this.parents('.custom_select');
+                $customSelect.find('.selected').text($this.text());
+                $customSelect.find('#data_input').val($this.attr('value'));
+            });
+
+            // calendar hide and show 
+            $("body").click(function (event) {
+                if (!$(event.target).closest("#dateInput").length && !$(event.target).closest("#calendarId").length) {
+                    $("#calendarId").hide();
+                }
+            });
+            $("#dateInput").click(function(){
+                $("#calendarId").toggle();
+            });
+
+            // clock show and hide 
+            $("body").click(function (event) {
+                if (!$(event.target).closest("#setTime_dive").length && !$(event.target).closest("#clockShow").length) {
+                    $("#clockShow").hide();
+                }
+            });
+
+            $("#setTime_dive").click(function(){
+                $("#clockShow").toggle();
+            });
+        })
+
+       
+        function setClock() {
+            const hourInput = document.getElementById('hourInput').value.padStart(2, '0');
+            const minuteInput = document.getElementById('minuteInput').value.padStart(2, '0');
+            const secondInput = document.getElementById('secondInput').value.padStart(2, '0');
+            const ampmInput = document.getElementById('ampmInput').value;
+            const clock = document.getElementById('clock');
+            clock.innerText = `${hourInput} : ${minuteInput} : ${secondInput} ${ampmInput}`;
+        }
+        
+        // Show the current time by default
+        updateClock();
+        
+        // Update the clock immediately and every second
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+
+</html>

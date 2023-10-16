@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PropStart</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <!-- style css link -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!-- Favicon link  -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'images/Untitled_log.svg' %}"
+    />
+    <!-- country code and flag link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Register Account Step 1 Start-->
+    <div class="account_section_one">
+      <div class="account_section_main">
+        <div class="login_account_section_one on_boarding_text_div_main">
+          <p class="step_text">Step 01/04</p>
+          <div class="account_logo">
+            <a href="{% url 'home' %}">
+              <img src="{% static 'images/logo.svg' %}" alt="" />
+            </a>
+          </div>
+          <h4>Book a Call</h4>
+         <div class="on_boarding_text_div">
+          <div class="d-flex" style="align-items: baseline; gap: 10px;">
+            <h6>Strategy Call -</h6>
+          <p class="mb-0"><span>$375</span></p>
+          </div>
+
+          <h6>Discover what’s possible 🚀</h6>
+            <p>Now more than ever, a strategy matters when buying a house. Property can’t be bought on a hunch. Sometimes knowing where to start can be the hardest part.</p>
+            <h6>What does your 1:1 Strategy Session with PropStart look like?</h6>
+            <ul>
+              <li><p>Your why</p></li>
+              <li><p>Goals</p></li>    
+              <li><p>Finance</p></li>
+              <li><p>Property</p></li>
+              <li><p>Strategy</p></li>
+              <li><p>Get started</p></li>
+            </ul>
+            <p class="mt-4">Actionable to do’s: A clear pathway will be decided during the call with actionable next steps. Additional meetings will follow at no additional costs.</p>
+            <h6>Secure your spot now!</h6>
+         </div>
+
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
