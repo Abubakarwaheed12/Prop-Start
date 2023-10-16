@@ -69,26 +69,26 @@
                             <img src="{% static 'images/arrow-drop-down-line.svg' %}" alt="">
                         </div>
                         <div class="clockDive" id="clockShow">
-                            <div class="timeInput_disabled">
-                                <input type="number" class="disable_time_input" placeholder="06" min="1" max="12" disabled>
-                                <input type="number" class="disable_time_input" placeholder="27" min="0" max="59" disabled>
-                                <input type="number" class="disable_time_input" placeholder="54" min="0" max="59" disabled>
+                            <div class="timeInput_div">
+                                <p class="previous_hour_p">00</p>
+                                <p class="previous_minute_p">00</p>
+                                <p class="previous_second_p">00</p>
+                                <p class="previous_AM"></p>
                             </div>
+                            
                             <div class="timeInput_unDisabled">
-                                <input type="number" class="unDisable_time_input" id="hourInput" placeholder="06" min="1" max="12">
+                                <input type="number" class="unDisable_time_input number_hour" id="hours" placeholder="06" min="1" max="24">
                                 <span> : </span>
-                                <input type="number" class="unDisable_time_input" id="minuteInput" placeholder="28" min="0" max="59">
+                                <input type="number" class="unDisable_time_input number_minute" id="minutes" placeholder="28" min="0" max="59">
                                 <span> : </span>
-                                <input type="number" class="unDisable_time_input" id="secondInput" placeholder="55" min="0" max="59">
-                                <select id="ampmInput">
-                                    <option value="AM">AM</option>
-                                    <option value="PM">PM</option>
-                                </select>
+                                <input type="number" class="unDisable_time_input number_second" id="seconds" placeholder="55" min="0" max="59">
+                                <input type="text" class="unDisable_time_input" id="ampm" value="AM">
                             </div>
-                            <div class="timeInput_disabled">
-                                <input type="number" class="disable_time_input" placeholder="06" min="1" max="12" disabled>
-                                <input type="number" class="disable_time_input" placeholder="27" min="0" max="59" disabled>
-                                <input type="number" class="disable_time_input" placeholder="54" min="0" max="59" disabled>
+                            <div class="timeInput_div">
+                                <p class="next_hour_p">00</p>
+                                <p class="next_minute_p">00</p>
+                                <p class="next_second_p">00</p>
+                                <p class="next_AM"></p>
                             </div>
                         </div>
                         <!-- <button onclick="setClock()">Set Time</button> -->
@@ -160,20 +160,88 @@
         })
 
        
-        function setClock() {
-            const hourInput = document.getElementById('hourInput').value.padStart(2, '0');
-            const minuteInput = document.getElementById('minuteInput').value.padStart(2, '0');
-            const secondInput = document.getElementById('secondInput').value.padStart(2, '0');
-            const ampmInput = document.getElementById('ampmInput').value;
-            const clock = document.getElementById('clock');
-            clock.innerText = `${hourInput} : ${minuteInput} : ${secondInput} ${ampmInput}`;
+        function updateClock() {
+            const hours = parseInt($("#hours").val());
+            const minutes = parseInt($("#minutes").val());
+            const seconds = parseInt($("#seconds").val());
+            const ampm = $("#ampm").val();
+        
+            // Check if the input is in a valid range
+            if (!isNaN(hours) && !isNaN(minutes) && !isNaN(seconds) &&
+                hours >= 0 && hours <= 23 && minutes >= 0 && minutes <= 59 && seconds >= 0 && seconds <= 59) {
+                const timeString = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} ${ampm}`;
+                $("#clock").text(timeString);
+            } else {
+                $("#clock").text("Select Time"); // Handle invalid input
+            }
+        
+            // Update previous and next values
+            $(".previous_hour_p").text(hours > 0 ? String(hours - 1).padStart(2, '0') : "00");
+            $(".previous_minute_p").text(minutes > 0 ? String(minutes - 1).padStart(2, '0') : "00");
+            $(".previous_second_p").text(seconds > 0 ? String(seconds - 1).padStart(2, '0') : "00");
+            $(".previous_AM").text(ampm === "AM" ? "PM" : "AM");
+        
+            $(".next_hour_p").text(hours < 23 ? String(hours + 1).padStart(2, '0') : "00");
+            $(".next_minute_p").text(minutes < 59 ? String(minutes + 1).padStart(2, '0') : "00");
+            $(".next_second_p").text(seconds < 59 ? String(seconds + 1).padStart(2, '0') : "00");
+            $(".next_AM").text(ampm);
         }
         
-        // Show the current time by default
-        updateClock();
         
-        // Update the clock immediately and every second
-        setInterval(updateClock, 1000);
+                // Call the function to initialize the clock display
+                updateClock();
+        
+                // Set focus on the hours input field initially
+                $("#hours").focus();
+
+                $("input[type='number']").on("input", function () {
+                    let value = this.value;
+                    
+                    // Remove any non-numeric characters
+                    value = value.replace(/[^0-9]/g, '');
+                    
+                    // Limit the input to two digits
+                    if (value.length > 2) {
+                        value = value.slice(0, 2);
+                        $("#error-message").text("Please enter only two digits.");
+                    } else {
+                        $("#error-message").text(""); // Clear the error message
+                    }
+                    
+                    this.value = value; // Update the input value
+                });
+                
+                        
+                // Listen for keyboard arrow key events on the input fields
+                $("input[type='number'], #ampm").on("keydown", function (event) {
+                    const inputField = $(this);
+                    if (event.key === "ArrowUp") {
+                        inputField[0].stepUp();
+                    } else if (event.key === "ArrowDown") {
+                        inputField[0].stepDown();
+                    }
+                    updateClock();
+                });
+        
+                // Listen for mouse scroll events on the input fields and AM/PM
+                $("input[type='number'], #ampm").on("mousewheel DOMMouseScroll", function (event) {
+                    const delta = event.originalEvent.wheelDelta || -event.originalEvent.detail;
+                    if ($(this).is("#ampm")) {
+                        if (delta > 0) {
+                            $(this).val("AM");
+                        } else {
+                            $(this).val("PM");
+                        }
+                    } else {
+                        if (delta > 0) {
+                            $(this)[0].stepUp();
+                        } else {
+                            $(this)[0].stepDown();
+                        }
+                    }
+                    updateClock();
+                    event.preventDefault();
+                });
     </script>
 </body>
 
