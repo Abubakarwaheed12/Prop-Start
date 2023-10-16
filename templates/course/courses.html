@@ -179,6 +179,19 @@
             videoElement.load();
             videoElement.play();
         }
+        {% comment %} button hide and show  {% endcomment %}
+        $(document).ready(function() {
+            // Initially hide the purchase button
+            $(".unlock_purchase_button").hide();
+        
+            // When you hover over the disable_section, show the purchase button
+            $(".disable_section").hover(function() {
+                $(".unlock_purchase_button").show();
+            }, function() {
+                // When you move the mouse away, hide the purchase button
+                $(".unlock_purchase_button").hide();
+            });
+        });
     </script>
 </body>
 </html>
