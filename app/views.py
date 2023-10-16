@@ -271,11 +271,11 @@ def take_quiz(request):
             ans += f"Answer :{a} \n\n"
         take_quiz_obj = TakeQuiz.objects.create(quiz = ans, email=email)
         if quiz.get('Would you like to buy property one day in Australia?'):
+            email_thread_2 = threading.Thread(target=send_course_quiz_email, args=(request, email, name))
+            email_thread_2.start()
+        else: 
             email_thread = threading.Thread(target=send_quiz_email, args=(request, email, name))
             email_thread.start()
-        else:
-             email_thread_2 = threading.Thread(target=send_course_quiz_email, args=(request, email, name))
-             email_thread_2.start()
         if take_quiz_obj:
             return JsonResponse({'response':'Quiz Added Successfully'})
         return JsonResponse({'error':'Error'})
