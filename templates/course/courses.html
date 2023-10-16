@@ -74,7 +74,7 @@
                                                     type="button" data-bs-toggle="collapse"
                                                     data-bs-target="#flush-collapse{{less.id}}" aria-expanded="false"
                                                     aria-controls="flush-collapse{{less.id}}" {% if not forloop.first %} disabled{% endif %}>
-                                                    1. {{less.name}}
+                                                    {{less.name}}
                                                 </button>
                                             </h2>
                                             <div id="flush-collapse{{less.id}}" class="accordion-collapse collapse"
@@ -82,7 +82,7 @@
                                                 <div class="accordion-body accordion_body">
                                                     {% for lec in less.lectures.all %}
                                         <p class="accordion_body_desc">
-                                            {{forloop.counter}}. 
+                                            {{forloop.counter}}
                                             <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.video.url }}');">{{lec.name}}</a>
                                         </p>
                                                     {% endfor %}
@@ -117,7 +117,7 @@
                                                     type="button" data-bs-toggle="collapse"
                                                     data-bs-target="#flush-collapse{{less.id}}" aria-expanded="false"
                                                     aria-controls="flush-collapse{{less.id}}" >
-                                                    {{forloop.counter}}. {{less.name}}
+                                                    {{less.name}}
                                                 </button>
                                             </h2>
                                             <div id="flush-collapse{{less.id}}" class="accordion-collapse collapse"
@@ -125,7 +125,7 @@
                                                 <div class="accordion-body accordion_body">
                                                     {% for lec in less.lectures.all %}
                                         <p class="accordion_body_desc">
-                                            {{forloop.counter}}. 
+                                            {{forloop.counter}}
                                             <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.video.url }}');">{{lec.name}}</a>
                                         </p>
                                                     {% endfor %}
