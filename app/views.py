@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect 
-from datetime import datetime
+from datetime import datetime , timedelta
+from pytz import timezone
+from django.db.models import Q
 from django.contrib import messages
 from django.conf import settings
 from django.http import JsonResponse , HttpResponseNotFound
@@ -114,7 +116,20 @@ def on_boarding5_date(request):
             return render(request, "bookcall/on_boarding5_date.html")  
         
         date_time_string = f"{call_date} {call_time}"
+        
         parsed_datetime = datetime.strptime(date_time_string, '%a %b %d %Y %I:%M:%S %p')
+        end_datetime = parsed_datetime + timedelta(minutes=30)
+
+        # Query the database to check for existing calls within the specified time frame
+        conflicting_calls = BookingCall.objects.filter(
+            Q(meeting_date_time__range=(parsed_datetime, end_datetime)) |
+            Q(meeting_date_time__range=(parsed_datetime, end_datetime))
+        )
+        if conflicting_calls.exists():
+            messages.error(request, "Someone has already booked a call at this time.")
+            return render(request, "bookcall/on_boarding5_date.html")
+        
+        
         booking_obj_id = request.session["booking_id"]
         booking_obj = BookingCall.objects.get(id=booking_obj_id)
         booking_obj.meeting_date_time=parsed_datetime
