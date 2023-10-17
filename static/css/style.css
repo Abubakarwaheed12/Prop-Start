@@ -1549,6 +1549,7 @@ article.on {
 
 .unlock_purchase_button button {
   width: 231px;
+  height: 55px;
   border-radius: 50px;
   border: 1px solid #0d4949;
   color: #0d4949;
@@ -1557,7 +1558,6 @@ article.on {
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 55px;
   /* 343.75% */
   background: none;
   text-transform: capitalize;
@@ -2646,7 +2646,11 @@ height: 36.702px; */
   font-weight: 600;
   margin-top: 2rem;
 }
+.thead_p{
+  margin-bottom: 0;
+}
 @media screen and (min-width: 1400px) {
+ 
   .side_circle {
     top: -20px;
   }
@@ -2665,6 +2669,9 @@ height: 36.702px; */
   }
 }
 @media screen and (max-width: 1400px) {
+  .lesson_plan_section{
+    margin-top: 16px;
+  }
   .imageHovered {
     font-size: 32px !important;
   }
@@ -3001,7 +3008,7 @@ height: 36.702px; */
   .unlock_purchase_button button {
     width: 194px;
     font-size: 14px;
-    line-height: 52px;
+    height: 49px;
   }
 
   .unlock_purchase_button {
@@ -3122,6 +3129,7 @@ height: 36.702px; */
 
   .courses_video_image {
     height: 432px;
+    margin-top: -38px;
   }
 
   .accordion_button_one::after {
@@ -3274,8 +3282,6 @@ height: 36.702px; */
 }
 
 @media screen and (max-width: 992px) {
-
-
   .imageHovered {
     font-size: 22px !important;
     width: 92% !important;
@@ -3304,14 +3310,13 @@ height: 36.702px; */
   .timeInput_unDisabled {
     gap: 16px;
     padding: 22px 7.75px;
-    
   }
   #ampm {
     margin-left: 22px;
-}
-.timeInput_div p {
-  font-size: 24.5px;
-}
+  }
+  .timeInput_div p {
+    font-size: 24.5px;
+  }
   .timeInput_disabled {
     gap: 41px;
   }
@@ -3546,7 +3551,7 @@ height: 36.702px; */
   .unlock_purchase_button button {
     width: 169px;
     font-size: 12px;
-    line-height: 47px;
+    height: 45px;
   }
 
   .unlock_purchase_button {
@@ -3762,6 +3767,7 @@ height: 36.702px; */
 
   .courses_video_image {
     height: 358px;
+    margin-top: -39px;
   }
 
   .class_item_one img {
@@ -3922,12 +3928,22 @@ height: 36.702px; */
 }
 
 @media screen and (max-width: 768px) {
+    .table_main_sec{
+        overflow-x: scroll;
+    }
+    .table_main_sec::-webkit-scrollbar{
+      height: 2px;
+      background-color: #c2c2c2;
+    }
+  .thead_p{
+    min-width: 120px;
+  }
   .timeInput_div p {
     font-size: 21.5px;
-}
-  .section {
-    padding: 70px 0;
   }
+  /* .section {
+    padding: 70px 0;
+  } */
   .home_section_five {
     padding: 0 !important;
   }
@@ -4435,21 +4451,23 @@ height: 36.702px; */
 }
 
 @media screen and (max-width: 578px) {
- 
+  .home_section_five {
+    margin-top: 60px;
+  }
   .timeInput_div {
     gap: 24px;
-}
-.timeInput_unDisabled {
-  gap: 8px;
-  padding: 22px 13.75px;
-}
-#ampm {
-  margin-left: 16px;
-}
-
-  .section {
-    padding: 50px 0;
   }
+  .timeInput_unDisabled {
+    gap: 8px;
+    padding: 22px 13.75px;
+  }
+  #ampm {
+    margin-left: 16px;
+  }
+
+  /* .section {
+    padding: 50px 0;
+  } */
   .on_boarding_text_div p {
     font-size: 14px;
   }
@@ -4493,10 +4511,7 @@ height: 36.702px; */
     font-size: 27px;
     margin-top: 8rem;
   }
-  /* .table_main_sec{
-        width: 400px;
-        overflow-y: scroll;
-    } */
+
   #profileImage {
     width: 130px !important;
     height: 130px !important;
@@ -4736,18 +4751,13 @@ height: 36.702px; */
   .unlock_purchase_button button {
     width: 156px;
     font-size: 11px;
-    line-height: 43px;
+    height: 41px;
   }
 
   .quiz_main_section {
     padding: 197px 25px;
   }
 
-  .unlock_purchase_button button {
-    width: 145px;
-    font-size: 11px;
-    line-height: 39px;
-  }
 
   .step_2_question_1 {
     width: 100%;
@@ -5166,24 +5176,24 @@ height: 36.702px; */
 @media screen and (max-width: 470px) {
   .timeInput_div {
     gap: 20px;
-}
+  }
 
-#ampm {
-  margin-left: 0;
-}
+  #ampm {
+    margin-left: 0;
+  }
   .clockDive {
     padding: 0 6px;
   }
   .timeInput_div p {
     font-size: 18.5px;
-}
+  }
   #ampmInput {
     font-size: 16.5px;
     width: 50.25px;
   }
   .timeInput_unDisabled {
     gap: 20px;
-}
+  }
   .timeInput_disabled {
     gap: 20px;
   }
@@ -5197,11 +5207,6 @@ height: 36.702px; */
   .disable_time_input {
     font-size: 18.5px;
   }
-}
-@media screen and (max-width: 450px) {
-   .timeInput_unDisabled span{
-    display: none
-  };
   .right_of_you {
     display: none;
   }
@@ -5209,6 +5214,12 @@ height: 36.702px; */
   .group_img_block {
     display: block;
   }
+}
+@media screen and (max-width: 450px) {
+  .timeInput_unDisabled span {
+    display: none;
+  }
+  
 }
 @media screen and (max-width: 400px) {
   .on_boarding_text_div_main {
@@ -5492,11 +5503,11 @@ height: 36.702px; */
 @media screen and (max-width: 335px) {
   .timeInput_div {
     gap: 17px;
-}
-.timeInput_unDisabled {
+  }
+  .timeInput_unDisabled {
     padding: 22px 13px;
     gap: 17px;
-}
+  }
   .unDisable_time_input {
     font-size: 16.5px;
     width: 46.875px;
