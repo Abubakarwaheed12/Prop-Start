@@ -2379,8 +2379,9 @@ height: 36.702px; */
 }
 
 .right_of_you_icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
+
 .colorAdd01 {
   transition: all 300ms ease;
   -webkit-transition: all 1s ease-in-out 0.1s;
@@ -2420,7 +2421,7 @@ height: 36.702px; */
   /* transform-origin: 142px 57px;
   transform: scale(2);
   -ms-transform: scale(2);
-  -webkit-transform: scale(1.06); */
+  -webkit-transform: scale(1.02); */
 }
 
 .colorAdd02:hover {
@@ -2430,7 +2431,7 @@ height: 36.702px; */
   /* transform-origin: 142px 57px;
   transform: scale(2);
   -ms-transform: scale(2);
-  -webkit-transform: scale(1.06); */
+  -webkit-transform: scale(1.02); */
 }
 .colorAdd03:hover {
   fill: #513aad;
@@ -2820,7 +2821,6 @@ height: 36.702px; */
     padding: 74px 140.751px 74px 140px;
   }
 }
-
 @media screen and (max-width: 1200px) {
   .imageHovered {
     font-size: 26px !important;
@@ -3283,7 +3283,6 @@ height: 36.702px; */
     height: 290px;
   }
 }
-
 @media screen and (max-width: 992px) {
   .imageHovered {
     font-size: 22px !important;
@@ -3929,7 +3928,6 @@ height: 36.702px; */
     /* margin-top: 5rem; */
   }
 }
-
 @media screen and (max-width: 768px) {
     .table_main_sec{
         overflow-x: scroll;
@@ -4452,7 +4450,6 @@ height: 36.702px; */
     padding: 0 0px 0 0px;
   }
 }
-
 @media screen and (max-width: 578px) {
   .home_section_five {
     margin-top: 60px;
@@ -5175,7 +5172,6 @@ height: 36.702px; */
     display: none;
   }
 }
-
 @media screen and (max-width: 470px) {
   .timeInput_div {
     gap: 20px;
@@ -5502,7 +5498,6 @@ height: 36.702px; */
     left: 12px;
   }
 }
-
 @media screen and (max-width: 335px) {
   .timeInput_div {
     gap: 17px;
