@@ -1,4 +1,4 @@
-{% extends "base/navbar.html" %} {% load static %} {% block title %}Home{% endblock %} {% block css %}
+{% extends "base/navbar.html" %} {% load static %} {% block title %}PropStart{% endblock %} {% block css %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 {% endblock %}
 
@@ -116,7 +116,7 @@
 
             {% if  request.user.is_authenticated %}
             <a href="{% url 'pre_order' %}" style="text-decoration: none">
-              <button type="submit" class="pre_order_button2">Pre-Order</button>
+              <button type="submit" class="pre_order_button2">Learn More</button>
             </a>
             {% else %}
             <a href="{% url 'signup' %}" style="text-decoration: none">

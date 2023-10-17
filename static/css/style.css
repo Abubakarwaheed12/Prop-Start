@@ -1089,7 +1089,10 @@
   flex-direction: column;
   position: relative;
 }
-
+#phone::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
 .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
   background: none !important;
 }
