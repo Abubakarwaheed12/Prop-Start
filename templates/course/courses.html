@@ -64,7 +64,7 @@
                                 </a> -->
                                 {% if not usercourse and not usercourse.is_paid %}
                                 <div class="lesson_plan_section">
-                                    <h4>Browse Lesson Plan</h4>
+                                    <h4>Course Overview</h4>
                                     <div class="accordion accordion-flush accordion_section" id="accordionFlushExample">
                                         {% for less in course.lessons.all|dictsort:"id" %}
                                         <div class="accordion-item 

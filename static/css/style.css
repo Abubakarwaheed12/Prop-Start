@@ -1712,9 +1712,9 @@ article.on {
 .desc_section h3 {
   color: black;
   font-family: "Urbanist";
-  font-size: 20px;
+  font-size: 22px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 24px;
   /* 120% */
   margin-bottom: 0;
@@ -1726,10 +1726,10 @@ article.on {
   /* color: rgba(13, 73, 73, 0.60); */
   color: black;
   font-family: "Urbanist";
-  font-size: 18px;
+  font-size: 19px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
+  font-weight: 500;
+  line-height: 31px;
   /* margin-top: 1.5rem; */
 }
 
@@ -1747,7 +1747,7 @@ article.on {
   font-family: "Urbanist";
   font-size: 20px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 24px;
   /* 120% */
   margin-bottom: 0;
@@ -2341,7 +2341,6 @@ height: 36.702px; */
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  outline: 0;
 }
 .unDisable_time_input::placeholder {
   color: #454545 !important;
@@ -2415,7 +2414,8 @@ height: 36.702px; */
   -webkit-transform: scale(2);
 } */
 .colorAdd01:hover {
-  fill: #ff5733;
+  fill: #0a3131;
+  /* fill: #ff5733; */
   cursor: pointer;
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
   /* transform-origin: 142px 57px;
@@ -2425,7 +2425,8 @@ height: 36.702px; */
 }
 
 .colorAdd02:hover {
-  fill: #51d5c1;
+  fill: #076767;
+  /* fill: #51d5c1; */
   cursor: pointer;
   filter: drop-shadow(1px 4px 1px rgba(0, 0, 0, 0.4));
   /* transform-origin: 142px 57px;
@@ -2434,17 +2435,20 @@ height: 36.702px; */
   -webkit-transform: scale(1.02); */
 }
 .colorAdd03:hover {
-  fill: #513aad;
+  fill: #02774a;
+  /* fill: #513aad; */
   cursor: pointer;
   filter: drop-shadow(-1px 7px 3px rgba(0, 0, 0, 0.4));
 }
 .colorAdd04:hover {
-  fill: #c7a763;
+  /* fill: #c7a763; */
+  fill: #0c1313;
   cursor: pointer;
   filter: drop-shadow(7px 5px 2px rgb(0 0 0 / 0.4));
 }
 .colorAdd05:hover {
-  fill: #b3c4ae;
+  fill: #02774a;
+  /* fill: #b3c4ae; */
   cursor: pointer;
   filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
 }
@@ -2559,7 +2563,11 @@ height: 36.702px; */
 .table_main_sec {
   margin-bottom: 7rem;
 }
-
+.date-item.previous-month,
+.date-item.past-date {
+  color: lightgray;
+  cursor: not-allowed;
+}
 .calendar_main_div {
   width: 100%;
   border-radius: 14.977px;
@@ -2980,7 +2988,7 @@ height: 36.702px; */
   }
 
   .desc_section p {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   .desc_section h5 {
