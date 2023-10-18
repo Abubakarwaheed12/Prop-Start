@@ -131,16 +131,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL= "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 if DEBUG:
     STATIC_DIR = os.path.join(BASE_DIR, "static")
     STATICFILES_DIRS = [STATIC_DIR]
-    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, "static")
-    MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 
@@ -216,14 +215,23 @@ STRIPE_SECRET_KEY = 'sk_test_51MaJ5TAcD0sn2XXirV4BzLJwYPJR1WDXLvEz4T9FI2KhcArCcX
 PAYPAL_CLIENT_ID = 'AUn4dcsOOl1UWbLFfN6igPkWizY-duGcmZDPMXrPY2n-4PNMu4kR8A_hReMVaLkzBlbPPUDPf8IbYpBG'
 PAYPAL_CLIENT_SECRET = 'EP0XKKNnsFW9Od8kpR1yh2VJ86qxXBAoIF7B1WgJlR7yqzeif33NR-RxJXm6EiSF7C7Ofr_uAehpzTUI'
 PAYPAL_MODE = 'sandbox'  
+
 # Aws S3 
-# AWS_ACCESS_KEY_ID = 'YOUR_ACCESS_KEY_HERE'
-# AWS_SECRET_ACCESS_KEY = 'YOUR_SECRET_ACCESS_KEY_HERE'
-# AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+USE_S3 = env('USE_S3')
+if USE_S3:
+    AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+    AWS_STORAGE_BUCKET_NAME = 'propstart'
+    AWS_S3_SIGNATURE_NAME = 's3v4'
+    AWS_S3_REGION_NAME = 'eu-north-1'
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_DEFAULT_ACL =  None
+    AWS_S3_VERITY = True
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# Your app endpoint
-# AWS_S3_ENDPOINT_URL = os.environ.get('AWS_S3_ENDPOINT_URL')  
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }
+    
 
-# Only public read for now
-# AWS_QUERYSTRING_AUTH = False
-# AWS_DEFAULT_ACL='public-read'
