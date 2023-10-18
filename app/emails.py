@@ -72,7 +72,7 @@ The PropStart Team
 
 # Email for course - quiz results
 def send_course_quiz_email(request, email, name):
-    subject = "Check your results Is PropStart right for you?"
+    subject = "Check your results: Is PropStart right for you?"
     register_url = f"{request.get_host()}/accounts/signup/"
     message = (f"""
 Dear {name},
