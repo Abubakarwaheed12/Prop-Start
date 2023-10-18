@@ -373,7 +373,7 @@
               Sign Up
             </button>
           </a>
-          <a href="{% url 'on-boarding1' %}">
+          <a href="{% url 'on_boarding_text' %}">
             <button
               type="submit"
               class="journey_start_button journey_start_button_call"
@@ -400,21 +400,6 @@
 <script src="{% static 'js/fullpage.js' %}"></script>
 <!-- Then load AOS -->
 <script src="{% static 'js/aos.js' %}"></script>
-<!-- <script>
-  function addHoverEffect(elementClass) {
-    const element = document.querySelector("." + elementClass);
-    if (element) {
-      element.classList.add("hovered");
-    }
-  }
-
-  function removeHoverEffect(elementClass) {
-    const element = document.querySelector("." + elementClass);
-    if (element) {
-      element.classList.remove("hovered");
-    }
-  }
-</script> -->
 <!-- jquery cdn -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -434,79 +419,94 @@
     const propstart_text = document.querySelector(".propstart_text");
 
     // Add a mouseover event listener to the image
-    image.addEventListener("mouseover", function () {
-      // Change the text content of the h4 element when the image is hovered
-      h4.textContent =
-        "Book a 1 on 1 Strategy Session with one of our experts to have a complete property plan mapped out for you";
-      h4.classList.add("imageHovered");
-      image.classList.add("gradient");
-      propstart_text.classList.add("imageHoveredColum");
-    });
-    image2.addEventListener("mouseover", function () {
-      // Change the text content of the h4 element when the image is hovered
-      h4.textContent =
-        "Unlock access to PropStarts nationwide investment channels and be paired with one of our exclusive opportunities";
-      h4.classList.add("imageHovered");
-      propstart_text.classList.add("imageHoveredColum");
-    });
-    image3.addEventListener("mouseover", function () {
-      // Change the text content of the h4 element when the image is hovered
-      h4.textContent =
-        "Continue along your strategy by working with PropStart to multiply your property portfolio until your goals have been met";
-      h4.classList.add("imageHovered");
-      propstart_text.classList.add("imageHoveredColum");
-    });
-    image4.addEventListener("mouseover", function () {
-      // Change the text content of the h4 element when the image is hovered
-      h4.textContent =
-        "Leverage your portfolio to buy that dream home, quit your job or simply spread your wings. The future is yours";
-      h4.classList.add("imageHovered");
-      propstart_text.classList.add("imageHoveredColum");
-    });
-    image5.addEventListener("mouseover", function () {
-      // Change the text content of the h4 element when the image is hovered
-      h4.textContent =
-        "Smart learning starts by enrolling in our program. Invest in yourself and learn how to be the rich dad.";
-      h4.classList.add("imageHovered");
-      propstart_text.classList.add("imageHoveredColum");
-    });
-    // Add a mouseout event listener to reset the text content when the mouse leaves the image
-    image.addEventListener("mouseout", function () {
-      h4.textContent = "Is PropStart Right for you?"; // Reset the text
-      h4.classList.remove("imageHovered");
-      propstart_text.classList.remove("imageHoveredColum");
-    });
-    image2.addEventListener("mouseout", function () {
-      h4.textContent = "Is PropStart Right for you?"; // Reset the text
-      h4.classList.remove("imageHovered");
-      propstart_text.classList.remove("imageHoveredColum");
-    });
-    image3.addEventListener("mouseout", function () {
-      h4.textContent = "Is PropStart Right for you?"; // Reset the text
-      h4.classList.remove("imageHovered");
-      propstart_text.classList.remove("imageHoveredColum");
-    });
-    image4.addEventListener("mouseout", function () {
-      h4.textContent = "Is PropStart Right for you?"; // Reset the text
-      h4.classList.remove("imageHovered");
-      propstart_text.classList.remove("imageHoveredColum");
-    });
-    image5.addEventListener("mouseout", function () {
-      h4.textContent = "Is PropStart Right for you?"; // Reset the text
-      h4.classList.remove("imageHovered");
-      propstart_text.classList.remove("imageHoveredColum");
-    });
+image.addEventListener("mouseover", function () {
+  setTimeout(function () {
+    h4.textContent =
+      "Book a 1 on 1 Strategy Session with one of our experts to have a complete property plan mapped out for you";
+    h4.classList.add("imageHovered");
+    h4.style.maxHeight = "100px";
+  }, 400);
+});
+
+image2.addEventListener("mouseover", function () {
+  setTimeout(function () {
+    h4.textContent =
+      "Unlock access to PropStart's nationwide investment channels and be paired with one of our exclusive opportunities";
+    h4.classList.add("imageHovered");
+    h4.style.maxHeight = "100px";
+  }, 400);
+});
+
+image3.addEventListener("mouseover", function () {
+  setTimeout(function () {
+    h4.textContent =
+      "Continue along your strategy by working with PropStart to multiply your property portfolio until your goals have been met";
+    h4.classList.add("imageHovered");
+    h4.style.maxHeight = "100px";
+  }, 400);
+});
+
+image4.addEventListener("mouseover", function () {
+  setTimeout(function () {
+    h4.textContent =
+      "Leverage your portfolio to buy that dream home, quit your job, or simply spread your wings. The future is yours";
+    h4.classList.add("imageHovered");
+    h4.style.maxHeight = "100px";
+  }, 400);
+});
+
+image5.addEventListener("mouseover", function () {
+  setTimeout(function () {
+    h4.textContent =
+      "Smart learning starts by enrolling in our program. Invest in yourself and learn how to be the rich dad.";
+    h4.classList.add("imageHovered");
+    h4.style.maxHeight = "100px";
+  }, 400);
+});
+
+// Add a mouseout event listener with a delay to reset the text content
+image.addEventListener("mouseout", function () {
+  setTimeout(function () {
+    h4.textContent = "Is PropStart Right for you?"; // Reset the text
+    h4.classList.remove("imageHovered");
+    h4.style.maxHeight = "0";
+  }, 400); // Delay for removal
+});
+
+image2.addEventListener("mouseout", function () {
+  setTimeout(function () {
+    h4.textContent = "Is PropStart Right for you?"; // Reset the text
+    h4.classList.remove("imageHovered");
+    h4.style.maxHeight = "0";
+  }, 400); // Delay for removal
+});
+
+image3.addEventListener("mouseout", function () {
+  setTimeout(function () {
+    h4.textContent = "Is PropStart Right for you?"; // Reset the text
+    h4.classList.remove("imageHovered");
+    h4.style.maxHeight = "0";
+  }, 400); // Delay for removal
+});
+
+image4.addEventListener("mouseout", function () {
+  setTimeout(function () {
+    h4.textContent = "Is PropStart Right for you?"; // Reset the text
+    h4.classList.remove("imageHovered");
+    h4.style.maxHeight = "0";
+  }, 400); // Delay for removal
+});
+
+image5.addEventListener("mouseout", function () {
+  setTimeout(function () {
+    h4.textContent = "Is PropStart Right for you?"; // Reset the text
+    h4.classList.remove("imageHovered");
+    h4.style.maxHeight = "0";
+  }, 400); // Delay for removal
+});
+
   });
 
-  $(document).ready(function() {
-            // When you hover over the disable_section, show the purchase button
-            $(".img02").hover(function() {
-                $(".colorAdd001").addClass('colorAdd01');
-            }, function() {
-                // // When you move the mouse away, hide the purchase button
-                // $(".img02").cl();
-            });
-        });
 </script>
 
 {% endblock js %}

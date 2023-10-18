@@ -16,90 +16,98 @@
   <body>
     <!-- footer section  Start-->
     <footer class="footer_main_section section">
-      <div class="container">
-        <div class="row" data-aos="fade-up" data-aos-duration="3000">
-          <div class="col-lg-3 col-md-4 col-sm-4 col-12 footer_manage_colum">
-            <a href="{% url 'home' %}">
-              <img
-                src="{% static '/images/footer_logo.svg' %}"
-                alt=""
-                class="footer_logo_img"
-              />
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-5 col-sm-5 col-12 footer_manage_colum">
-            <div class="footer_item">
-              <!-- <h5>Apartment no, Address</h5> -->
-              <div class="footer_icon">
-                <span class="material-symbols-outlined footer_icon_span">
-                  home</span
+      <div class="footer_main_section_div">
+        <div class="container">
+          <div class="row" data-aos="fade-up" data-aos-duration="3000">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-12 footer_manage_colum">
+              <a href="{% url 'home' %}">
+                <img
+                  src="{% static '/images/footer_logo.svg' %}"
+                  alt=""
+                  class="footer_logo_img"
+                />
+              </a>
+            </div>
+            <div class="col-lg-3 col-md-5 col-sm-5 col-12 footer_manage_colum">
+              <div class="footer_item">
+                <!-- <h5>Apartment no, Address</h5> -->
+                <div class="footer_icon">
+                  <span class="material-symbols-outlined footer_icon_span">
+                    home</span
+                  >
+                  <p class="address_footer_p">
+                    470 St Kilda Road, Melbourne VIC 3004
+                  </p>
+                </div>
+                <div class="footer_icon footer_icon2">
+                  <span class="material-symbols-outlined footer_icon_span">
+                    home</span
+                  >
+                  <p class="address_footer_p">
+                    18/324 Queens Street, Brisbane QLD 4000
+                  </p>
+                </div>
+                <div
+                  class="footer_icon footer_icon2"
+                  style="align-items: center"
                 >
-                <p class="address_footer_p">
-                  470 St Kilda Road, Melbourne VIC 3004
-                </p>
+                  <span class="material-symbols-outlined footer_icon_span"
+                    >mail</span
+                  >
+                  <a href="#" style="text-decoration: none; color: white">
+                    <p><span>info@propstart.com.au</span></p>
+                  </a>
+                </div>
               </div>
-              <div class="footer_icon footer_icon2">
-                <span class="material-symbols-outlined footer_icon_span">
-                  home</span
+            </div>
+            <div
+              class="col-lg-2 col-md-3 col-sm-3 col-12 footer_manage_colum footer_manage_colum992"
+            >
+              <div class="footer_item">
+                <a href="{% url 'courses' %}">
+                  <p><span>Courses</span></p>
+                </a>
+                <a href="{% url 'on_boarding_text' %}">
+                  <p><span>Book a Call</span></p>
+                </a>
+                <a
+                  href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'signup' %}{%endif %}"
                 >
-                <p class="address_footer_p">
-                  18/324 Queens Street, Brisbane QLD 4000
-                </p>
+                  <p><span>Pre-Order</span></p>
+                </a>
+                <a href="{% url 'quiz-1' %}">
+                  <p><span>Take Quiz</span></p>
+                </a>
               </div>
-              <div class="footer_icon footer_icon2" style="align-items: center">
-                <span class="material-symbols-outlined footer_icon_span"
-                  >mail</span
-                >
-                <a href="#" style="text-decoration: none; color: white">
-                  <p><span>info@propstart.com.au</span></p>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-4 col-12 footer_manage_colum">
+              <div class="footer_item footer_item_about">
+                <a href="https://www.facebook.com/propstart">
+                  <p><span> Facebook</span></p>
+                </a>
+                <a href="https://www.instagram.com/propstart_/">
+                  <p><span>Instagram</span></p>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6 col-12 footer_manage_colum">
+              <div class="footer_item footer_item_about">
+                <a href="{% url 'privacy_policy' %}">
+                  <p><span>Privacy Policy</span></p>
+                </a>
+                <a href="{% url 'term_conditions' %}">
+                  <p><span>Terms & Conditions</span></p>
+                </a>
+                <a href="{% url 'website_disclaimer' %}">
+                  <p><span>Disclaimer</span></p>
                 </a>
               </div>
             </div>
           </div>
-          <div
-            class="col-lg-2 col-md-3 col-sm-3 col-12 footer_manage_colum footer_manage_colum992"
-          >
-            <div class="footer_item">
-              <a href="{% url 'courses' %}">
-                <p><span>Courses</span></p>
-              </a>
-              <a href="{% url 'on_boarding_text' %}">
-                <p><span>Book a Call</span></p>
-              </a>
-              <a
-                href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'signup' %}{%endif %}"
-              >
-                <p><span>Pre-Order</span></p>
-              </a>
-              <a href="{% url 'quiz-1' %}">
-                <p><span>Take Quiz</span></p>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-4 col-12 footer_manage_colum">
-            <div class="footer_item footer_item_about">
-              <a href="https://www.facebook.com/propstart">
-                <p><span> Facebook</span></p>
-              </a>
-              <a href="https://www.instagram.com/propstart_/">
-                <p><span>Instagram</span></p>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4 col-sm-6 col-12 footer_manage_colum">
-            <div class="footer_item footer_item_about">
-              <a href="{% url 'privacy_policy' %}">
-                <p><span>Privacy Policy</span></p>
-              </a>
-              <a href="{% url 'term_conditions' %}">
-                <p><span>Terms & Conditions</span></p>
-              </a>
-              <a href="{% url 'website_disclaimer' %}">
-                <p><span>Disclaimer</span></p>
-              </a>
-            </div>
-          </div>
         </div>
+      </div>
+      <div class="footer_desc_p">
+        <p>© 2023 PropStart Pty Ltd ABN 43 667 595 155. All rights reserved</p>
       </div>
     </footer>
   </body>

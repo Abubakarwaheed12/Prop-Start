@@ -363,6 +363,9 @@
   width: 100%;
   max-width: 267px;
   margin-bottom: 0;
+  min-height: 240px;
+  display: flex;
+  align-items: center;
 }
 
 .take_quiz_button {
@@ -389,8 +392,9 @@
 .propstart_text_section {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   padding-top: 110px;
+  padding-left: 60px;
 }
 
 .home_section_five {
@@ -459,10 +463,11 @@
 
 /* foter css  */
 .footer_main_section {
-  padding: 74px 448.751px 74px 448px;
   background-color: #000;
 }
-
+.footer_main_section_div {
+  padding: 160px 448.751px 74px 448px;
+}
 .footer_logo_img {
   width: 151.249px;
   transition: all 300ms ease;
@@ -1089,7 +1094,7 @@
   flex-direction: column;
   position: relative;
 }
-#phone::-webkit-inner-spin-button{
+#phone::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -2454,16 +2459,18 @@ height: 36.702px; */
 }
 
 .imageHovered {
-  max-width: 85% !important;
-  font-size: 35px !important;
-  text-align: center !important;
+  max-width: 100% !important;
+  min-height: 240px !important;
+  font-size: 40px !important;
+  /* text-align: center !important; */
 }
-.imageHoveredColum {
+/* .imageHoveredColum {
   display: flex !important;
   justify-content: center !important;
   flex-direction: column;
-  align-items: center;
-}
+  align-items: center; */
+/* padding-left: 60px;
+} */
 
 .subtractImg01 {
   width: 195.006px;
@@ -2482,7 +2489,11 @@ height: 36.702px; */
   top: 114px;
   z-index: 8;
 }
-
+.text_append_h4 {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s;
+}
 .subtractImg03 {
   width: 315.655px;
   height: 132.169px;
@@ -2658,11 +2669,37 @@ height: 36.702px; */
   font-weight: 600;
   margin-top: 2rem;
 }
-.thead_p{
+.thead_p {
   margin-bottom: 0;
 }
+.footer_desc_p {
+  border-top: 1px solid #fff;
+  padding: 20px;
+  margin-top: 2rem;
+}
+.footer_desc_p p {
+  color: #ffff;
+  font-family: "Urbanist";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0;
+}
+.footer_main_section .fp-tableCell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.error-message {
+  color: red;
+  font-family: "Urbanist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 10px 0 0 0;
+}
 @media screen and (min-width: 1400px) {
- 
   .side_circle {
     top: -20px;
   }
@@ -2671,8 +2708,8 @@ height: 36.702px; */
     justify-content: center;
   }
 
-  .footer_main_section {
-    padding: 74px 280px 74px 280px;
+  .footer_main_section_div {
+    padding: 190px 280px 74px 280px;
   }
 }
 @media screen and (max-width: 1520px) {
@@ -2681,11 +2718,15 @@ height: 36.702px; */
   }
 }
 @media screen and (max-width: 1400px) {
-  .lesson_plan_section{
+  .propstart_text h4 {
+    font-size: 40px;
+    max-width: 213px;
+  }
+  .lesson_plan_section {
     margin-top: 16px;
   }
   .imageHovered {
-    font-size: 32px !important;
+    font-size: 34px !important;
   }
   .subtractImg01 {
     width: 207.006px;
@@ -2695,7 +2736,7 @@ height: 36.702px; */
   }
 
   .subtractImg02 {
-    width: 141.483px;
+    width: 142.483px;
     height: 268.941px;
     right: 34px;
     top: 97px;
@@ -2825,14 +2866,19 @@ height: 36.702px; */
     font-size: 54px;
   }
 
-  .footer_main_section {
-    padding: 74px 140.751px 74px 140px;
+  .footer_main_section_div {
+    padding: 165px 140.751px 74px 140px;
   }
 }
 @media screen and (max-width: 1200px) {
-  .imageHovered {
-    font-size: 26px !important;
+  .footer_desc_p p {
+    font-size: 17px;
   }
+  .imageHovered {
+    min-height: 200px !important;
+    font-size: 28px !important;
+  }
+
   .subtractImg01 {
     width: 217.006px;
     height: 193.215px;
@@ -3160,10 +3206,9 @@ height: 36.702px; */
     padding: 15px;
   }
 
-  .footer_main_section {
-    padding: 74px 80.751px 74px 80px;
+  .footer_main_section_div {
+    padding: 164px 80.751px 74px 80px;
   }
-
   .footer_item h5 {
     font-size: 20px;
   }
@@ -3189,8 +3234,9 @@ height: 36.702px; */
   }
 
   .propstart_text h4 {
-    font-size: 43px;
-    max-width: 250px;
+    font-size: 32px;
+    max-width: 194px;
+    min-height: 200px;
   }
 
   .take_quiz_button {
@@ -3292,9 +3338,15 @@ height: 36.702px; */
   }
 }
 @media screen and (max-width: 992px) {
+  .footer_desc_p p {
+    font-size: 16px;
+  }
   .imageHovered {
-    font-size: 22px !important;
-    width: 92% !important;
+    font-size: 24px !important;
+  }
+  .propstart_text_section {
+    padding-left: 40px;
+    padding-top: 0;
   }
   .on_boarding_text_div p {
     font-size: 16px;
@@ -3793,10 +3845,9 @@ height: 36.702px; */
     padding: 16px 30.14px 17px 30px;
   }
 
-  .footer_main_section {
-    padding: 74px 0px 74px 0px;
+  .footer_main_section_div {
+    padding: 134px 0px 0px 0px;
   }
-
   .footer_logo_img {
     width: 133.249px;
   }
@@ -3829,10 +3880,9 @@ height: 36.702px; */
   }
 
   .propstart_text h4 {
-    font-size: 38px;
-    max-width: 200px;
+    font-size: 32px;
+    max-width: 180px;
   }
-
   .take_quiz_button {
     font-size: 15px;
     width: 150px;
@@ -3937,14 +3987,17 @@ height: 36.702px; */
   }
 }
 @media screen and (max-width: 768px) {
-    .table_main_sec{
-        overflow-x: scroll;
-    }
-    .table_main_sec::-webkit-scrollbar{
-      height: 2px;
-      background-color: #c2c2c2;
-    }
-  .thead_p{
+  .footer_desc_p p {
+    font-size: 15px;
+  }
+  .table_main_sec {
+    overflow-x: scroll;
+  }
+  .table_main_sec::-webkit-scrollbar {
+    height: 2px;
+    background-color: #c2c2c2;
+  }
+  .thead_p {
     min-width: 120px;
   }
   .timeInput_div p {
@@ -4010,7 +4063,7 @@ height: 36.702px; */
   .subtractImg02 {
     width: 138.483px;
     height: 262.941px;
-    right: 37px;
+    right: 38px;
     top: 102px;
     rotate: 0deg;
   }
@@ -4348,12 +4401,18 @@ height: 36.702px; */
 
   .propstart_text_section {
     margin-top: 50px;
+    justify-content: center;
+    padding-left: 10px;
   }
 
   .propstart_text h4 {
-    font-size: 40px;
-    max-width: 500px;
+    font-size: 35px;
+    max-width: 214px;
     text-align: center;
+  }
+  .imageHovered {
+    font-size: 30px !important;
+    max-width: 90% !important;
   }
 
   .propstart_text {
@@ -4454,11 +4513,18 @@ height: 36.702px; */
     margin-top: 42px;
     justify-content: center;
   }
-  .footer_main_section {
-    padding: 0 0px 0 0px;
+
+  .footer_main_section_div {
+    padding: 70px 0px 0 0px;
   }
 }
 @media screen and (max-width: 578px) {
+  .footer_desc_p {
+    padding: 15px;
+  }
+  .footer_desc_p p {
+    font-size: 14px;
+  }
   .home_section_five {
     margin-top: 60px;
   }
@@ -4681,10 +4747,12 @@ height: 36.702px; */
     justify-content: center;
   }
 
-  .footer_main_section {
+  .footer_main_section_div {
     padding: 74px 25px 74px 25px;
   }
-
+  .footer_main_section .fp-tableCell {
+    display: unset;
+  }
   .circle_parent {
     width: 21.702px;
     height: 21.702px;
@@ -4765,7 +4833,6 @@ height: 36.702px; */
   .quiz_main_section {
     padding: 197px 25px;
   }
-
 
   .step_2_question_1 {
     width: 100%;
@@ -5033,6 +5100,9 @@ height: 36.702px; */
 
   .footer_item {
     margin-top: 50px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .footer_item_about {
@@ -5078,14 +5148,9 @@ height: 36.702px; */
     font-size: 14px;
   }
 
-  /* .home_section_four {
-        margin-top: 40px;
-        padding: 73px 25px;
-    } */
-
   .propstart_text h4 {
-    font-size: 35px;
-    max-width: 350px;
+    font-size: 34px;
+    max-width: 202px;
   }
 
   .take_quiz_button {
@@ -5093,7 +5158,10 @@ height: 36.702px; */
     width: 140px;
     height: 50px;
   }
-
+  .imageHovered {
+    font-size: 27px !important;
+    max-width: 82% !important;
+  }
   /* .section_3 {
         padding: 0 25px 80px 25px;
     } */
@@ -5226,7 +5294,6 @@ height: 36.702px; */
   .timeInput_unDisabled span {
     display: none;
   }
-  
 }
 @media screen and (max-width: 400px) {
   .on_boarding_text_div_main {
