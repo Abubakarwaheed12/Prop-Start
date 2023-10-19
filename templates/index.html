@@ -71,13 +71,17 @@
               data-aos="fade-up"
               data-aos-duration="3000"
             >
-              <!-- <video src="{% static 'videos/IMG_0712 (2).mp4' %}" muted autoplay="true" loop
-                id="myVideo" class="rafiki_image"></video> -->
-              <img
+              <!-- <video muted autoplay="true" loop
+                id="myVideo" class="rafiki_image">
+              <source src="{% static 'videos/IMG_0712 (2).mp4' %}" type="video">
+            </video> -->
+            <video src="{% static 'videos/IMG_0712 (2).mp4' %}" muted autoplay loop preload="auto" id="myVideo" class="rafiki_image"></video>
+
+              <!-- <img
                 src="{% static 'videos/first_gif1.gif' %}"
                 alt=""
                 class="rafiki_image"
-              />
+              /> -->
             </div>
           </div>
         </div>
@@ -352,7 +356,8 @@
   <!-- End -->
 
   <!-- Your Journey Starts Here  Start -->
-  <div class="home_section_five section">
+ <div class="section">
+  <div class="home_section_five">
     <div class="container">
       <div
         class="journey_start_section"
@@ -386,6 +391,7 @@
       </div>
     </div>
   </div>
+ </div>
   {% endblock content %} {% block footer %} {% include "base/footer.html" %} {% endblock footer %} {% block js %}
 </div>
 <!-- end -->
@@ -419,94 +425,111 @@
     const propstart_text = document.querySelector(".propstart_text");
 
     // Add a mouseover event listener to the image
-image.addEventListener("mouseover", function () {
-  setTimeout(function () {
-    h4.textContent =
-      "Book a 1 on 1 Strategy Session with one of our experts to have a complete property plan mapped out for you";
-    h4.classList.add("imageHovered");
-    h4.style.maxHeight = "100px";
-  }, 400);
-});
+    image.addEventListener("mouseover", function () {
+      setTimeout(function () {
+        h4.textContent =
+          "Book a 1 on 1 Strategy Session with one of our experts to have a complete property plan mapped out for you";
+        h4.classList.add("imageHovered");
+        h4.style.maxHeight = "100px";
+      }, 400);
+    });
 
-image2.addEventListener("mouseover", function () {
-  setTimeout(function () {
-    h4.textContent =
-      "Unlock access to PropStart's nationwide investment channels and be paired with one of our exclusive opportunities";
-    h4.classList.add("imageHovered");
-    h4.style.maxHeight = "100px";
-  }, 400);
-});
+    image2.addEventListener("mouseover", function () {
+      setTimeout(function () {
+        h4.textContent =
+          "Unlock access to PropStart's nationwide investment channels and be paired with one of our exclusive opportunities";
+        h4.classList.add("imageHovered");
+        h4.style.maxHeight = "100px";
+      }, 400);
+    });
 
-image3.addEventListener("mouseover", function () {
-  setTimeout(function () {
-    h4.textContent =
-      "Continue along your strategy by working with PropStart to multiply your property portfolio until your goals have been met";
-    h4.classList.add("imageHovered");
-    h4.style.maxHeight = "100px";
-  }, 400);
-});
+    image3.addEventListener("mouseover", function () {
+      setTimeout(function () {
+        h4.textContent =
+          "Continue along your strategy by working with PropStart to multiply your property portfolio until your goals have been met";
+        h4.classList.add("imageHovered");
+        h4.style.maxHeight = "100px";
+      }, 400);
+    });
 
-image4.addEventListener("mouseover", function () {
-  setTimeout(function () {
-    h4.textContent =
-      "Leverage your portfolio to buy that dream home, quit your job, or simply spread your wings. The future is yours";
-    h4.classList.add("imageHovered");
-    h4.style.maxHeight = "100px";
-  }, 400);
-});
+    image4.addEventListener("mouseover", function () {
+      setTimeout(function () {
+        h4.textContent =
+          "Leverage your portfolio to buy that dream home, quit your job, or simply spread your wings. The future is yours";
+        h4.classList.add("imageHovered");
+        h4.style.maxHeight = "100px";
+      }, 400);
+    });
 
-image5.addEventListener("mouseover", function () {
-  setTimeout(function () {
-    h4.textContent =
-      "Smart learning starts by enrolling in our program. Invest in yourself and learn how to be the rich dad.";
-    h4.classList.add("imageHovered");
-    h4.style.maxHeight = "100px";
-  }, 400);
-});
+    image5.addEventListener("mouseover", function () {
+      setTimeout(function () {
+        h4.textContent =
+          "Smart learning starts by enrolling in our program. Invest in yourself and learn how to be the rich dad.";
+        h4.classList.add("imageHovered");
+        h4.style.maxHeight = "100px";
+      }, 400);
+    });
 
-// Add a mouseout event listener with a delay to reset the text content
-image.addEventListener("mouseout", function () {
-  setTimeout(function () {
-    h4.textContent = "Is PropStart Right for you?"; // Reset the text
-    h4.classList.remove("imageHovered");
-    h4.style.maxHeight = "0";
-  }, 400); // Delay for removal
-});
+    // Add a mouseout event listener with a delay to reset the text content
+    image.addEventListener("mouseout", function () {
+      setTimeout(function () {
+        h4.textContent = "Is PropStart Right for you?"; // Reset the text
+        h4.classList.remove("imageHovered");
+        h4.style.maxHeight = "0";
+      }, 300); // Delay for removal
+    });
 
-image2.addEventListener("mouseout", function () {
-  setTimeout(function () {
-    h4.textContent = "Is PropStart Right for you?"; // Reset the text
-    h4.classList.remove("imageHovered");
-    h4.style.maxHeight = "0";
-  }, 400); // Delay for removal
-});
+    image2.addEventListener("mouseout", function () {
+      setTimeout(function () {
+        h4.textContent = "Is PropStart Right for you?"; // Reset the text
+        h4.classList.remove("imageHovered");
+        h4.style.maxHeight = "0";
+      }, 300); // Delay for removal
+    });
 
-image3.addEventListener("mouseout", function () {
-  setTimeout(function () {
-    h4.textContent = "Is PropStart Right for you?"; // Reset the text
-    h4.classList.remove("imageHovered");
-    h4.style.maxHeight = "0";
-  }, 400); // Delay for removal
-});
+    image3.addEventListener("mouseout", function () {
+      setTimeout(function () {
+        h4.textContent = "Is PropStart Right for you?"; // Reset the text
+        h4.classList.remove("imageHovered");
+        h4.style.maxHeight = "0";
+      }, 300); // Delay for removal
+    });
 
-image4.addEventListener("mouseout", function () {
-  setTimeout(function () {
-    h4.textContent = "Is PropStart Right for you?"; // Reset the text
-    h4.classList.remove("imageHovered");
-    h4.style.maxHeight = "0";
-  }, 400); // Delay for removal
-});
+    image4.addEventListener("mouseout", function () {
+      setTimeout(function () {
+        h4.textContent = "Is PropStart Right for you?"; // Reset the text
+        h4.classList.remove("imageHovered");
+        h4.style.maxHeight = "0";
+      }, 300); // Delay for removal
+    });
 
-image5.addEventListener("mouseout", function () {
-  setTimeout(function () {
-    h4.textContent = "Is PropStart Right for you?"; // Reset the text
-    h4.classList.remove("imageHovered");
-    h4.style.maxHeight = "0";
-  }, 400); // Delay for removal
-});
+    image5.addEventListener("mouseout", function () {
+      setTimeout(function () {
+        h4.textContent = "Is PropStart Right for you?"; // Reset the text
+        h4.classList.remove("imageHovered");
+        h4.style.maxHeight = "0";
+      }, 300); // Delay for removal
+    });
 
   });
+  // Add a scroll listener to handle video playback
+  $(document).on('scroll', function() {
+    const video = document.getElementById("myVideo");
+    const videoSection = document.querySelector('.section');
 
+    // Get the top and bottom positions of the video and section
+    const videoTop = video.getBoundingClientRect().top;
+    const videoBottom = video.getBoundingClientRect().bottom;
+    const sectionTop = videoSection.getBoundingClientRect().top;
+    const sectionBottom = videoSection.getBoundingClientRect().bottom;
+
+    // Check if the video is in the current section
+    if (videoTop >= sectionTop && videoBottom <= sectionBottom) {
+      video.play(); // Video is in view, play it
+    } else {
+      video.pause(); // Video is out of view, pause it
+    }
+  });
 </script>
 
 {% endblock js %}
