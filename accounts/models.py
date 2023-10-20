@@ -19,6 +19,7 @@ class CustomUser(AbstractUser):
         max_length=50
     )
 
+    hubspot_contact_id = models.PositiveBigIntegerField(null=True, blank=True, default=0)
     
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS=[]
@@ -44,10 +45,14 @@ class CustomUser(AbstractUser):
     
     def send_to_hubspot(self):
         api = HubspotAPIClient()
-        api.create_or_update_contact({
+        c_id =api.create_or_update_contact({
+            "firstname" :self.first_name,
+            "lastname": self.last_name, 
             "email": self.email,
-            
+            "phone": self.phone_number,
+            "lifecyclestage": "marketingqualifiedlead",
         })
 
+        self.hubspot_contact_id = c_id
+        self.save()
 
-    

@@ -121,8 +121,6 @@ You've made a fantastic decision investing in yourself through registering for t
 
 Access the course here - {course_page_url}
 
-I want to take a moment to detail how the program works and answer the most frequently asked questions:
-
 You have lifetime access to the Property Genius Unlocked course. It is simply designed in a digestible format to make the learning experience seamless and straight forward. With that in mind you can go as fast or slow as you'd like. ALSO, we do recommend going through the program multiple times to truly master this information.
 
 If you have any technical issues or are unable to access the course, please email info@prostart.com.au so we can take care of you :)

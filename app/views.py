@@ -23,9 +23,11 @@ from .emails import(
     send_course_quiz_email
 )
 
+from vendor.hubspot.client import APIClient
 
 def index(request):
-
+    hubspot = APIClient()
+    # hubspot.create_deal_with_contact_id()
     return render(request,"index.html")
 
 
@@ -208,7 +210,7 @@ def register_message(request):
     email_thread.start()
     # send to user calender 
     calender = GoogleAPIClient()
-    calender.gc_event( booking_obj.email, booking_obj.meeting_date_time)
+    calender.gc_event( booking_obj.email, booking_obj.meeting_date_time, booking_obj.contact_number)
 
     return render(request,"bookcall/register_message.html")
 
@@ -279,7 +281,7 @@ def paypal_payment_successful(request):
     email_thread.start()
     # send to user calender 
     calender = GoogleAPIClient()
-    calender.gc_event( booking_obj.email, booking_obj.meeting_date_time)
+    calender.gc_event( booking_obj.email, booking_obj.meeting_date_time, booking_obj.contact_number)
     
     return render(request, "bookcall/register_message.html")
 

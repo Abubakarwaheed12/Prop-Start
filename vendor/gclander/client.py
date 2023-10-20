@@ -24,7 +24,7 @@ class GoogleAPIClient:
 
         self.service = build('calendar', 'v3', credentials=credentials)
     # start_datetime.isoformat()
-    def gc_event(self, attendee, start_date):
+    def gc_event(self, attendee, start_date, phone=None):
         
         service = self.service
         start_datetime = datetime.datetime.now(tz=pytz.utc)
@@ -33,7 +33,7 @@ class GoogleAPIClient:
             .insert(
                 calendarId="info@propstart.com.au",
                 body={
-                    "summary": "Book A Call",
+                    "summary": f"Book A Call {phone}",
                     "description": "Strategy Call",
                     "start": {"dateTime": start_date.isoformat()},
                     "end": {
@@ -46,3 +46,7 @@ class GoogleAPIClient:
             .execute()
         )
         print(event)
+
+
+
+    

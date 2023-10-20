@@ -123,3 +123,46 @@ class APIClient:
         path = f'/contacts/v1/contact/vid/{contact_id}'
         response = self.delete(path)
         return response.json()
+
+
+    def create_deal_with_contact_id(self):
+        path = '/crm/v3/objects/deals'
+         
+        payload = {
+            "properties": {
+                "amount": "1500.00",
+                "closedate": "2023-12-07T16:50:06.678Z",
+                "dealname": "Strategy Call",
+                "pipeline": "default",
+                "dealstage": "contractsent",
+                "hubspot_owner_id": "552621387"
+            },
+           
+            "associations": [
+                    {
+                     "to": {
+                        "id": 651
+                      },
+                      "types": [
+                        {
+                          "associationCategory": "HUBSPOT_DEFINED",
+                          "associationTypeId": 3
+                        } ]
+                    }, ]
+        }
+
+        
+
+
+        response = self.post(path, payload)
+        print("response", response.json())
+        if response.status_code == 201:
+            r = response.json()
+            deal_id = r['id']
+            return response.json()
+        else:
+            return {
+                'error': f'Error: {response.status_code} - {response.text}'
+            }
+
+        
