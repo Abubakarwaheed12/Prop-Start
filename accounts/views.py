@@ -81,12 +81,16 @@ def send_code(request):
             user.save()
             # send to hubspot
             user.send_to_hubspot()
-            
-            request.session.delete('otp')
-            request.session.delete('email')
-            request.session.delete('password')
-            request.session.delete('fname')
-            request.session.delete('lname')
+            # Login User 
+            user = authenticate(request, email=email,password=password)
+            if user is not None:
+                login(request, user)
+                request.session.delete('otp')
+                request.session.delete('email')
+                request.session.delete('password')
+                request.session.delete('fname')
+                request.session.delete('lname')
+                return redirect('courses')
             messages.success(request,"you are successfully registered")
             return redirect("login")
         else:

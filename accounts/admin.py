@@ -9,14 +9,14 @@ class CustomUserAdmin(UserAdmin):
     list_display = ("email", "first_name", "last_name", "profile_img", "is_staff", "is_active")
     list_filter = ("email", "is_staff", "is_active")
     fieldsets = (
-        (None, {"fields": ("email", "password", "first_name", "last_name", "profile_img", "phone_number")}),
+        (None, {"fields": ("email", "password", "first_name", "last_name", "profile_img", "phone_number", "hubspot_contact_id")}),
         ("Permissions", {"fields": ("is_staff", "is_active",)}),
     )
     add_fieldsets = (
         (None, {
             "classes": ("wide",),
             "fields": (
-                "email", "password1", "password2", "first_name", "last_name", "profile_img", "is_staff",
+                "email", "password1", "password2", "first_name", "last_name", "profile_img", "phone_number", "is_staff",
                 "is_active", "groups", "user_permissions"
             )}
         ),
