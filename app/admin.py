@@ -2,7 +2,8 @@ from django.contrib import admin
 from .models import (
     BookingCall,
     TakeQuiz,
-    PaymentHistory
+    PaymentHistory,
+    PromoCode
 )
 
 # Register your models here.
@@ -10,6 +11,7 @@ from .models import (
 admin.site.register(BookingCall)
 admin.site.register(TakeQuiz)
 admin.site.register(PaymentHistory)
+admin.site.register(PromoCode)
 
 # class CallAdmin(admin.ModelAdmin):
 #     def get_queryset(self, request):

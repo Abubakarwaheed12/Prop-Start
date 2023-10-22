@@ -1,19 +1,17 @@
 from django.shortcuts import render, redirect 
 from datetime import datetime , timedelta
-from pytz import timezone
 from django.db.models import Q
 from django.contrib import messages
 from django.conf import settings
 from django.http import JsonResponse , HttpResponseNotFound
 from .models import *
 import stripe
-from django.conf import settings
+from django.utils import timezone
 from django.urls import reverse 
 stripe.api_key =settings.STRIPE_PUBLIC_KEY
 from paypalrestsdk import Payment 
 import paypalrestsdk
 import threading
-from django.core.serializers.json import DjangoJSONEncoder
 from django.views.decorators.csrf import csrf_exempt
 from .models import TakeQuiz , PaymentHistory
 from vendor.gclander.client import GoogleAPIClient
@@ -30,9 +28,45 @@ def index(request):
     # hubspot.create_deal_with_contact_id()
     return render(request,"index.html")
 
-
 def quiz_1(request):
     return render(request, "quiz/quiz1.html")
+
+
+def on_boarding_text(request):
+    return render(request, "bookcall/on_boarding_text.html")
+
+
+# new add 
+def on_boarding5_date(request):
+    if request.method == "POST":
+        call_date = request.POST.get("selecteddate")
+        call_time = request.POST.get("clockinput")
+        if not call_date or not call_time:
+            messages.error(request, "Please enter call date and time")
+            return render(request, "bookcall/on_boarding5_date.html")  
+        
+        date_time_string = f"{call_date} {call_time}"
+        parsed_datetime = datetime.strptime(date_time_string, '%a %b %d %Y %I:%M:%S %p')
+        
+        end_datetime = parsed_datetime + timedelta(minutes=30)
+        print("parsed_datetime", parsed_datetime, end_datetime)
+        conflicting_calls = BookingCall.objects.filter(
+            Q(meeting_date_time__range=(parsed_datetime, end_datetime)) |
+            Q(meeting_date_time__range=(parsed_datetime, end_datetime))
+        )
+
+        if conflicting_calls.exists():
+            print("exist call already")
+            messages.error(request, "Someone has already booked a call at this time.")
+            return render(request, "bookcall/on_boarding5_date.html")
+        booking_obj = BookingCall(meeting_date_time=parsed_datetime)
+        booking_obj.save()
+        request.session["booking_id"]= booking_obj.id    
+
+        return redirect('on-boarding1')
+
+    return render(request, "bookcall/on_boarding5_date.html")    
+
 
 def on_boarding1(request):
     
@@ -41,14 +75,16 @@ def on_boarding1(request):
         lname = request.POST.get("lname")
         email = request.POST.get("email")
         number = request.POST.get("number")
-        print(fname, lname, email, number)
-        booking_obj = BookingCall(
-                first_name=fname,
-                last_name=lname,
-                contact_number= number,
-                email=email)
+        print("email", email)
+        # Get the booking object from session 
+        booking_obj_id = request.session.get("booking_id")
+        booking_obj = BookingCall.objects.get(id=booking_obj_id)
+        booking_obj.first_name=fname
+        booking_obj.last_name=lname
+        booking_obj.contact_number= number
+        booking_obj.email=email
         booking_obj.save()
-        request.session["booking_id"]= booking_obj.id
+        
         # messages.success(request, "Call booked successfully!")
         return redirect("on-boarding2")    
     return render(request,"bookcall/on_boarding1.html")
@@ -72,13 +108,13 @@ def on_boarding2(request):
         booking_obj_id = request.session.get("booking_id")
         booking_obj = BookingCall.objects.get(id=booking_obj_id)
         if booking_obj:
-            booking_obj.state=state,
+            booking_obj.state=state
             booking_obj.is_resident = is_resident
             booking_obj.dependents = dependents
             booking_obj.income = income
             booking_obj.total_savings = total_savings
             booking_obj.total_home_loan = total_home_loan
-            booking_obj.statedependents = dependents
+            booking_obj.dependents = dependents
             booking_obj.save()
             return redirect('on-boarding3')
         else:
@@ -104,45 +140,16 @@ def on_boarding3(request):
         booking_obj.other_loans = other_loans
         booking_obj.bad_credit_history = bad_credit_history
         booking_obj.save()
-        return redirect('on_boarding5_date')
+        return redirect('on-boarding4')
         
     return render(request, "bookcall/on_boarding3.html")
 
-# new add 
-def on_boarding5_date(request):
-    if request.method == "POST":
-        call_date = request.POST.get("selecteddate")
-        call_time = request.POST.get("clockinput")
-        if not call_date or not call_time:
-            messages.error(request, "Please enter call date and time")
-            return render(request, "bookcall/on_boarding5_date.html")  
-        
-        date_time_string = f"{call_date} {call_time}"
-        
-        parsed_datetime = datetime.strptime(date_time_string, '%a %b %d %Y %I:%M:%S %p')
-        end_datetime = parsed_datetime + timedelta(minutes=30)
 
-        # Query the database to check for existing calls within the specified time frame
-        conflicting_calls = BookingCall.objects.filter(
-            Q(meeting_date_time__range=(parsed_datetime, end_datetime)) |
-            Q(meeting_date_time__range=(parsed_datetime, end_datetime))
-        )
-        if conflicting_calls.exists():
-            messages.error(request, "Someone has already booked a call at this time.")
-            return render(request, "bookcall/on_boarding5_date.html")
-        
-        
-        booking_obj_id = request.session["booking_id"]
-        booking_obj = BookingCall.objects.get(id=booking_obj_id)
-        booking_obj.meeting_date_time=parsed_datetime
-        booking_obj.save()
-        return redirect('on-boarding4')
-
-    return render(request, "bookcall/on_boarding5_date.html")    
 
 
 def on_boarding4(request):
     booking_obj_id = request.session["booking_id"]
+    print(booking_obj_id)
     booking_obj = BookingCall.objects.get(id=booking_obj_id)
     context = {
         "booking_id": booking_obj.id
@@ -155,8 +162,9 @@ def on_boarding4(request):
 # Stripe Checkout 
 def checkout_session(request, booking_id = None):
     booking_obj_id = request.session["booking_id"]
-    
 
+    price = int(request.POST.get("total_price"))
+    print("price", price)
     stripe.api_key = settings.STRIPE_SECRET_KEY
     checkout_session = stripe.checkout.Session.create(
        
@@ -167,7 +175,7 @@ def checkout_session(request, booking_id = None):
                     'product_data': {
                     'name': 'Invoice',
                     },
-                    'unit_amount': 375 * 100 ,
+                    'unit_amount': price * 100 ,
                 },
                 'quantity': 1,
             }
@@ -177,10 +185,6 @@ def checkout_session(request, booking_id = None):
         cancel_url=request.build_absolute_uri(reverse('cancel')),
     )
 
-
-    print(checkout_session.id)
-
-    print( 'Save Successfully')
 
     return redirect(checkout_session.url, code=303)
 
@@ -210,7 +214,10 @@ def register_message(request):
     email_thread.start()
     # send to user calender 
     calender = GoogleAPIClient()
-    calender.gc_event( booking_obj.email, booking_obj.meeting_date_time, booking_obj.contact_number)
+    try:
+        calender.gc_event( booking_obj.email, booking_obj.meeting_date_time, booking_obj.contact_number)
+    except Exception as e:
+        print(e)
 
     return render(request,"bookcall/register_message.html")
 
@@ -223,7 +230,7 @@ def cancel(request):
 def create_payment(request, booking_id = None):
     booking_obj_id = request.session["booking_id"]
 
-    price = 375
+    price = int(request.POST.get("ptotal_price"))
     full_host = request.get_host()
     schema = request.scheme
 
@@ -250,7 +257,7 @@ def create_payment(request, booking_id = None):
                 "total": price,
                 "currency": "USD"
             },
-            "description": "Example Payment"
+            "description": "Payment"
         }]
     })
 
@@ -281,8 +288,11 @@ def paypal_payment_successful(request):
     email_thread.start()
     # send to user calender 
     calender = GoogleAPIClient()
-    calender.gc_event( booking_obj.email, booking_obj.meeting_date_time, booking_obj.contact_number)
-    
+    try:
+        calender.gc_event( booking_obj.email, booking_obj.meeting_date_time, booking_obj.contact_number)
+    except Exception as e:
+        print(e)
+
     return render(request, "bookcall/register_message.html")
 
 
@@ -301,8 +311,6 @@ def website_disclaimer(request):
 
 
 
-def on_boarding_text(request):
-    return render(request, "bookcall/on_boarding_text.html")
 # Function TO save Quiz Data
 @csrf_exempt 
 def take_quiz(request):
@@ -328,4 +336,17 @@ def take_quiz(request):
         return JsonResponse({'error':'Error'})
 
 
-
+#  Apply Promo Code Ajax
+@csrf_exempt
+def promo_code(request):
+    if request.method == "POST":
+        code = request.POST.get("code")
+        if PromoCode.objects.filter(promo_code=code).exists():
+            if PromoCode.objects.filter(promo_code=code).first().is_expired:
+                return JsonResponse({"error":"Promo Code expired."})
+            original_price = 375
+            discount_percentage = 5
+            discounted_price = original_price - (original_price * (discount_percentage / 100))
+            return JsonResponse({"success":"Promo Code Applied.", "price":int(discounted_price)})
+        
+        return JsonResponse({"error":"Promo Code does not exist."})

@@ -29,10 +29,10 @@
                         <img src="{% static 'images/logo.svg' %}" alt="">
                        </a>
                 </div>
-                <h4>Book a Call Payment - $50</h4>
+                <h4>Book a Call Payment - $<span id="price">375</span></h4>
                 <form action="/checkout_session/" method="POST">
-                    <input type="hidden" name="invoice_id" value="{{invoice_id}}">
                     {% csrf_token %}
+                    <input type="hidden" id="total_price" name="total_price" value="375">
                     <div class="paybutton">
                         <button type="submit" class="mybtnpay mybtnpay1 login_button" id="checkout-button">Pay with card</button>
                     </div>
@@ -40,161 +40,21 @@
                 
                 <form action="/create_payment/" method="POST">
                     {% csrf_token %}
+                    <input type="hidden" id="ptotal_price" name="ptotal_price" value="375">
                     <div class="paybutton">
                         <button type="submit" class="mybtnpay mybtnpay2 login_button" id="create_payment"><span class="pay_span_1">Pay</span><span class="pay_span_2">Pal</span></button>
                     </div>
                 </form>
-                <!-- <form class="account_form" method="post">
+                {% comment %} Promo Code {% endcomment %}
                     <div class="input_group">
-                        <label for="" class="form-label input_label">Select a payment method</label>
-                        <div class="paypal_edit_main_section">
-                            <div class="">
-                                <label for="tab1" class="paypal_btn active" id="paypal_button">
-                                    <input class="paypal_checkbox" type="radio" name="payment-method " id="tab1" checked>
-                                    <div class="paypal_text_div paypal_p_active">
-                                        <p>Paypal</p>
-                                        <p>$ 50</p>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                        <article>
-                            <form action="">
-                                <div class="input_group" style="position: relative;">
-                                    <label for="" class="form-label input_label">Card Number</label>
-                                    <input type="number" class="form-control account_input money_card_input" id=""
-                                        aria-describedby="" placeholder="Enter Card Number" name="card-number">
-                                    <div class="card_image_group">
-                                        <img src="{% static "images/card 1.svg" %}" alt="">
-                                        <img src="{% static "images/card 2.svg" %}" alt="">
-                                        <img src="{% static "images/card 3.svg" %}" alt="">
-                                        <img src="{% static "images/card 4.svg" %}" alt="">
-                                    </div>
+                        <label for="" class="form-label input_label">Apply Promo Code</label>
+                        <div id="responseMessage" style="color:red"></div>
+                        <div id="successMessage" style="color:green"></div>
+                        <input type="text" class="form-control account_input date_input" id="promoCodeInput"
+                        name="promo" placeholder="Promo Code" required>
 
-                                </div>
-                                <div class="input_group">
-                                    <label for="" class="form-label input_label">Expiration Date</label>
-                                    <input type="date" class="form-control account_input date_input" id=""
-                                        aria-describedby="" pattern="^(0[1-9]|1[0-2])\/\d{4}$" placeholder="MM/YYYY" name="expiry_date" required>
-                                </div>
-                                <div class="input_group" style="position: relative;">
-                                    <label for="" class="form-label input_label">CVC</label>
-                                    <input type="number" class="form-control account_input" id="" aria-describedby=""
-                                        placeholder="Enter CVC" name="cvc" required>
-                                    <div class="card_image_group">
-                                        <img src="{% static "images/card 5.svg" %}" alt="">
-                                    </div>
-                                </div>
-                                <div id="card-element"></div>
-
-                                <div class="input_group">
-                                    <label for="" class="form-label input_label">Promo Code</label>
-                                    <div class="custom_select account_input" name="promocode">
-                                        <div class="select_title">
-                                            <span class="selected">Select Promocode</span>
-                                            <img src="{% static "images/Vector (2).svg" %}" alt="">
-                                        </div>
-                                        <input type="hidden" name="date" id="data_input">
-                                        <ul class="select_menu">
-                                            <li value="1">$0</li>
-                                            <li value="2">-$50</li>
-                                            <li value="3"> $375</li>
-                                        </ul>
-                                        <img src="{% static "images/arrow-drop-down-line.svg" %}" alt="">
-                                    </div>
-                                </div>
-                            </form>
-                        </article>
-                        stripe tab -->
-                       <!--  <div class="">
-                            <label for="tab2" class="paypal_btn_2" id="paypal_button_2">
-                                <input class="paypal_checkbox" type="radio" name="tab" id="tab2">
-                                <div class="paypal_text_div paypal_text_div2">
-                                    <p>Stripe</p>
-                                    <p>$ 50</p>
-                                </div>
-                            </label>
-                        </div>
-
-                        <!-- paypal tab item term and register button  -->
-                       <!--  <div class="step1_item">
-                            <div class="form-check mt-2 checkbox_input_group">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">
-                                    <a href="../term_condition.html" style="color: #0D4949;">
-                                        I agree to Terms & Conditions
-                                    </a>
-                                </label>
-                            </div>
-                            <a href="">
-                                <button type="submit" class="login_button">Register</button>
-                            </a>
-                        </div>
-
-                        <!-- stripe tab item  -->
-                      <!--   <article>
-                            <form action="">
-                                <div class="input_group" style="position: relative;">
-                                    <label for="" class="form-label input_label">Card Number</label>
-                                    <input type="text" class="form-control account_input money_card_input" id=""
-                                        aria-describedby="" placeholder="Enter Card Number" name="card_number">
-                                    <div class="card_image_group">
-                                        <img src="{% static "images/card 1.svg" %}" alt="">
-                                        <img src="{% static "images/card 2.svg" %}" alt="">
-                                        <img src="{% static "images/card 3.svg" %}" alt="">
-                                        <img src="{% static "images/card 4.svg" %}" alt="">
-                                    </div>
-
-                                </div>
-                                <div class="input_group">
-                                    <label for="" class="form-label input_label">Expiration Date</label>
-                                    <input type="date" class="form-control account_input date_input" id=""
-                                        aria-describedby="" placeholder="" name="expiry_date">
-                                </div>
-                                <!-- <input type="hidden" name="stripeToken" id="stripeToken"> -->
-
-                      <!--           <div class="input_group" style="position: relative;">
-                                    <label for="" class="form-label input_label">CVC</label>
-                                    <input type="text" class="form-control account_input" id="" aria-describedby=""
-                                        placeholder="Enter CVC" name="cvc">
-                                    <div class="card_image_group">
-                                        <img src="{% static "images/card 5.svg" %}" alt="">
-                                    </div>
-                                </div>
-                                <div class="input_group">
-                                    <label for="" class="form-label input_label">Promo Code</label>
-                                    <div class="custom_select account_input">
-                                        <div class="select_title">
-                                            <span class="selected">Select Promocode</span>
-                                            <img src="{% static "images/Vector (2).svg" %}" alt="">
-                                        </div>
-                                        <input type="hidden" name="date" id="data_input">
-                                        <ul class="select_menu">
-                                            <li value="1">$0</li>
-                                            <li value="2">-$50</li>
-                                            <li value="3"> $375</li>
-                                        </ul>
-                                        <img src="{% static "images/arrow-drop-down-line.svg" %}" alt="">
-                                    </div>
-                                </div>
-                                <div class="form-check mt-2 checkbox_input_group">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="agreed">
-                                    <label class="form-check-label" for="exampleCheck1">
-                                        <a href="" style="color: #0D4949;">
-                                            I agree to Terms & Conditions
-                                        </a>
-                                    </label>
-                                </div>
-                                <a href="#">
-                                    <button type="submit" class="login_button">Book a Call</button>
-                                </a>
-                            </form>
-                        </article>
+                        <button type="button" class="login_button"  id="applyPromoCode"> Apply Code </button>
                     </div>
-                    <!-- <a href="#">
-                        <button type="button" class="login_button">Register</button>
-                    </a> -->
-                <!-- </form> -->
 
             </div>
 
@@ -280,8 +140,37 @@
             });
         })
     </script>
-  
-   
-</body>
+    
+    {% comment %} promo coee  {% endcomment %}
+    <script>
+        $(document).ready(function() {
+            $("#applyPromoCode").click(function() {
+                var code = $("#promoCodeInput").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/promo_code/",  
+                    data: {
+                        code: code
+                    },
+                    success: function(response) {
+                        console.log("response", response)
+                        if (response.success) {
+                            $("#successMessage").text(response.success);
+                            $("#price").text(response.price)
+                            $("#total_price").val(response.price)
+                            $("#ptotal_price").val(response.price)
+                        } else {
+                            $("#responseMessage").text(response.error);
+                        }
+                    },
+                    error: function(error) {
+                        console.log("response", error)
+                        $("#responseMessage").text("Error while applying the Promo Code.");
+                    }
+                });
+            });
+        });
+    </script>
 
+</body>
 </html>
