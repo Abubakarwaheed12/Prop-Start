@@ -61,4 +61,15 @@ class PaymentHistory(models.Model):
     is_paid = models.BooleanField(default=False)
 
     def __str__(self) :
-        return self.pay_with or '-'
+        return self.payment_purpose or self.pay_with 
+    
+
+class PromoCode(models.Model):
+    promo_code = models.CharField(max_length=200)
+    is_expired = models.BooleanField(default=False)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.promo_code or f"code-{self.id}"
