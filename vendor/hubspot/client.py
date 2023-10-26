@@ -141,7 +141,7 @@ class APIClient:
             "associations": [
                     {
                      "to": {
-                        "id": 651
+                        "id": 751
                       },
                       "types": [
                         {
@@ -149,10 +149,7 @@ class APIClient:
                           "associationTypeId": 3
                         } ]
                     }, ]
-        }
-
-        
-
+                }
 
         response = self.post(path, payload)
         print("response", response.json())

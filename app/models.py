@@ -1,7 +1,7 @@
-from collections.abc import Iterable
 from django.db import models
-import threading
-from .emails import send_quiz_email
+from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator
+
 # Create your models here.
 class BookingCall(models.Model):
     first_name = models.CharField(max_length=255)
@@ -65,7 +65,11 @@ class PaymentHistory(models.Model):
     
 
 class PromoCode(models.Model):
-    promo_code = models.CharField(max_length=200)
+    promo_code = models.CharField(
+        max_length=20,
+        validators=[MinLengthValidator(8)],
+        help_text="The value must be at least 8 characters long."
+    )
     is_expired = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -73,3 +77,22 @@ class PromoCode(models.Model):
 
     def __str__(self):
         return self.promo_code or f"code-{self.id}"
+
+
+
+
+class FullDiscountPromoCode(models.Model):
+    promo_code = models.CharField(
+        max_length=20,
+        validators=[MinLengthValidator(8)],
+        help_text="The value must be at least 8 characters long."
+    )
+    is_expired = models.BooleanField(default=False)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Full Discount Code -{self.promo_code}"
+ 
+    
