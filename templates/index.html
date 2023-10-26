@@ -186,7 +186,7 @@
           <div class="right_of_you" data-aos="fade-up" data-aos-duration="3000">
             <div>
               <!-- <img src="{% static 'images/circle_img.svg' %}" alt=""> -->
-              <svg
+                <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 195 214"
                 fill="none"
@@ -310,31 +310,32 @@
                 <p class="icon_text">DreamHouse</p>
               </div>
 
+             
               <img
-                src="{% static 'images/01.svg' %}"
-                alt=""
-                class="right_of_you_icon img01"
-              />
-              <img
-                src="{% static 'images/02.svg' %}"
-                alt=""
-                class="right_of_you_icon img02"
+              src="{% static 'images/02.svg' %}"
+              alt=""
+              class="right_of_you_icon img01"
               />
               <img
                 src="{% static 'images/03.svg' %}"
                 alt=""
-                class="right_of_you_icon img03"
+                class="right_of_you_icon img02"
               />
               <img
                 src="{% static 'images/04.svg' %}"
                 alt=""
-                class="right_of_you_icon img04"
+                class="right_of_you_icon img03"
               />
               <img
                 src="{% static 'images/05.svg' %}"
                 alt=""
-                class="right_of_you_icon img05"
+                class="right_of_you_icon img04"
               />
+              <img
+              src="{% static 'images/01.svg' %}"
+              alt=""
+              class="right_of_you_icon img05"
+            />
             </div>
           </div>
         </div>
@@ -422,6 +423,11 @@
     const image4 = document.querySelector(".colorAdd04");
     const image5 = document.querySelector(".colorAdd05");
     const h4 = document.querySelector(".text_append_h4");
+    const img01 = document.querySelector('.img01')
+    const img02 = document.querySelector('.img02')
+    const img03 = document.querySelector('.img03')
+    const img04 = document.querySelector('.img04')
+    const img05 = document.querySelector('.img05')
     const propstart_text = document.querySelector(".propstart_text");
 
     // Add a mouseover event listener to the image
@@ -430,8 +436,10 @@
         h4.textContent =
           "Book a 1 on 1 Strategy Session with one of our experts to have a complete property plan mapped out for you";
         h4.classList.add("imageHovered");
-        h4.style.maxHeight = "100px";
+        h4.style.animation = 'fadeIn 4s';
       }, 400);
+      img01.style.transform = 'scale(1.2)';
+      img01.style.transition = 'all 1s ease-in-out 0.1s';
     });
 
     image2.addEventListener("mouseover", function () {
@@ -439,8 +447,10 @@
         h4.textContent =
           "Unlock access to PropStart's nationwide investment channels and be paired with one of our exclusive opportunities";
         h4.classList.add("imageHovered");
-        h4.style.maxHeight = "100px";
+        h4.style.animation = 'fadeIn 4s';
       }, 400);
+      img02.style.transform = 'scale(1.2)';
+      img02.style.transition = 'all 1s ease-in-out 0.1s';
     });
 
     image3.addEventListener("mouseover", function () {
@@ -448,8 +458,10 @@
         h4.textContent =
           "Continue along your strategy by working with PropStart to multiply your property portfolio until your goals have been met";
         h4.classList.add("imageHovered");
-        h4.style.maxHeight = "100px";
+        h4.style.animation = 'fadeIn 4s';
       }, 400);
+      img03.style.transform = 'scale(1.2)';
+      img03.style.transition = 'all 1s ease-in-out 0.1s';
     });
 
     image4.addEventListener("mouseover", function () {
@@ -457,8 +469,10 @@
         h4.textContent =
           "Leverage your portfolio to buy that dream home, quit your job, or simply spread your wings. The future is yours";
         h4.classList.add("imageHovered");
-        h4.style.maxHeight = "100px";
+        h4.style.animation = 'fadeIn 4s';
       }, 400);
+      img04.style.transform = 'scale(1.2)';
+      img04.style.transition = 'all 1s ease-in-out 0.1s';
     });
 
     image5.addEventListener("mouseover", function () {
@@ -466,8 +480,10 @@
         h4.textContent =
           "Smart learning starts by enrolling in our program. Invest in yourself and learn how to be the rich dad.";
         h4.classList.add("imageHovered");
-        h4.style.maxHeight = "100px";
+        h4.style.animation = 'fadeIn 4s';
       }, 400);
+      img05.style.transform = 'scale(1.2)';
+      img05.style.transition = 'all 1s ease-in-out 0.1s';
     });
 
     // Add a mouseout event listener with a delay to reset the text content
@@ -475,43 +491,142 @@
       setTimeout(function () {
         h4.textContent = "Is PropStart Right for you?"; // Reset the text
         h4.classList.remove("imageHovered");
-        h4.style.maxHeight = "0";
-      }, 300); // Delay for removal
+        h4.style.animation = '';
+      }, 400); // Delay for removal
+      img01.style.transform = '';
+      img01.style.transition = 'all 1s ease-out 0.1s';
     });
 
     image2.addEventListener("mouseout", function () {
       setTimeout(function () {
         h4.textContent = "Is PropStart Right for you?"; // Reset the text
         h4.classList.remove("imageHovered");
-        h4.style.maxHeight = "0";
-      }, 300); // Delay for removal
+        h4.style.animation = '';
+      }, 400); // Delay for removal
+      img02.style.transform = '';
+      img02.style.transition = 'all 1s ease-out 0.1s';
     });
 
     image3.addEventListener("mouseout", function () {
       setTimeout(function () {
         h4.textContent = "Is PropStart Right for you?"; // Reset the text
         h4.classList.remove("imageHovered");
-        h4.style.maxHeight = "0";
-      }, 300); // Delay for removal
+        h4.style.animation = '';
+      }, 400); // Delay for removal
+      img03.style.transform = '';
+      img03.style.transition = 'all 1s ease-out 0.1s';
     });
 
     image4.addEventListener("mouseout", function () {
       setTimeout(function () {
         h4.textContent = "Is PropStart Right for you?"; // Reset the text
         h4.classList.remove("imageHovered");
-        h4.style.maxHeight = "0";
-      }, 300); // Delay for removal
+        h4.style.animation = '';
+      }, 400); // Delay for removal
+      img04.style.transform = '';
+      img04.style.transition = 'all 1s ease-out 0.1s';
     });
 
     image5.addEventListener("mouseout", function () {
       setTimeout(function () {
         h4.textContent = "Is PropStart Right for you?"; // Reset the text
         h4.classList.remove("imageHovered");
-        h4.style.maxHeight = "0";
-      }, 300); // Delay for removal
+        h4.style.animation = '';
+      }, 400); // Delay for removal
+      img05.style.transform = '';
+      img05.style.transition = 'all 1s ease-out 0.1s';
     });
 
   });
+  $(document).ready(function () {
+    const propstartText = document.querySelector('.text_append_h4');
+    const img01 = document.querySelector('.img01');
+    const img02 = document.querySelector('.img02');
+    const img03 = document.querySelector('.img03');
+    const img04 = document.querySelector('.img04');
+    const img05 = document.querySelector('.img05');
+  
+    const imageDescriptions = [
+      "Book a 1 on 1 Strategy Session with one of our experts to have a complete property plan mapped out for you",
+      "Unlock access to PropStart's nationwide investment channels and be paired with one of our exclusive opportunities",
+      "Continue along your strategy by working with PropStart to multiply your property portfolio until your goals have been met",
+      "Leverage your portfolio to buy that dream home, quit your job, or simply spread your wings. The future is yours",
+      "Smart learning starts by enrolling in our program. Invest in yourself and learn how to be the rich dad."
+    ];
+  
+    const images = [img01, img02, img03, img04, img05];
+    const colorAdd01 = document.querySelector('.colorAdd01');
+    const colorAdd02 = document.querySelector('.colorAdd02');
+    const colorAdd03 = document.querySelector('.colorAdd03');
+    const colorAdd04 = document.querySelector('.colorAdd04');
+    const colorAdd05 = document.querySelector('.colorAdd05');
+    images.forEach((img, index) => {
+      img.addEventListener('mouseover', function () {
+        setTimeout(function () {
+          propstartText.textContent = imageDescriptions[index];
+          propstartText.classList.add('imageHovered');
+          propstartText.style.animation = 'fadeIn 4s';
+        }, 400);
+        img.style.transform = 'scale(1.2)';
+        img.style.transition = 'all 1s ease-in-out 0.1s';
+  
+        // Change the CSS styles when img02 is hovered
+        if (index === 0) {
+          colorAdd01.style.fill = '#7ab9e5';
+          colorAdd01.style.filter = 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))';
+        }
+        if (index === 1) {
+          colorAdd02.style.fill = '#7ab9e5';
+          colorAdd02.style.filter = 'drop-shadow(rgba(0, 0, 0, 0.4) 1px -8px 2px)';
+        }
+        if (index === 2) {
+          colorAdd03.style.fill = '#7ab9e5';
+          colorAdd03.style.filter = 'drop-shadow(1px -3px 3px rgba(0, 0, 0, 0.4))';
+        }
+        if (index === 3) {
+          colorAdd04.style.fill = '#7ab9e5';
+          colorAdd04.style.filter = 'drop-shadow(5px 2px 2px rgb(0 0 0 / 0.4))';
+        }
+        if (index === 4) {
+          colorAdd05.style.fill = '#7ab9e5';
+          colorAdd05.style.filter = 'drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4))';
+        }
+      });
+  
+      img.addEventListener('mouseout', function () {
+        setTimeout(function () {
+          propstartText.textContent = 'Is PropStart Right for you?';
+          propstartText.classList.remove('imageHovered');
+          propstartText.style.animation = '';
+        }, 400);
+        img.style.transform = '';
+        img.style.transition = 'all 1s ease-out 0.1s';
+  
+        // Restore the original CSS styles when img02 is unhovered
+        if (index === 0) {
+          colorAdd01.style.fill = '';
+          colorAdd01.style.filter = '';
+        }
+        if (index === 1) {
+          colorAdd02.style.fill = '';
+          colorAdd02.style.filter = '';
+        }
+        if (index === 2) {
+          colorAdd03.style.fill = '';
+          colorAdd03.style.filter = '';
+        }
+        if (index === 3) {
+          colorAdd04.style.fill = '';
+          colorAdd04.style.filter = '';
+        }
+        if (index === 4) {
+          colorAdd05.style.fill = '';
+          colorAdd05.style.filter = '';
+        }
+      });
+    });
+  });
+  
   // Add a scroll listener to handle video playback
   $(document).on('scroll', function() {
     const video = document.getElementById("myVideo");
