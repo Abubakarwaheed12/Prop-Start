@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .managers import CustomUserManager
-from vendor.hubspot.client import APIClient as HubspotAPIClient
 import re
 from django.core.exceptions import ValidationError
 
@@ -43,16 +42,9 @@ class CustomUser(AbstractUser):
     def user_email(self):
         return self.email   
     
-    def send_to_hubspot(self):
-        api = HubspotAPIClient()
-        c_id =api.create_or_update_contact({
-            "firstname" :self.first_name,
-            "lastname": self.last_name, 
-            "email": self.email,
-            "phone": self.phone_number,
-            "lifecyclestage": "marketingqualifiedlead",
-        })
+    
+        
 
-        self.hubspot_contact_id = c_id
-        self.save()
+
+
 

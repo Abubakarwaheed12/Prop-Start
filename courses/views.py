@@ -8,17 +8,14 @@ import paypalrestsdk
 from paypalrestsdk import Payment 
 import threading
 from courses.models import(
-    Instructor,
-    CourseCategory,
     Cousre,
-    Lesson,
-    Lectures,
     UserCourse,
     PreOrder
 )
 from app.emails import(
     course_confirmation_email
 )
+from app.utils import send_to_hubspot
 from app.models import PaymentHistory
 # Create your views here.
 
@@ -93,6 +90,21 @@ def courses_payment_success(request):
 
     ethread = threading.Thread(target=course_confirmation_email, args=(request,))
     ethread.start()
+
+    # send to hubspot
+    user = request.user
+    playload = {
+    "fname" : f"{user.first_name}",
+    "lname" : f"{user.last_name}",
+    "email" : f"{user.email}",
+    "phone" : f"{user.phone_number}",
+    "lead_status" : "New course",
+    }
+    try:
+        send_to_hubspot(**playload)
+    except Exception as e:
+        print(e)
+
     return render(request,"course/course_success_payment.html")
 
 
@@ -152,6 +164,20 @@ def paypal_courses_payment_success(request):
     request.session.delete("course_id")
     ethread = threading.Thread(target=course_confirmation_email, args=(request,))
     ethread.start()
+    # send to hubspot
+    user = request.user
+    playload = {
+    "fname" : f"{user.first_name}",
+    "lname" : f"{user.last_name}",
+    "email" : f"{user.email}",
+    "phone" : f"{user.phone_number}",
+    "lead_status" : "New course",
+    }
+    try:
+        send_to_hubspot(**playload)
+    except Exception as e:
+        print(e)
+        
     return render(request,"course/course_success_payment.html")
 
 def courses_payment_cancel(request):
@@ -210,6 +236,19 @@ def pre_order_papal_success(request):
     amount = request.GET.get('amount')
     ore_order = PreOrder.objects.create(user = request.user, is_paid = True , payment=paymentid, pay_with='Paypal')
     PaymentHistory.objects.create(email=request.user.email, payment_purpose="Pre Order", pay_with = "Paypal", payment_id=paymentid, is_paid=True)
+    # send to hubspot
+    user = request.user
+    playload = {
+    "fname" : f"{user.first_name}",
+    "lname" : f"{user.last_name}",
+    "email" : f"{user.email}",
+    "phone" : f"{user.phone_number}",
+    "lead_status" : "New course",
+    }
+    try:
+        send_to_hubspot(**playload)
+    except Exception as e:
+        print(e)
     return redirect('/')
 
 def pre_order_stripe_checkout_session(request):
@@ -245,5 +284,18 @@ def pre_order_stripe_checkout_session_success(request):
     payment_id = session.payment_intent
     ore_order = PreOrder.objects.create(user = request.user, is_paid = True , payment=payment_id, pay_with='Stripe') 
     PaymentHistory.objects.create(email=request.user.email, payment_purpose="Pre Order", pay_with = "Stripe", payment_id=payment_id, is_paid=True)
+    # send to hubspot
+    user = request.user
+    playload = {
+    "fname" : f"{user.first_name}",
+    "lname" : f"{user.last_name}",
+    "email" : f"{user.email}",
+    "phone" : f"{user.phone_number}",
+    "lead_status" : "New course",
+    }
+    try:
+        send_to_hubspot(**playload)
+    except Exception as e:
+        print(e)
     return redirect('/')
 

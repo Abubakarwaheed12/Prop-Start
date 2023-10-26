@@ -4,28 +4,27 @@ from django.db.models import Q
 from django.contrib import messages
 from django.conf import settings
 from django.http import JsonResponse , HttpResponseNotFound
-from .models import *
 import stripe
-from django.utils import timezone
 from django.urls import reverse 
 stripe.api_key =settings.STRIPE_PUBLIC_KEY
 from paypalrestsdk import Payment 
 import paypalrestsdk
 import threading
 from django.views.decorators.csrf import csrf_exempt
-from .models import TakeQuiz , PaymentHistory
+from .models import TakeQuiz , PaymentHistory, FullDiscountPromoCode, PromoCode, BookingCall
 from vendor.gclander.client import GoogleAPIClient
 from .emails import(
     send_book_call_email,
     send_quiz_email,
     send_course_quiz_email
 )
+from .utils import (
+    send_to_hubspot,
+)
 
-from vendor.hubspot.client import APIClient
+
 
 def index(request):
-    hubspot = APIClient()
-    # hubspot.create_deal_with_contact_id()
     return render(request,"index.html")
 
 def quiz_1(request):
@@ -148,14 +147,14 @@ def on_boarding3(request):
 
 
 def on_boarding4(request):
-    booking_obj_id = request.session["booking_id"]
-    print(booking_obj_id)
-    booking_obj = BookingCall.objects.get(id=booking_obj_id)
-    context = {
-        "booking_id": booking_obj.id
-    }
-
-    return render(request,"bookcall/on_boarding4.html", context)
+    # booking_obj_id = request.session["booking_id"]
+    # print(booking_obj_id)
+    # booking_obj = BookingCall.objects.get(id=booking_obj_id)
+    # context = {
+    #     "booking_id": booking_obj.id
+    # }
+    
+    return render(request,"bookcall/on_boarding4.html")
    
 
 
@@ -212,7 +211,22 @@ def register_message(request):
     # email to user 
     email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email, booking_obj.first_name, booking_obj.contact_number, booking_obj.meeting_date_time))
     email_thread.start()
+
+    # Send to Hubspot
+    playload = {
+    "fname" : f"{booking_obj.first_name}",
+    "lname" : f"{booking_obj.last_name}",
+    "email" : f"{booking_obj.email}",
+    "phone" : f"{booking_obj.contact_number}",
+    "lead_status" : "Strategy session",
+    }
+    try :
+        send_to_hubspot(**playload)
+    except Exception as e:
+        print(e)
+
     # send to user calender 
+
     calender = GoogleAPIClient()
     try:
         calender.gc_event( booking_obj.email, booking_obj.meeting_date_time, booking_obj.contact_number)
@@ -286,6 +300,21 @@ def paypal_payment_successful(request):
     # Send mail
     email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email, booking_obj.first_name, booking_obj.contact_number, booking_obj.meeting_date_time))
     email_thread.start()
+
+    # Send to Hubspot
+    playload = {
+    "fname" : f"{booking_obj.first_name}",
+    "lname" : f"{booking_obj.last_name}",
+    "email" : f"{booking_obj.email}",
+    "phone" : f"{booking_obj.contact_number}",
+    "lead_status" : "Strategy session",
+    }
+    try :
+        send_to_hubspot(**playload)
+    except Exception as e:
+        print(e)
+
+    
     # send to user calender 
     calender = GoogleAPIClient()
     try:
@@ -341,6 +370,7 @@ def take_quiz(request):
 def promo_code(request):
     if request.method == "POST":
         code = request.POST.get("code")
+        
         if PromoCode.objects.filter(promo_code=code).exists():
             if PromoCode.objects.filter(promo_code=code).first().is_expired:
                 return JsonResponse({"error":"Promo Code expired."})
@@ -349,4 +379,9 @@ def promo_code(request):
             discounted_price = original_price - (original_price * (discount_percentage / 100))
             return JsonResponse({"success":"Promo Code Applied.", "price":int(discounted_price)})
         
+        if FullDiscountPromoCode.objects.filter(promo_code=code).exists():
+            if FullDiscountPromoCode.objects.filter(promo_code=code).first().is_expired:
+                return JsonResponse({"error":"Full Discount Promo Code expired."})
+            return JsonResponse({"success":"You are able to access the free.","is_free":True})
+
         return JsonResponse({"error":"Promo Code does not exist."})
