@@ -47,6 +47,24 @@ class GoogleAPIClient:
         )
         print(event)
 
+    def available_times(self):
+        from datetime import datetime, timedelta
+        today = datetime.now()
 
+        end_date = today + timedelta(days=30)  
+        start_time = datetime(today.year, today.month, today.day, 8, 0, 0)
+        end_time = datetime(end_date.year, end_date.month, end_date.day, 18, 0, 0)
+        
+        service = self.service
+        events_result = service.events().list(
+            calendarId="info@propstart.com.au",
+            timeMin=start_time.isoformat() + 'Z',
+            timeMax=end_time.isoformat() + 'Z',
+            singleEvents=True,
+            orderBy='startTime'
+        ).execute()
+
+        events = events_result.get('items', [])
+        print("Available Times", events)
 
     

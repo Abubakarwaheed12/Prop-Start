@@ -23,8 +23,10 @@ from .utils import (
 )
 
 
-
 def index(request):
+    calender = GoogleAPIClient()
+    # available_times = calender.available_times()
+    # print("available_times", available_times)
     return render(request,"index.html")
 
 def quiz_1(request):
