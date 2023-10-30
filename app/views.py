@@ -23,8 +23,10 @@ from .utils import (
 )
 
 
-
 def index(request):
+    calender = GoogleAPIClient()
+    # available_times = calender.available_times()
+    # print("available_times", available_times)
     return render(request,"index.html")
 
 def quiz_1(request):
@@ -147,14 +149,14 @@ def on_boarding3(request):
 
 
 def on_boarding4(request):
-    booking_obj_id = request.session["booking_id"]
-    print(booking_obj_id)
-    booking_obj = BookingCall.objects.get(id=booking_obj_id)
-    context = {
-        "booking_id": booking_obj.id
-    }
+    # booking_obj_id = request.session["booking_id"]
+    # print(booking_obj_id)
+    # booking_obj = BookingCall.objects.get(id=booking_obj_id)
+    # context = {
+    #     "booking_id": booking_obj.id
+    # }
     
-    return render(request,"bookcall/on_boarding4.html", context)
+    return render(request,"bookcall/on_boarding4.html")
    
 
 

@@ -29,9 +29,10 @@
                         <img src="{% static 'images/logo.svg' %}" alt="">
                        </a>
                 </div>
-                <h4>Course Payment - ${{course.price}} </h4>
+                <h4>Course Payment - $<span id="price">{{course.price}}</span> </h4>
                 <form action="/checkout_session1/{{course_id}}/" method="POST">
                     {% csrf_token %}
+                    <input type="hidden" id="total_price" name="total_price" value="{{course.price}}">
                     <div class="paybutton">
                         <button type="submit" class="mybtnpay1 mybtnpay login_button" id="checkout-button">Pay with card</button>
                     </div>
@@ -39,10 +40,22 @@
 
                 <form action="/paypal_create_payment/{{course_id}}/" method="POST">
                     {% csrf_token %}
+                    <input type="hidden" id="ptotal_price" name="ptotal_price" value="{{course.price}}">
                     <div class="paybutton">
                         <button type="submit" class="mybtnpay2 mybtnpay login_button" id="checkout-button"><span class="pay_span_1">Pay</span><span class="pay_span_2">Pal</span></button>
                     </div>
                 </form>
+                {% comment %} Promo Code {% endcomment %}
+                <div class="input_group">
+                    <label for="" class="form-label input_label">Apply Promo Code</label>
+                    <div id="responseMessage" style="color:red"></div>
+                    <div id="successMessage" style="color:green"></div>
+                    <input type="text" class="form-control account_input date_input" id="promoCodeInput"
+                    name="promo" placeholder="Promo Code" required>
+
+                    <button type="button" class="login_button"  id="applyPromoCode"> Apply Code </button>
+                </div>
+
             </div>
         </div>
     </div>
@@ -53,76 +66,43 @@
 
     <!-- jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+ 
+    {% comment %} promo coee  {% endcomment %}
     <script>
-        $(document).ready(function () {
-            // paypal button active 
-            $("#paypal_button").click(function () {
-                $(".paypal_btn").addClass('active')
-                $(".paypal_btn_2").removeClass('active')
-                $(".paypal_text_div").addClass('paypal_p_active')
-                $(".paypal_text_div2").removeClass('paypal_p_active')
-                $('.step1_item').removeClass('step_1_add')
-
-                $(".paypal_btn_2").css('margin-top' , '14px')
-                
-
-            })
-            $("#paypal_button_2").click(function () {
-                $(".paypal_btn").removeClass('active')
-                $(".paypal_btn_2").addClass('active')
-                $(".paypal_text_div").removeClass('paypal_p_active')
-                $(".paypal_text_div2").addClass('paypal_p_active')
-
-                $('.step1_item').addClass('step_1_add')
-
-                $(".paypal_btn_2").css('margin-top' , '0')
-
-
-            })
-
-            // paypal tab 
-            $('[name=tab]').each(function (i, d) {
-                var p = $(this).prop('checked');
-                //   console.log(p);
-                if (p) {
-                    $('article').eq(i)
-                        .addClass('on');
-                }
+        $(document).ready(function() {
+            $("#applyPromoCode").click(function() {
+                var code = $("#promoCodeInput").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/course_promo_code/",  
+                    data: {
+                        code: code
+                    },
+                    success: function(response) {
+                        console.log("response", response)
+                        if (response.success) {
+                            $("#successMessage").text(response.success);
+                            $("#price").text(response.price)
+                            $("#total_price").val(response.price)
+                            $("#ptotal_price").val(response.price)
+                            if (response.is_free){
+                                if (response.is_free){
+                                    var newButton = $('<a href="/free_course/" class="login_button" id="applyFreeCourse">Apply Free Course</a>');
+                                    $("#applyPromoCode").replaceWith(newButton);
+                                }
+                            }
+                        } else {
+                            $("#responseMessage").text(response.error);
+                        }
+                    },
+                    error: function(error) {
+                        console.log("response", error)
+                        $("#responseMessage").text("Error while applying the Promo Code.");
+                    }
+                });
             });
-
-
-            $('[name=tab]').on('change', function () {
-                var p = $(this).prop('checked');
-
-                // $(type).index(this) == nth-of-type
-                var i = $('[name=tab]').index(this);
-
-                $('article').removeClass('on');
-                $('article').eq(i).addClass('on');
-            });
-
-
-
-            // custom selector
-            $('.custom_select').on('click', function () {
-                const $this = $(this);
-                $this.toggleClass('active');
-                $this.find('.select_menu').slideToggle(300);
-            });
-
-            $('.custom_select').on('focusout', function () {
-                const $this = $(this);
-                $this.removeClass('active');
-                $this.find('.select_menu').slideUp(300);
-            });
-
-            $('.select_menu li').on('click', function () {
-                const $this = $(this);
-                const $customSelect = $this.parents('.custom_select');
-                $customSelect.find('.selected').text($this.text());
-                $customSelect.find('#data_input').val($this.attr('value'));
-            });
-        })
+        });
     </script>
   
    

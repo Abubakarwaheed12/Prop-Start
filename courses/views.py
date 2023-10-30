@@ -4,6 +4,8 @@ import stripe
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 import paypalrestsdk
 from paypalrestsdk import Payment 
 import threading
@@ -16,7 +18,7 @@ from app.emails import(
     course_confirmation_email
 )
 from app.utils import send_to_hubspot
-from app.models import PaymentHistory
+from app.models import PaymentHistory, PromoCode, FullDiscountPromoCode
 # Create your views here.
 
 
@@ -48,8 +50,8 @@ def checkout_session1(request , course_id=None):
 
     course = get_object_or_404(Cousre, id= course_id)
     request.session["course_id"] = course_id
-
-    price = course.price
+    price = int(request.POST.get("total_price"))
+    
     stripe.api_key = settings.STRIPE_SECRET_KEY
     checkout_session = stripe.checkout.Session.create(
        
@@ -114,7 +116,7 @@ def paypal_create_payment(request, course_id = None):
     
     course = get_object_or_404(Cousre, id= course_id)
     request.session["course_id"] = course_id
-    price = course.price
+    price = int(request.POST.get("ptotal_price"))
     full_host = request.get_host()
     schema = request.scheme
     paypal_client_id = settings.PAYPAL_CLIENT_ID
@@ -299,3 +301,42 @@ def pre_order_stripe_checkout_session_success(request):
         print(e)
     return redirect('/')
 
+
+
+#  Apply Promo Code Ajax
+@csrf_exempt
+def course_promo_code(request):
+    if request.method == "POST":
+        code = request.POST.get("code")
+        course = Cousre.objects.first()
+
+        if PromoCode.objects.filter(promo_code=code).exists():
+            if PromoCode.objects.filter(promo_code=code).first().is_expired:
+                return JsonResponse({"error":"Promo Code expired."})
+            original_price = course.price
+            discount_percentage = 5
+            discounted_price = original_price - (original_price * (discount_percentage / 100))
+            return JsonResponse({"success":"Promo Code Applied.", "price":int(discounted_price)})
+        
+        if FullDiscountPromoCode.objects.filter(promo_code=code).exists():
+            if FullDiscountPromoCode.objects.filter(promo_code=code).first().is_expired:
+                return JsonResponse({"error":"Full Discount Promo Code expired."})
+            booking_call = 375
+            original_price = course.price
+            discounted_price = original_price - booking_call
+            if original_price == booking_call:
+                print("free")
+                return JsonResponse({"success":"You are able to access the free.","is_free":True})
+            else:
+                return JsonResponse({"success":"Promo Code Applied.", "price":int(discounted_price)})
+
+        return JsonResponse({"error":"Promo Code does not exist."})
+    
+
+def free_course(request):
+    course_obj = Cousre.objects.first() 
+    course_obj = UserCourse.objects.create(course=course_obj, user=request.user, is_paid = True, payment='Code', pay_with='Free Coupen Code' )
+    ethread = threading.Thread(target=course_confirmation_email, args=(request,))
+    ethread.start()
+
+    return redirect('/courses/')
