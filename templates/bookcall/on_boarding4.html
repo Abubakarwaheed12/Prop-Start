@@ -159,6 +159,12 @@
                             $("#price").text(response.price)
                             $("#total_price").val(response.price)
                             $("#ptotal_price").val(response.price)
+                            if (response.is_free){
+                                if (response.is_free){
+                                    var newButton = $('<button type="button" class="login_button" id="applyFreeCall">Apply Free Call</button>');
+                                    $("#applyPromoCode").replaceWith(newButton);
+                                }
+                            }
                         } else {
                             $("#responseMessage").text(response.error);
                         }
