@@ -5,6 +5,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@800&display=swap");
 
 * {
   padding: 0;
@@ -233,20 +234,25 @@ body::-webkit-scrollbar-thumb {
 }
 
 .buyend_image {
-  border-radius: 20px;
+  max-width: 600px;
   width: 100%;
-  height: 90%;
+  /* height: 90%; */
+  height: 390px;
   object-fit: cover;
-  /* max-width: 438px; */
-  /* height: 273px; */
-  /* margin-right: 13px; */
 }
-
+.beyond_row {
+  display: flex;
+  justify-content: center;
+}
+.section_3_row {
+  display: flex;
+  justify-content: center;
+}
 .beyond_text_div h5 {
   margin-bottom: 0;
   color: #0d4949;
   font-family: "Urbanist";
-  font-size: 44px;
+  font-size: 50px;
   font-style: normal;
   font-weight: 600;
   width: 100%;
@@ -258,11 +264,12 @@ body::-webkit-scrollbar-thumb {
   /* color: rgba(13, 73, 73, 0.60); */
   color: black;
   font-family: "Urbanist";
-  font-size: 18px;
+  font-size: 19px;
   font-style: normal;
   font-weight: 500;
   letter-spacing: -0.396px;
-  width: 384px;
+  width: 100%;
+  max-width: 384px;
   margin-top: 19px;
 }
 
@@ -294,7 +301,7 @@ body::-webkit-scrollbar-thumb {
 .invest_text_div h5 {
   color: #0d4949;
   font-family: "Urbanist";
-  font-size: 46px;
+  font-size: 50px;
   font-style: normal;
   font-weight: 600;
   margin-bottom: 0;
@@ -308,7 +315,7 @@ body::-webkit-scrollbar-thumb {
   /* color: rgba(13, 73, 73, 0.60); */
   color: black;
   font-family: "Urbanist";
-  font-size: 18px;
+  font-size: 19px;
   font-style: normal;
   font-weight: 500;
   letter-spacing: -0.396px;
@@ -318,7 +325,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .invest_text_main_section {
-  padding-left: 74px;
+  /* padding-left: 74px; */
   padding-top: 27px;
 }
 
@@ -364,12 +371,12 @@ body::-webkit-scrollbar-thumb {
   max-width: 512px;
   /* height: 511.999px; */
 }
-.buyend_image_container{
+/* .buyend_image_container {
   padding: 0 60px;
-}
-.invest_image_container{
+} */
+/* .invest_image_container {
   padding: 0 90px;
-}
+} */
 .msgg {
   text-align: center;
   text-transform: capitalize;
@@ -2617,8 +2624,167 @@ article.on {
   font-weight: 400;
   padding: 10px 0 0 0;
 }
-.beyond_text_main_section{
+.beyond_text_main_section {
   padding-top: 30px;
+}
+.pricing_section_one {
+  margin-top: 11rem;
+  margin-bottom: 10rem;
+}
+.pricing_section_one h3 {
+  text-align: center;
+  color: #0d4949;
+  font-family: Urbanist;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 600;
+  margin-bottom: 108px;
+}
+.pricing_card001 {
+  border-radius: 21.503px;
+  border: 1.075px solid #dbdbdb;
+  background-color: #fff;
+  box-shadow: 0px 4.30068px 5.37585px 1.07517px rgba(193, 193, 193, 0.35);
+  padding: 64px 30px 40px 30px;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+.pricing_card001:hover {
+  background-color: #0d4949;
+  filter: drop-shadow(0px 4px 40px rgba(23, 224, 147, 0.3));
+}
+.pricing_card001:hover .title001 h6 {
+  color: #fff !important;
+}
+.pricing_card001:hover .title001 h5 {
+  color: #fff !important;
+}
+.pricing_card001:hover .title001 p {
+  color: #fff !important;
+}
+.title001 h6 {
+  margin-bottom: 0;
+  color: #000;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 25.804px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.title001 h5 {
+  margin-bottom: 0;
+  color: #0d4949;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 75.262px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-top: 16px;
+}
+.title001 p {
+  margin-bottom: 0;
+  color: #000;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 15.052px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 16px;
+}
+.pricing_card_button {
+  border-radius: 21.503px;
+  /* border: 1.075px solid #0d4949; */
+  background-color: #17e093;
+  color: #fff;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 19.353px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 59.134px; /* 305.556% */
+  text-transform: capitalize;
+  text-decoration: none;
+  width: 100%;
+  border: none;
+  margin-top: 35px;
+  transition: all 300ms ease;
+}
+.pricing_card_button:hover {
+  transform: scale(1.04);
+  /* opacity: 0.5; */
+}
+
+.pricing_section_two {
+  margin-top: 110px;
+  margin-bottom: 200px;
+}
+.pricing_section_two h2 {
+  color: var(--neutral-800, #170f49);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Urbanist;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26.643px; /* 74.008% */
+  letter-spacing: -0.792px;
+  text-align: center;
+  margin-bottom: 52px;
+}
+.cources_detail_card {
+  padding: 33px 31px;
+  border-radius: 20px;
+  border: 1px solid rgba(13, 73, 73, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 225px;
+}
+.circle_tick_image {
+  width: 56px;
+  height: 56px;
+}
+.cources_detail_card h6 {
+  color: #000;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 0;
+  margin-top: 16px;
+}
+.cources_detail_card p {
+  margin-bottom: 0;
+  margin-top: 16px;
+  color: #000;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+.most_button {
+  color: #000;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  width: 98px;
+  height: 40px;
+  flex-shrink: 0;
+  background-color: #eaad35;
+  border: 1px solid #000;
+  border-radius: 50px;
+  position: absolute;
+  right: 13px;
+  top: 14px;
 }
 @media screen and (min-width: 1980px) {
   .home_section_five {
@@ -2640,7 +2806,7 @@ article.on {
 }
 
 @media screen and (max-width: 1400px) {
-  .invest_text_main_section{
+  .invest_text_main_section {
     padding-left: 0;
   }
   .img05 {
@@ -2670,7 +2836,7 @@ article.on {
     height: 193.215px;
     top: 33px;
     right: 21px;
-}
+  }
 
   .subtractImg02 {
     width: 142.483px;
@@ -2804,11 +2970,33 @@ article.on {
   }
 }
 @media screen and (max-width: 1200px) {
-  .buyend_image_container{
-    padding: 0 12px;
+  .cources_detail_card {
+    padding: 33px 25px;
+    min-height: 241px;
   }
-  .invest_image_container{
-    padding: 0 12px;
+  .circle_tick_image {
+    width: 50px;
+    height: 50px;
+  }
+  .cources_detail_card h6 {
+    font-size: 21px;
+  }
+  .pricing_section_one h3 {
+    font-size: 65px;
+  }
+  .title001 h5 {
+    font-size: 66.262px;
+  }
+  .title001 h6 {
+    font-size: 23.804px;
+  }
+  .pricing_card_button {
+    font-size: 18.353px;
+    line-height: 54.134px;
+  }
+  .buyend_image {
+    max-width: 525px;
+    height: 348px;
   }
   .footer_desc_p p {
     font-size: 17px;
@@ -3151,12 +3339,8 @@ article.on {
     width: 160px;
   }
 
-  .invest_text_main_section {
-    padding-left: 60px;
-  }
-
   .invest_text_div h5 {
-    font-size: 43px;
+    font-size: 46px;
   }
 
   .invest_text_div p {
@@ -3168,7 +3352,7 @@ article.on {
     font-size: 17px;
     width: 150px;
     height: 52px;
-    margin-top: 30px;
+    margin-top: 35px;
   }
 
   .side_circle {
@@ -3207,12 +3391,12 @@ article.on {
   }
 
   .beyond_text_div h5 {
-    font-size: 43px;
+    font-size: 46px;
   }
 
   .beyond_text_div p {
     font-size: 17px;
-    width: 348px;
+    max-width: 348px;
     margin-top: 18px;
   }
 
@@ -3220,7 +3404,7 @@ article.on {
     font-size: 17px;
     width: 150px;
     height: 52px;
-    margin-top: 30px;
+    margin-top: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3242,6 +3426,20 @@ article.on {
   } */
 }
 @media screen and (max-width: 992px) {
+  .pricing_section_two {
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+  .beyond_row {
+    gap: 40px;
+  }
+  .section_3_row {
+    gap: 40px;
+  }
+  .buyend_image {
+    max-width: 425px;
+    height: 286px;
+  }
   /* .buyend_image {
     height: 90%;
   } */
@@ -3778,15 +3976,15 @@ article.on {
   }
 
   .invest_text_div h5 {
-    font-size: 33px;
-    max-width: 178px;
+    font-size: 31px;
+    max-width: 188px;
   }
 
   .invest_text_div p {
-    font-size: 16px;
+    font-size: 15px;
     max-width: 336px;
     margin-top: 15px;
-}
+  }
 
   .back_a_button2 {
     font-size: 14px;
@@ -3803,15 +4001,15 @@ article.on {
   }
 
   .beyond_text_div p {
-    font-size: 16px;
-    width: 318px;
+    font-size: 15px;
+    max-width: 318px;
     margin-top: 15px;
-}
-
-  .beyond_text_div h5 {
-    font-size: 33px;
   }
 
+  .beyond_text_div h5 {
+    font-size: 31px;
+    max-width: 205px;
+  }
   .pre_order_button2 {
     font-size: 14px;
     width: 130px;
@@ -3861,9 +4059,24 @@ article.on {
   }
 }
 @media screen and (max-width: 768px) {
+  .pricing_card_button {
+    line-height: 60.134px;
+  }
+  .pricing_section_one h3 {
+    margin-bottom: 80px;
+    font-size: 60px;
+  }
+  .beyond_row {
+    gap: 0;
+    flex-direction: column;
+  }
+  .section_3_row {
+    gap: 0;
+    flex-direction: column-reverse;
+  }
   .beyond_text_main_section {
     padding-top: 0;
-}
+  }
   .img05 {
     width: 32.323px;
     top: 63px;
@@ -4078,6 +4291,7 @@ article.on {
 
   .buyend_image {
     height: auto;
+    max-width: 100%;
   }
 
   .circle_parent {
@@ -4309,9 +4523,9 @@ article.on {
     margin-top: 45px;
   }
 
-  .section_3_row {
+  /* .section_3_row {
     flex-direction: column-reverse;
-  }
+  } */
 
   .side_circle {
     width: 26px;
@@ -4355,7 +4569,7 @@ article.on {
   }
 
   .beyond_text_div p {
-    width: 353px;
+    max-width: 353px;
     text-align: center;
   }
 
@@ -4387,6 +4601,30 @@ article.on {
   }
 }
 @media screen and (max-width: 578px) {
+  .pricing_section_two {
+    margin-top: 90px;
+    margin-bottom: 120px;
+}
+  .pricing_card001 {
+    padding: 55px 22px 35px 22px;
+  }
+  .title001 h6 {
+    font-size: 22.804px;
+  }
+  .title001 h5 {
+    font-size: 62.262px;
+  }
+  .pricing_card_button {
+    line-height: 55.134px;
+  }
+  .pricing_card_button:hover {
+    transform: scale(1.02);
+    /* opacity: 0.5; */
+  }
+  .pricing_section_one h3 {
+    margin-bottom: 65px;
+    font-size: 50px;
+  }
   .footer_desc_p {
     padding: 15px;
   }
@@ -5443,7 +5681,7 @@ article.on {
   }
 
   .beyond_text_div p {
-    width: 242px;
+    max-width: 222px;
     text-align: center;
     font-size: 11px;
   }

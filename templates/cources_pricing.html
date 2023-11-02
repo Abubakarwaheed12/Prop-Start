@@ -1,0 +1,118 @@
+{% extends "base/navbar.html" %} {% load static %} 
+{% block title %}PropStart{% endblock %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}
+<!-- Navbar Section End -->
+{% block content %}
+
+<div class="container">
+  <div class="pricing_section_one">
+    <h3>Pricing</h3>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+        <div class="pricing_card001">
+          <div class="title001">
+            <h6>Property Starter</h6>
+            <h5>$29</h5>
+            <p>/Month , Billed Monthly</p>
+          </div>
+
+          <a href="#">
+            <button type="button" class="pricing_card_button">
+              Go Starter
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+        <div class="pricing_card001">
+          <div class="title001">
+            <h6>Property Skilled</h6>
+            <h5>$24</h5>
+            <p>/Month , Billed 6 Monthly</p>
+          </div>
+
+          <a href="#">
+            <button type="button" class="pricing_card_button">
+              Go Starter
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+        <div class="pricing_card001">
+            <a href="#">
+                <button type="button" class="most_button">Most Popular</button>
+            </a>
+          <div class="title001">
+            <h6>Property Pro</h6>
+            <h5>$19</h5>
+            <p>/Month , Billed Annually</p>
+          </div>
+
+          <a href="#">
+            <button type="button" class="pricing_card_button">
+              Go Starter
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pricing_section_two">
+    <h2>All Plans Include</h2>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+            <div class="cources_detail_card">
+                <img src="{% static 'images/Check Circle.svg' %}" class="circle_tick_image" alt=""/>
+                <h6>Property Pro Course</h6>
+                <p>Access to our flagship property investment course covering all things property and finance</p>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+            <div class="cources_detail_card">
+                <img src="{% static 'images/Check Circle.svg' %}" class="circle_tick_image" alt=""/>
+                <h6>Additional Video Access</h6>
+                <p>Gain immediate access to our exclusive content and future content updates</p>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+            <div class="cources_detail_card">
+                <img src="{% static 'images/Check Circle.svg' %}" class="circle_tick_image" alt=""/>
+                <h6>30 Videos +</h6>
+                <p>30 videos (and counting) from industry experts</p>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+            <div class="cources_detail_card">
+                <img src="{% static 'images/Check Circle.svg' %}" class="circle_tick_image" alt=""/>
+                <h6>Fortnightly Director Wrap</h6>
+                <p>Exclusive Director insights and in depth answers to the most frequently asked questions</p>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+            <div class="cources_detail_card">
+                <img src="{% static 'images/Check Circle.svg' %}" class="circle_tick_image" alt=""/>
+                <h6>Unlimited Access</h6>
+                <p>Unlimited access to videos and content during your subscription</p>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-4">
+            <div class="cources_detail_card">
+                <img src="{% static 'images/Check Circle.svg' %}" class="circle_tick_image" alt=""/>
+                <h6>Cancel Anytime</h6>
+                <p>Got what you needed? Cancel any time with no further payment obligations</p>
+
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block footer %} {% include "base/footer.html" %}
+ {% endblock footer %} {% block js %} {% endblock %}
