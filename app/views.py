@@ -387,3 +387,8 @@ def promo_code(request):
             return JsonResponse({"success":"You are able to access the free.","is_free":True})
 
         return JsonResponse({"error":"Promo Code does not exist."})
+
+
+# pricning page 
+def cources_pricing(request):
+    return render(request,"cources_pricing.html")

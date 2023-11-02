@@ -26,4 +26,7 @@ path('paypal_payment_successful/', paypal_payment_successful, name="paypal_payme
 path('take_quiz/', take_quiz, name="take_quiz"),
 # promo_code 
 path("promo_code/", promo_code, name="promo_code"), 
+
+# cources_pricing url add 
+path("cources_pricing/", cources_pricing, name="cources_pricing"), 
 ]
