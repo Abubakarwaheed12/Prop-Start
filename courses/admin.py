@@ -12,8 +12,8 @@ from courses.models import(
 
 admin.site.register(Instructor)
 admin.site.register(CourseCategory)
-admin.site.register(UserCourse)
-admin.site.register(PreOrder)
+# admin.site.register(UserCourse)
+# admin.site.register(PreOrder)
 
 
 class CourseModelAdmin(admin.ModelAdmin):
