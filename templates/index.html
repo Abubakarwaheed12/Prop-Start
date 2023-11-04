@@ -28,15 +28,15 @@
             <div class="learning_text_button">
 
               
-              {% if  request.user.is_authenticated %}
-              <a href="{% url 'pre_order' %}">
-              <button type="button" class="pre_order_button">Pre-Order</button>
+              
+              <a href="{% url 'courses' %}">
+              <button type="button" class="pre_order_button">Learn More</button>
               </a>
-              {% else %}
-              <a href="{% url 'signup' %}">
+              
+              {% comment %} <a href="{% url 'signup' %}">
                 <button type="button" class="pre_order_button">Sign Up</button>
-                </a>
-              {% endif %}
+                </a> {% endcomment %}
+              
 
               </a>
               <a href="{% url 'on_boarding_text' %}">

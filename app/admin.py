@@ -11,7 +11,7 @@ from .models import (
 
 admin.site.register(BookingCall)
 admin.site.register(TakeQuiz)
-admin.site.register(PaymentHistory)
+# admin.site.register(PaymentHistory)
 class FullDiscountPromoCodeAdminForm(forms.ModelForm):
     class Meta:
         model = FullDiscountPromoCode
@@ -28,7 +28,7 @@ class FullDiscountPromoCodeAdminForm(forms.ModelForm):
 class FullDiscountPromoCodeAdmin(admin.ModelAdmin):
     form = FullDiscountPromoCodeAdminForm
 
-admin.site.register(FullDiscountPromoCode, FullDiscountPromoCodeAdmin)
+# admin.site.register(FullDiscountPromoCode, FullDiscountPromoCodeAdmin)
 
 
 
@@ -39,7 +39,7 @@ class PromoCodeAdmin(admin.ModelAdmin):
             return False 
         return super().has_add_permission(request)
 
-admin.site.register(PromoCode, PromoCodeAdmin)
+# admin.site.register(PromoCode, PromoCodeAdmin)
 
 
 # class CallAdmin(admin.ModelAdmin):
