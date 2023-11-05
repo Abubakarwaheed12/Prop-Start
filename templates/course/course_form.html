@@ -30,7 +30,7 @@
                        </a>
                 </div>
                 <h4>Course Payment - $<span id="price">{{course.price}}</span> </h4>
-                <form action="/checkout_session1/{{course_id}}/" method="POST">
+                {% comment %} <form action="/checkout_session1/{{course_id}}/" method="POST">
                     {% csrf_token %}
                     <input type="hidden" id="total_price" name="total_price" value="{{course.price}}">
                     <div class="paybutton">
@@ -44,9 +44,9 @@
                     <div class="paybutton">
                         <button type="submit" class="mybtnpay2 mybtnpay login_button" id="checkout-button"><span class="pay_span_1">Pay</span><span class="pay_span_2">Pal</span></button>
                     </div>
-                </form>
+                </form> {% endcomment %}
                 {% comment %} Promo Code {% endcomment %}
-                <div class="input_group">
+                {% comment %} <div class="input_group">
                     <label for="" class="form-label input_label">Apply Promo Code</label>
                     <div id="responseMessage" style="color:red"></div>
                     <div id="successMessage" style="color:green"></div>
@@ -54,12 +54,50 @@
                     name="promo" placeholder="Promo Code" required>
 
                     <button type="button" class="login_button"  id="applyPromoCode"> Apply Code </button>
+                </div> {% endcomment %}
+
+                <form id="payment-form">
+                    <!-- Card input fields go here -->
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <div class="form-group">
+                            <img src="{% static '/images/user-icon.svg' %}" alt="user-icon" class="img-fluid">
+                            <input type="text" class="form-control" placeholder="Name on card">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                        <div class="form-group">
+                            <img src="{% static '/images/card-number.svg' %}" alt="card-number" class="img-fluid"> 
+                            <!-- <input type="text" class="form-control" placeholder="Card Number" id="card-element" class="MyCardElement"> -->
+                            <div id="card-number" class="form-control"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+                        <div class="form-group">
+                            <img src="{% static '/images/date-picker-icon.svg' %}" alt="date-picker-icon" class="img-fluid">
+                            <!-- <input type="text" class="form-control" name="datepicker" id="datepicker" placeholder="Expiration Date"> -->
+                            <div id="card-exp" class="form-control"></div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-sm-5 col-md-5 col-lg-5 col-xl-6 col-xxl-6">
+                        <div class="form-group">
+                            <img src="{% static '/images/lock-icon.svg' %}" alt="lock-icon" class="img-fluid">
+                            <!-- <input type="text" class="form-control" placeholder="CCS"> -->
+                            <div id="card-cvc" class="form-control"></div>
+                        </div>
+                    </div>
+                    <div id="card-errors"></div>
+                    <button id="submit-payment">Submit Payment</button>
+                </form> 
+                       
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
     </div>
+
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
@@ -104,7 +142,95 @@
             });
         });
     </script>
-  
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var stripe = Stripe('pk_test_51NBXr6BeBXpxCROJ3BcbDGRRXzhb2oBS3Z9sOWnZAG1DAQX8V9hOUymOICkdBZjwIjXmTrvGzJWk8wQ3qa7gDcCy00VDFHccZU');
+        var elements = stripe.elements();
+        var cardNumberElement = elements.create('cardNumber',{
+            classes : {
+                base : "form-control",
+                invalid : "error"
+            },
+            style : {
+                base : {
+                    color: "green"
+                }
+            }
+        });
+        cardNumberElement.mount('#card-number');
+    
+        // Create an Card Expire Date Filed 
+        var cardExpElement = elements.create('cardExpiry',{
+            classes : {
+                base : "form-control",
+                invalid : "error"
+            },
+            style : {
+                base : {
+                    color: "green"
+                }
+            }
+        });
+        cardExpElement.mount('#card-exp');
+    
+    
+        // Create an CVC Filed 
+        var cardCvcElement = elements.create('cardCvc',{
+            classes : {
+                base : "form-control",
+                invalid : "error"
+            },
+            style : {
+                base : {
+                    color: "green"
+                }
+            }
+        });
+        cardCvcElement.mount('#card-cvc');
+        var submitButton = document.getElementById('submit-payment');
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            submitButton.disabled = true;
+            submitButton.textContent = 'Processing...';
+            stripe.createPaymentMethod({
+                type: 'card',
+                card: cardNumberElement,
+            }).then(function(result) {
+                if (result.error) {
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                    errorElement.style.color = 'red';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit...';
+                } else {
+                    // Send the PaymentMethod ID to your Django view
+                    var paymentMethodId = result.paymentMethod.id;
+                    console.log("success")
+                    console.log(result.paymentMethod.id)
+                    // Include paymentMethodId in your form data and submit the form
+                    $.ajax({
+                        url : "/checkout_session1/",
+                        type : 'POST' , 
+                        data : {
+                            csrfmiddlewaretoken: '{{ csrf_token }}' ,
+                            payment_method_id: paymentMethodId
+                        }, success : function (data){
+                            console.log(data)
+                            if (data.message == 'Payment successful!'){
+                              //window.location.pathname = ``
+                              console.log("subscribed!")
+                            }
+        
+                        }, error : function(error){
+                            console.log(`error ${error}`)
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+
    
 </body>
 

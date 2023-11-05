@@ -21,7 +21,7 @@
                         {% if first_lesson %}
                           {% with first_lecture=first_lesson.lectures.last %}
                             {% if first_lecture %}
-                              <video controls id="video-player" class="courses_video_image">
+                              <video controls id="video-player" oncontextmenu="return false;" controlsList="nodownload" class="courses_video_image">
                                 <source src="{{ first_lecture.video.url }}" type="video/mp4">
                                 Your browser does not support the video tag.
                               </video>
@@ -92,7 +92,7 @@
                                         {% endfor %}
                                         <!-- class="disable_section"    -->
                                         
-                                        <a href="{% if request.user.is_authenticated %}{% url 'courses_form' course.id %}{% else %}{% url 'login' %}{% endif %}">
+                                        <a href="{% if request.user.is_authenticated %}{% url 'courses_form'  %}{% else %}{% url 'login' %}{% endif %}">
                                             <div class="unlock_purchase_button">
                                                 <button type="button"> Purchase Course to unlock</button>
                                             </div>
@@ -102,7 +102,7 @@
                                 </div>
 
                                 <div class="sign_button">
-                                    <a href="{% if request.user.is_authenticated %}{% url 'courses_form' course.id %}{% else %}{% url 'login' %}{% endif %}">
+                                    <a href="{% if request.user.is_authenticated %}{% url 'courses_form'  %}{% else %}{% url 'login' %}{% endif %}">
                                         <button type="button" class="about_signup_button">Purchase Course</button>
                                     </a>
                                 </div>
@@ -169,6 +169,10 @@
 
 
     <script>
+        var video = document.getElementById('video-player');
+        video.addEventListener('contextmenu', function (e) {
+          e.preventDefault();
+        });
         function changeVideoSource(newSource) {
             var videoElement = document.getElementById('video-player');
             var sourceElement = videoElement.getElementsByTagName('source')[0];

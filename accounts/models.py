@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from .managers import CustomUserManager
 import re
 from django.core.exceptions import ValidationError
+from vendor.hubspot.client import APIClient as HubspotAPIClient
 
 # Create your models here.
 class CustomUser(AbstractUser):
@@ -18,6 +19,8 @@ class CustomUser(AbstractUser):
         max_length=50
     )
 
+    stripe_customer_id = models.CharField(max_length=100, blank=True, null=True)
+    current_subscription = models.CharField(max_length=100, blank=True, null=True)
     hubspot_contact_id = models.PositiveBigIntegerField(null=True, blank=True, default=0)
     
     USERNAME_FIELD = "email"
@@ -41,6 +44,16 @@ class CustomUser(AbstractUser):
     @property
     def user_email(self):
         return self.email   
+    
+
+    def user_send_to_hubspot(self):
+        api = HubspotAPIClient()
+        c_id =api.create_or_update_contact({
+            "firstname" : self.first_name,
+            "lastname": self.last_name, 
+            "email": self.email,
+            "phone": self.phone_number,
+        })
     
     
         
