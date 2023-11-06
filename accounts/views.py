@@ -16,12 +16,14 @@ from .forms import CustomUserUpdateForm
 from .decorator import redirect_authenticated_user
 from vendor.gclander.client import GoogleAPIClient
 from app.models import BookingCall, PaymentHistory
+from vendor.hubspot.client import APIClient as HubspotAPIClient
 # Create your views here.
 
 
 # Get all fields for signup and save in session till verify token 
 @redirect_authenticated_user
 def signup(request):
+
     if request.method == 'POST':
         firstname = request.POST.get("fname")
         lastname = request.POST.get("lname")
@@ -81,7 +83,8 @@ def send_code(request):
             user.save()
             # send to hubspot
             try:
-                user.user_send_to_hubspot()
+                a = user.user_send_to_hubspot()
+                print("Hubspot : ", a)
             except Exception as e:
                 print(e, "User send to hubspot ends with error.")
 

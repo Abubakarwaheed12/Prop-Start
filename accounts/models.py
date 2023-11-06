@@ -48,10 +48,10 @@ class CustomUser(AbstractUser):
 
     def user_send_to_hubspot(self):
         api = HubspotAPIClient()
-        c_id =api.create_or_update_contact({
+        api.create_or_update_contact({
+            "email": self.email,
             "firstname" : self.first_name,
             "lastname": self.last_name, 
-            "email": self.email,
             "phone": self.phone_number,
         })
     
