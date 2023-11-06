@@ -80,7 +80,11 @@ def send_code(request):
             user.set_password(password)
             user.save()
             # send to hubspot
-            user.send_to_hubspot()
+            try:
+                user.user_send_to_hubspot()
+            except Exception as e:
+                print(e, "User send to hubspot ends with error.")
+
             # Login User 
             user = authenticate(request, email=email,password=password)
             if user is not None:
