@@ -1,0 +1,42 @@
+{% load static %} 
+<div class="dashboard_header">
+  <div>
+    <i class="bi bi-list sidebar_open_icon"></i>
+  </div>
+  <div class="d-flex gap-4 align-items-center">
+    {% comment %} {% if request.path == '/dashboard_course/' %}
+    <div class="bellDiv">
+      <i class="bi bi-cart3"></i>
+    </div>
+    {% endif %}
+    {% if request.path == '/dashboard_premium/' %}
+    <div class="bellDiv">
+      <i class="bi bi-cart3"></i>
+    </div>
+    {% endif %}
+    {% if request.path == '/dashboard_account/' %}
+    <div class="bellDiv">
+      <i class="bi bi-cart3"></i>
+    </div>
+    {% endif %}
+    
+    <div class="bellDiv">
+      <i class="bx bx-bell"></i>
+    </div> {% endcomment %}
+    <div class="dropdown dropdown_user">
+      <button class="dropbtn">
+        <img
+          src="{% static 'images/userLogo.svg' %}"
+          alt=""
+          class="user-logo"
+        />
+        <i class="bx bx-chevron-down chevron"></i>
+      </button>
+      <div class="dropdown_content">
+        <a href="#">Option 1</a>
+        <a href="#">Option 2</a>
+        <a href="#">Option 3</a>
+      </div>
+    </div>
+  </div>
+</div>

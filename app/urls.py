@@ -29,4 +29,13 @@ path("promo_code/", promo_code, name="promo_code"),
 
 # cources_pricing url add 
 path("cources_pricing/", cources_pricing, name="cources_pricing"), 
+
+
+
+# dashboard url dashboard
+path("dashboard/", dashboard, name="dashboard"), 
+path("dashboard_course/", dashboard_course, name="dashboard_course"), 
+path("dashboard_premium/", dashboard_premium, name="dashboard_premium"), 
+path("dashboard_account/", dashboard_account, name="dashboard_account"), 
+path("dashboard_upgrade/", dashboard_upgrade, name="dashboard_upgrade"), 
 ]
