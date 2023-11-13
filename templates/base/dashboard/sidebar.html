@@ -1,0 +1,80 @@
+{% load static %}
+<div class="sidebar_section">
+          <div class="sidebar_logo">
+            <i class="bi bi-x sidebar_block_icon"></i>
+            <img
+              src="{% static 'images/logo.svg' %}"
+              alt=""
+              class="arrow_bottom_image"
+            />
+          </div>
+          <div class="sidebar_ul">
+            <a href="{% url 'dashboard' %}">
+              <li class="{% if request.path == '/dashboard/' %}activeLi{% endif %}">
+                <img
+                  src="{% static 'images/Icon.svg' %}"
+                  alt=""
+                  class="sidebar_icon"
+                />
+                <span>Dashboard</span>
+              </li>
+            </a>
+            <a href="{% url 'dashboard_course' %}">
+              <li class="{% if request.path == '/dashboard_course/' %}activeLi{% endif %}">
+                <img
+                  src="{% static 'images/carbon_book.svg' %}"
+                  alt=""
+                  class="sidebar_icon"
+                /><span>Course</span>
+              </li>
+            </a>
+            <a href="{% url 'dashboard_premium' %}">
+              <li class="{% if request.path == '/dashboard_premium/' %}activeLi{% endif %}">
+                <img
+                  src="{% static 'images/fluent_premium-person-24-regular.svg' %}"
+                  alt=""
+                  class="sidebar_icon"
+                /><span>Premium</span>
+              </li>
+            </a>
+            <div class="sidebar_line"></div>
+            <a href="{% url 'dashboard_account' %}">
+              <li class="{% if request.path == '/dashboard_account/' %}activeLi{% endif %}">
+                <img
+                  src="{% static 'images/iconamoon_profile.svg' %}"
+                  alt=""
+                  class="sidebar_icon"
+                /><span>Account</span>
+              </li>
+            </a>
+            <a href="{% url 'dashboard_upgrade' %}">
+              <li class="{% if request.path == '/dashboard_upgrade/' %}activeLi{% endif %}">
+                <img
+                  src="{% static 'images/ion_card-outline.svg' %}"
+                  alt=""
+                  class="sidebar_icon"
+                /><span>Upgrade</span>
+              </li>
+            </a>
+            <a href="#">
+              <li class="">
+                <img
+                  src="{% static 'images/ic_outline-analytics.svg' %}"
+                  alt=""
+                  class="sidebar_icon"
+                /><span>Analyitics</span>
+              </li>
+            </a>
+            <div class="logout_li">
+              <a href="#">
+                <li>
+                  <img
+                    src="{% static 'images/logout.svg' %}"
+                    alt=""
+                    class="sidebar_icon"
+                  /><span>Logout</span>
+                </li>
+              </a>
+            </div>
+          </div>
+        </div>

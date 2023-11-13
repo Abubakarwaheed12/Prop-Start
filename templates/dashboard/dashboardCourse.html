@@ -1,0 +1,331 @@
+{% extends "base/dashboard/header.html" %} {% load static %} {% block content %}
+
+<div class="dashboard_main_section">
+  <!-- Sidebar Section  -->
+  {% include "base/dashboard/sidebar.html" %}
+  <div class="main_content">
+    <!-- Header Section  -->
+    {% include "base/dashboard/headerbar.html" %}
+    <div class="dashboard_section_one">
+      <div class="dashboard_section_one_header">
+        <p>
+          <img
+            src="{% static 'images/carbon_book1.svg' %}"
+            alt=""
+            class="time_date_image"
+            style="width: 21px; height: 22px"
+          />
+          <span>30 Lessons</span> |
+          <span
+            ><img
+              src="{% static 'images/time.svg' %}"
+              alt=""
+              class="time_date_image"
+            />
+            4 Hours +</span
+          >
+        </p>
+        <h1>Property Pro</h1>
+        <div class="row">
+          <div class="col-lg-7 col-md-12 col-sm-12 col-12 mt-4">
+            <div class="video_main_sec">
+              <img
+                src="{% static 'images/saud.png' %}"
+                alt=""
+                class="dashboard_course_img"
+              />
+              <div class="play_button_video">
+                <i class="bi bi-play"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-12 col-sm-12 col-12 mt-4">
+            <div
+              class="accordion accordion-flush dashboard_accordion_section"
+              id="accordionFlushExample"
+            >
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed dashboard_accordion_button mt-0"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                  >
+                    1. Introdution
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body dashboard_accordion_body">
+                    <p class="dashboard_accordion_body_p">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Nam velit itaque ex. Placeat libero blanditiis
+                      consequuntur a excepturi laboriosam voluptatibus!
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="disable_section">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed dashboard_accordion_button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseTwo"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseTwo"
+                      disabled
+                    >
+                      2. Explore Dynamic Content
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body dashboard_accordion_body">
+                      <p class="dashboard_accordion_body_p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nam velit itaque ex. Placeat libero blanditiis
+                        consequuntur a excepturi laboriosam voluptatibus!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed dashboard_accordion_button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseThree"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseThree"
+                      disabled
+                    >
+                      3. Choose and Install Presents
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseThree"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body dashboard_accordion_body">
+                      <p class="dashboard_accordion_body_p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nam velit itaque ex. Placeat libero blanditiis
+                        consequuntur a excepturi laboriosam voluptatibus!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed dashboard_accordion_button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseFour"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseFour"
+                      disabled
+                    >
+                      4. Add and Remove Dynamic Content
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseFour"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body dashboard_accordion_body">
+                      <p class="dashboard_accordion_body_p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nam velit itaque ex. Placeat libero blanditiis
+                        consequuntur a excepturi laboriosam voluptatibus!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed dashboard_accordion_button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseFive"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseFive"
+                      disabled
+                    >
+                      5. Display your content
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseFive"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body accordion_body">
+                      <p class="dashboard_accordion_body_p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nam velit itaque ex. Placeat libero blanditiis
+                        consequuntur a excepturi laboriosam voluptatibus!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed dashboard_accordion_button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseSix"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseSix"
+                      disabled
+                    >
+                      6. Filter and Sort your content
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseSix"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body accordion_body">
+                      <p class="dashboard_accordion_body_p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nam velit itaque ex. Placeat libero blanditiis
+                        consequuntur a excepturi laboriosam voluptatibus!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button
+                      class="accordion-button collapsed dashboard_accordion_button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#flush-collapseSeven"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseSeven"
+                      disabled
+                    >
+                      7. Final Thoughts
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseSeven"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body accordion_body">
+                      <p class="dashboard_accordion_body_p">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Nam velit itaque ex. Placeat libero blanditiis
+                        consequuntur a excepturi laboriosam voluptatibus!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="course_lecture_desc_sec">
+          <div class="lecture_card001">
+            <h6>In this Course:</h6>
+            <p>
+              Dive into the comprehensive world of property and finance
+              fundamentals before embarking on your real estate journey. Benefit
+              from expert instructors with a collective acquisition experience
+              exceeding $200 million in Australian property. With licenses in
+              Real Estate and Mortgage Broking, our seasoned professionals bring
+              years of industry expertise to guide you through the intricacies
+              of the market.
+            </p>
+          </div>
+          <div class="lecture_card002">
+            <img src="{% static 'images/Rectangle 340.svg' %}" alt="" class="overlay_image"/>
+            <img src="{% static 'images/point finger jared_edited 1.png' %}" alt=""/>
+            <div class="lecture_card002_desc">
+              <p>Your Instructor:</p>
+              <h6>Jared Kirkwood</h6>
+              <span>Propstart - Director</span>
+
+            </div>
+          </div>
+          <div class="lecture_card002">
+            <img src="{% static 'images/Rectangle 340.svg' %}" alt="" class="overlay_image"/>
+            <img src="{% static 'images/sadeq.png' %}" alt=""/>
+            <div class="lecture_card002_desc">
+              <p>Your Instructor:</p>
+              <h6>Sadeq Abbas</h6>
+              <span>Propstart - Director</span>
+
+            </div>
+          </div>
+          <div class="lecture_card001">
+            <h6>Learn How to:</h6>
+            <ul>
+              <li>
+                <p>
+                  Structure your property portfolio the right way
+                </p>
+              </li>
+              <li>
+                <p>
+                  Start investing in property effectively
+                </p>
+              </li>
+              <li>
+                <p>
+                  Grow your property portfolio the fastest possible way
+                </p>
+              </li>
+              <li>
+                <p>
+                  Set and achieve your financial goals
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="lecture_card001">
+            <h6>Who it’s for:</h6>
+            <ul>
+              <li>
+                <p>
+                  Aspiring property investors seeking to build a robust property portfolio
+                </p>
+              </li>
+              <li>
+                <p>
+                  Prospective real estate enthusiasts seeking to expand their investment portfolio
+                </p>
+              </li>
+              <li>
+                <p>
+                  Those committed to mastering the art of successful property investment
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="disclaimer_p">Disclaimer: All care is taken in the preparation of the information and published materials on this site. PropStart Pty Ltd does not make any representations or give any warranties about its accuracy, reliability, completeness or suitability for any particular purpose. To the extent permissible by law, PropStart Pty Ltd will not be liable for any expenses, losses, damages (including indirect or consequential damages) or costs which might be incurred as a result of the information being inaccurate or incomplete in any way and for any reason.</p>
+    </div>
+  </div>
+</div>
+{% endblock content %}

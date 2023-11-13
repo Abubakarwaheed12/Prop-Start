@@ -1,0 +1,295 @@
+{% extends "base/dashboard/header.html" %} {% load static %} {% block content %}
+
+<div class="dashboard_main_section">
+  <!-- Sidebar Section  -->
+  {% include "base/dashboard/sidebar.html" %}
+  <div class="main_content">
+    <!-- Header Section  -->
+    {% include "base/dashboard/headerbar.html" %}
+    <div class="dashboard_section_one">
+      <div class="dashboard_section_one_header">
+        <h1>Upgrade Plan</h1>
+        <div class="upgrade_section001">
+          <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-5">
+              <div class="property_starter_card">
+                <div class="property_starter_card_item001">
+                  <div class="property_starter_text001">Property Starter</div>
+                  <div class="property_starter_text002">
+                    <h5>$39</h5>
+                    <div class="monthly_text">
+                      <p>/Month</p>
+                      <p>Billed Monthly</p>
+                    </div>
+                  </div>
+                </div>
+                <a href="#">
+                  <button class="starter_button01" type="button">
+                    Go Starter
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-5">
+              <div class="property_starter_card">
+                <div class="property_starter_card_item001">
+                  <div class="property_starter_text001">
+                    Property <span class="skill_span">Skilled</span>
+                  </div>
+                  <div class="property_starter_text002">
+                    <h5>$29</h5>
+                    <div class="monthly_text">
+                      <p>/Month</p>
+                      <p>Billed Bi-Annually</p>
+                    </div>
+                  </div>
+                </div>
+                <a href="#">
+                  <button class="starter_button01 skill_button01" type="button">
+                    Go Skilled
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-12 col-12 mt-5">
+              <div class="position-relative">
+                <div class="property_starter_card property_starter_card003">
+                  <div class="property_starter_card_item001">
+                    <div class="property_starter_text001">
+                      Property <span class="pro_span">Pro</span>
+                    </div>
+                    <div class="property_starter_text002">
+                      <h5>$19</h5>
+                      <div class="monthly_text">
+                        <p>/Month</p>
+                        <p>Billed Annually</p>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="#">
+                    <button class="starter_button01 pro_button01" type="button">
+                      Go Pro
+                    </button>
+                  </a>
+                </div>
+                <button class="most_popular_btn">Most Popular</button>
+              </div>
+            </div>
+          </div>
+          <div class="billing_detail_sec">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item accordion_item_billing">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed billing_detail_accordion_btn"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                  >
+                    Billing Details
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body accordion_billing_body_item">
+                    <form action="">
+                      <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                          <div class="input_group">
+                            <label for="" class="form-label input_label"
+                              >Street Number</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control account_input"
+                              id=""
+                              aria-describedby="emailHelp"
+                              placeholder="Street Number"
+                            />
+                          </div>
+                          <div class="input_group">
+                            <label for="" class="form-label input_label"
+                              >Street Name</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control account_input"
+                              id=""
+                              aria-describedby="emailHelp"
+                              placeholder="Street Name"
+                            />
+                          </div>
+                          <div class="input_group">
+                            <label for="" class="form-label input_label"
+                              >Suburb</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control account_input"
+                              id=""
+                              aria-describedby="emailHelp"
+                              placeholder="Suburb"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                          <div class="input_group">
+                            <label for="" class="form-label input_label"
+                              >State</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control account_input"
+                              id=""
+                              aria-describedby="emailHelp"
+                              placeholder="State"
+                            />
+                          </div>
+                          <div class="input_group">
+                            <label for="" class="form-label input_label"
+                              >Post Code</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control account_input"
+                              id=""
+                              aria-describedby="emailHelp"
+                              placeholder="Post Code"
+                            />
+                          </div>
+                          <div class="input_group">
+                            <label for="" class="form-label input_label"
+                              >Country</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control account_input"
+                              id=""
+                              aria-describedby="emailHelp"
+                              placeholder="Country"
+                            />
+                          </div>
+                        </div>
+                        <div class="change_detail_btn_billing">
+                          <button type="button">Change Details</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item accordion_item_billing">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed billing_detail_accordion_btn"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseTwo"
+                  >
+                    Current Plan
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseTwo"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body p-0">
+                    <div class="current_plan_body">
+                      <p>Property Starter</p>
+                      <h6>$29.00 / Month</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% block js %}
+<script>
+  let input = document.querySelector("input");
+  input.addEventListener("change", function () {
+    const reader = new FileReader();
+    reader.addEventListener("load", function () {
+      document.querySelector(
+        ".uploaded_img"
+      ).style.backgroundImage = `url(${reader.result})`;
+    });
+    reader.readAsDataURL(this.files[0]);
+  });
+  // custom selector
+  document.querySelectorAll(".custom_select").forEach(function (element) {
+    element.addEventListener("click", function () {
+      element.classList.toggle("active");
+      const selectMenu = element.querySelector(".select_menu");
+      selectMenu.style.display =
+        selectMenu.style.display === "none" ? "block" : "none";
+    });
+
+    element.addEventListener("focusout", function () {
+      element.classList.remove("active");
+      const selectMenu = element.querySelector(".select_menu");
+      selectMenu.style.display = "none";
+    });
+  });
+
+  document.querySelectorAll(".select_menu li").forEach(function (element) {
+    element.addEventListener("click", function () {
+      const customSelect = element.closest(".custom_select");
+      customSelect.querySelector(".selected").textContent = element.textContent;
+      customSelect.querySelector("#data_input").value =
+        element.getAttribute("value");
+    });
+  });
+  // password hide/show
+  function currentShow() {
+    const currentPasswordInput = document.querySelector(".current_password");
+    const currentShowHideButton = document.getElementById("current_show_hide");
+
+    if (currentPasswordInput.type === "password") {
+      currentPasswordInput.type = "text";
+      currentShowHideButton.innerHTML = "Hide";
+    } else {
+      currentPasswordInput.type = "password";
+      currentShowHideButton.innerHTML = "Show";
+    }
+  }
+
+  function show() {
+    const passwordInput = document.querySelector(".password");
+    const sShowHideButton = document.getElementById("s_show_hide");
+
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      sShowHideButton.innerHTML = "Hide";
+    } else {
+      passwordInput.type = "password";
+      sShowHideButton.innerHTML = "Show";
+    }
+  }
+
+  function showPassword() {
+    const confirmPasswordInput = document.querySelector(".confirm_password");
+    const sShowHide2Button = document.getElementById("s_show_hide2");
+
+    if (confirmPasswordInput.type === "password") {
+      confirmPasswordInput.type = "text";
+      sShowHide2Button.innerHTML = "Hide";
+    } else {
+      confirmPasswordInput.type = "password";
+      sShowHide2Button.innerHTML = "Show";
+    }
+  }
+</script>
+{% endblock %} {% endblock content %}

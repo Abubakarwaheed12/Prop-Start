@@ -1,0 +1,362 @@
+{% extends "base/dashboard/header.html" %} {% load static %} {% block content %}
+
+<div class="dashboard_main_section">
+  <!-- Sidebar Section  -->
+  {% include "base/dashboard/sidebar.html" %}
+  <div class="main_content">
+    <!-- Header Section  -->
+    {% include "base/dashboard/headerbar.html" %}
+    <div class="dashboard_section_one">
+      <div class="dashboard_section_one_header">
+        <h1>Account Settings</h1>
+        <div class="tabs_section">
+            <ul class="nav nav-pills nav_tabs_div" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link nav_tab_button active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="tabs_svg" viewBox="0 0 15 14" fill="none">
+                      <path d="M1 11.4375C1 10.6529 1.33363 9.90043 1.92748 9.34564C2.52134 8.79084 3.32678 8.47916 4.16663 8.47916H10.4999C11.3397 8.47916 12.1452 8.79084 12.739 9.34564C13.3329 9.90043 13.6665 10.6529 13.6665 11.4375C13.6665 11.8298 13.4997 12.206 13.2028 12.4834C12.9058 12.7608 12.5031 12.9167 12.0832 12.9167H2.58331C2.16339 12.9167 1.76067 12.7608 1.46374 12.4834C1.16681 12.206 1 11.8298 1 11.4375Z" stroke="#0D4949" stroke-linejoin="round"/>
+                      <path d="M7.33298 5.52086C8.64464 5.52086 9.70795 4.52749 9.70795 3.3021C9.70795 2.07672 8.64464 1.08334 7.33298 1.08334C6.02132 1.08334 4.95801 2.07672 4.95801 3.3021C4.95801 4.52749 6.02132 5.52086 7.33298 5.52086Z" stroke="#0D4949"/>
+                    </svg>
+                  <span>Account</span>
+                </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link nav_tab_button" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="tabs_svg" viewBox="0 0 18 18" fill="none">
+                      <path d="M7.60352 9.31344L6.22758 7.9375L5.47852 8.68656L7.60352 10.8116L11.8535 6.56156L11.1045 5.8125L7.60352 9.31344Z" fill="#0D4949"/>
+                      <path d="M8.66602 16.4375L5.38502 14.6881C4.44966 14.1905 3.66747 13.4475 3.12238 12.539C2.5773 11.6305 2.28989 10.5907 2.29102 9.53125V2.625C2.2913 2.34329 2.40333 2.07321 2.60253 1.87401C2.80173 1.67481 3.07181 1.56278 3.35352 1.5625H13.9785C14.2602 1.56278 14.5303 1.67481 14.7295 1.87401C14.9287 2.07321 15.0407 2.34329 15.041 2.625V9.53125C15.0421 10.5907 14.7547 11.6305 14.2097 12.539C13.6646 13.4475 12.8824 14.1905 11.947 14.6881L8.66602 16.4375ZM3.35352 2.625V9.53125C3.35264 10.3981 3.58785 11.2489 4.03392 11.9922C4.47999 12.7356 5.12007 13.3434 5.88546 13.7504L8.66602 15.2332L11.4466 13.751C12.212 13.3439 12.8522 12.736 13.2983 11.9925C13.7443 11.2491 13.9795 10.3982 13.9785 9.53125V2.625H3.35352Z" fill="#0D4949"/>
+                    </svg>
+                    <span>Security</span>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link nav_tab_button" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="tabs_svg" viewBox="0 0 17 16" fill="none">
+                      <path class="plan_svg_path" d="M12.3562 0.5C12.446 0.499936 12.5345 0.52068 12.6145 0.560552C12.6946 0.600423 12.764 0.658302 12.8172 0.7295L12.8591 0.79475L15.3452 5.31575L15.3741 5.3855L15.3833 5.4155L15.3985 5.492L15.4031 5.5625C15.4031 5.61318 15.3962 5.66364 15.3825 5.7125L15.3467 5.80625L15.3177 5.858C15.3082 5.87294 15.2981 5.88745 15.2873 5.9015C15.2788 5.91283 15.2699 5.92383 15.2606 5.9345L15.2751 5.91575L14.3044 7.00025C13.9757 6.76469 13.5964 6.60662 13.1958 6.53825L13.5661 6.125H11.2995L8.31888 13.6423C8.27696 13.7478 8.20361 13.8385 8.10844 13.9023C8.01327 13.9662 7.90072 14.0002 7.78555 14H7.78327C7.75957 14 7.73591 13.9985 7.71241 13.9955H7.70936L7.70555 13.9948C7.67901 13.9908 7.65278 13.9851 7.62708 13.9775L7.61946 13.976C7.5729 13.9629 7.52832 13.9437 7.48689 13.919L7.48003 13.9137C7.44386 13.8919 7.41059 13.8657 7.38098 13.8358L0.302885 5.92625L0.283075 5.90225L0.252599 5.858C0.20943 5.78938 0.181877 5.71236 0.171837 5.63225L0.166504 5.5625L0.16879 5.513L0.178694 5.44625C0.183441 5.4244 0.189548 5.40286 0.19698 5.38175L0.213742 5.3375L0.235075 5.29475L2.71127 0.79475C2.75396 0.717094 2.81462 0.650421 2.88835 0.600127C2.96207 0.549833 3.04679 0.517331 3.13565 0.50525L3.21336 0.5H12.3562ZM10.0728 6.125H5.49831L7.78403 11.8903L7.78555 11.888V11.891L10.0728 6.125ZM4.27241 6.125H2.00193L6.07889 10.6805L4.27241 6.125ZM5.47774 1.625H3.55317L1.69565 5H4.3806L5.47774 1.625ZM8.89108 1.625H6.67774L5.57984 5H9.98746L8.89031 1.625H8.89108ZM12.0149 1.625H10.0911L11.1882 5H13.8716L12.0149 1.625ZM14.6427 9.125C14.6427 9.62228 14.442 10.0992 14.0848 10.4508C13.7276 10.8025 13.2431 11 12.7379 11C12.2328 11 11.7483 10.8025 11.3911 10.4508C11.0339 10.0992 10.8332 9.62228 10.8332 9.125C10.8332 8.62772 11.0339 8.15081 11.3911 7.79917C11.7483 7.44754 12.2328 7.25 12.7379 7.25C13.2431 7.25 13.7276 7.44754 14.0848 7.79917C14.442 8.15081 14.6427 8.62772 14.6427 9.125ZM16.1665 13.1562C16.1665 14.3232 15.1867 15.5 12.7379 15.5C10.2892 15.5 9.30936 14.3278 9.30936 13.1562V13.079C9.30936 12.344 9.91431 11.75 10.6602 11.75H14.8156C15.5623 11.75 16.1665 12.3447 16.1665 13.079V13.1562Z" fill="#0D4949"/>
+                    </svg>
+                    <span>Plan</span>
+                  </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link nav_tab_button " id="pills-booking-tab" data-bs-toggle="pill" data-bs-target="#pills-booking" type="button" role="tab" aria-controls="pills-booking" aria-selected="false">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="tabs_svg" viewBox="0 0 16 14" fill="none">
+                        <path class="plan_svg_path" d="M4.80475 5.0002C5.49071 5.0002 6.14857 4.73679 6.63362 4.26793C7.11866 3.79907 7.39116 3.16317 7.39116 2.5001C7.39116 1.83703 7.11866 1.20112 6.63362 0.732262C6.14857 0.263402 5.49071 0 4.80475 0C4.11879 0 3.46093 0.263402 2.97589 0.732262C2.49084 1.20112 2.21835 1.83703 2.21835 2.5001C2.21835 3.16317 2.49084 3.79907 2.97589 4.26793C3.46093 4.73679 4.11879 5.0002 4.80475 5.0002ZM13.0812 3.00012C13.0812 3.53057 12.8633 4.0393 12.4752 4.41439C12.0872 4.78947 11.5609 5.0002 11.0121 5.0002C10.4634 5.0002 9.93707 4.78947 9.54903 4.41439C9.161 4.0393 8.943 3.53057 8.943 3.00012C8.943 2.46966 9.161 1.96094 9.54903 1.58585C9.93707 1.21076 10.4634 1.00004 11.0121 1.00004C11.5609 1.00004 12.0872 1.21076 12.4752 1.58585C12.8633 1.96094 13.0812 2.46966 13.0812 3.00012ZM7.39116 6.00024C7.80273 6.00024 8.19745 6.15828 8.48848 6.43959C8.7795 6.72091 8.943 7.10245 8.943 7.50029V7.5943C8.93369 7.84431 8.7485 10.5004 4.80475 10.5004C0.666504 10.5004 0.666504 7.5753 0.666504 7.5753V7.50029C0.666504 7.10245 0.830001 6.72091 1.12103 6.43959C1.41206 6.15828 1.80677 6.00024 2.21835 6.00024H7.39116ZM12.1336 6.58126L12.4264 5.83123C12.6933 5.1512 13.5251 4.81519 14.2265 5.1042L14.6279 5.27021C15.1173 5.47221 15.5228 5.83823 15.6076 6.33025C16.0804 9.05536 13.6337 12.9315 10.8176 13.9205C10.3086 14.0986 9.75927 13.9605 9.32268 13.6745L8.96473 13.4395C8.81776 13.3438 8.69403 13.2185 8.60205 13.0721C8.51008 12.9257 8.45206 12.7617 8.43199 12.5916C8.41193 12.4214 8.4303 12.249 8.48584 12.0864C8.54137 11.9237 8.63275 11.7747 8.75368 11.6495L9.31751 11.0424C9.44969 10.9011 9.61864 10.7966 9.80677 10.7398C9.9949 10.683 10.1953 10.6759 10.3872 10.7194L11.6546 11.0094C12.6591 10.4024 13.1982 9.54937 13.2706 8.44933L12.3622 7.5893C12.2262 7.46135 12.1321 7.29764 12.0914 7.11844C12.0508 6.93925 12.0654 6.75247 12.1336 6.58126Z" fill="#0D4949"/>
+                      </svg>
+                      <span>Booking</span>
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link nav_tab_button" id="pills-notification-tab" data-bs-toggle="pill" data-bs-target="#pills-notification" type="button" role="tab" aria-controls="pills-notification" aria-selected="false">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="tabs_svg" viewBox="0 0 19 18" fill="none">
+                        <path d="M14.1665 6C14.1665 4.80653 13.6924 3.66193 12.8485 2.81802C12.0046 1.97411 10.86 1.5 9.6665 1.5C8.47303 1.5 7.32844 1.97411 6.48452 2.81802C5.64061 3.66193 5.1665 4.80653 5.1665 6C5.1665 11.25 2.9165 12.75 2.9165 12.75H16.4165C16.4165 12.75 14.1665 11.25 14.1665 6Z" stroke="#0D4949" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.9641 15.75C10.8323 15.9773 10.643 16.166 10.4153 16.2971C10.1876 16.4283 9.92942 16.4973 9.66664 16.4973C9.40386 16.4973 9.14568 16.4283 8.91797 16.2971C8.69026 16.166 8.501 15.9773 8.36914 15.75" stroke="#0D4949" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      <span>Notifications</span>
+                    </button>
+                  </li>
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <!-- profile tabs  -->
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                    <div class="account_section_tab001">
+                        <div class="uploaded_img_div">
+                            <div class="uploaded_img">
+                            </div>
+                            <div class="file_input">
+                                <input type="file" id="file" class="image_input">
+                                <label for="file" class="file image_label">Upload new photo</label>
+                                <p>Allowed JPG, GIF or PNG. Max size of 800K</p>
+                            </div>
+                        </div>
+                        <div>
+                          <form class="account_form">
+                            <div class="row">
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="input_group">
+                                  <label for="" class="form-label input_label">First Name</label>
+                                  <input type="text" class="form-control account_input" id="" aria-describedby="emailHelp"
+                                      placeholder="First Name">
+                              </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="input_group">
+                                  <label for="" class="form-label input_label">Last Name</label>
+                                  <input type="text" class="form-control account_input" id="" aria-describedby="emailHelp"
+                                      placeholder="Last Name">
+                              </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="input_group">
+                                  <label for="" class="form-label input_label">Phone Number</label>
+                                  <input type="phone" class="form-control account_input" id="" aria-describedby="emailHelp"
+                                      placeholder="Phone Number">
+                              </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="input_group">
+                                  <label for="exampleInputEmail1" class="form-label input_label">Email address</label>
+                                  <input type="email" class="form-control account_input" id="exampleInputEmail1"
+                                      aria-describedby="emailHelp" placeholder="Shijra451170@gmail.com">
+                              </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="input_group">
+                                  <label for="" class="form-label input_label">Time Zone</label>
+                                  <div class="custom_select account_input">
+                                      <div class="select_title">
+                                          <span class="selected">Select</span>
+                                          <img src="{% static 'images/Vector (2).svg' %}" alt="">
+                                      </div>
+                                      <input type="hidden"  id="data_input" name="income">
+                                      <ul class="select_menu">
+                                          <li value="1">$0 - $70,000</li>
+                                          <li value="2">$70,000 - $120,000</li>
+                                          <li value="3">$120,000 - $180,000</li>
+                                          <li value="3">$180,000 - $250,000</li>
+                                          <li value="3">$250,000 +</li>
+                                      </ul>
+                                      <img src="{% static 'images/arrow-drop-down-line.svg' %}" alt="">
+                                  </div>
+                              </div>
+                              </div>
+                            </div>
+                          <div class="text-center">
+                            <a href="#">
+                              <button type="button" class="save_ch_button">Save Changes</button>
+                          </a>
+                          </div>
+                        </form>
+                        </div>
+                    </div>
+                      
+                </div>
+                <!-- Security tabs  -->
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                  <div class="account_section_tab001">
+                    <h4>Change Password</h4>
+                  <form class="account_form">
+                    <div class="row change_pass_row">
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12 change_pass_col">
+                        <div class="input_group" style="position: relative;">
+                          <label for="" class="form-label input_label">Current Password</label>
+                          <input type="password" class="form-control current_password account_input" id=""
+                              placeholder="Current Password">
+                          <a id="current_show_hide" class="hide_show_text" onclick="currentShow();">Show</a>
+                      </div>
+                        <div class="input_group" style="position: relative;">
+                          <label for="" class="form-label input_label">New Password</label>
+                          <input type="password" class="form-control password account_input" id=""
+                              placeholder="New Password">
+                          <a id="s_show_hide" class="hide_show_text" onclick="show();">Show</a>
+                      </div>
+                      <div class="input_group" style="position: relative;">
+                          <label for="" class="form-label input_label">Confirm New Password </label>
+                          <input type="password" class="form-control confirm_password account_input" id=""
+                              placeholder="Confirm New Password ">
+                          <a id="s_show_hide2" class="hide_show_text" onclick="showPassword();">Show</a>
+                      </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12 change_pass_image_col">
+                          <img src="{% static 'images/pana.svg' %}" class="change_pass_image" alt=""/>
+                      </div>
+                    </div>
+                  <div class="text-center">
+                    <a href="#">
+                      <button type="button" class="save_ch_button" style='background-color: #323232;'>Save Changes</button>
+                  </a>
+                  </div>
+                </form>
+                </div>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+                  <div class="account_section_tab001">
+                    <div class="row">
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-5">
+                        <div class="plan_detail_card001">
+                          <div class="plan_btn_div">
+                            <h6>Plan Details</h6>
+                            <a href="#">
+                              <button type="button" class="plan_active_btn">Active</button>
+                            </a>
+                          </div>
+                          <div class="plan_type_and_other">
+                            <p>Plan Type</p>
+                            <h5>Property Pro</h5>
+                          </div>
+                          <div class="plan_type_and_other">
+                            <p>Payment</p>
+                            <h5>Card</h5>
+                          </div>
+                          <div class="plan_type_and_other">
+                            <p>Recurring</p>
+                            <h5>Monthly</h5>
+                          </div>
+                          <div class="plan_type_and_other">
+                            <p>Next Billing</p>
+                            <h5>4242</h5>
+                          </div>
+                        </div>
+                        <div class="plan_detail_card001 card_detail_card002">
+                          <div class="plan_btn_div">
+                            <h6>Card Details</h6>
+                            <a href="#">
+                              <button type="button" class="plan_active_btn change_card_btn">Change Card</button>
+                            </a>
+                          </div>
+                          <div class="plan_type_and_other">
+                            <p>Master Card Ending In</p>
+                            <h5>4242</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-5">
+                        <div class="plan_detail_card001">
+                          <div class="plan_btn_div">
+                            <h6>Payment History</h6>
+                          </div>
+                          <div class="plan_type_and_other">
+                            <p>Date</p>
+                            <h5>$29.00</h5>
+                          </div>
+                          <div class="plan_type_and_other">
+                            <p>Date</p>
+                            <h5>$29.00</h5>
+                          </div>
+                          <div class="plan_type_and_other">
+                            <p>Date</p>
+                            <h5>$29.00</h5>
+                          </div>
+                          <div class="plan_type_and_other">
+                            <p>Date</p>
+                            <h5>$29.00</h5>
+                          </div>
+                        </div>
+                        <div class="plan_detail_card001 card_detail_card002">
+                          <div class="plan_btn_div">
+                            <h6>Current Plan</h6>
+                            <a href="#">
+                              <button type="button" class="plan_active_btn change_card_btn">Change Plan</button>
+                            </a>
+                          </div>
+                          <div class="plan_type_and_other">
+                            <p>Current Plan</p>
+                            <h5>$29/ Month</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- BOOKING Section  -->
+                <div class="tab-pane fade" id="pills-booking" role="tabpanel" aria-labelledby="pills-booking-tab" tabindex="0">
+                  <div class="account_section_tab001 booking_section_tab002 px-0">
+                    <h4>Bookings</h4>
+                    <div class="booking_strategy_card002">
+                      <div class="sec002">
+                        <div class="booking_strategy_img002">
+                          <img src="{% static 'images/img011.svg' %}" alt="">
+                        </div>
+                        <h6>1 : 1 Strategy Call</h6>
+                      </div>
+                      <div class="booking_strategy_time002">
+                        <div class="date_time_div002">
+                          <img src="{% static 'images/white.svg' %}" alt="">
+                        <p>7 pm GPT</p>
+                        </div>
+                        <div class="date_time_div002">
+                          <img src="{% static 'images/white1.svg' %}" alt="">
+                        <p>18/12/2023</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="pills-notification" role="tabpanel" aria-labelledby="pills-notification-tab" tabindex="0">
+                  <div class="account_section_tab001 notification_sec002">
+                    <div class="check_box_div">
+                      <input type="checkbox" id="checked_toggle" class="checkBox_input" checked>
+                      <label for="checked_toggle" class="checked_toggle_label">Subscribed</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% block js %}
+<script>
+    let input=document.querySelector('input')
+input.addEventListener('change',function(){
+    const reader=new FileReader()
+    reader.addEventListener('load',function(){
+        document.querySelector('.uploaded_img').style.backgroundImage=`url(${reader.result})`
+    })
+    reader.readAsDataURL(this.files[0])
+})
+// custom selector
+document.querySelectorAll('.custom_select').forEach(function (element) {
+    element.addEventListener('click', function () {
+        element.classList.toggle('active');
+        const selectMenu = element.querySelector('.select_menu');
+        selectMenu.style.display = selectMenu.style.display === 'none' ? 'block' : 'none';
+    });
+
+    element.addEventListener('focusout', function () {
+        element.classList.remove('active');
+        const selectMenu = element.querySelector('.select_menu');
+        selectMenu.style.display = 'none';
+    });
+});
+
+document.querySelectorAll('.select_menu li').forEach(function (element) {
+    element.addEventListener('click', function () {
+        const customSelect = element.closest('.custom_select');
+        customSelect.querySelector('.selected').textContent = element.textContent;
+        customSelect.querySelector('#data_input').value = element.getAttribute('value');
+    });
+});
+// password hide/show
+function currentShow() {
+    const currentPasswordInput = document.querySelector(".current_password");
+    const currentShowHideButton = document.getElementById('current_show_hide');
+
+    if (currentPasswordInput.type === "password") {
+        currentPasswordInput.type = "text";
+        currentShowHideButton.innerHTML = "Hide";
+    } else {
+        currentPasswordInput.type = "password";
+        currentShowHideButton.innerHTML = "Show";
+    }
+}
+
+function show() {
+    const passwordInput = document.querySelector(".password");
+    const sShowHideButton = document.getElementById('s_show_hide');
+
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        sShowHideButton.innerHTML = "Hide";
+    } else {
+        passwordInput.type = "password";
+        sShowHideButton.innerHTML = "Show";
+    }
+}
+
+function showPassword() {
+    const confirmPasswordInput = document.querySelector(".confirm_password");
+    const sShowHide2Button = document.getElementById('s_show_hide2');
+
+    if (confirmPasswordInput.type === "password") {
+        confirmPasswordInput.type = "text";
+        sShowHide2Button.innerHTML = "Hide";
+    } else {
+        confirmPasswordInput.type = "password";
+        sShowHide2Button.innerHTML = "Show";
+    }
+}
+
+</script>
+{% endblock %}
+{% endblock content %}

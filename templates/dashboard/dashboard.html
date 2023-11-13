@@ -1,0 +1,114 @@
+{% extends "base/dashboard/header.html" %}
+{% load static %} 
+{% block content %}
+
+<div class="dashboard_main_section">
+  <!-- Sidebar Section  -->
+  {% include "base/dashboard/sidebar.html" %}
+  <div class="main_content">
+    <!-- Header Section  -->
+    {% include "base/dashboard/headerbar.html" %}
+    <div class="dashboard_section_one">
+      <div class="dashboard_section_one_header">
+        <p>Hi Jared,</p>
+        <h1>
+          Welcome to PropStart!
+          <img
+            src="{% static 'images/hand.svg' %}"
+            style="width: 30px; height: 30px"
+            alt=""
+          />
+        </h1>
+        <div class="row">
+          <div class="col-lg-4 col-md-4 mt-4">
+            <div class="upcoming_book_card">
+              <h6>Upcoming Bookings</h6>
+              <div class="strategy_div_card">
+                <div class="d-flex gap-1 align-items-center">
+                  <div class="strategy_logo">
+                    <img src="{% static 'images/img011.svg' %}" alt="" />
+                  </div>
+                  <h5>1 : 1 Strategy Call</h5>
+                </div>
+                <div class="d-flex flex-column gap-1">
+                  <div class="time_and_date_text">
+                    <img src="{% static 'images/white.svg' %}" alt="" />
+                    <p>7 pm GPT</p>
+                  </div>
+                  <div class="time_and_date_text">
+                    <img src="{% static 'images/white1.svg' %}" alt="" />
+                    <p>18/12/2023</p>
+                  </div>
+                </div>
+              </div>
+              <div class="checked_div">
+                <h4>Add to Google Calender</h4>
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input checked_input"
+                    type="checkbox"
+                    role="switch"
+                    checked
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="prompt_subs_card">
+              <h6>Get Access Now!</h6>
+              <a href="#">
+                <button type="button">Sign Up</button>
+              </a>
+            </div>
+            <div class="prompt_subs_card prompt_subs_card2">
+              <img src="{% static 'images/img015.svg' %}" alt="" />
+              <h6>Please Complete your profile</h6>
+              <a href="#">
+                <button type="button" style="background-color: #323232;">Go to account</button>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-8 mt-4">
+            <div class="your_spot_now">
+              <div class="next_steps_desc">
+                <h2>1.1 Strategy Call</h2>
+                <h6>Discover what’s possible 🚀</h6>
+                <p>
+                  Now more than ever, a strategy matters when buying a house.
+                </p>
+                <p>Property can’t be bought on a hunch.</p>
+                <p>Sometimes knowing where to start can be the hardest part.</p>
+
+                <h6>
+                  What does your 1:1 Strategy Session with PropStart look like?
+                </h6>
+                <ul>
+                  <li><p>Your why</p></li>
+                  <li><p>Property</p></li>
+                  <li><p>Strategy</p></li>
+                  <li><p>Get started</p></li>
+                  <li><p>Goals</p></li>
+                  <li><p>Finance</p></li>
+                </ul>
+                <p>
+                  Actionable to do’s: A clear pathway will be decided during the
+                  call with actionable next steps.
+                </p>
+                <p>Additional meetings will follow at no additional costs.</p>
+
+                <h6>Secure your spot now!</h6>
+              </div>
+              <div class="spots_available">
+                <h2>12 Spots Available</h2>
+                <a href="#">
+                  <button type="button">Book Now</button>
+                </a>
+                <h6>$365</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

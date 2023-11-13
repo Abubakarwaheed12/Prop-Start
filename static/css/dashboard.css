@@ -1,0 +1,2008 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Urbanist&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--secondary-primary-white, #fff);
+}
+
+.dashboard_main_section {
+  display: flex;
+  position: relative;
+}
+.sidebar_logo {
+  padding: 44px 0 40px 0;
+  display: flex;
+  justify-content: center;
+}
+.sidebar_logo img {
+  width: 125.087px;
+}
+
+.sidebar_ul {
+  border-top: 1px solid #f4f7fe;
+  padding: 10px 3px;
+}
+.logout_li {
+  min-height: 160px;
+  display: flex !important;
+  align-items: end !important;
+  padding-bottom: 10px;
+}
+.logout_li a {
+  width: 100%;
+}
+.logout_li a li {
+  margin-top: 0 !important;
+}
+.sidebar_section::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar_section::-webkit-scrollbar-track {
+  background-color: #eceef2;
+}
+.sidebar_section::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(
+    top,
+    #e4f5fc 0%,
+    #bfe8f9 50%,
+    #9fd8ef 51%,
+    #17e093 100%
+  );
+}
+.dashboard_main_section .sidebar_section {
+  width: 100%;
+  max-width: 260px;
+  height: 100vh;
+  background-color: var(--secondary-primary-white, #fff);
+  /* position: fixed; */
+  z-index: 99;
+  transition: all 300ms ease-in-out;
+  overflow-y: auto;
+  position: relative;
+}
+
+.dashboard_main_section .sidebar_section .sidebar_ul li {
+  padding: 6px 28px;
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  color: #0d4949;
+  font-family: Urbanist;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px; /* 166.667% */
+  letter-spacing: -0.36px;
+  margin-top: 28px;
+}
+.dashboard_main_section .sidebar_section .sidebar_ul li:hover {
+  background-color: rgba(23, 224, 147, 0.05);
+  /* border-left: 4px solid #17e093; */
+}
+.activeLi {
+  font-weight: 700 !important;
+  background-color: rgba(23, 224, 147, 0.05);
+  border-left: 4px solid #17e093;
+}
+.sidebar_icon {
+  width: 24px;
+  height: 24px;
+}
+.sidebar_line {
+  width: 100%;
+  max-width: 226px;
+  height: 1px;
+  background: rgba(13, 73, 73, 0.15);
+  margin: 0 auto;
+  margin-top: 32px;
+}
+.dashboard_main_section .sidebar_section .sidebar_ul a {
+  text-decoration: none !important;
+}
+.next_steps_desc ul {
+  margin-bottom: 0;
+}
+.next_steps_desc li {
+  font-size: 12px;
+}
+.dashboard_main_section .main_content {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Style for the dropdown button */
+.dropdown_user {
+  width: 88px;
+}
+.dropbtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.user-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.chevron {
+  color: #000;
+  font-size: 24px;
+}
+
+/* Style for the dropdown content */
+.dropdown_content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+}
+
+/* Show the dropdown content when hovering over the button */
+.dropdown_user:hover .dropdown_content {
+  display: block;
+}
+
+/* Style for dropdown links */
+.dropdown_content a {
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  color: #000;
+  font-family: Urbanist;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.062px;
+  letter-spacing: -0.24px;
+}
+.dropdown_content a:hover {
+  background-color: rgba(23, 224, 147, 0.05);
+}
+/* Add some additional styling for the dropdown menu items */
+.dashboard_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 18px;
+  width: 100%;
+  align-items: center;
+  gap: 22px;
+}
+.bellDiv i {
+  font-size: 24px;
+  color: #000;
+  cursor: pointer;
+}
+.sidebar_open_icon {
+  font-size: 30px;
+  color: #000;
+  cursor: pointer;
+  display: none;
+}
+.sidebar_block_icon {
+  font-size: 30px;
+  color: #000;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 9px;
+  display: none;
+}
+.dashboard_section_one {
+  padding: 16px 25px;
+}
+.dashboard_section_one_header p {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.32px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dashboard_section_one_header h1 {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 42px; /* 123.529% */
+  letter-spacing: -0.68px;
+}
+.upcoming_book_card {
+  border-radius: 9.607px;
+  background-color: #fff;
+  box-shadow: 8px 8px 44px 1.07517px rgba(0, 0, 0, 0.18);
+  padding: 11px 19px;
+}
+.upcoming_book_card h6 {
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.28px;
+  margin-bottom: 0;
+}
+.strategy_div_card {
+  margin-top: 9px;
+  padding: 3px 8px 3px 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(13, 73, 73, 0.15);
+  background-color: #0d4949;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.strategy_logo {
+  border-radius: 6px;
+  background: rgba(23, 224, 147, 0.1);
+  width: 33px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.strategy_logo img {
+  width: 14px;
+  height: 12.618px;
+}
+.strategy_div_card h5 {
+  margin-bottom: 0;
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+.time_and_date_text {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.time_and_date_text img {
+  width: 14.515px;
+  height: 14.515px;
+}
+.time_and_date_text p {
+  margin-bottom: 0;
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 10.247px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.145px;
+  line-height: normal;
+}
+.checked_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+.checked_div h4 {
+  color: #0d4949;
+  font-family: Urbanist;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 701.772% */
+  letter-spacing: -0.2px;
+  margin-bottom: 0;
+}
+.checked_input {
+  border: 1px solid rgba(13, 73, 73, 0.15) !important;
+  color: #17e093;
+}
+.checked_input:focus {
+  box-shadow: none;
+}
+.checked_input:checked {
+  background-color: #17e093;
+  border: none !important;
+}
+.prompt_subs_card {
+  border-radius: 9.607px;
+  background-color: #fff;
+  box-shadow: 8px 8px 44px 1.07517px rgba(0, 0, 0, 0.18);
+  padding: 37px 19px;
+}
+.prompt_subs_card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+}
+.prompt_subs_card h6 {
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 336% */
+  letter-spacing: -0.28px;
+}
+.prompt_subs_card a {
+  width: 100%;
+  max-width: 116px;
+  height: 31px;
+}
+.prompt_subs_card button {
+  color: #fff;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 360.729% */
+  text-transform: capitalize;
+  width: 100%;
+  max-width: 116px;
+  height: 31px;
+  border-radius: 4px;
+  background-color: #17e093;
+  border: none;
+}
+.prompt_subs_card img {
+  margin-bottom: 11px;
+  width: 46px;
+  height: 45px;
+}
+.prompt_subs_card2 {
+  padding-top: 12px;
+  margin-bottom: 12px;
+}
+.manage_max_width {
+  padding: 0;
+}
+.your_spot_now {
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 8px 8px 44px 1.07517px rgba(0, 0, 0, 0.18);
+  padding: 16px 18px 16.734px 20px;
+}
+.next_steps_desc h2 {
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40.287px; /* 154.949% */
+  letter-spacing: -0.52px;
+  margin-bottom: 0;
+}
+.next_steps_desc h6 {
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 23.021px; /* 143.882% */
+  letter-spacing: -0.32px;
+  margin-bottom: 0;
+  margin-top: 7px;
+}
+.next_steps_desc p {
+  color: #000;
+  font-family: Urbanist;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22.062px;
+  letter-spacing: -0.24px;
+  margin-top: 1px;
+}
+.spots_available {
+  border-radius: 8px;
+  background-color: #e6ffee;
+  padding: 0 18px;
+  width: 100%;
+  max-width: 226px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 382px;
+}
+.your_spot_now {
+  display: flex;
+  gap: 40px;
+  min-height: 456px;
+}
+.spots_available a {
+  width: 100%;
+  max-width: 116px;
+}
+.spots_available button {
+  color: #fff;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 360.729% */
+  text-transform: capitalize;
+  width: 100%;
+  max-width: 116px;
+  height: 31px;
+  border-radius: 4px;
+  background-color: #17e093;
+  border: none;
+}
+.spots_available h2 {
+  color: #0d4949;
+  font-family: Urbanist;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40.287px; /* 223.816% */
+  letter-spacing: -0.36px;
+  margin-bottom: 0;
+}
+.spots_available h6 {
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40.287px; /* 223.816% */
+  letter-spacing: -0.36px;
+}
+/* course css  */
+.time_date_image {
+  width: 17px;
+  height: 17px;
+}
+.dashboard_course_img {
+  width: 100%;
+  height: 403px;
+}
+.dashboard_accordion_section {
+  /* margin-top: 9px; */
+  position: relative;
+}
+
+.dashboard_accordion_button {
+  padding: 16px 16px;
+  background: none !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(13, 73, 73, 0.4) !important;
+  color: #0d4949;
+  font-family: "Urbanist";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.14px;
+  margin-top: 2px;
+}
+
+.dashboard_accordion_button:focus {
+  box-shadow: none !important;
+}
+
+.dashboard_accordion_body {
+  padding: 16px;
+}
+
+.dashboard_accordion_body_p {
+  color: rgba(13, 73, 73, 0.6);
+  font-family: "Urbanist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.14px;
+}
+
+.dashboard_accordion_button::after {
+  border: none;
+  background-image: url(../images/arrow.svg) !important;
+  --bs-accordion-btn-icon-width: 16px;
+  position: absolute;
+  right: 16px;
+  top: 21px;
+}
+
+.dashboard_accordion_button:not(.collapsed)::after {
+  background-image: url(../images/arrow.svg) !important;
+  border: none;
+  top: 14px;
+}
+.course_lecture_desc_sec {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.lecture_card001 {
+  padding: 15px 18px;
+  border-radius: 6px;
+  background-color: rgba(219, 228, 228, 0.3);
+  width: 100%;
+  max-width: 192px;
+  min-height: 251px;
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.course_lecture_desc_sec {
+  display: flex;
+}
+.lecture_card001 h6 {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 233.333% */
+  letter-spacing: -0.36px;
+}
+.lecture_card001 p {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal; /* 200% */
+  margin-top: 7px;
+}
+.lecture_card002 {
+  width: 100%;
+  max-width: 192px;
+  min-height: 251px;
+  margin-top: 14px;
+  position: relative;
+}
+.lecture_card002 img {
+  width: 100%;
+  max-width: 192px;
+  min-height: 253px;
+  border-radius: 6px;
+}
+.overlay_image {
+  position: absolute;
+}
+.lecture_card002_desc {
+  position: absolute;
+  bottom: 12px;
+  left: 13px;
+}
+.lecture_card002_desc p {
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 525% */
+  letter-spacing: -0.16px;
+  margin-bottom: 0;
+}
+.lecture_card002_desc h6 {
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 300% */
+  letter-spacing: -0.28px;
+  margin-bottom: 0;
+  margin-top: 4px;
+}
+.course_lecture_desc_sec span {
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 525% */
+  letter-spacing: -0.16px;
+}
+.lecture_card001 ul {
+  margin-bottom: 0;
+  padding-left: 18px;
+}
+.lecture_card001 ul li {
+  font-size: 10px;
+}
+/* premiium css  */
+.video_desc002 {
+  margin-top: 19px;
+}
+.video_desc002 h2 {
+  color: #000;
+  font-family: Urbanist;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 50.4px; /* 193.846% */
+  letter-spacing: -0.52px;
+  margin-bottom: 0;
+}
+.video_desc002 p {
+  margin-bottom: 0;
+  color: #000;
+  font-family: Urbanist;
+  font-size: 9.432px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15.091px; /* 160% */
+}
+.premium_swiper_section {
+  position: relative;
+  padding-right: 60px;
+}
+.swiper_button_next {
+  width: 50px !important;
+  height: 50px !important;
+  background-color: #17e093;
+  color: #fff;
+  border-radius: 50%;
+  right: var(--swiper-navigation-sides-offset, -22px) !important;
+  /* margin-top: calc(-18px - (var(--swiper-navigation-size) / 2)) !important; */
+}
+.swiper_button_next i {
+  font-size: 26px;
+  color: #fff !important;
+}
+.swiper_button_next::after {
+  margin-left: 6px !important;
+  display: none;
+}
+
+.swiper-button-next.swiper-button-disabled,
+.swiper-button-prev.swiper-button-disabled {
+  opacity: -1.35 !important;
+  cursor: auto;
+  pointer-events: none;
+  color: #fff;
+}
+.premium_swiper {
+  position: unset !important;
+  margin-top: 19px;
+}
+.premium_swiper_wrapper {
+  position: unset !important;
+}
+.linear_img {
+  border-radius: 10px;
+  opacity: 0.65;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.8) 75%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  mix-blend-mode: multiply;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-radius: 18px;
+}
+.swiper_course_img {
+  width: 100%;
+  height: 160px;
+  border-radius: 18px;
+}
+.disclaimer_p {
+  color: #8b8b8b;
+  font-family: Urbanist;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px; /* 200% */
+  margin-top: 15px;
+}
+
+.swiper_card {
+  position: relative;
+  border-radius: 10px;
+}
+.swiper_button_prev {
+  width: 50px !important;
+  height: 50px !important;
+  background-color: #17e093;
+  color: #fff;
+  border-radius: 50%;
+  left: var(--swiper-navigation-sides-offset, -20px) !important;
+  /* margin-top: calc(-18px - (var(--swiper-navigation-size) / 2)) !important; */
+}
+.swiper_button_prev i {
+  font-size: 26px;
+  color: #fff !important;
+}
+.swiper_button_prev::after {
+  margin-right: 4px !important;
+  display: none;
+}
+.star_icons_main_div {
+  display: flex;
+  gap: 9px;
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+}
+.star_icons_main_div i {
+  font-size: 22px;
+  color: #fff;
+}
+.star_icons_main_div p {
+  margin-bottom: 0;
+  color: #e0e0e0;
+  font-family: Inter;
+  font-size: 13.003px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19.504px; /* 150% */
+}
+.premium_course_img {
+  width: 100%;
+  height: 439px;
+}
+/* tabs css  */
+.tabs_section {
+  margin-top: 25px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 2.10667px 10.53333px 0px rgba(13, 73, 73, 0.1);
+  padding: 14px 18px 14px 18px;
+}
+
+.nav_tab_button {
+  display: flex;
+  padding: 12px 20px;
+  align-items: center;
+  gap: 6px;
+  align-self: stretch;
+  color: #0d4949 !important;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 171.429% */
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  background: none !important;
+  border-radius: 0 !important;
+}
+
+.nav_tab_button.active {
+  font-weight: 700;
+  /* color: #17e093 !important; */
+  border-bottom: 2px solid #17e093;
+}
+/* .nav_tab_button.active svg path {
+  stroke: #17e093 !important;
+}
+.nav_tab_button.active .plan_svg_path {
+  fill: #17e093 !important;
+} */
+.tabs_svg {
+  width: 18px;
+  height: 18px;
+}
+.colorSvg {
+  color: #0d4949;
+}
+.account_section_tab001 {
+  padding: 43px 55px 43px 55px;
+}
+.account_section_tab001 h4 {
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 42px; /* 161.538% */
+  letter-spacing: -0.52px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.image_input {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+.image_label {
+  border-radius: 50px;
+  background-color: #323232;
+  color: #fff;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 584.939% */
+  text-transform: capitalize;
+  width: 202px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 13px;
+  cursor: pointer;
+}
+
+.uploaded_img {
+  width: 117px;
+  height: 117px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  background-image: url(../images/userLogo.svg);
+}
+
+.file_input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
+.file_input p {
+  margin-bottom: 0;
+  color: #000;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Urbanist;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 19.9px; /* 165.833% */
+  margin-top: 5px;
+}
+.uploaded_img_div {
+  max-width: 230px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.custom_select {
+  transition: all 0.5s ease;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: 0;
+}
+
+.select_title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.select_menu {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 64px;
+  overflow: hidden;
+  display: none;
+  max-height: 153px;
+  overflow-y: auto;
+  z-index: 9;
+  padding: 5px 0;
+  list-style: none;
+  border-radius: 14.977px;
+  background: var(--White, #fff);
+  /* box-shadow: 0px 0px 19.06189px 0px rgba(0, 0, 0, 0.07); */
+  box-shadow: 0px 1px 10.06189px 3px rgba(0, 0, 0, 0.07);
+}
+.select_menu::-webkit-scrollbar {
+  width: 5px;
+}
+.select_menu::-webkit-scrollbar-track {
+  background-color: #eceef2;
+}
+.select_menu::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #fff;
+  background-image: -webkit-linear-gradient(
+    top,
+    #e4f5fc 0%,
+    #bfe8f9 50%,
+    #9fd8ef 51%,
+    #17e093 100%
+  );
+}
+.select_menu > li {
+  padding: 10px 15px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-family: "Urbanist";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.select_menu > li:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+.select_title img {
+  width: 14px;
+}
+.input_label {
+  color: #0d4949;
+  font-family: "Urbanist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+
+.account_input {
+  border-radius: 50px;
+  border: 1px solid #8692a6;
+  color: rgba(13, 73, 73, 0.6) !important;
+  font-family: "Urbanist";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 23px 22px 24px 30px;
+  margin-top: 14px;
+}
+
+.account_input::placeholder {
+  color: rgba(13, 73, 73, 0.6) !important;
+}
+
+.account_input:focus {
+  border: 1px solid #17e093;
+  box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11);
+}
+.save_ch_button {
+  border-radius: 50px;
+  background-color: #17e093;
+  width: 100%;
+  max-width: 426px;
+  height: 64px;
+  color: #fff;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  margin-top: 44px;
+}
+.hide_show_text {
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 78px;
+  text-decoration: none;
+  color: rgba(13, 73, 73, 0.6);
+  text-align: right;
+  font-family: "Inter";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.change_pass_image {
+  width: 100%;
+  max-width: 342.562px;
+  /* height: 324.543px; */
+}
+.account_form {
+  margin-top: 40px;
+}
+.change_pass_image_col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+.nav_tabs_div {
+  display: flex;
+  gap: 20px;
+}
+/* plan css  */
+.plan_detail_card001 {
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 2.10667px 10.53333px 0px rgba(13, 73, 73, 0.1);
+  padding: 25px 44px;
+  min-height: 275px;
+}
+.plan_btn_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 26px;
+}
+.plan_btn_div h6 {
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 42px; /* 190.909% */
+  letter-spacing: -0.44px;
+  margin-bottom: 0;
+}
+.plan_active_btn {
+  border-radius: 6px;
+  background-color: rgba(23, 224, 147, 0.1);
+  /* width: 100%; */
+  width: 149px;
+  height: 34px;
+  border: none;
+  color: #17e093;
+  font-family: Urbanist;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.plan_type_and_other {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 21px;
+}
+.plan_type_and_other p {
+  margin-bottom: 0;
+  color: #8b8b8b;
+  font-family: Urbanist;
+  font-size: 17.299px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.plan_type_and_other h5 {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 17.299px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.play_button_video {
+  display: flex;
+  width: 62.312px;
+  height: 62.312px;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ffffff;
+  background-color: #17e093;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+}
+.play_button_video i {
+  font-size: 32px;
+  color: #ffffff;
+}
+.video_main_sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.card_detail_card002 {
+  min-height: 169px;
+  margin-top: 17px;
+}
+.change_card_btn {
+  background: none;
+  color: #0d4949;
+  text-decoration: underline;
+}
+.booking_strategy_card002 {
+  border-radius: 13.484px;
+  border: 2.247px solid rgba(13, 73, 73, 0.15);
+  background-color: #0d4949;
+  padding: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 55px;
+}
+.booking_section_tab002 {
+  padding-bottom: 126px !important;
+}
+.booking_strategy_img002 {
+  width: 74.16px;
+  height: 74.16px;
+  border-radius: 13.484px;
+  background-color: rgba(23, 224, 147, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.booking_strategy_img002 img {
+  width: 40.364px;
+  height: 38.121px;
+}
+.booking_strategy_card002 h6 {
+  margin-bottom: 0;
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 22.473px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.449px;
+}
+.booking_strategy_time002 img {
+  width: 23.631px;
+  height: 23.631px;
+}
+.booking_strategy_time002 p {
+  margin-bottom: 0;
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 16.287px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: -0.326px;
+}
+.date_time_div002 {
+  display: flex;
+  gap: 4px;
+}
+.booking_strategy_time002 {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.sec002 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.check_box_div {
+  width: 100%;
+  position: relative;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.checkBox_input[type="checkbox"] {
+  position: relative;
+  appearance: none;
+  width: 34px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50px;
+  border: 1px solid rgba(13, 73, 73, 0.15) !important;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.checkBox_input:checked[type="checkbox"] {
+  background: #17e093;
+}
+
+.checkBox_input[type="checkbox"]::after {
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  top: -4px;
+  left: -3px;
+  background: #17e093;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+.checkBox_input:checked[type="checkbox"]::after {
+  left: 50%;
+}
+.checked_toggle_label {
+  color: #0d4949;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Urbanist;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 111.111% */
+  letter-spacing: 0.15px;
+}
+.notification_sec002 {
+  padding: 18px 17px 150px 17px !important;
+}
+/* Upgrade Section Css  */
+.upgrade_section001 {
+  margin-top: 25px;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 2.10667px 10.53333px 0px rgba(13, 73, 73, 0.1);
+  padding: 0 20px 100px 20px;
+}
+.property_starter_card {
+  border-radius: 16.291px;
+  background-color: #fff;
+  box-shadow: 6.51636px 6.51636px 35.84px 0.87577px rgba(0, 0, 0, 0.18);
+  padding: 22px 20px 22px 23px;
+  position: relative;
+  z-index: 3;
+}
+.most_popular_btn {
+  color: #323232;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 9.775px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-radius: 8.145px 8.145px 0px 0px;
+  border: 0.815px solid #323232;
+  background-color: #eaad35;
+  width: 79.825px;
+  position: absolute;
+  top: -24px;
+  padding: 7px 0 18px 0px;
+}
+.property_starter_text001 {
+  width: 100%;
+  max-width: 98.56px;
+  color: #0d4949;
+  font-family: Urbanist;
+  font-size: 21.019px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.property_starter_text002 {
+  width: 100%;
+  max-width: 128.56px;
+  display: flex;
+  align-items: end;
+  position: relative;
+}
+.property_starter_text002 h5 {
+  margin-bottom: 0;
+  color: #323232;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 52.131px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+.property_starter_text002 p {
+  margin-bottom: 0;
+  color: rgba(50, 50, 50, 0.5);
+  font-family: Urbanist;
+  font-size: 12.261px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  justify-content: end;
+}
+.property_starter_card_item001 {
+  display: flex;
+  justify-content: space-between;
+}
+.monthly_text {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+}
+.starter_button01 {
+  border: none;
+  border-radius: 17.515px;
+  background-color: #0c4949;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  font-family: Urbanist;
+  font-size: 17.92px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 48.168px; /* 268.793% */
+  text-transform: capitalize;
+  margin-top: 28px;
+}
+.skill_span {
+  color: #0f8282;
+}
+.property_starter_card003 {
+  background-color: #0d4949;
+}
+.property_starter_card003 .property_starter_text002 h5 {
+  color: #fff;
+}
+.property_starter_card003 .property_starter_text001 {
+  color: #fff;
+}
+.property_starter_card003 .property_starter_text002 p {
+  color: rgba(255, 255, 255, 0.5);
+}
+.pro_span {
+  color: #17e093;
+}
+.skill_button01 {
+  background-color: #0f8282;
+}
+.pro_button01 {
+  background-color: #17e093;
+}
+.billing_detail_sec {
+  padding: 69px 35px;
+}
+.billing_detail_accordion_btn {
+  padding: 12px 0;
+  color: #323232 !important;
+  font-family: Urbanist;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 42px; /* 233.333% */
+  letter-spacing: -0.36px;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+.accordion_item_billing {
+  border-bottom: 1px solid #e0e0e0 !important;
+}
+.billing_detail_sec .accordion-item:first-child {
+  border-top: 1px solid #e0e0e0 !important;
+}
+.billing_detail_accordion_btn:focus {
+  box-shadow: none !important;
+  border: none !important;
+}
+.billing_detail_accordion_btn::after {
+  border: none;
+  background-image: url(../images/arow.svg) !important;
+  --bs-accordion-btn-icon-width: 16px;
+}
+
+.billing_detail_accordion_btn:not(.collapsed)::after {
+  background-image: url(../images/arow.svg) !important;
+  border: none;
+}
+.accordion_billing_body_item {
+  padding: 22px 53px;
+}
+.change_detail_btn_billing {
+  margin-top: 28px;
+  display: flex;
+  justify-content: end;
+}
+.change_detail_btn_billing button {
+  color: #0d4949;
+  font-family: Urbanist;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
+  border: none;
+  background: none;
+}
+.current_plan_body{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.current_plan_body p {
+  color: #0d4949;
+  font-family: Urbanist;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-bottom: 0;
+}
+.current_plan_body h6 {
+  color: #0d4949;
+  font-family: Urbanist;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 1400px) {
+  .manage_max_width {
+    max-width: 1440px;
+    padding: 0;
+  }
+  .lecture_card001 {
+    max-width: 227px;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .premium_course_img {
+    height: 390px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .accordion_billing_body_item {
+    padding: 22px 35px;
+  }
+  .property_starter_card {
+    padding: 19px 15px 19px 15px;
+  }
+  .property_starter_text001 {
+    font-size: 18.019px;
+  }
+  .property_starter_text002 h5 {
+    font-size: 40.131px;
+  }
+  .property_starter_text002 p {
+    font-size: 10.261px;
+  }
+  .starter_button01 {
+    font-size: 13.92px;
+    line-height: 39.168px;
+  }
+  .booking_strategy_card002 h6 {
+    font-size: 21.473px;
+  }
+  .booking_strategy_time002 p {
+    font-size: 15.287px;
+  }
+  .booking_strategy_time002 img {
+    width: 21.631px;
+    height: 21.631px;
+  }
+  .booking_strategy_img002 {
+    width: 72.16px;
+    height: 72.16px;
+  }
+  .booking_strategy_img002 img {
+    width: 37.364px;
+    height: 37.121px;
+  }
+  .plan_detail_card001 {
+    padding: 25px 25px;
+  }
+  .play_button_video {
+    width: 58.312px;
+    height: 58.312px;
+  }
+  .plan_active_btn {
+    width: 115px;
+    font-size: 15px;
+  }
+  .plan_btn_div h6 {
+    font-size: 20px;
+  }
+  .plan_type_and_other p {
+    font-size: 15.299px;
+  }
+  .plan_type_and_other h5 {
+    font-size: 15.299px;
+  }
+  .nav_tab_button {
+    padding: 10px 15px;
+  }
+  .account_section_tab001 {
+    padding: 43px 30px 43px 30px;
+  }
+  .nav_tabs_div {
+    gap: 16px;
+  }
+  /* .image_label {
+    height: 59px;
+  } */
+  .account_input {
+    padding: 20px 20px 20px 20px;
+  }
+  .hide_show_text {
+    right: 24px;
+    top: 74px;
+  }
+  .premium_course_img {
+    height: 345px;
+  }
+  .swiper_button_next {
+    width: 45px !important;
+    height: 45px !important;
+    right: var(--swiper-navigation-sides-offset, -14px) !important;
+  }
+  .swiper_course_img {
+    height: 150px;
+  }
+  .star_icons_main_div {
+    left: 16px;
+    bottom: 10px;
+  }
+  .premium_swiper_section {
+    padding-right: 49px;
+  }
+  .swiper_button_next i {
+    font-size: 22px;
+  }
+  .swiper_button_prev i {
+    font-size: 22px;
+  }
+  .swiper_button_prev {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  .dashboard_accordion_button {
+    font-size: 11px;
+    padding: 11px 14px;
+  }
+  .dashboard_accordion_button::after {
+    --bs-accordion-btn-icon-width: 13px;
+  }
+  .dashboard_course_img {
+    height: 326px;
+  }
+  .prompt_subs_card button {
+    font-size: 11px;
+    max-width: 108px;
+  }
+  .prompt_subs_card a {
+    max-width: 108px;
+  }
+  .your_spot_now {
+    display: flex;
+    flex-direction: column;
+  }
+  .time_and_date_text img {
+    width: 12.515px;
+    height: 12.515px;
+  }
+  .checked_div h4 {
+    font-size: 12px;
+  }
+  .prompt_subs_card h6 {
+    font-size: 13px;
+  }
+  .strategy_logo {
+    width: 30px;
+    height: 30px;
+  }
+  .upcoming_book_card {
+    padding: 12px 15px;
+  }
+  .strategy_div_card h5 {
+    font-size: 11px;
+  }
+  .time_and_date_text p {
+    font-size: 9.247px;
+  }
+  .spots_available {
+    padding: 90px 18px;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+  .dashboard_main_section .sidebar_section {
+    max-width: 230px;
+  }
+  .dashboard_section_one {
+    padding: 16px 20px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .accordion_billing_body_item {
+    padding: 22px 20px;
+  }
+  .property_starter_card {
+    padding: 21px 18px 21px 18px;
+  }
+  .property_starter_text001 {
+    font-size: 22.019px;
+  }
+  .property_starter_text002 h5 {
+    font-size: 45.131px;
+  }
+  .property_starter_text002 p {
+    font-size: 11.261px;
+  }
+  .starter_button01 {
+    font-size: 16.92px;
+    line-height: 48.168px;
+  }
+  .course_lecture_desc_sec {
+    margin-top: 2rem;
+  }
+  .dashboard_accordion_button {
+    margin-top: 4px;
+  }
+  .premium_course_img {
+    height: 353px;
+  }
+  .swiper_button_prev {
+    left: var(--swiper-navigation-sides-offset, -16px) !important;
+    width: 43px !important;
+    height: 43px !important;
+  }
+  .swiper_button_next {
+    width: 43px !important;
+    height: 43px !important;
+  }
+  .dashboard_accordion_button {
+    font-size: 13px;
+  }
+  .dashboard_course_img {
+    height: 418px;
+  }
+  .dashboard_main_section .sidebar_section {
+    display: none;
+    position: fixed;
+  }
+
+  .sidebar_block_icon {
+    display: block;
+  }
+  .sidebar_open_icon {
+    display: block;
+  }
+}
+@media screen and (max-width: 768px) {.current_plan_body h6 {
+  font-size: 16px;
+}
+.current_plan_body p {
+  font-size: 16px;
+}
+  .change_pass_image_col {
+    padding-top: 0;
+  }
+  .check_box_div {
+    margin-top: 27px;
+  }
+  .booking_section_tab002 {
+    padding-bottom: 100px !important;
+  }
+  .booking_strategy_card002 h6 {
+    font-size: 20.473px;
+  }
+  .booking_strategy_time002 p {
+    font-size: 14.287px;
+  }
+  .booking_strategy_time002 img {
+    width: 20.631px;
+    height: 20.631px;
+  }
+  .booking_strategy_img002 {
+    width: 70.16px;
+    height: 70.16px;
+  }
+  .booking_strategy_img002 img {
+    width: 36.364px;
+    height: 36.121px;
+  }
+  .nav_tab_button {
+    padding: 8px 11px;
+  }
+  .nav_tabs_div {
+    gap: 13px;
+  }
+  .nav_tab_button {
+    font-size: 13px;
+  }
+  .change_pass_row {
+    flex-direction: column-reverse;
+  }
+  .change_pass_col {
+    margin-top: 3rem;
+  }
+  .account_input {
+    font-size: 13px;
+    padding: 21px 19px 21px 19px;
+  }
+  .input_label {
+    font-size: 15px;
+  }
+
+  .premium_course_img {
+    height: 405px;
+  }
+  .premium_swiper_section {
+    padding-right: 30px;
+  }
+  .swiper_button_next {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .swiper_button_prev {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .dashboard_course_img {
+    height: 390px;
+  }
+  .prompt_subs_card {
+    width: 100%;
+    max-width: 340px;
+    margin: 18px auto;
+  }
+  .upcoming_book_card {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+  .dashboard_section_one_header h1 {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .current_plan_body h6 {
+    font-size: 14px;
+  }
+  .current_plan_body p {
+    font-size: 14px;
+  }
+  .accordion_billing_body_item {
+    padding: 5px 5px;
+  }
+  .billing_detail_accordion_btn {
+    padding: 10px 0;
+    font-size: 16px;
+    line-height: 33px;
+  }
+  .billing_detail_accordion_btn::after {
+    --bs-accordion-btn-icon-width: 14px;
+  }
+  .billing_detail_sec {
+    padding: 56px 0;
+  }
+  .property_starter_card {
+    padding: 19px 15px 19px 15px;
+    width: 100%;
+  }
+  .property_starter_text001 {
+    font-size: 18.019px;
+  }
+  .property_starter_text002 h5 {
+    font-size: 40.131px;
+  }
+  .property_starter_text002 p {
+    font-size: 10.261px;
+  }
+  .starter_button01 {
+    font-size: 13.92px;
+    line-height: 42.168px;
+  }
+  .notification_sec002 {
+    padding: 18px 15px 100px 15px !important;
+  }
+  .check_box_div {
+    gap: 35px;
+  }
+  .booking_strategy_card002 h6 {
+    font-size: 18.473px;
+  }
+  .booking_strategy_time002 p {
+    font-size: 13.287px;
+  }
+  .booking_strategy_time002 img {
+    width: 18.631px;
+    height: 18.631px;
+  }
+  .booking_strategy_img002 {
+    width: 60.16px;
+    height: 60.16px;
+  }
+  .booking_strategy_img002 img {
+    width: 32.364px;
+    height: 32.121px;
+  }
+  .booking_strategy_time002 {
+    gap: 10px;
+  }
+  .dashboard_accordion_button {
+    font-size: 12px;
+  }
+  .lecture_card001 p {
+    line-height: 20px;
+  }
+  .account_input {
+    padding: 17px 17px 17px 17px;
+  }
+  .tabs_section {
+    padding: 14px 15px 14px 15px;
+  }
+  .upgrade_section001 {
+    padding: 0 15px 14px 15px;
+  }
+  .account_section_tab001 h4 {
+    font-size: 23px;
+  }
+  .account_section_tab001 {
+    padding: 20px 0 0 0;
+  }
+  /* .change_pass_image {
+  height: 300.543px;
+} */
+  .account_form {
+    margin-top: 30px;
+  }
+  .save_ch_button {
+    height: 55px;
+    font-size: 17px;
+  }
+  .image_label {
+    /* height: 56px; */
+    font-size: 15px;
+  }
+  .uploaded_img {
+    width: 110px;
+    height: 110px;
+  }
+  .premium_course_img {
+    height: 300px;
+  }
+  .swiper_button_prev {
+    left: var(--swiper-navigation-sides-offset, -14px) !important;
+  }
+  .premium_swiper_section {
+    padding-right: 0;
+  }
+  .lecture_card002 img {
+    max-width: 264px;
+  }
+  .star_icons_main_div i {
+    font-size: 20px;
+  }
+  .lecture_card001 {
+    max-width: 264px;
+    margin: 14px auto;
+  }
+  .lecture_card002 {
+    max-width: 264px;
+    margin: 14px auto;
+  }
+  .dashboard_course_img {
+    height: 330px;
+  }
+  .dashboard_section_one_header h1 {
+    font-size: 30px;
+  }
+  .dashboard_section_one {
+    padding: 16px 15px;
+  }
+  .dashboard_header {
+    padding: 6px 15px;
+  }
+}
+@media screen and (max-width: 530px) {
+  .video_desc002 h2 {
+    font-size: 24px;
+  }
+  .premium_swiper_section {
+    padding: 0 60px;
+  }
+  .premium_course_img {
+    height: 275px;
+  }
+  .swiper_course_img {
+    height: 170px;
+  }
+  .swiper_button_next {
+    right: var(--swiper-navigation-sides-offset, 4px) !important;
+  }
+  .swiper_button_prev {
+    left: var(--swiper-navigation-sides-offset, 4px) !important;
+  }
+}
+@media screen and (max-width: 430px) {
+  .booking_strategy_card002 {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 10px;
+  }
+  .booking_strategy_time002 {
+    flex-direction: unset;
+    justify-content: space-around;
+  }
+  .sec002 {
+    flex-direction: column;
+    gap: 25px;
+  }
+  .plan_type_and_other p {
+    font-size: 14.299px;
+  }
+  .plan_detail_card001 {
+    padding: 20px 15px;
+  }
+  .course_lecture_desc_sec {
+    justify-content: center;
+  }
+  .lecture_card002 {
+    max-width: 100%;
+  }
+  .lecture_card002 img {
+    max-width: 100%;
+  }
+  .lecture_card001 {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .plan_active_btn {
+    width: 90px;
+    font-size: 14px;
+  }
+  .plan_btn_div h6 {
+    font-size: 18px;
+  }
+  .play_button_video {
+    width: 50.312px;
+    height: 50.312px;
+  }
+  .nav_tabs_div {
+    gap: 11px;
+  }
+  .swiper_button_next {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .premium_course_img {
+    height: 225px;
+  }
+  .swiper_button_next i {
+    font-size: 20px;
+  }
+  .swiper_button_prev {
+    left: var(--swiper-navigation-sides-offset, 0px) !important;
+  }
+  .swiper_button_next {
+    right: var(--swiper-navigation-sides-offset, 0px) !important;
+  }
+  .premium_swiper_section {
+    padding: 0 20px;
+  }
+  .swiper_button_prev i {
+    font-size: 20px;
+  }
+  .swiper_button_prev {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  .dashboard_section_one_header h1 {
+    font-size: 22px;
+  }
+  .dashboard_course_img {
+    height: 250px;
+  }
+}

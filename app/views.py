@@ -392,3 +392,20 @@ def promo_code(request):
 # pricning page 
 def cources_pricing(request):
     return render(request,"cources_pricing.html")
+
+
+# dashboard page 
+def dashboard(request):
+    return render(request,"dashboard/dashboard.html")
+
+def dashboard_course(request):
+    return render(request,"dashboard/dashboardCourse.html")
+
+def dashboard_premium(request):
+    return render(request,"dashboard/premium.html")
+
+def dashboard_account(request):
+    return render(request,"dashboard/account.html")
+
+def dashboard_upgrade(request):
+    return render(request,"dashboard/upgrade.html")

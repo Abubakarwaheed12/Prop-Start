@@ -1,0 +1,97 @@
+{% extends "base/dashboard/header.html" %} {% load static %} {% block content %}
+
+<div class="dashboard_main_section">
+  <!-- Sidebar Section  -->
+  {% include "base/dashboard/sidebar.html" %}
+  <div class="main_content">
+    <!-- Header Section  -->
+    {% include "base/dashboard/headerbar.html" %}
+    <div class="dashboard_section_one">
+      <div class="dashboard_section_one_header">
+        <p>New Content Every Other Sunday</p>
+        <h1>Premium Content</h1>
+        <div class="row">
+          <div class="col-lg-9 col-md-9 col-sm-12 col-12 mt-4">
+            <div class='video_main_sec'>
+              <img src="{% static 'images/div.plyr__video-wrapper.png' %}" alt="" class="premium_course_img"/>
+              <!-- <video class="premium_course_img" controls>
+                <source src="http://3.26.115.174/media/lectures/28.Ordering_Filter_in_Django_REST_Framework_Hindi.mp4">
+              </video> -->
+              <div class="play_button_video">
+                <i class="bi bi-play"></i>
+              </div>
+            </div>
+            <div class="video_desc002">
+                <h2>The Fast and the Furious</h2>
+                <p>Dive into the comprehensive world of property and finance fundamentals before embarking on your real estate journey. Benefit from expert instructors with a collective acquisition experience exceeding $200 million in Australian property. With licenses in Real Estate and Mortgage Broking, our seasoned professionals bring years of industry expertise to guide you through the intricacies of the market.</p>
+            </div>
+          </div>
+        </div>
+        <div class="premium_swiper_section">
+            <div class="swiper premium_swiper">
+                <div class="swiper-wrapper premium_swiper_wrapper">
+                    <div class="swiper-slide swiper_slide_div">
+                        <div class="swiper_card">
+                            <img src="{% static 'images/1.jpg.png' %}" alt="" class="swiper_course_img"/>
+                            <div class="linear_img"></div>
+                            <div class="star_icons_main_div">
+                                <i class="bi bi-play-circle"></i>
+                                <p>56:36</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper_slide_div">
+                        <div class="swiper_card">
+                            <img src="{% static 'images/2.jpg.png' %}" alt="" class="swiper_course_img"/>
+                            <div class="linear_img"></div>
+                            <div class="star_icons_main_div">
+                                <i class="bi bi-play-circle"></i>
+                                <p>58:41</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper_slide_div">
+                        <div class="swiper_card">
+                            <img src="{% static 'images/3.jpg.png' %}" alt="" class="swiper_course_img"/>
+                            <div class="linear_img"></div>
+                            <div class="star_icons_main_div">
+                                <i class="bi bi-play-circle"></i>
+                                <p>57:19</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper_slide_div">
+                        <div class="swiper_card">
+                            <img src="{% static 'images/3.jpg.png' %}" alt="" class="swiper_course_img"/>
+                            <div class="linear_img"></div>
+                            <div class="star_icons_main_div">
+                                <i class="bi bi-play-circle"></i>
+                                <p>57:19</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide swiper_slide_div">
+                        <div class="swiper_card">
+                            <img src="{% static 'images/1.jpg.png' %}" alt="" class="swiper_course_img"/>
+                            <div class="linear_img"></div>
+                            <div class="star_icons_main_div">
+                                <i class="bi bi-play-circle"></i>
+                                <p>56:36</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-button-next swiper_button_next">
+                    <i class="bi bi-arrow-right"></i>
+                </div>
+                <div class="swiper-button-prev swiper_button_prev">
+                    <i class="bi bi-arrow-left"></i>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
