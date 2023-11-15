@@ -74,6 +74,14 @@
                     </div>
                     <p class="an_account" style="margin-top: 5px; text-align: start;">Already have an account? <span><a
                         href="{% url 'login' %}">Login</a></span></p>
+                        <div class="form-check mt-3 checkbox_input_group">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1"  name="agree_to_terms"  required>
+                            <label class="form-check-label" for="exampleCheck1" name="gree_to_terms">
+                                I agree to <a href="{% url 'term_conditions' %}" style="color: #0D4949;">
+                                    Terms & Conditions
+                                </a>
+                            </label>
+                        </div>
             <a href="">
                 <button type="submit" class="login_button">Register</button>
             </a>
