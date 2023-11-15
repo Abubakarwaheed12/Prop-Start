@@ -32,7 +32,7 @@
     <div class="account_section_one">
       <div class="account_section_main">
         <div class="login_account_section_one on_boarding_text_div_main">
-          <p class="step_text">Step 01/06</p>
+          {% comment %} <p class="step_text">Step 01/06</p> {% endcomment %}
           <div class="account_logo">
             <a href="{% url 'home' %}">
               <img src="{% static 'images/logo.svg' %}" alt="" />
@@ -58,7 +58,14 @@
             </ul>
             <p class="mt-4">Actionable to do’s: A clear pathway will be decided during the call with actionable next steps. Additional meetings will follow at no additional costs.</p>
             <h6>Secure your spot now!</h6>
-
+            <div class="form-check mt-3 checkbox_input_group">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1"  name="agree_to_terms"  required>
+              <label class="form-check-label" for="exampleCheck1" name="gree_to_terms">
+                  I agree to <a href="{% url 'term_conditions' %}" style="color: #0D4949;">
+                      Terms & Conditions
+                  </a>
+              </label>
+          </div>
             <a href="{% url 'on_boarding5_date' %}">
               <button  class="login_button mt-5">Next</button>
           </a>

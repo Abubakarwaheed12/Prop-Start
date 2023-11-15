@@ -31,7 +31,7 @@ body {
   padding: 10px 3px;
 }
 .logout_li {
-  min-height: 160px;
+  min-height: 200px;
   display: flex !important;
   align-items: end !important;
   padding-bottom: 10px;
@@ -93,6 +93,7 @@ body {
   font-weight: 700 !important;
   background-color: rgba(23, 224, 147, 0.05);
   border-left: 4px solid #17e093;
+  padding-left: 24px !important;
 }
 .sidebar_icon {
   width: 24px;
@@ -208,7 +209,7 @@ body {
   display: none;
 }
 .dashboard_section_one {
-  padding: 16px 25px;
+  padding: 16px 25px 75px 25px;
 }
 .dashboard_section_one_header p {
   margin-bottom: 0;
@@ -368,6 +369,10 @@ body {
   border-radius: 4px;
   background-color: #17e093;
   border: none;
+  transition: all 300ms ease-in-out;
+}
+.prompt_subs_card button:hover{
+  transform: scale(1.06);
 }
 .prompt_subs_card img {
   margin-bottom: 11px;
@@ -452,8 +457,12 @@ body {
   max-width: 116px;
   height: 31px;
   border-radius: 4px;
-  background-color: #17e093;
+  background-color: #0d4949;
   border: none;
+  transition: all 300ms ease-in-out;
+}
+.spots_available button:hover{
+  transform: scale(1.06);
 }
 .spots_available h2 {
   color: #0d4949;
@@ -816,7 +825,7 @@ body {
   color: #0d4949;
 }
 .account_section_tab001 {
-  padding: 43px 55px 43px 55px;
+  padding: 43px 55px 73px 55px;
 }
 .account_section_tab001 h4 {
   color: #323232;
@@ -1008,6 +1017,10 @@ body {
   line-height: normal;
   border: none;
   margin-top: 44px;
+  transition: all 300ms ease-in-out;
+}
+.save_ch_button:hover{
+  transform: scale(1.06);
 }
 .hide_show_text {
   cursor: pointer;
@@ -1344,6 +1357,10 @@ body {
   line-height: 48.168px; /* 268.793% */
   text-transform: capitalize;
   margin-top: 28px;
+  transition: all 300ms ease-in-out;
+}
+.starter_button01:hover{
+  transform: scale(1.05);
 }
 .skill_span {
   color: #0f8282;
@@ -1463,6 +1480,9 @@ body {
   }
 }
 @media screen and (max-width: 1200px) {
+  .dashboard_main_section .sidebar_section .sidebar_ul li {
+    font-size: 17px;
+}
   .accordion_billing_body_item {
     padding: 22px 35px;
   }
@@ -1679,7 +1699,11 @@ body {
     display: block;
   }
 }
-@media screen and (max-width: 768px) {.current_plan_body h6 {
+@media screen and (max-width: 768px)  {
+  .starter_button01:hover{
+    transform: scale(1.03);
+  }
+  .current_plan_body h6{
   font-size: 16px;
 }
 .current_plan_body p {

@@ -2,11 +2,13 @@
 <div class="sidebar_section">
           <div class="sidebar_logo">
             <i class="bi bi-x sidebar_block_icon"></i>
+           <a href="{% url 'home' %}">
             <img
-              src="{% static 'images/logo.svg' %}"
-              alt=""
-              class="arrow_bottom_image"
-            />
+            src="{% static 'images/logo.svg' %}"
+            alt=""
+            class="arrow_bottom_image"
+          />
+           </a>
           </div>
           <div class="sidebar_ul">
             <a href="{% url 'dashboard' %}">
@@ -34,7 +36,7 @@
                   src="{% static 'images/fluent_premium-person-24-regular.svg' %}"
                   alt=""
                   class="sidebar_icon"
-                /><span>Premium</span>
+                /><span>Premium {% if request.path == '/dashboard_premium/' %}Content{% endif %}</span>
               </li>
             </a>
             <div class="sidebar_line"></div>
