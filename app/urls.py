@@ -8,9 +8,10 @@ path("on-boarding1/",on_boarding1, name="on-boarding1"),
 path("on-boarding2/",on_boarding2, name="on-boarding2"), 
 path("on-boarding3/",on_boarding3, name="on-boarding3"),
 path("on-boarding4/",on_boarding4, name="on-boarding4"), 
-# new add 
 path("on_boarding5_date/",on_boarding5_date, name="on_boarding5_date"),
 path("on_boarding_text/",on_boarding_text, name="on_boarding_text"),
+# new add 
+path("on_boarding_pay/",on_boarding_pay, name="on_boarding_pay"),
 # end 
 path("register-message/",register_message, name="register-message"),
 path("term_conditions/", term_conditions, name="term_conditions"),

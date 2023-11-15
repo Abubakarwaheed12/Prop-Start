@@ -158,7 +158,9 @@ def on_boarding4(request):
     
     return render(request,"bookcall/on_boarding4.html", context)
    
-
+def on_boarding_pay(request):
+    return render(request,"bookcall/on_boarding_pay.html")
+   
 
 # Stripe Checkout 
 def checkout_session(request, booking_id = None):

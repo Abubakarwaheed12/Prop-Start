@@ -10,19 +10,28 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- style css link -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/booking-0f993433.css' %}">
     <!-- Favicon link  -->
     <link rel="icon" type="image/x-icon" href="{% static 'images/Untitled_log.svg' %}">
     <!-- country code and flag link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
 </head>
+
+<style>
+    ::-webkit-scrollbar{
+        width: 0!important;
+        height: 0!important;   
+    }
+</style>
 
 <body>
     <!-- Register Account Step 1 Start-->
     <div class="account_section_one">
-        <div class="container account_section_main on_boarding_calendar">
-            <div class="login_account_section_one on_boarding_calendar_setup">
-                <p class="step_text">Step 02/06</p>
+        <div class="container account_section_main">
+            <div class=" on_boarding_calendar">
+                {% comment %} <p class="step_text">Step 02/06</p> {% endcomment %}
                 <div class="account_logo">
                     <a href="{% url 'home' %}">
                         <img src="{% static 'images/logo.svg' %}" alt="">
@@ -110,6 +119,7 @@
                     </a>
                 </form> {% endcomment %}
                  <!-- Calendly inline widget begin Live -->
+               <div class="calendry_main_section">
                 <div class="calendly-inline-widget" data-url="https://calendly.com/propstart/strategy-call?text_color=424242&primary_color=17e093" style="min-width:320px;height:700px;"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                 <!-- Calendly inline widget end -->
@@ -119,6 +129,7 @@
                 <div class="calendly-inline-widget" data-url="https://calendly.com/abubakarjutt6346527/strategy-call" style="min-width:320px;height:700px;"></div>
                 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
                 <!-- Calendly inline widget end -->
+               </div>
             </div>
           
         </div>
