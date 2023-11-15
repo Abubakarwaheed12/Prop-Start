@@ -102,7 +102,7 @@
                                 </div>
 
                                 <div class="sign_button">
-                                    <a href="{% if request.user.is_authenticated %}{% url 'courses_form'  %}{% else %}{% url 'login' %}{% endif %}">
+                                    <a href="{% if request.user.is_authenticated %}#{% else %}{% url 'login' %}{% endif %}">
                                         <button type="button" class="about_signup_button">Purchase Course</button>
                                     </a>
                                 </div>

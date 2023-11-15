@@ -34,6 +34,8 @@ def quiz_1(request):
 
 
 def on_boarding_text(request):
+    if request.method == "POST":
+        return redirect("on_boarding5_date")
     return render(request, "bookcall/on_boarding_text.html")
 
 
