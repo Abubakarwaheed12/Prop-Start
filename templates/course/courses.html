@@ -83,7 +83,7 @@
                                                     {% for lec in less.lectures.all %}
                                         <p class="accordion_body_desc">
                                             {{forloop.counter}}
-                                            <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.video.url }}');">{{lec.name}}</a>
+                                            <a href="javascript:void(0);" onclick="changeVideoSource('');">{{lec.name}}</a>
                                         </p>
                                                     {% endfor %}
                                                 </div>
