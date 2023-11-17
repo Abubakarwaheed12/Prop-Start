@@ -92,18 +92,18 @@
                                         {% endfor %}
                                         <!-- class="disable_section"    -->
                                         
-                                        <a href="{% if request.user.is_authenticated %}{% url 'courses_form'  %}{% else %}{% url 'login' %}{% endif %}">
+                                        {% comment %} <a href="{% if request.user.is_authenticated %}{% url 'courses_form'  %}{% else %}{% url 'login' %}{% endif %}">
                                             <div class="unlock_purchase_button">
                                                 <button type="button"> Purchase Course to unlock</button>
                                             </div>
-                                        </a>
+                                        </a> {% endcomment %}
                                     </div>
 
                                 </div>
 
                                 <div class="sign_button">
                                     <a href="{% if request.user.is_authenticated %}#{% else %}{% url 'login' %}{% endif %}">
-                                        <button type="button" class="about_signup_button">Purchase Course</button>
+                                        <button type="button" class="about_signup_button">Register Interest</button>
                                     </a>
                                 </div>
                                 {% else %}
