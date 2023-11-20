@@ -8,6 +8,11 @@ from courses.models import(
     UserCourse,
     PreOrder,
 )
+
+from .forms import (
+    LectureForm,
+)
+
 # Register your models here.
 
 admin.site.register(Instructor)
@@ -28,7 +33,8 @@ admin.site.register(Cousre, CourseModelAdmin)
 class LecturesInline(admin.StackedInline):
     model = Lectures
     extra = 1  
-
+    form = LectureForm
+     
 
 @admin.register(Lesson)
 class LessonInline(admin.ModelAdmin):  

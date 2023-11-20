@@ -97,6 +97,7 @@ def send_code(request):
                 request.session.delete('password')
                 request.session.delete('fname')
                 request.session.delete('lname')
+                messages.success(request, "Thank you for registering your interest for the Property Pro course. We will notify you via email as soon as this course is ready!")
                 return redirect('courses')
             messages.success(request,"you are successfully registered")
             return redirect("login")

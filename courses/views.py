@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_exempt
 import paypalrestsdk
 from paypalrestsdk import Payment 
 import threading
+from django.contrib import messages
 from courses.models import(
     Cousre,
     UserCourse,
@@ -24,8 +25,6 @@ from app.models import PaymentHistory, PromoCode, FullDiscountPromoCode
 
 def courses(request):
     courses = Cousre.objects.all().last()
-    print (courses)
-    
     context = {
         "course":courses,
         }

@@ -82,6 +82,7 @@ class Lectures(models.Model):
     lecure_description = models.TextField(null=True , blank=True)
     video_url = models.URLField(null=True, blank=True)
     video = models.FileField(upload_to="lectures",help_text="please upload the lecture vide!")
+    document = models.FileField(upload_to="course_documents", help_text="please upload the document related video!", null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

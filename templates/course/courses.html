@@ -5,10 +5,21 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% endblock %}
     <!-- Navbar Section End -->
+    
     {% comment %} {% if courses %} {% endcomment %}
     {% block content %}
+
     <div class="courses_section_one">
         <div class="container">
+            {% if messages %}
+            {% for message in messages %}
+                {% if  message.tags == "success" %}
+                    <p class='msgg' style='color:green;'>{{ message }}</p>
+                {% else %}
+                    <p class='msgg' style='color:red;'>{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
             {% if course %}
             <div class="info_item_section">
                 <h5>{{course.name}}</h5>
