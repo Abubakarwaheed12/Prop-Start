@@ -177,7 +177,7 @@
         <div class="col-lg-7 col-md-7 col-sm-12 col-12 untitled_group_image">
           <!-- data-aos="zoom-in" data-aos-duration="3000" -->
           <img
-            src="{% static 'images/Untitled (1).svg' %}"
+            src="{% static 'images/wheelMob.svg' %}"
             alt=""
             class="untitled_group_image_img group_img_block"
             data-aos="fade-up"
@@ -317,7 +317,7 @@
               class="right_of_you_icon img01"
               />
               <img
-                src="{% static 'images/lock.svg' %}"
+                src="{% static 'images/03.svg' %}"
                 alt=""
                 class="right_of_you_icon img02"
               />
@@ -628,6 +628,11 @@
       });
     });
   });
+  // Example of preventing click events using JavaScript
+document.getElementById("myVideo").addEventListener("click", function (event) {
+  event.preventDefault();
+});
+
   
   // Add a scroll listener to handle video playback
   $(document).on('scroll', function() {

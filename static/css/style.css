@@ -2066,17 +2066,16 @@ article.on {
 }
 
 .img02 {
-  width: 49.814px;
+  width: 51.814px;
   position: absolute;
-  bottom: 104px;
-  left: 305px;
+  bottom: 108px;
+  left: 301px;
   z-index: 10;
 }
-
 .img03 {
-  width: 49.658px;
+  width: 48.658px;
   position: absolute;
-  bottom: 105px;
+  bottom: 107px;
   left: 127px;
   z-index: 10;
 }
@@ -2091,8 +2090,8 @@ article.on {
 .img05 {
   width: 38.323px;
   position: absolute;
-  top: 60px;
-  left: 224px;
+  top: 63px;
+  left: 222px;
   z-index: 10;
 }
 .icon_number h6 {
@@ -2443,7 +2442,6 @@ article.on {
 
 .imageHovered {
   max-width: 100% !important;
-  /* min-height: 240px !important; */
   font-size: 37px !important;
   /* transition: opacity 300ms ease-in-out; */
 }
@@ -3041,10 +3039,22 @@ article.on {
 .calendly-inline-widget {
   overflow: hidden !important;
 }
+.courseDescBottom span {
+  font-weight: 600;
+}
+.courseDescBottom {
+  color: #8b8b8b;
+  font-family: "Urbanist";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  margin-top: 23px;
+}
+#myVideo {
+  pointer-events: none;
+}
 @media screen and (min-width: 2100px) {
-  .container {
-    max-width: 1800px !important;
-  }
   .learning_text_section h6 {
     font-size: 81px;
     width: 100%;
@@ -3120,7 +3130,11 @@ article.on {
     height: 100vh;
   }
 }
+
 @media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1330px;
+  }
   .side_circle {
     top: -20px;
   }
@@ -3131,6 +3145,50 @@ article.on {
 
   .footer_main_section_div {
     padding: 190px 280px 74px 280px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .container {
+    max-width: 1500px;
+  }
+  .learning_text_section h6 {
+    font-size: 78px;
+  }
+  .learning_text_section p {
+    font-size: 20px;
+  }
+  .buyend_image {
+    height: 420px;
+  }
+  .beyond_text_div h5 {
+    font-size: 55px;
+  }
+  .beyond_text_div p {
+    font-size: 20px;
+    max-width: 417px;
+  }
+  .invest_text_div h5 {
+    font-size: 55px;
+    max-width: 315px;
+  }
+  .invest_text_div p {
+    font-size: 20px;
+    max-width: 440px;
+  }
+  .propstart_text h4 {
+    font-size: 48px;
+  }
+  .journey_start_section h4 {
+    font-size: 72px;
+    width: 426px;
+  }
+}
+@media screen and (min-width: 1915px) {
+  .container {
+    max-width: 1600px;
+  }
+  .imageHovered {
+    max-width: 82% !important;
   }
 }
 @media screen and (max-width: 1670px) {
@@ -3168,7 +3226,7 @@ article.on {
   }
   .img05 {
     width: 34.323px;
-    top: 58px;
+    top: 60px;
     left: 205px;
   }
   .section_1 {
@@ -3248,12 +3306,6 @@ article.on {
     left: 200px;
   }
 
-  .img04 {
-    width: 36.323px;
-    top: 60px;
-    left: 203px;
-  }
-
   .img01 {
     width: 39.072px;
     top: 157px;
@@ -3262,8 +3314,8 @@ article.on {
 
   .img02 {
     width: 46.814px;
-    bottom: 95px;
-    left: 272px;
+    bottom: 99px;
+    left: 275px;
   }
 
   .icon_number02 {
@@ -3277,18 +3329,17 @@ article.on {
   }
 
   .img03 {
-    width: 45.658px;
-    bottom: 91px;
-    left: 116px;
+    width: 42.658px;
+    bottom: 93px;
+    left: 119px;
   }
-
   .icon_number04 {
     bottom: 20px;
     left: 66px;
   }
 
   .img04 {
-    width: 41.862px;
+    width: 42.862px;
     top: 147px;
     left: 73px;
   }
@@ -3501,11 +3552,6 @@ article.on {
     padding-left: 36px;
   }
 
-  .img04 {
-    width: 35.323px;
-    top: 62px;
-  }
-
   .img01 {
     width: 38.072px;
     top: 160px;
@@ -3514,17 +3560,16 @@ article.on {
 
   .img02 {
     width: 45.814px;
-    bottom: 94px;
+    bottom: 95px;
     left: 270px;
   }
 
   .img03 {
-    width: 45.658px;
-    bottom: 92px;
+    width: 43.658px;
+    bottom: 96px;
   }
-
   .img04 {
-    width: 38.862px;
+    width: 40.862px;
     top: 144px;
     left: 74px;
   }
@@ -3867,6 +3912,9 @@ article.on {
   } */
 }
 @media screen and (max-width: 992px) {
+  .courseDescBottom {
+    margin-top: 25px;
+  }
   .pro_price_div h5 {
     font-size: 25px;
   }
@@ -3911,7 +3959,7 @@ article.on {
   } */
   .img05 {
     width: 32.323px;
-    top: 54px;
+    top: 55px;
     left: 182px;
   }
   .footer_desc_p p {
@@ -3966,11 +4014,6 @@ article.on {
   }
   .calendar {
     padding: 0 35px;
-  }
-  .img04 {
-    width: 35.323px;
-    top: 51px;
-    left: 183px;
   }
 
   .subtractImg01 {
@@ -4033,16 +4076,16 @@ article.on {
   }
   .img02 {
     width: 44.814px;
-    bottom: 89px;
-    left: 254px;
+    bottom: 95px;
+    left: 255px;
   }
   .img03 {
-    width: 46.658px;
-    bottom: 85px;
-    left: 107px;
+    width: 38.658px;
+    bottom: 89px;
+    left: 109px;
   }
   .img04 {
-    width: 40.862px;
+    width: 41.862px;
     top: 134px;
     left: 69px;
   }
@@ -4590,7 +4633,7 @@ article.on {
   }
   .img05 {
     width: 32.323px;
-    top: 63px;
+    top: 65px;
     left: 206px;
   }
   body::-webkit-scrollbar {
@@ -4724,26 +4767,26 @@ article.on {
   }
 
   .img01 {
-    width: 35.072px;
+    width: 36.072px;
     top: 165px;
-    left: 324px;
+    left: 323px;
   }
 
   .img02 {
     width: 42.814px;
-    bottom: 95px;
+    bottom: 97px;
     left: 271px;
   }
   .img03 {
-    width: 40.658px;
-    bottom: 100px;
+    width: 38.658px;
+    bottom: 101px;
     left: 121px;
   }
 
   .img04 {
-    width: 36.862px;
-    top: 150px;
-    left: 84px;
+    width: 40.862px;
+    top: 146px;
+    left: 82px;
   }
 
   .icon_number01 {
@@ -5018,24 +5061,24 @@ article.on {
     align-items: center;
     margin-top: 80px;
   }
-  .invest_text_main_section{
+  .invest_text_main_section {
     padding-top: 0;
   }
   .invest_text_div h5 {
     font-size: 38px;
     max-width: 229px;
     text-align: center;
-}
-.invest_text_div{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.invest_text_div p {
-  max-width: 400px;
-  text-align: center;
-  font-size: 20px;
-}
+  }
+  .invest_text_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .invest_text_div p {
+    max-width: 400px;
+    text-align: center;
+    font-size: 20px;
+  }
 
   .back_a_button2 {
     margin-top: 45px;
@@ -5090,13 +5133,13 @@ article.on {
     max-width: 400px;
     text-align: center;
     font-size: 20px;
-}
+  }
 
   .beyond_text_div h5 {
     font-size: 38px;
     max-width: 240px;
     text-align: center;
-}
+  }
 
   .learning_text_section h6 {
     font-size: 48px;
@@ -5109,7 +5152,7 @@ article.on {
     text-align: center;
     max-width: 400px;
     font-weight: 500;
-}
+  }
 
   .learning_text_button {
     margin-top: 42px;
@@ -5121,7 +5164,6 @@ article.on {
   }
 }
 @media screen and (max-width: 578px) {
-
   .prop_logo_section {
     padding: 15px;
     min-height: 450px;
@@ -5359,24 +5401,24 @@ article.on {
   }
   .img02 {
     width: 38.814px;
-    bottom: 67px;
-    left: 206px;
+    bottom: 70px;
+    left: 209px;
   }
 
   .img03 {
-    width: 35.658px;
-    bottom: 73px;
-    left: 85px;
+    width: 34.658px;
+    bottom: 72px;
+    left: 86px;
   }
 
   .img04 {
     width: 36.862px;
-    top: 118px;
+    top: 116px;
     left: 54px;
   }
   .img05 {
     width: 28.323px;
-    top: 44px;
+    top: 46px;
     left: 151px;
   }
 
@@ -5863,8 +5905,6 @@ article.on {
     justify-content: center;
   }
 
-
-
   .pre_order_button2 {
     font-size: 15px;
     width: 125px;
@@ -5996,25 +6036,25 @@ article.on {
     left: 188px;
   }
   .img02 {
-    width: 31.814px;
-    bottom: 54px;
-    left: 159px;
-    height: 31px;
+    width: 29.814px;
+    bottom: 56px;
+    left: 160px;
   }
+
   .img03 {
-    width: 29.658px;
-    bottom: 53px;
+    width: 26.658px;
+    bottom: 55px;
     left: 69px;
   }
   .img04 {
-    width: 26.862px;
-    top: 86px;
-    left: 46px;
-    height: 27px;
+    width: 27.862px;
+    top: 84px;
+    left: 44px;
+    /* height: 27px; */
   }
   .img05 {
     width: 21.323px;
-    top: 33px;
+    top: 35px;
     left: 120px;
   }
   .icon_number h6 {
@@ -6360,24 +6400,24 @@ article.on {
   }
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 320px) {
   .learning_text_section h6 {
     font-size: 35px;
-}
-.learning_text_section p {
-  font-size: 18px;
-}
-.beyond_text_div h5 {
-  font-size: 35px;
-}
-.beyond_text_div p {
-  font-size: 18px;
-}
-.invest_text_div h5 {
-  font-size: 35px;
-  max-width: 211px;
-}
-.invest_text_div p {
-  font-size: 18px;
-}
+  }
+  .learning_text_section p {
+    font-size: 18px;
+  }
+  .beyond_text_div h5 {
+    font-size: 35px;
+  }
+  .beyond_text_div p {
+    font-size: 18px;
+  }
+  .invest_text_div h5 {
+    font-size: 35px;
+    max-width: 211px;
+  }
+  .invest_text_div p {
+    font-size: 18px;
+  }
 }
