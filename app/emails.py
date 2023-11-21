@@ -45,13 +45,11 @@ Based on your quiz responses, we're thrilled to inform you that you qualify for 
 
 Here's what you can expect from your strategy call:
 
-    • Personalised Guidance: Our experienced strategist will delve into your specific goals and circumstances to discover the right pathway forward for you
+Personalised Guidance: Our experienced strategist will delve into your specific goals and circumstances to discover the right pathway forward for you
 
-    • Expert Insights: Gain insights from professionals who have achieved success in the real estate field. Leverage their knowledge and expertise to make informed decisions
+Expert Insights: Gain insights from professionals who have achieved success in the real estate field. Leverage their knowledge and expertise to make informed decisions
 
-    • Q&A Opportunity: Have all your burning questions answered and gather valuable information to make well-informed decisions
-
-As a token of our appreciation for taking our quiz, we are pleased to offer you an exclusive discount of 5% off the regular price of our 1 on 1 Strategy Session. To claim this offer, simply use the promo code: QUIZSUCCESS72 during the checkout process. Please note, this promo code is only valid for the next 72 hours.
+Q&A Opportunity: Have all your burning questions answered and gather valuable information to make well-informed decisions
 
 To schedule your personalised strategy call, simply click on the link below, provide your details and choose a convenient time slot that works for you:
 
@@ -62,6 +60,7 @@ Thank you for considering PropStart as your partner on your journey to real esta
 Best regards,
 
 The PropStart Team
+
 """)
     from_email = settings.DEFAULT_FROM_EMAIL
     print('Send Email to the user')
@@ -79,27 +78,26 @@ Dear {name},
 
 Thank you for taking the time to complete our recent quiz, "Is PropStart right for you?". We're excited to share your results with you and provide valuable insights that can help you achieve your goals.
 
-Based on your quiz responses, it's clear that you have a strong interest in the world of real estate. We're thrilled to inform you that PropStart's Online Property Course (Property Genius Unlocked) is the perfect resource to help you take that next step towards success.
+Based on your quiz responses, it's clear that you have a strong interest in the world of real estate. We're thrilled to inform you that PropStart's Online Property Course (Property Pro) is the perfect resource to help you take that next step towards success. 
+
+We’re preparing this course for you now and will send you an email once we’re up and running. Make sure you register your details so that you’re notified as soon as we’re live
+
+{register_url}
 
 Here's how our course can benefit you:
 
-    • Comprehensive Learning: Our course offers a comprehensive curriculum covering all aspects of the real estate industry
+Comprehensive Learning: Our course offers a comprehensive curriculum covering all aspects of the real estate industry
 
-    • Flexible Learning: With our online platform, you can learn at your own pace, making it easy to balance your studies with your existing commitments.
+Flexible Learning: With our online platform, you can learn at your own pace, making it easy to balance your studies with your existing commitments.
 
-    • Expert Instructors: Learn from seasoned real estate professionals who have successfully navigated the industry. Gain insights from their experiences and benefit from their expertise.
-
-As a token of our appreciation for participating in our quiz, we are pleased to offer you an exclusive discount of 5% off the regular price of our Online Property Course. To claim this offer, simply use the promo code: QUIZSUCCESS72 during the checkout process. Please note, this promo code is only valid for the next 72 hours.
-
-Take the next step towards achieving your real estate goals and join the ranks of successful property professionals who have benefited from PropStart's comprehensive training.
-
-Ready to get started? {register_url}
+Expert Instructors: Learn from seasoned real estate professionals who have successfully navigated the industry. Gain insights from their experiences and benefit from their expertise.
 
 Thank you for choosing PropStart to be a part of your real estate journey. We look forward to helping you realise your full potential and seeing you succeed in the dynamic world of property.
 
 Best regards,
 
 The PropStart Team
+
 
 """)
     from_email = settings.DEFAULT_FROM_EMAIL
