@@ -266,7 +266,7 @@ body::-webkit-scrollbar-thumb {
   font-family: "Urbanist";
   font-size: 22px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: -0.396px;
   width: 100%;
   max-width: 384px;
@@ -3152,10 +3152,10 @@ article.on {
 }
 @media screen and (min-width: 1600px) {
   .beyond_row {
-    gap: 35px;
+    gap: 150px;
 }
 .section_3_row {
-  gap: 35px;
+  gap: 150px;
 }
   .container {
     max-width: 1500px;
@@ -3167,22 +3167,22 @@ article.on {
     font-size: 20px;
   }
   .buyend_image {
-    height: 420px;
+    height: 445px;
   }
   .beyond_text_div h5 {
     font-size: 68px;
   }
   .beyond_text_div p {
-    font-size: 20px;
+    font-size: 22px;
     max-width: 417px;
   }
   .invest_text_div h5 {
     font-size: 68px;
-    max-width: 315px;
+    max-width: 410px;
   }
   .invest_text_div p {
-    font-size: 20px;
-    max-width: 440px;
+    font-size: 22px;
+    max-width: 460px;
   }
   .propstart_text h4 {
     font-size: 48px;
