@@ -381,7 +381,11 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   text-transform: capitalize;
 }
-
+.appendeTxtDiv {
+  min-height: 266px;
+  /* display: flex;
+  flex-direction: column; */
+}
 .propstart_text h4 {
   color: #0d4949;
   font-family: "Urbanist";
@@ -391,7 +395,7 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   max-width: 267px;
   margin-bottom: 0;
-  min-height: 266px;
+
   display: flex;
   align-items: center;
 }
@@ -408,7 +412,6 @@ body::-webkit-scrollbar-thumb {
   width: 170px;
   height: 55px;
   border: none;
-  margin-top: 38px;
   transition: all 300ms ease;
 }
 
@@ -1853,8 +1856,12 @@ article.on {
 
 #myVideo {
   cursor: pointer;
+  -webkit-touch-callout: none;
+  touch-action: none;
 }
-
+.text_append_h401 {
+  box-sizing: content-box;
+}
 .video-container {
   position: relative;
 }
@@ -2441,9 +2448,16 @@ article.on {
 }
 
 .imageHovered {
-  max-width: 100% !important;
-  font-size: 37px !important;
-  /* transition: opacity 300ms ease-in-out; */
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 0;
+  color: black;
+  font-family: "Urbanist";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: -0.396px;
+  margin-top: 19px;
 }
 
 .subtractImg01 {
@@ -3051,10 +3065,11 @@ article.on {
   line-height: 16px;
   margin-top: 23px;
 }
+
 #myVideo {
   pointer-events: none;
 }
-.mobileGif01{
+.mobileGif01 {
   display: none;
 }
 @media screen and (min-width: 2100px) {
@@ -3105,9 +3120,6 @@ article.on {
   .propstart_text h4 {
     font-size: 51px;
   }
-  .imageHovered {
-    width: 75% !important;
-  }
   .journey_start_section h4 {
     font-size: 75px;
     width: 444px;
@@ -3153,10 +3165,10 @@ article.on {
 @media screen and (min-width: 1600px) {
   .beyond_row {
     gap: 150px;
-}
-.section_3_row {
-  gap: 150px;
-}
+  }
+  .section_3_row {
+    gap: 150px;
+  }
   .container {
     max-width: 1500px;
   }
@@ -3185,7 +3197,7 @@ article.on {
     max-width: 460px;
   }
   .propstart_text h4 {
-    font-size: 48px;
+    font-size: 46px;
   }
   .journey_start_section h4 {
     font-size: 72px;
@@ -3195,9 +3207,6 @@ article.on {
 @media screen and (min-width: 1915px) {
   .container {
     max-width: 1600px;
-  }
-  .imageHovered {
-    max-width: 82% !important;
   }
 }
 @media screen and (max-width: 1670px) {
@@ -3217,6 +3226,14 @@ article.on {
   }
 }
 @media screen and (max-width: 1527px) {
+  .propstart_text h4 {
+    font-size: 40px;
+    max-width: 234px;
+  }
+  .imageHovered {
+    max-width: 500px;
+    font-size: 21px;
+  }
   .prop_logo_section img {
     height: 100vh;
     object-fit: cover;
@@ -3230,6 +3247,13 @@ article.on {
   }
 }
 @media screen and (max-width: 1400px) {
+  .imageHovered {
+    max-width: 430px;
+    font-size: 18px;
+  }
+  .appendeTxtDiv {
+    min-height: 190px;
+  }
   .invest_text_main_section {
     padding-left: 0;
   }
@@ -3246,16 +3270,12 @@ article.on {
     margin-top: 86px;
   }
   .propstart_text h4 {
-    font-size: 49px;
-    max-width: 270px;
-    min-height: 280px;
+    font-size: 33px;
+    max-width: 194px;
+    /* min-height: 280px; */
   }
   .lesson_plan_section {
     margin-top: 16px;
-  }
-  .imageHovered {
-    font-size: 33px !important;
-    min-height: 280px;
   }
   .subtractImg01 {
     width: 175.006px;
@@ -3446,6 +3466,14 @@ article.on {
   }
 }
 @media screen and (max-width: 1200px) {
+  .imageHovered {
+    max-width: 400px;
+    font-size: 16px;
+  }
+  .appendeTxtDiv {
+    min-height: 200px;
+  }
+
   .payment_section_with_card {
     padding: 30px 20px 60px 20px;
   }
@@ -3498,10 +3526,6 @@ article.on {
   }
   .footer_desc_p p {
     font-size: 17px;
-  }
-  .imageHovered {
-    min-height: 240px !important;
-    font-size: 30px !important;
   }
 
   .subtractImg01 {
@@ -3823,9 +3847,9 @@ article.on {
   }
 
   .propstart_text h4 {
-    font-size: 49px;
-    max-width: 280px;
-    min-height: 240px;
+    font-size: 32px;
+    max-width: 171px;
+    /* min-height: 240px; */
   }
 
   .take_quiz_button {
@@ -3921,6 +3945,14 @@ article.on {
   } */
 }
 @media screen and (max-width: 992px) {
+  .imageHovered {
+    max-width: 400px;
+    font-size: 15px;
+  }
+  .appendeTxtDiv {
+    min-height: 210px;
+  }
+
   .courseDescBottom {
     margin-top: 25px;
   }
@@ -3974,9 +4006,7 @@ article.on {
   .footer_desc_p p {
     font-size: 16px;
   }
-  .imageHovered {
-    font-size: 24px !important;
-  }
+
   .propstart_text_section {
     padding-left: 40px;
     padding-top: 0;
@@ -4489,8 +4519,8 @@ article.on {
   }
 
   .propstart_text h4 {
-    font-size: 41px;
-    max-width: 250px;
+    font-size: 28px;
+    max-width: 167px;
   }
   .take_quiz_button {
     font-size: 15px;
@@ -4587,6 +4617,9 @@ article.on {
   }
 }
 @media screen and (max-width: 768px) {
+  .imageHovered {
+    text-align: center;
+  }
   .mm_yy_cvv_text {
     bottom: 22px;
     font-size: 12px;
@@ -5051,15 +5084,16 @@ article.on {
   }
 
   .propstart_text h4 {
-    font-size: 35px;
+    font-size: 37px;
     max-width: 214px;
+    display: flex;
+    justify-content: center;
     text-align: center;
+    margin-top: 2rem;
   }
   .imageHovered {
-    font-size: 30px !important;
-    max-width: 90% !important;
+    font-size: 17px;
   }
-
   .propstart_text {
     display: flex;
     flex-direction: column;
@@ -5173,12 +5207,18 @@ article.on {
   }
 }
 @media screen and (max-width: 578px) {
-  .mobileGif01{
+  .appendeTxtDiv {
+    min-height: 195px;
+  }
+  .imageHovered {
+    font-size: 16px;
+  }
+  .mobileGif01 {
     display: block;
   }
-  .mobileVideoR{
+  /* .mobileVideoR {
     display: none;
-  }
+  } */
   .prop_logo_section {
     padding: 15px;
     min-height: 450px;
@@ -5885,10 +5925,6 @@ article.on {
     width: 140px;
     height: 50px;
   }
-  .imageHovered {
-    font-size: 27px !important;
-    max-width: 82% !important;
-  }
 
   .invest_text_div {
     display: flex;
@@ -5978,9 +6014,7 @@ article.on {
   .timeInput_div {
     gap: 20px;
   }
-  .imageHovered {
-    font-size: 25px !important;
-  }
+
   #ampm {
     margin-left: 0;
   }
@@ -6040,9 +6074,6 @@ article.on {
   }
   .pro_price_div {
     padding: 23px 15px 25px 15px;
-  }
-  .imageHovered {
-    font-size: 20px !important;
   }
 
   .img01 {
@@ -6315,9 +6346,9 @@ article.on {
   }
 
   .propstart_text h4 {
-    font-size: 27px;
+    font-size: 30px;
     max-width: 161px;
-    min-height: 160px !important;
+    /* min-height: 160px !important; */
   }
 
   .info_item_section h5 {
@@ -6338,7 +6369,6 @@ article.on {
     font-size: 14px;
     width: 120px;
     height: 46px;
-    margin-top: 30px;
   }
 
   .back_a_button2 {
