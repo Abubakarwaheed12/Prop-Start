@@ -3054,6 +3054,9 @@ article.on {
 #myVideo {
   pointer-events: none;
 }
+.mobileGif01{
+  display: none;
+}
 @media screen and (min-width: 2100px) {
   .learning_text_section h6 {
     font-size: 81px;
@@ -3148,6 +3151,12 @@ article.on {
   }
 }
 @media screen and (min-width: 1600px) {
+  .beyond_row {
+    gap: 35px;
+}
+.section_3_row {
+  gap: 35px;
+}
   .container {
     max-width: 1500px;
   }
@@ -5164,6 +5173,12 @@ article.on {
   }
 }
 @media screen and (max-width: 578px) {
+  .mobileGif01{
+    display: block;
+  }
+  .mobileVideoR{
+    display: none;
+  }
   .prop_logo_section {
     padding: 15px;
     min-height: 450px;
