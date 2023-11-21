@@ -163,7 +163,7 @@ body::-webkit-scrollbar-thumb {
   font-family: "Urbanist";
   font-size: 19px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 300;
   margin-top: 28px;
   width: 100%;
   max-width: 523px;
@@ -252,7 +252,7 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 0;
   color: #0d4949;
   font-family: "Urbanist";
-  font-size: 50px;
+  font-size: 68px;
   font-style: normal;
   font-weight: 600;
   width: 100%;
@@ -264,7 +264,7 @@ body::-webkit-scrollbar-thumb {
   /* color: rgba(13, 73, 73, 0.60); */
   color: black;
   font-family: "Urbanist";
-  font-size: 19px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 500;
   letter-spacing: -0.396px;
@@ -301,7 +301,7 @@ body::-webkit-scrollbar-thumb {
 .invest_text_div h5 {
   color: #0d4949;
   font-family: "Urbanist";
-  font-size: 50px;
+  font-size: 68px;
   font-style: normal;
   font-weight: 600;
   margin-bottom: 0;
@@ -317,7 +317,7 @@ body::-webkit-scrollbar-thumb {
   font-family: "Urbanist";
   font-size: 19px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: -0.396px;
   margin-top: 19px;
   width: 100%;
@@ -3077,17 +3077,17 @@ article.on {
     height: 460px;
   }
   .beyond_text_div h5 {
-    font-size: 55px;
+    font-size: 68px;
   }
   .beyond_text_div p {
-    font-size: 21px;
+    font-size: 22px;
     max-width: 464px;
   }
   .learning_text_section p {
     font-size: 21px;
   }
   .invest_text_div h5 {
-    font-size: 55px;
+    font-size: 68px;
   }
   .invest_text_div p {
     font-size: 21px;
@@ -3170,14 +3170,14 @@ article.on {
     height: 420px;
   }
   .beyond_text_div h5 {
-    font-size: 55px;
+    font-size: 68px;
   }
   .beyond_text_div p {
     font-size: 20px;
     max-width: 417px;
   }
   .invest_text_div h5 {
-    font-size: 55px;
+    font-size: 68px;
     max-width: 315px;
   }
   .invest_text_div p {
@@ -3864,7 +3864,7 @@ article.on {
     font-size: 22px;
     margin-top: 22px;
     max-width: 436px;
-    font-weight: 500;
+    font-weight: 300;
   }
 
   .pre_order_button {
@@ -4559,7 +4559,7 @@ article.on {
     margin-top: 25px;
     width: 100%;
     max-width: 318px;
-    font-weight: 500;
+    font-weight: 300;
   }
 
   .learning_text_button {
@@ -5160,7 +5160,7 @@ article.on {
     margin-top: 22px;
     text-align: center;
     max-width: 400px;
-    font-weight: 500;
+    font-weight: 300;
   }
 
   .learning_text_button {
@@ -5941,7 +5941,7 @@ article.on {
   .learning_text_section p {
     font-size: 20px;
     width: 100%;
-    font-weight: 500;
+    font-weight: 300;
   }
 
   .pre_order_button {
@@ -6420,19 +6420,19 @@ article.on {
     font-size: 35px;
   }
   .learning_text_section p {
-    font-size: 18px;
+    font-size: 16px;
   }
   .beyond_text_div h5 {
     font-size: 35px;
   }
   .beyond_text_div p {
-    font-size: 18px;
+    font-size: 16px;
   }
   .invest_text_div h5 {
     font-size: 35px;
     max-width: 211px;
   }
   .invest_text_div p {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
