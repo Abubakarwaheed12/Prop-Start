@@ -3072,6 +3072,113 @@ article.on {
 .mobileGif01 {
   display: none;
 }
+.course_lecture_desc_sec {
+  display: flex;
+  gap: 16px;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+}
+.lecture_card001 {
+  padding: 15px 18px;
+  border-radius: 6px;
+  background-color: rgba(219, 228, 228, 0.3);
+  width: 100%;
+  max-width: 292px;
+  /* min-height: 251px; */
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.course_lecture_desc_sec {
+  display: flex;
+}
+.lecture_card001 h6 {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 233.333% */
+  letter-spacing: -0.36px;
+}
+.lecture_card001 p {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: Urbanist;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 7px;
+}
+.lecture_card002 {
+  width: 100%;
+  max-width: 292px;
+  /* min-height: 251px; */
+  margin-top: 14px;
+  position: relative;
+  transition: 0.25s ease-in-out;
+}
+.lecture_card002:hover {
+  transform: translatey(-2.5%);
+}
+.lecture_card002 img {
+  width: 100%;
+  max-width: 292px;
+  min-height: 355px;
+  border-radius: 6px;
+}
+.overlay_image {
+  position: absolute;
+  background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69%);
+  height: 100%;
+  width: 100%;
+  transform: rotate(180deg);
+  border-radius: 10px;
+}
+.lecture_card002_desc {
+  position: absolute;
+  bottom: 12px;
+  left: 13px;
+}
+.lecture_card002_desc p {
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 525% */
+  letter-spacing: -0.16px;
+  margin-bottom: 0;
+}
+.lecture_card002_desc h6 {
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 300% */
+  letter-spacing: -0.28px;
+  margin-bottom: 0;
+  margin-top: 4px;
+}
+.course_lecture_desc_sec span {
+  color: #fff;
+  font-family: Urbanist;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal; /* 525% */
+  letter-spacing: -0.16px;
+}
+.lecture_card001 ul {
+  margin-bottom: 0;
+  padding-left: 18px;
+}
+.lecture_card001 ul li {
+  font-size: 12px;
+}
 @media screen and (min-width: 2100px) {
   .learning_text_section h6 {
     font-size: 81px;
@@ -3145,29 +3252,16 @@ article.on {
     height: 100vh;
   }
 }
-
-@media screen and (min-width: 1400px) {
-  .container {
-    max-width: 1330px;
-  }
-  .side_circle {
-    top: -20px;
-  }
-
-  .buyend_image_sec {
-    justify-content: center;
-  }
-
-  .footer_main_section_div {
-    padding: 190px 280px 74px 280px;
-  }
-}
 @media screen and (min-width: 1600px) {
+  .lecture_card002 img {
+    min-height: 308px;
+  }
+
   .beyond_row {
     gap: 150px;
   }
   .section_3_row {
-    gap: 150px;
+    gap: 130px;
   }
   .container {
     max-width: 1500px;
@@ -3204,10 +3298,33 @@ article.on {
     width: 426px;
   }
 }
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1330px;
+  }
+  .side_circle {
+    top: -20px;
+  }
+
+  .buyend_image_sec {
+    justify-content: center;
+  }
+
+  .footer_main_section_div {
+    padding: 190px 280px 74px 280px;
+  }
+}
+
 @media screen and (min-width: 1915px) {
+  .lecture_card002 img {
+    min-height: 384px;
+  }
+
   .container {
     max-width: 1600px;
   }
+}
+@media screen and (max-width: 1915px) {
 }
 @media screen and (max-width: 1670px) {
   .prop_logo_section img {
@@ -3223,6 +3340,14 @@ article.on {
   }
   .payment_show_card {
     max-width: 700px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .lecture_card002 img {
+    min-height: 307px;
+  }
+  .lecture_card001 p {
+    font-size: 11px;
   }
 }
 @media screen and (max-width: 1527px) {
@@ -3246,7 +3371,14 @@ article.on {
     max-width: 626px;
   }
 }
+
 @media screen and (max-width: 1400px) {
+  .lecture_card002 img {
+    min-height: 256px;
+  }
+  .lecture_card001 p {
+    font-size: 10px;
+  }
   .imageHovered {
     max-width: 430px;
     font-size: 18px;
@@ -3254,6 +3386,7 @@ article.on {
   .appendeTxtDiv {
     min-height: 190px;
   }
+
   .invest_text_main_section {
     padding-left: 0;
   }
@@ -3466,6 +3599,12 @@ article.on {
   }
 }
 @media screen and (max-width: 1200px) {
+  .lecture_card002 img {
+    min-height: 215px;
+  }
+  .lecture_card001 p {
+    font-size: 8px;
+  }
   .imageHovered {
     max-width: 400px;
     font-size: 16px;
@@ -3945,6 +4084,18 @@ article.on {
   } */
 }
 @media screen and (max-width: 992px) {
+  .lecture_card002 {
+    min-height: 336px;
+}
+.course_lecture_desc_sec{
+  flex-wrap: wrap;
+}
+.lecture_card002 img{
+  min-height: 336px;
+}
+.lecture_card001{
+  min-height: 336px;
+}
   .imageHovered {
     max-width: 400px;
     font-size: 15px;
@@ -4617,6 +4768,12 @@ article.on {
   }
 }
 @media screen and (max-width: 768px) {
+  .lecture_card001{
+    margin: 20px auto auto auto;
+  }
+  .lecture_card002{
+    margin: 20px auto auto auto;
+  }
   .imageHovered {
     text-align: center;
   }
