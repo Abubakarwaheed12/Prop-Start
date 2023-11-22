@@ -3,7 +3,7 @@
 {% block title %}PropStart{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
-<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static 'css/dashboard.css' %}"> {% endcomment %}
 {% endblock %}
     <!-- Navbar Section End -->
     
@@ -171,8 +171,8 @@
                           </p>
                         </div>
                         <div class="lecture_card002">
-                          <img src="{% static 'images/Rectangle 340.svg' %}" alt="" class="overlay_image"/>
-                          <img src="{% static 'images/point finger jared_edited 1.png' %}" alt=""/>
+                          <div class="overlay_image"></div>
+                          <img src="{% static 'images/jared.jpeg' %}" alt=""/>
                           <div class="lecture_card002_desc">
                             <p>Your Instructor:</p>
                             <h6>Jared Kirkwood</h6>
@@ -181,7 +181,7 @@
                           </div>
                         </div>
                         <div class="lecture_card002">
-                          <img src="{% static 'images/Rectangle 340.svg' %}" alt="" class="overlay_image"/>
+                          <div class="overlay_image"></div>
                           <img src="{% static 'images/sadeq.png' %}" alt=""/>
                           <div class="lecture_card002_desc">
                             <p>Your Instructor:</p>
