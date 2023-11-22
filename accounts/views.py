@@ -97,15 +97,16 @@ def send_code(request):
                 request.session.delete('password')
                 request.session.delete('fname')
                 request.session.delete('lname')
-                messages.success(request, "Thank you for registering your interest for the Property Pro course. We will notify you via email as soon as this course is ready!")
-                return redirect('courses')
-            messages.success(request,"you are successfully registered")
+                return redirect('welcome')
             return redirect("login")
         else:
             messages.error(request, "otp does not match.Try again!")
             return redirect("send-code")
     return render(request,"accounts/send_code.html")
 
+# Welcome 
+def welcome(request):
+    return render(request, "welcome.html")
 
 # Login User
 @redirect_authenticated_user

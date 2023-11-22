@@ -3,7 +3,9 @@
 {% block title %}PropStart{% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
 {% comment %} <link rel="stylesheet" href="{% static 'css/dashboard.css' %}"> {% endcomment %}
+
 {% endblock %}
     <!-- Navbar Section End -->
     
@@ -33,7 +35,8 @@
                         {% if first_lesson %}
                           {% with first_lecture=first_lesson.lectures.last %}
                             {% if first_lecture %}
-                              <video controls id="video-player" oncontextmenu="return false;" controlsList="nodownload" class="courses_video_image">
+                              <input type="hidden" id="furl" value="{{ first_lecture.video.url }}">
+                              <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="courses_video_image">
                                 <source src="{{ first_lecture.video.url }}" type="video/mp4">
                                 Your browser does not support the video tag.
                               </video>
@@ -95,7 +98,7 @@
                                                     {% for lec in less.lectures.all %}
                                         <p class="accordion_body_desc">
                                             {{forloop.counter}}
-                                            <a href="javascript:void(0);" onclick="changeVideoSource('');">{{lec.name}}</a>
+                                            <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.video.url }}');">{{lec.name}}</a>
                                         </p>
                                                     {% endfor %}
                                                 </div>
@@ -257,10 +260,29 @@
         crossorigin="anonymous"></script>
     <!-- jquery cdn -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+    <!-- Add Plyr JS -->
+    <script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+
 
 
 
     <script>
+
+         {% comment %} button hide and show  {% endcomment %}
+         $(document).ready(function() {
+          // Initially hide the purchase button
+          $(".unlock_purchase_button").hide();
+      
+          // When you hover over the disable_section, show the purchase button
+          $(".disable_section").hover(function() {
+              $(".unlock_purchase_button").show();
+          }, function() {
+              // When you move the mouse away, hide the purchase button
+              $(".unlock_purchase_button").hide();
+          });
+          });
+
         var video = document.getElementById('video-player');
         video.addEventListener('contextmenu', function (e) {
           e.preventDefault();
@@ -270,24 +292,22 @@
             var sourceElement = videoElement.getElementsByTagName('source')[0];
             
             sourceElement.src = newSource;
-            
-            // Load and play the new video source
+            const player = new Plyr('#video-player');
             videoElement.load();
             videoElement.play();
         }
-        {% comment %} button hide and show  {% endcomment %}
-        $(document).ready(function() {
-            // Initially hide the purchase button
-            $(".unlock_purchase_button").hide();
-        
-            // When you hover over the disable_section, show the purchase button
-            $(".disable_section").hover(function() {
-                $(".unlock_purchase_button").show();
-            }, function() {
-                // When you move the mouse away, hide the purchase button
-                $(".unlock_purchase_button").hide();
-            });
-        });
+     
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const player = new Plyr('#video-player');
+          furl = $("#furl").val()
+          const videoPlayer = document.getElementById('video-player');
+          videoPlayer.setAttribute('src', furl);
+          console.log("sd", furl,  '{{ first_lecture.video.url }}')
+      });
+    
+      
     </script>
 
 

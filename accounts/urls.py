@@ -13,4 +13,5 @@ urlpatterns = [
   path('verify_login_otp/', verify_login_otp, name="verify_login_otp"),
   path('profile/', profile, name="profile"),
   path('change_password/', change_password, name="change_password"),
+  path("welcome/", welcome, name="welcome"),
 ]

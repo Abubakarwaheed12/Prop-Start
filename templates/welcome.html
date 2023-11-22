@@ -1,0 +1,25 @@
+{% extends "base/navbar.html" %}
+{% load static %}
+{% block title %}PropStart{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static 'css/dashboard.css' %}"> {% endcomment %}
+{% endblock %}
+    
+    {% block content %}
+
+    <div class="courses_section_one">
+        <div class="container">
+            
+            <div class="info_item_section">
+                <h5> Thank you for registering your interest for the Property Pro course. We will notify you via email as soon as this course is ready! </h5>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+   
+
+    
+    {% block js %}
+
+    {% endblock %}
