@@ -36,7 +36,7 @@
                           {% with first_lecture=first_lesson.lectures.last %}
                             {% if first_lecture %}
                               <input type="hidden" id="furl" value="{{ first_lecture.video.url }}">
-                              <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="courses_video_image">
+                              <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="courses_video_image" autoplay muted>
                                 <source src="{{ first_lecture.video.url }}" type="video/mp4">
                                 Your browser does not support the video tag.
                               </video>
@@ -300,11 +300,12 @@
 
 
         document.addEventListener('DOMContentLoaded', () => {
-          const player = new Plyr('#video-player');
-          furl = $("#furl").val()
+          const furl = $("#furl").val(); 
           const videoPlayer = document.getElementById('video-player');
           videoPlayer.setAttribute('src', furl);
-          console.log("sd", furl,  '{{ first_lecture.video.url }}')
+          const player = new Plyr(videoPlayer, {
+            autoplay: true,
+        }); 
       });
     
       
