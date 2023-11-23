@@ -76,7 +76,13 @@
               <source src="{% static 'videos/IMG_0712 (2).mp4' %}" type="video">
             </video> -->
             {% comment %} <img src="{% static 'videos/IMG_0712 (2).gif' %}" class="rafiki_image mobileGif01" alt=""> {% endcomment %}
-            <video src="{% static 'videos/IMG_0712 (2).mp4' %}" muted autoplay loop preload="auto" id="myVideo" class="rafiki_image mobileVideoR"></video>
+            <video autoplay muted loop playsinline preload="auto" id="myVideo" class="rafiki_image mobileVideoR">
+              <source src="{% static 'videos/IMG_0712 (2).mp4' %}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            
+            
+            
 
               <!-- <img
                 src="{% static 'videos/first_gif1.gif' %}"
@@ -613,22 +619,10 @@
       });
     });
     
-    document.addEventListener('DOMContentLoaded', function () {
-      if (window.innerWidth <= 768) {
-        var video = document.getElementById('myVideo');
-        video.removeAttribute('controls'); // Remove controls for mobile devices
-        video.addEventListener('click', function (e) {
-          e.preventDefault();
-        });
-        video.addEventListener('contextmenu', function (e) {
-          e.preventDefault(); // Disable right-click context menu
-        });
-        video.addEventListener('touchstart', function (e) {
-          if (e.touches.length === 1) {
-            e.preventDefault(); // Disable zooming on touch
-          }
-        });
-      }
+    var video = document.getElementById('myVideo');
+    video.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Add any additional actions here if needed
     });
   // Add a scroll listener to handle video playback
   $(document).on('scroll', function() {
