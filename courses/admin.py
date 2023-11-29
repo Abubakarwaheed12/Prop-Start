@@ -5,20 +5,18 @@ from courses.models import(
     Cousre,
     Lesson,
     Lectures,
-    UserCourse,
-    PreOrder,
+    premium_course
 )
 
 from .forms import (
     LectureForm,
+    PremiumForm
 )
 
 # Register your models here.
 
 admin.site.register(Instructor)
 admin.site.register(CourseCategory)
-# admin.site.register(UserCourse)
-# admin.site.register(PreOrder)
 
 
 class CourseModelAdmin(admin.ModelAdmin):
@@ -43,3 +41,7 @@ class LessonInline(admin.ModelAdmin):
 
 
     
+@admin.register(premium_course)
+class PremiumAdmin(admin.ModelAdmin):
+    list_display=('id', 'name', 'lecture_description', 'created_at', 'updated_at')
+    form = PremiumForm
