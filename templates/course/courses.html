@@ -36,10 +36,12 @@
                           {% with first_lecture=first_lesson.lectures.last %}
                             {% if first_lecture %}
                               <input type="hidden" id="furl" value="{{ first_lecture.video.url }}">
-                              <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="courses_video_image" autoplay muted>
-                                <source src="{{ first_lecture.video.url }}" type="video/mp4">
-                                Your browser does not support the video tag.
-                              </video>
+                              <div class="video_mask">
+                                <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="courses_video_image" autoplay muted>
+                                  <source src="{{ first_lecture.video.url }}" type="video/mp4">
+                                  Your browser does not support the video tag.
+                                </video>
+                              </div>
                               {%else%}
                             <img src="{% static 'images/courses_video.png' %}" alt="" class="courses_video_image">
                             {% endif %}
