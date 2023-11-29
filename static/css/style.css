@@ -3128,6 +3128,7 @@ article.on {
   max-width: 292px;
   min-height: 355px;
   border-radius: 6px;
+  object-fit: cover;
 }
 .overlay_image {
   position: absolute;
@@ -3216,6 +3217,11 @@ article.on {
 }
 .goToCourseBtn:hover {
   transform: scale(1.03);
+}
+.video_mask{
+  border-radius: 6px; 
+  overflow: hidden; 
+  
 }
 @media screen and (min-width: 2100px) {
   .learning_text_section h6 {
@@ -3411,6 +3417,9 @@ article.on {
 }
 
 @media screen and (max-width: 1400px) {
+  .courses_section_one {
+    margin-top: 70px;
+  }
   .wellcomeMsj {
     font-size: 22px;
   }
@@ -3448,9 +3457,7 @@ article.on {
     max-width: 194px;
     /* min-height: 280px; */
   }
-  .lesson_plan_section {
-    margin-top: 16px;
-  }
+
   .subtractImg01 {
     width: 175.006px;
     height: 193.215px;
@@ -4128,6 +4135,12 @@ article.on {
   } */
 }
 @media screen and (max-width: 992px) {
+  .lecture_card001 p {
+    font-size: 12px;
+}
+.lecture_card001 h6 {
+  font-size: 19px;
+}
   .wellcomeMsj {
     font-size: 20px;
   }
@@ -4637,7 +4650,7 @@ article.on {
   }
 
   .accordion_button_one {
-    padding: 12px;
+    padding: 10px;
     font-size: 12px;
   }
 
@@ -4820,6 +4833,9 @@ article.on {
   }
 }
 @media screen and (max-width: 768px) {
+  .courses_section_one {
+    margin-top: 65px;
+  }
   .wellcomeMsj {
     font-size: 18px;
   }
