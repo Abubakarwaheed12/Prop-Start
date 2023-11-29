@@ -15,7 +15,7 @@ from .emails import(
 from .forms import CustomUserUpdateForm
 from .decorator import redirect_authenticated_user
 from vendor.gclander.client import GoogleAPIClient
-from app.models import BookingCall, PaymentHistory
+from app.models import BookingCall
 from vendor.hubspot.client import APIClient as HubspotAPIClient
 # Create your views here.
 
@@ -267,16 +267,35 @@ def change_password(request):
 @login_required
 def profile(request):
     user = request.user
-    calls =  BookingCall.objects.filter(email=user.email).order_by("-id")
-    payments = PaymentHistory.objects.filter(email=user.email).order_by("-id")
-    if request.method == 'POST':
+    if request.method == 'POST' and request.POST.get('c1form') == "profile":
         form = CustomUserUpdateForm(request.POST, request.FILES, instance=user)
         if form.is_valid():
             messages.success(request, 'Profile Updated Successfully!')
             form.save()
-            return redirect('profile')
+            return redirect('dashboard_account')
     else:
         form = CustomUserUpdateForm(instance=user)
     
-    context = {'form': form,'calls':calls, "payments":payments}
-    return render(request, 'accounts/profile.html', context)
+    if request.method == 'POST' and request.POST.get('cform') == "change_password":
+        print("we are in change password form now")
+        current_password = request.POST.get('current_password')
+        new_password = request.POST.get('new_password')
+        cnew_password = request.POST.get('cnew_password')
+        print(current_password, new_password, cnew_password)
+        if new_password != cnew_password:
+            messages.error(request, 'New password and confirm password should be same.')
+            return redirect('dashboard_account')
+            
+        if request.user.check_password(current_password):
+            request.user.set_password(new_password)
+            request.user.save()
+            messages.success(request, 'Password changed successfully.')
+            
+            login(request, request.user, backend='django.contrib.auth.backends.ModelBackend')
+            
+            return redirect('dashboard_account')  
+        else:
+            messages.error(request, 'Invalid current password.')    
+
+    context = {'form': form,}
+    return render(request, 'dashboard/account.html', context)

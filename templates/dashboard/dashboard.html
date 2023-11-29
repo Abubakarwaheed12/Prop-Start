@@ -62,7 +62,7 @@
             <div class="prompt_subs_card prompt_subs_card2">
               <img src="{% static 'images/img015.svg' %}" alt="" />
               <h6>Please Complete your profile</h6>
-              <a href="#">
+              <a href="{% url 'dashboard_account' %}">
                 <button type="button" style="background-color: #323232;">Go to account</button>
               </a>
             </div>
@@ -99,7 +99,7 @@
               </div>
               <div class="spots_available">
                 <h2>12 Spots Available</h2>
-                <a href="#">
+                <a href="{% url 'on_boarding_text' %}">
                   <button type="button">Book Now</button>
                 </a>
                 <h6>$365</h6>

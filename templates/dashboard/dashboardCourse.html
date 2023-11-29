@@ -26,9 +26,22 @@
           >
         </p>
         <h1>Property Pro</h1>
+        {% if course %}
         <div class="row">
           <div class="col-lg-7 col-md-12 col-sm-12 col-12 mt-4">
-            <div class="video_main_sec">
+            <div class="">
+              {% with first_lesson=course.lessons.last %}
+              {% if first_lesson %}
+                {% with first_lecture=first_lesson.lectures.last %}
+                  {% if first_lecture %}
+                  <input type="hidden" id="furl" value="{{ first_lecture.video.url }}">
+                  <div class="video_mask">
+                    <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="dashboard_course_img" autoplay muted>
+                      <source src="{{ first_lecture.video.url }}" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  {%else%}
               <img
                 src="{% static 'images/saud.png' %}"
                 alt=""
@@ -37,213 +50,103 @@
               <div class="play_button_video">
                 <i class="bi bi-play"></i>
               </div>
+              {% endif %}
+              {% endwith %}
+            {% endif %}
+          {% endwith %}
             </div>
           </div>
+          {% if  request.user.is_authenticated %}
           <div class="col-lg-5 col-md-12 col-sm-12 col-12 mt-4">
             <div
               class="accordion accordion-flush dashboard_accordion_section"
               id="accordionFlushExample"
             >
-              <div class="accordion-item">
+            {% if not usercourse and not usercourse.is_paid %}
+            {% for less in course.lessons.all|dictsort:"id" %}
+              <div class="accordion-item {% if not forloop.first %} disable_section{% endif %}">
                 <h2 class="accordion-header">
                   <button
                     class="accordion-button collapsed dashboard_accordion_button mt-0"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne"
+                    data-bs-target="#flush-collapseOne{{less.id}}"
                     aria-expanded="false"
-                    aria-controls="flush-collapseOne"
-                  >
-                    1. Introdution
+                    aria-controls="flush-collapseOne{{less.id}}"
+                    {% if not forloop.first %} disabled{% endif %}>
+                  {{less.name}}
                   </button>
                 </h2>
                 <div
-                  id="flush-collapseOne"
+                  id="flush-collapseOne{{less.id}}"
                   class="accordion-collapse collapse"
                   data-bs-parent="#accordionFlushExample"
                 >
                   <div class="accordion-body dashboard_accordion_body">
+                    {% for lec in less.lectures.all %}
                     <p class="dashboard_accordion_body_p">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nam velit itaque ex. Placeat libero blanditiis
-                      consequuntur a excepturi laboriosam voluptatibus!
+                      {{forloop.counter}}
+                      <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.video.url }}');">{{lec.name}}</a>
                     </p>
+                    {% endfor %}
                   </div>
                 </div>
               </div>
-              <div class="disable_section">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed dashboard_accordion_button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseTwo"
-                      disabled
-                    >
-                      2. Explore Dynamic Content
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseTwo"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body dashboard_accordion_body">
-                      <p class="dashboard_accordion_body_p">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nam velit itaque ex. Placeat libero blanditiis
-                        consequuntur a excepturi laboriosam voluptatibus!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed dashboard_accordion_button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseThree"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseThree"
-                      disabled
-                    >
-                      3. Choose and Install Presents
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseThree"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body dashboard_accordion_body">
-                      <p class="dashboard_accordion_body_p">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nam velit itaque ex. Placeat libero blanditiis
-                        consequuntur a excepturi laboriosam voluptatibus!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed dashboard_accordion_button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseFour"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseFour"
-                      disabled
-                    >
-                      4. Add and Remove Dynamic Content
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseFour"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body dashboard_accordion_body">
-                      <p class="dashboard_accordion_body_p">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nam velit itaque ex. Placeat libero blanditiis
-                        consequuntur a excepturi laboriosam voluptatibus!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed dashboard_accordion_button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseFive"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseFive"
-                      disabled
-                    >
-                      5. Display your content
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseFive"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body accordion_body">
-                      <p class="dashboard_accordion_body_p">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nam velit itaque ex. Placeat libero blanditiis
-                        consequuntur a excepturi laboriosam voluptatibus!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed dashboard_accordion_button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseSix"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseSix"
-                      disabled
-                    >
-                      6. Filter and Sort your content
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseSix"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body accordion_body">
-                      <p class="dashboard_accordion_body_p">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nam velit itaque ex. Placeat libero blanditiis
-                        consequuntur a excepturi laboriosam voluptatibus!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed dashboard_accordion_button"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseSeven"
-                      aria-expanded="false"
-                      aria-controls="flush-collapseSeven"
-                      disabled
-                    >
-                      7. Final Thoughts
-                    </button>
-                  </h2>
-                  <div
-                    id="flush-collapseSeven"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#accordionFlushExample"
-                  >
-                    <div class="accordion-body accordion_body">
-                      <p class="dashboard_accordion_body_p">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nam velit itaque ex. Placeat libero blanditiis
-                        consequuntur a excepturi laboriosam voluptatibus!
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {% endfor %}
+              {% else %}
+
+              {% endif %}
             </div>
           </div>
+
+          {% else %}
+            <div class="col-lg-5 col-md-12 col-sm-12 col-12 mt-4">
+            <div
+              class="accordion accordion-flush dashboard_accordion_section"
+              id="accordionFlushExample"
+            >
+            {% for less in course.lessons.all|dictsort:"id" %}
+              <div class="accordion-item ">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed dashboard_accordion_button mt-0"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne{{less.id}}"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne{{less.id}}"
+                    >
+                  {{less.name}}
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne{{less.id}}"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body dashboard_accordion_body">
+                    {% for lec in less.lectures.all %}
+                    <p class="dashboard_accordion_body_p">
+                      {{forloop.counter}}
+                      <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.video.url }}');">{{lec.name}}</a>
+                    </p>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            
+            </div>
+          </div>
+          {% endif %}
+
+
         </div>
+
+        {% else %}
+        <p>No course video Available at this time </p>
+        {% endif %}
+
         <div class="course_lecture_desc_sec mt-4">
           <div class="lecture_card001">
             <h6>In this Course:</h6>
@@ -328,4 +231,48 @@
     </div>
   </div>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+<!-- jquery cdn -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- Add Plyr JS -->
+<script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+
+<script>
+
+ var video = document.getElementById('video-player');
+ video.addEventListener('contextmenu', function (e) {
+   e.preventDefault();
+ });
+ function changeVideoSource(newSource) {
+     var videoElement = document.getElementById('video-player');
+     var sourceElement = videoElement.getElementsByTagName('source')[0];
+     
+     sourceElement.src = newSource;
+     const player = new Plyr('#video-player');
+     videoElement.load();
+     videoElement.play();
+ }
+
+
+
+ document.addEventListener('DOMContentLoaded', () => {
+   const furl = $("#furl").val(); 
+   const videoPlayer = document.getElementById('video-player');
+   videoPlayer.setAttribute('src', furl);
+   const player = new Plyr(videoPlayer, {
+     autoplay: true,
+ }); 
+});
+
+
+</script>
+
 {% endblock content %}
+
+
+

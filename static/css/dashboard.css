@@ -211,6 +211,9 @@ body {
   top: 9px;
   display: none;
 }
+.video_mask{
+  border-radius: 25px;
+}
 .dashboard_section_one {
   padding: 16px 25px 75px 25px;
 }
