@@ -12,14 +12,11 @@ import threading
 from django.contrib import messages
 from courses.models import(
     Cousre,
-    UserCourse,
-    PreOrder
 )
 from app.emails import(
     course_confirmation_email
 )
 from app.utils import send_to_hubspot
-from app.models import PaymentHistory, PromoCode, FullDiscountPromoCode
 # Create your views here.
 
 
@@ -28,11 +25,6 @@ def courses(request):
     context = {
         "course":courses,
         }
-    if request.user.is_authenticated:
-        usercourses=UserCourse.objects.filter(user=request.user, course=courses).exists()
-        if usercourses:
-            usercourse = UserCourse.objects.get(user=request.user, course=courses)
-            context['usercourse'] = usercourse
     
     
     return render(request,"course/courses.html", context)
@@ -129,7 +121,6 @@ def courses_payment_success(request):
     # course_id = request.session["course_id"]
     # course_obj = Cousre.objects.get(id=course_id) 
     # course_obj = UserCourse.objects.create(course=course_obj, user=request.user, is_paid = True, payment=payment_id, pay_with='Stripe')
-    # PaymentHistory.objects.create(email=request.user.email, payment_purpose="Course Payment", pay_with = "stripe", payment_id=payment_id, is_paid=True)
     # request.session.delete("course_id")
 
     ethread = threading.Thread(target=course_confirmation_email, args=(request,))
@@ -203,9 +194,7 @@ def paypal_courses_payment_success(request):
 
     course_id = request.session["course_id"]
     course_obj = Cousre.objects.get(id=course_id) 
-    course_obj = UserCourse.objects.create(course=course_obj, user=request.user, is_paid = True, payment=paymentid, pay_with='Paypal' )
-    PaymentHistory.objects.create(email=request.user.email, payment_purpose="Course Payment", pay_with = "Paypal", payment_id=paymentid, is_paid=True)
-    request.session.delete("course_id")
+    
     ethread = threading.Thread(target=course_confirmation_email, args=(request,))
     ethread.start()
     # send to hubspot
@@ -229,9 +218,7 @@ def courses_payment_cancel(request):
 
 # Pre Order 
 def pre_order(request):
-    order  = PreOrder.objects.filter(user=request.user).exists()
     context = {
-        'order':order,
     }
     return render(request, 'course/pre_order.html', context)
 
@@ -278,8 +265,6 @@ def pre_order_paypal_create_payment(request, ):
 def pre_order_papal_success(request):
     paymentid = request.GET.get('paymentId')
     amount = request.GET.get('amount')
-    ore_order = PreOrder.objects.create(user = request.user, is_paid = True , payment=paymentid, pay_with='Paypal')
-    PaymentHistory.objects.create(email=request.user.email, payment_purpose="Pre Order", pay_with = "Paypal", payment_id=paymentid, is_paid=True)
     # send to hubspot
     user = request.user
     playload = {
@@ -326,8 +311,6 @@ def pre_order_stripe_checkout_session_success(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     session = stripe.checkout.Session.retrieve(session_id)
     payment_id = session.payment_intent
-    ore_order = PreOrder.objects.create(user = request.user, is_paid = True , payment=payment_id, pay_with='Stripe') 
-    PaymentHistory.objects.create(email=request.user.email, payment_purpose="Pre Order", pay_with = "Stripe", payment_id=payment_id, is_paid=True)
     # send to hubspot
     user = request.user
     playload = {
@@ -345,40 +328,3 @@ def pre_order_stripe_checkout_session_success(request):
 
 
 
-#  Apply Promo Code Ajax
-@csrf_exempt
-def course_promo_code(request):
-    if request.method == "POST":
-        code = request.POST.get("code")
-        course = Cousre.objects.first()
-
-        if PromoCode.objects.filter(promo_code=code).exists():
-            if PromoCode.objects.filter(promo_code=code).first().is_expired:
-                return JsonResponse({"error":"Promo Code expired."})
-            original_price = course.price
-            discount_percentage = 5
-            discounted_price = original_price - (original_price * (discount_percentage / 100))
-            return JsonResponse({"success":"Promo Code Applied.", "price":int(discounted_price)})
-        
-        if FullDiscountPromoCode.objects.filter(promo_code=code).exists():
-            if FullDiscountPromoCode.objects.filter(promo_code=code).first().is_expired:
-                return JsonResponse({"error":"Full Discount Promo Code expired."})
-            booking_call = 375
-            original_price = course.price
-            discounted_price = original_price - booking_call
-            if original_price == booking_call:
-                print("free")
-                return JsonResponse({"success":"You are able to access the free.","is_free":True})
-            else:
-                return JsonResponse({"success":"Promo Code Applied.", "price":int(discounted_price)})
-
-        return JsonResponse({"error":"Promo Code does not exist."})
-    
-
-def free_course(request):
-    course_obj = Cousre.objects.first() 
-    course_obj = UserCourse.objects.create(course=course_obj, user=request.user, is_paid = True, payment='Code', pay_with='Free Coupen Code' )
-    ethread = threading.Thread(target=course_confirmation_email, args=(request,))
-    ethread.start()
-
-    return redirect('/courses/')

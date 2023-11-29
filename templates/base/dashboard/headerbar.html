@@ -26,16 +26,14 @@
     <div class="dropdown dropdown_user">
       <button class="dropbtn">
         <img
-          src="{% static 'images/userLogo.svg' %}"
+          src="{% if user.profile_img %}{{user.profile_img.url}}{% elif user.socialaccount_set.all.0.get_avatar_url %}{{ user.socialaccount_set.all.0.get_avatar_url }}{% else %}{% static 'images/dummy.jpeg' %}{% endif %}"
           alt=""
           class="user-logo"
         />
         <i class="bx bx-chevron-down chevron"></i>
       </button>
       <div class="dropdown_content">
-        <a href="#">Option 1</a>
-        <a href="#">Option 2</a>
-        <a href="#">Option 3</a>
+        {% comment %} <a href="{% url 'user_logout' %}">Logout</a> {% endcomment %}
       </div>
     </div>
   </div>

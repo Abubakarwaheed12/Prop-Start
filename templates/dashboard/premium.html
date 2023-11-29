@@ -12,15 +12,26 @@
         <h1>Premium Content</h1>
         <div class="row">
           <div class="col-lg-9 col-md-9 col-sm-12 col-12 mt-4">
+            {% for c in course %}
+            {% if course.first %}
+                  <input type="hidden" id="furl" value="{{ course.first.video.url }}">
+                  <div class="video_mask">
+                    <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="dashboard_course_img" autoplay muted>
+                      <source src="{{ course.first.video.url }}" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+            {% else %}
+            
             <div class='video_main_sec'>
               <img src="{% static 'images/div.plyr__video-wrapper.png' %}" alt="" class="premium_course_img"/>
-              <!-- <video class="premium_course_img" controls>
-                <source src="http://3.26.115.174/media/lectures/28.Ordering_Filter_in_Django_REST_Framework_Hindi.mp4">
-              </video> -->
               <div class="play_button_video">
                 <i class="bi bi-play"></i>
               </div>
             </div>
+            {%  endif %}
+            {% endfor %}
+
             <div class="video_desc002">
                 <h2>The Fast and the Furious</h2>
                 <p>Dive into the comprehensive world of property and finance fundamentals before embarking on your real estate journey. Benefit from expert instructors with a collective acquisition experience exceeding $200 million in Australian property. With licenses in Real Estate and Mortgage Broking, our seasoned professionals bring years of industry expertise to guide you through the intricacies of the market.</p>
@@ -94,4 +105,45 @@
     </div>
   </div>
 </div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+<!-- jquery cdn -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- Add Plyr JS -->
+<script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+
+<script>
+   var video = document.getElementById('video-player');
+   video.addEventListener('contextmenu', function (e) {
+     e.preventDefault();
+   });
+   function changeVideoSource(newSource) {
+       var videoElement = document.getElementById('video-player');
+       var sourceElement = videoElement.getElementsByTagName('source')[0];
+       
+       sourceElement.src = newSource;
+       const player = new Plyr('#video-player');
+       videoElement.load();
+       videoElement.play();
+   }
+  
+  
+  
+   document.addEventListener('DOMContentLoaded', () => {
+     const furl = $("#furl").val(); 
+     const videoPlayer = document.getElementById('video-player');
+     videoPlayer.setAttribute('src', furl);
+     const player = new Plyr(videoPlayer, {
+       autoplay: true,
+   }); 
+  });
+  
+  
+  </script>
 {% endblock content %}

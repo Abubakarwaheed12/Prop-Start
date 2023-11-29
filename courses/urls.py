@@ -8,8 +8,6 @@ urlpatterns = [
     path("courses_payment_cancel/",courses_payment_cancel, name="courses_payment_cancel"),
     path("courses_form/",course_form, name="courses_form"),
     path('pre_order/', pre_order, name="pre_order"),
-    path('course_promo_code/', course_promo_code, name="course_promo_code"),
-    path('free_course/', free_course, name="free_course"),
     # paypal 
     path('paypal_create_payment/<int:course_id>/', paypal_create_payment, name='paypal_create_payment'),
     path('paypal_courses_payment_success/', paypal_courses_payment_success, name="paypal_courses_payment_success"),

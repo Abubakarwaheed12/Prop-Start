@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect 
 from datetime import datetime , timedelta
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
 from django.conf import settings
@@ -11,8 +12,12 @@ from paypalrestsdk import Payment
 import paypalrestsdk
 import threading
 from django.views.decorators.csrf import csrf_exempt
-from .models import TakeQuiz , PaymentHistory, FullDiscountPromoCode, PromoCode, BookingCall
+from .models import TakeQuiz , BookingCall
 from vendor.gclander.client import GoogleAPIClient
+from courses.models import(
+    Cousre,
+    premium_course,
+)
 from .emails import(
     send_book_call_email,
     send_quiz_email,
@@ -212,8 +217,7 @@ def register_message(request):
     booking_obj.pay_with = "stripe"
     booking_obj.payment_id = payment_id 
     booking_obj.save()
-    # History 
-    PaymentHistory.objects.create(email=booking_obj.email, payment_purpose="Book Call", pay_with = "stripe", payment_id=payment_id, is_paid=True)
+
     # email to user 
     email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email, booking_obj.first_name, booking_obj.contact_number, booking_obj.meeting_date_time))
     email_thread.start()
@@ -302,7 +306,6 @@ def paypal_payment_successful(request):
     booking_obj.payment_id = paymentid 
     booking_obj.save()
     # Payment History
-    PaymentHistory.objects.create(email=booking_obj.email, payment_purpose="Book Call", pay_with = "PayPal", payment_id=paymentid, is_paid=True)
     # Send mail
     email_thread = threading.Thread(target=send_book_call_email, args=(booking_obj.email, booking_obj.first_name, booking_obj.contact_number, booking_obj.meeting_date_time))
     email_thread.start()
@@ -371,26 +374,6 @@ def take_quiz(request):
         return JsonResponse({'error':'Error'})
 
 
-#  Apply Promo Code Ajax
-@csrf_exempt
-def promo_code(request):
-    if request.method == "POST":
-        code = request.POST.get("code")
-        
-        if PromoCode.objects.filter(promo_code=code).exists():
-            if PromoCode.objects.filter(promo_code=code).first().is_expired:
-                return JsonResponse({"error":"Promo Code expired."})
-            original_price = 375
-            discount_percentage = 5
-            discounted_price = original_price - (original_price * (discount_percentage / 100))
-            return JsonResponse({"success":"Promo Code Applied.", "price":int(discounted_price)})
-        
-        if FullDiscountPromoCode.objects.filter(promo_code=code).exists():
-            if FullDiscountPromoCode.objects.filter(promo_code=code).first().is_expired:
-                return JsonResponse({"error":"Full Discount Promo Code expired."})
-            return JsonResponse({"success":"You are able to access the free.","is_free":True})
-
-        return JsonResponse({"error":"Promo Code does not exist."})
 
 
 # pricning page 
@@ -399,17 +382,32 @@ def cources_pricing(request):
 
 
 # dashboard page 
+@login_required
 def dashboard(request):
     return render(request,"dashboard/dashboard.html")
 
+@login_required
 def dashboard_course(request):
-    return render(request,"dashboard/dashboardCourse.html")
+    courses = Cousre.objects.all().last()
+    
+    context = {
+        "course":courses,
+        }
+    
+    return render(request,"dashboard/dashboardCourse.html", context)
 
+@login_required
 def dashboard_premium(request):
-    return render(request,"dashboard/premium.html")
+    courses = premium_course.objects.all()
+    context = {
+        "course":courses,
+        }
+    return render(request,"dashboard/premium.html", context)
 
+@login_required
 def dashboard_account(request):
     return render(request,"dashboard/account.html")
 
+@login_required
 def dashboard_upgrade(request):
     return render(request,"dashboard/upgrade.html")

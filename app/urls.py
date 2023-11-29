@@ -1,7 +1,7 @@
 
 from django.urls import path
 from .views import *
-
+from accounts.views import profile
 urlpatterns = [
 path("", index, name="home"),
 path("on-boarding1/",on_boarding1, name="on-boarding1"), 
@@ -25,8 +25,6 @@ path('create_payment/',create_payment , name="create_payment"),
 path('paypal_payment_successful/', paypal_payment_successful, name="paypal_payment_successful"),
 # take_quiz
 path('take_quiz/', take_quiz, name="take_quiz"),
-# promo_code 
-path("promo_code/", promo_code, name="promo_code"), 
 
 # cources_pricing url add 
 path("cources_pricing/", cources_pricing, name="cources_pricing"), 
@@ -37,6 +35,6 @@ path("cources_pricing/", cources_pricing, name="cources_pricing"),
 path("dashboard/", dashboard, name="dashboard"), 
 path("dashboard_course/", dashboard_course, name="dashboard_course"), 
 path("dashboard_premium/", dashboard_premium, name="dashboard_premium"), 
-path("dashboard_account/", dashboard_account, name="dashboard_account"), 
+path("dashboard_account/", profile, name="dashboard_account"), 
 path("dashboard_upgrade/", dashboard_upgrade, name="dashboard_upgrade"), 
 ]

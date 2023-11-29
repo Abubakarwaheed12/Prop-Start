@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator
+from accounts.models import CustomUser 
 
 # Create your models here.
 class BookingCall(models.Model):
@@ -53,46 +54,17 @@ class TakeQuiz(models.Model):
 
 
 
-class PaymentHistory(models.Model):
-    email = models.CharField(max_length=200, null=True, blank=True)
-    payment_purpose = models.CharField(max_length=200, null=True, blank=True)
-    pay_with = models.CharField(max_length=200, null=True, blank=True)
-    payment_id = models.CharField(max_length=200, null=True, blank=True)
-    is_paid = models.BooleanField(default=False)
 
-    def __str__(self) :
-        return self.payment_purpose or self.pay_with 
-    
+# class SubscriptionPlan(models.Model):
+#     name = models.CharField(max_length=100)
+#     price = models.DecimalField(max_digits=10, decimal_places=2)
+#     description = models.TextField()
 
-class PromoCode(models.Model):
-    promo_code = models.CharField(
-        max_length=20,
-        validators=[MinLengthValidator(8)],
-        help_text="The value must be at least 8 characters long."
-    )
-    is_expired = models.BooleanField(default=False)
+# class Subscription(models.Model):
+#     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+#     plan = models.ForeignKey(SubscriptionPlan, on_delete=models.CASCADE)
+#     stripe_subscription_id = models.CharField(max_length=100, blank=True, null=True)
+#     paypal_subscription_id = models.CharField(max_length=100, blank=True, null=True)
+   
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.promo_code or f"code-{self.id}"
-
-
-
-
-class FullDiscountPromoCode(models.Model):
-    promo_code = models.CharField(
-        max_length=20,
-        validators=[MinLengthValidator(8)],
-        help_text="The value must be at least 8 characters long."
-    )
-    is_expired = models.BooleanField(default=False)
-    
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return f"Full Discount Code -{self.promo_code}"
- 
     
