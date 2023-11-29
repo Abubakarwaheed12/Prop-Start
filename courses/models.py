@@ -79,7 +79,7 @@ class Lesson(models.Model):
 class Lectures(models.Model):
     lesson = models.ForeignKey(Lesson , on_delete=models.CASCADE, related_name="lectures")
     name =  models.CharField(max_length=200, help_text="Enter the Lecture Name.",)
-    lecure_description = models.TextField(null=True , blank=True)
+    lecture_description = models.TextField(null=True , blank=True)
     video_url = models.URLField(null=True, blank=True)
     video = models.FileField(upload_to="lectures",help_text="please upload the lecture vide!")
     document = models.FileField(upload_to="course_documents", help_text="please upload the document related video!", null=True, blank=True)
@@ -95,6 +95,25 @@ class Lectures(models.Model):
         verbose_name = "Lecture"       
         verbose_name_plural = "Lectures"
 
+
+# Premium Course 
+class premium_course(models.Model):
+    name =  models.CharField(max_length=200, help_text="Enter the Lecture Name.",)
+    lecture_description = models.TextField(null=True , blank=True)
+    video_url = models.URLField(null=True, blank=True)
+    video = models.FileField(upload_to="premium_lectures",help_text="please upload the lecture vide!")
+    document = models.FileField(upload_to="premium_course_documents", help_text="please upload the document related video!", null=True, blank=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) :
+        return self.name or ''
+
+    class Meta:
+        ordering = ['-id']
+        verbose_name = "premium_lecture"       
+        verbose_name_plural = "premium_lectures"
 
 class UserCourse(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
