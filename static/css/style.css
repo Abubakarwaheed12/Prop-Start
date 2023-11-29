@@ -3219,7 +3219,7 @@ article.on {
   transform: scale(1.03);
 }
 .video_mask{
-  border-radius: 6px; 
+  border-radius: 25px; 
   overflow: hidden; 
   
 }
