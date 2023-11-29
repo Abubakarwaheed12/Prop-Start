@@ -546,7 +546,7 @@ body {
 .course_lecture_desc_sec {
   display: flex;
   gap: 16px;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 .lecture_card001 {
   padding: 15px 18px;
@@ -560,9 +560,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-.course_lecture_desc_sec {
-  display: flex;
-}
+
 .lecture_card001 h6 {
   margin-bottom: 0;
   color: #323232;
@@ -595,9 +593,19 @@ body {
   max-width: 192px;
   min-height: 253px;
   border-radius: 6px;
+  object-fit: cover;
+  transition: 0.25s ease-in-out;
+}
+.lecture_card002:hover {
+  transform: translatey(-2.5%);
 }
 .overlay_image {
   position: absolute;
+  background: linear-gradient( 180deg, #000 -5.63%, rgba(217, 217, 217, 0) 44.69% );
+  height: 100%;
+  width: 100%;
+  transform: rotate(180deg);
+  border-radius: 10px;
 }
 .lecture_card002_desc {
   position: absolute;
@@ -1479,6 +1487,11 @@ body {
     height: 390px;
   }
 }
+@media screen and (max-width: 1300px) {
+  .course_lecture_desc_sec{
+    flex-wrap: wrap;
+  }
+}
 @media screen and (max-width: 1200px) {
   .dashboard_main_section .sidebar_section .sidebar_ul li {
     font-size: 17px;
@@ -1859,6 +1872,7 @@ body {
   }
   .lecture_card001 p {
     line-height: 20px;
+    font-size: 12px;
   }
   .account_input {
     padding: 17px 17px 17px 17px;
@@ -1904,6 +1918,7 @@ body {
   }
   .lecture_card002 img {
     max-width: 264px;
+    min-height: 336px;
   }
   .star_icons_main_div i {
     font-size: 20px;
@@ -1911,6 +1926,7 @@ body {
   .lecture_card001 {
     max-width: 264px;
     margin: 14px auto;
+    min-height: 336px;
   }
   .lecture_card002 {
     max-width: 264px;
@@ -1972,15 +1988,7 @@ body {
   .course_lecture_desc_sec {
     justify-content: center;
   }
-  .lecture_card002 {
-    max-width: 100%;
-  }
-  .lecture_card002 img {
-    max-width: 100%;
-  }
-  .lecture_card001 {
-    max-width: 100%;
-  }
+
 }
 @media screen and (max-width: 400px) {
   .plan_active_btn {
