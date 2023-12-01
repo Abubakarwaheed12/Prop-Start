@@ -107,41 +107,7 @@
     
  
     {% comment %} promo coee  {% endcomment %}
-    <script>
-        $(document).ready(function() {
-            $("#applyPromoCode").click(function() {
-                var code = $("#promoCodeInput").val();
-                $.ajax({
-                    type: "POST",
-                    url: "/course_promo_code/",  
-                    data: {
-                        code: code
-                    },
-                    success: function(response) {
-                        console.log("response", response)
-                        if (response.success) {
-                            $("#successMessage").text(response.success);
-                            $("#price").text(response.price)
-                            $("#total_price").val(response.price)
-                            $("#ptotal_price").val(response.price)
-                            if (response.is_free){
-                                if (response.is_free){
-                                    var newButton = $('<a href="/free_course/" class="login_button" id="applyFreeCourse">Apply Free Course</a>');
-                                    $("#applyPromoCode").replaceWith(newButton);
-                                }
-                            }
-                        } else {
-                            $("#responseMessage").text(response.error);
-                        }
-                    },
-                    error: function(error) {
-                        console.log("response", error)
-                        $("#responseMessage").text("Error while applying the Promo Code.");
-                    }
-                });
-            });
-        });
-    </script>
+
     <script src="https://js.stripe.com/v3/"></script>
     <script>
         var stripe = Stripe('pk_test_51NBXr6BeBXpxCROJ3BcbDGRRXzhb2oBS3Z9sOWnZAG1DAQX8V9hOUymOICkdBZjwIjXmTrvGzJWk8wQ3qa7gDcCy00VDFHccZU');

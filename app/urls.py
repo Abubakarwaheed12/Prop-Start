@@ -11,7 +11,6 @@ path("on-boarding4/",on_boarding4, name="on-boarding4"),
 path("on_boarding5_date/",on_boarding5_date, name="on_boarding5_date"),
 path("on_boarding_text/",on_boarding_text, name="on_boarding_text"),
 # new add 
-path("on_boarding_pay/",on_boarding_pay, name="on_boarding_pay"),
 # end 
 path("register-message/",register_message, name="register-message"),
 path("term_conditions/", term_conditions, name="term_conditions"),

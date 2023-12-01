@@ -33,7 +33,7 @@
                         <h4>Payment Information</h4>
                     <p>Choose which payment method you want to use</p>
                     </div>
-                    <form class="account_form">
+                    <div class="account_form">
                         <div class="input_group">
                             <div class="paypal_edit_main_section">
                                 <div class="">
@@ -47,88 +47,95 @@
                                 </div>
                             </div>
                             <article class="credit_card_form">
-                                <form action="">
-                                   <div class="row">
+                                <form id="payment-form">
+                                   <div class="row" >
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="input_group" style="position: relative;">
                                             <label for="" class="form-label input_label payment_label">Account Holder Full Name</label>
-                                            <input type="text" class="form-control account_input payment_input" placeholder="Select Date">
+                                            <input type="text" id="full-name" class="form-control account_input payment_input" placeholder="Full Name">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="input_group" style="position: relative;">
                                             <label for="" class="form-label input_label payment_label">Account Holder Last Name</label>
-                                            <input type="text" class="form-control account_input payment_input" placeholder="Select Date">
+                                            
+                                            <input  type="text" class="form-control account_input payment_input" placeholder="Last Name"> 
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="input_group" style="position: relative;">
                                             <label for="" class="form-label input_label payment_label">Card Number</label>
-                                            <input type="text" class="form-control account_input payment_input cvc_card_input" placeholder="Enter Card Number">
+                                            <div id="card-number" class="form-control account_input payment_input cvc_card_input"> </div>
+                                            {% comment %} <input type="text" class="form-control account_input payment_input cvc_card_input" placeholder="Enter Card Number"> {% endcomment %}
                                             <div class="card_image_group">
                                                 <img src="{% static 'images/card 5.svg' %}" alt="">
                                             </div>
-                                            <p class="mm_yy_cvv_text">MM /  YY   CVV</p>
+                                            {% comment %} <p class="mm_yy_cvv_text">MM /  YY   CVV</p> {% endcomment %}
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="input_group" style="position: relative;">
-                                            <label for="" class="form-label input_label payment_label">VAT Number (Optional)</label>
-                                            <input type="text" class="form-control account_input payment_input" placeholder="Enter VAT Number">
+                                            <label for="" class="form-label input_label payment_label">Expiry</label>
+                                            <div id="card-exp" class="form-control account_input payment_input"> </div>
+
+                                            {% comment %} <input type="text" class="form-control account_input payment_input" placeholder="Enter VAT Number"> {% endcomment %}
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="input_group" style="position: relative;">
-                                            <label for="" class="form-label input_label payment_label">Country</label>
-                                            <input type="text" class="form-control account_input payment_input" placeholder="Select Country">
+                                            <label for="" class="form-label input_label payment_label">CVC</label>
+                                            <div id="card-cvc" class="form-control account_input payment_input"> </div>
+                                            {% comment %} <input type="text" class="form-control account_input payment_input" placeholder="Select Country"> {% endcomment %}
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="input_group" style="position: relative;">
                                             <label for="" class="form-label input_label payment_label">Address</label>
-                                            <input type="text" class="form-control account_input payment_input" placeholder="Enter Address">
+                                            <input type="text" id="address-line1" class="form-control account_input payment_input" placeholder="Enter Address">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <div class="input_group" style="position: relative;">
                                             <label for="" class="form-label input_label payment_label">Address Line 2</label>
-                                            <input type="text" class="form-control account_input payment_input" placeholder="Enter Address">
+                                            <input type="text" id="address-line2" class="form-control account_input payment_input" placeholder="Enter Address">
                                         </div>
                                     </div>
                                    <div class="mini_input_section">
                                     <div class="postal_code_input">
                                         <div class="input_group" style="position: relative;">
                                             <label for="" class="form-label input_label payment_label">Town / City</label>
-                                            <input type="text" class="form-control account_input payment_input" placeholder="Select ">
+                                            <input type="text" id="city" class="form-control account_input payment_input" placeholder="Select ">
                                         </div>
                                     </div>
                                     <div class="postal_code_input">
                                         <div class="input_group" style="position: relative;">
                                             <label for="" class="form-label input_label payment_label">State / Province  (Optional)</label>
-                                            <input type="text" class="form-control account_input payment_input" placeholder="Select ">
+                                            <input type="text"  id="state" class="form-control account_input payment_input" placeholder="Select ">
                                         </div>
                                     </div>
                                     <div class="postal_code_input">
                                         <div class="input_group" style="position: relative;">
                                             <label for="" class="form-label input_label payment_label">Zip / Postal Code</label>
-                                            <input type="text" class="form-control account_input payment_input" placeholder="Enter">
+                                            <input type="text" id="postal-code" class="form-control account_input payment_input" placeholder="Enter">
                                         </div>
                                     </div>
                                    </div>
+                                   
                                     </div>
-                                    
+                                    <div id="card-errors"></div>
+                                    <button  id="submit-payment" class="login_button payment_btn001" >Pay</button>
                                 </form>
                             </article>
                             <!-- stripe tab -->
-                            <div class="">
+                            {% comment %} <div class="">
                                 <label for="tab2" class="paypal_btn_2" id="paypal_button_2">
                                     <input class="form-check paypal_checkbox" type="radio" name="tab" id="tab2">
                                     <div class="paypal_text_div paypal_text_div2">
-                                        <p>Stripe</p>
+                                        <p>PayPal</p>
                                         <img src="{% static 'images/logos_paypal.svg' %}" alt="">
                                     </div>
                                 </label>
-                            </div>
+                            </div> {% endcomment %}
                             <!-- stripe tab item  -->
                             <article class="credit_card_form">
                                 <form action="">
@@ -205,12 +212,12 @@
                                  </form>
                             </article>
                             <!-- paypal tab item term and register button  -->
-                         <div class="step1_item">
-                            <a href="register_message.html">
+                         {% comment %} <div class="step1_item">
+                            <a href="#">
                                 <button type="button" class="login_button payment_btn001">Pay $479</button>
                             </a>
-                        </div>
-                    </form>
+                        </div> {% endcomment %}
+                    </div>
                     <p class="payment_condition_p">By purchasing this product i acknowledge and accept the <a href="#">Terms and Conditions</a>.</p>
                 </div>
             <div class="prop_logo_section">
@@ -227,7 +234,7 @@
                             </div>
                         
                         </div>
-                        <div class="pro_price_div pro_price_div002">
+                        {% comment %} <div class="pro_price_div pro_price_div002">
                             <div>
                                 <h5>Features</h5>
                             </div>
@@ -245,7 +252,7 @@
                                 <h4>$468</h4>
                             </div>
                         
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                 </div>
             </div>
@@ -283,6 +290,111 @@
             });
         })
     </script>
-</body>
 
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        var stripe = Stripe('pk_test_51NBXr6BeBXpxCROJ3BcbDGRRXzhb2oBS3Z9sOWnZAG1DAQX8V9hOUymOICkdBZjwIjXmTrvGzJWk8wQ3qa7gDcCy00VDFHccZU');
+        var elements = stripe.elements();
+        
+        var cardNumberElement = elements.create('cardNumber',{
+            classes : {
+                base : "form-control",
+                invalid : "error"
+            },
+            style : {
+                base : {
+                    color: "green"
+                }
+            }
+        });
+        cardNumberElement.mount('#card-number');
+    
+        // Create an Card Expire Date Filed 
+        var cardExpElement = elements.create('cardExpiry',{
+            classes : {
+                base : "form-control",
+                invalid : "error"
+            },
+            style : {
+                base : {
+                    color: "green"
+                }
+            }
+        });
+        cardExpElement.mount('#card-exp');
+    
+    
+        // Create an CVC Filed 
+        var cardCvcElement = elements.create('cardCvc',{
+            classes : {
+                base : "form-control account_input payment_input",
+                invalid : "error"
+            },
+            style : {
+                base : {
+                    color: "green"
+                }
+            }
+        });
+        cardCvcElement.mount('#card-cvc');
+        
+        var submitButton = document.getElementById('submit-payment');
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            submitButton.disabled = true;
+            submitButton.textContent = 'Processing...';
+            stripe.createPaymentMethod({
+                type: 'card',
+                card: cardNumberElement,
+                billing_details: {
+                    name: document.getElementById('full-name').value,
+                    address: {
+                        line1: document.getElementById('address-line1').value,
+                        line2: document.getElementById('address-line2').value,
+                        city: document.getElementById('city').value,
+                        state: document.getElementById('state').value,
+                        postal_code: document.getElementById('postal-code').value
+                    }
+                }
+            }).then(function(result) {
+                if (result.error) {
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                    errorElement.style.color = 'red';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit...';
+                } else {
+                    // Send the PaymentMethod ID to your Django view
+                    var paymentMethodId = result.paymentMethod.id;
+                    console.log("success")
+                    console.log(result.paymentMethod.id)
+                    // Include paymentMethodId in your form data and submit the form
+                    $.ajax({
+                        url : "/checkout_session1/",
+                        type : 'POST' , 
+                        data : {
+                            csrfmiddlewaretoken: '{{ csrf_token }}' ,
+                            payment_method_id: paymentMethodId
+                        }, success : function (data){
+                            console.log(data)
+                            submitButton.textContent = 'Successfull';
+                            if (data.message == 'Payment successful!'){
+                              //window.location.pathname = ``
+                              console.log("subscribed!")
+                            
+                            }
+                            window.location.href = '/dashboard_upgrade';
+        
+                        }, error : function(error){
+                            console.log(`error ${error}`)
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>

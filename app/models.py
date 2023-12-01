@@ -55,16 +55,26 @@ class TakeQuiz(models.Model):
 
 
 
-# class SubscriptionPlan(models.Model):
-#     name = models.CharField(max_length=100)
-#     price = models.DecimalField(max_digits=10, decimal_places=2)
-#     description = models.TextField()
+class SubscriptionPlan(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    stripe_plan_id = models.CharField(max_length=100, blank=True, null=True)
+    paypal_plan_id = models.CharField(max_length=100, blank=True, null=True)
+    description = models.TextField()
 
-# class Subscription(models.Model):
-#     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-#     plan = models.ForeignKey(SubscriptionPlan, on_delete=models.CASCADE)
-#     stripe_subscription_id = models.CharField(max_length=100, blank=True, null=True)
-#     paypal_subscription_id = models.CharField(max_length=100, blank=True, null=True)
+    def __str__(self):
+        return f"{self.name}" or f"{self.id}"
+
+class Subscription(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    plan = models.ForeignKey(SubscriptionPlan, on_delete=models.CASCADE)
+    stripe_subscription_id = models.CharField(max_length=100, blank=True, null=True)
+    paypal_subscription_id = models.CharField(max_length=100, blank=True, null=True)
+    is_sctive = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.user.email}" or f"{self.id}"
+    
    
 
     
