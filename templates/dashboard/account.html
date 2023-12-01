@@ -76,9 +76,9 @@
               </ul>
               <div class="tab-content" id="pills-tabContent">
                 <!-- profile tabs  -->
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel"      aria-labelledby="pills-home-tab" tabindex="0">
                     <div class="account_section_tab001">
-                      <form class="account_form" method="post" enctype='multipart/form-data'>
+                      <form class="account_form " method="post" enctype='multipart/form-data'>
                         <input type="hidden" name="c1form" value="profile">
                       {% csrf_token %}
                         <div class="uploaded_img_div">
@@ -93,7 +93,7 @@
                         </div>
                         <div>
                           
-                            <div class="row">
+                            <div class="row mt-5">
                               <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div class="input_group">
                                   <label for="{{form.first_name.id_for_label}}" class="form-label input_label">First Name</label>
@@ -154,9 +154,7 @@
                         </form>
                         </div>
                     </div>
-                      
-                </div>
-                <!-- Security tabs  -->
+                       <!-- Security tabs  -->
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
                   <div class="account_section_tab001">
                     <h4>Change Password</h4>
@@ -276,7 +274,7 @@
                   </div>
                 </div>
                 <!-- BOOKING Section  -->
-                <div class="tab-pane fade" id="pills-booking" role="tabpanel" aria-labelledby="pills-booking-tab" tabindex="0">
+                {% comment %} <div class="tab-pane fade" id="pills-booking" role="tabpanel" aria-labelledby="pills-booking-tab" tabindex="0">
                   <div class="account_section_tab001 booking_section_tab002 px-0">
                     <h4>Bookings</h4>
                     <div class="booking_strategy_card002">
@@ -306,7 +304,9 @@
                       <label for="checked_toggle" class="checked_toggle_label">Subscribed</label>
                     </div>
                   </div>
+                </div> {% endcomment %}
                 </div>
+               
               </div>
         </div>
       </div>
