@@ -126,6 +126,7 @@ def Login(request):
                 message = f"Your Login OTP is {otp}"
                 email_thread =threading.Thread(target=send_otp_email, args=(email, subject, message)) 
                 email_thread.start()
+                print(message)
                 messages.success(request,"otp has been sent to your email")
                 return redirect("verify_login_otp")
         else:

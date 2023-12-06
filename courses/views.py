@@ -23,7 +23,10 @@ from app.utils import send_to_hubspot
 
 def courses(request):
     courses = Cousre.objects.all().last()
-    plan = True if Subscription.objects.filter(user=request.user, is_sctive=True).exists() else False
+    plan = False 
+    if request.user.is_authenticated:
+        if Subscription.objects.filter(user=request.user, is_sctive=True).exists():
+            plan = True
     
     context = {
         "course":courses,
