@@ -149,7 +149,7 @@ def verify_login_otp(request):
             user = authenticate(request, email=email,password=pass1)
             if user is not None:
                 login(request, user)
-                return redirect('courses')
+                return redirect('propstart_course')
             print(email, pass1)
         messages.error(request, 'Otp is not correct.')
 

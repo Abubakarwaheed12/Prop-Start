@@ -69,8 +69,8 @@
                 <li class="nav-item">
                   <a
                     class="nav-link nav_link"
-                    href="{% url 'courses' %}"
-                    ><span class="{% if request.path == '/courses/' %}href_active{% endif %}">Courses</span></a
+                    href="{% url 'propstart_course' %}"
+                    ><span class="{% if request.path == '/propstart_course/' %}href_active{% endif %}">Courses</span></a
                   >
                 </li>
                 {% if not request.user.is_authenticated %}
