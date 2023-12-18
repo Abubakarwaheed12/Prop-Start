@@ -27,6 +27,7 @@ path('take_quiz/', take_quiz, name="take_quiz"),
 
 # cources_pricing url add 
 path("cources_pricing/", cources_pricing, name="cources_pricing"), 
+path("propstart-course/", propstart_course, name="propstart_course"), 
 
 
 

@@ -379,6 +379,9 @@ def take_quiz(request):
 def cources_pricing(request):
     return render(request,"cources_pricing.html")
 
+#new add
+def propstart_course(request):
+    return render(request,"course/course_wixs.html")
 
 # dashboard page 
 @login_required
