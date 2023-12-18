@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .quizAllTxtMainSec {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quizOneTxtFirstDiv {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            max-width: 600px;
+			margin-top: 2rem;
+			position: relative;
+        }
+
+        .quizTxtMainDiv {
+            display: flex;
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+			height: auto;
+			min-height: 200px;
+        }
+
+        .quizOneTxtDiv {
+            flex: 1;
+            border-right: 2px solid #3498db;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .quizOneTxtDiv:last-child {
+            border: none;
+        }
+
+        .textAlignEndTxt {
+            text-align: end;
+        }
+
+        .quizOneTxtLastDiv {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .circcleFill {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #3498db;
+            margin: 0 5px;
+            transition: transform 0.5s ease;
+            transform: scale(0);
+			position: absolute;
+        }
+
+
+
+        .barMainDiv {
+            display: flex;
+            align-items: center;
+			flex-direction: column;
+			/* position: relative; */
+			height: 100%;
+        }
+		#circle1{
+			top: 0;
+		}
+		#circle2{
+			top: 200px;
+		}
+		#circle3{
+			top: 420px;
+		}
+		#circle4{
+			top: 640px;
+		}
+		#circle5{
+			top: 860px;
+		}
+    </style>
+</head>
+<body>
+
+    <div class="quizAllTxtMainSec">
+        <div class="quizOneTxtFirstDiv">
+            <div class='quizTxtMainDiv'>
+                <div class='quizOneTxtDiv'>
+                    <h4>01. Education</h4>
+                    <p>Smart learning starts by enrolling in our program. Invest in yourself and learn how to be the rich dad.</p>
+                </div>
+                <div class='quizOneTxtDiv'></div>
+            </div>
+            <div class='quizTxtMainDiv'>
+                <div class='quizOneTxtDiv'></div>
+                <div class='quizOneTxtDiv textAlignEndTxt'>
+                    <h4>02. Consult</h4>
+                    <p>Elevate your vision in a tailored strategy session. Together with our experts, design a property plan that's uniquely yours.</p>
+                </div>
+            </div>
+            <div class='quizTxtMainDiv'>
+                <div class='quizOneTxtDiv'>
+                    <h4>03. Invest</h4>
+                    <p>Unlock access to PropStarts nationwide investment channels and be paired with one of our exclusive opportunities.</p>
+                </div>
+                <div class='quizOneTxtDiv'></div>
+            </div>
+            <div class='quizTxtMainDiv'>
+                <div class='quizOneTxtDiv'></div>
+                <div class='quizOneTxtDiv textAlignEndTxt'>
+                    <h4>04. Grow</h4>
+                    <p>Expand your property portfolio, step by step, until your aspirations become achievements.</p>
+                </div>
+            </div>
+            <div class='quizOneTxtLastDiv'>
+                <div>
+                    <p>Your portfolio becomes the key to your dreams. Whether it's your dream home, financial freedom, or uncharted adventures, seize your future with confidence.</p>
+                </div>
+                <div>
+                    <a href="#">
+                        <button type='button' class="propQuizBtn01">Take Quiz</button>
+                    </a>
+                </div>
+            </div>
+			<div class="barMainDiv" id="scroll-bar">
+                <div class="circcleFill" id="circle1"></div>
+                <div class="circcleFill" id="circle2"></div>
+                <div class="circcleFill" id="circle3"></div>
+                <div class="circcleFill" id="circle4"></div>
+                <div class="circcleFill" id="circle5"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const sections = document.querySelectorAll('.quizTxtMainDiv');
+        const circles = document.querySelectorAll('.circcleFill');
+
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const targetIndex = Array.from(sections).indexOf(entry.target);
+                    fillCircles(targetIndex);
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        function fillCircles(index) {
+            for (let i = 0; i <= index; i++) {
+                circles[i].style.transform = 'scale(1)';
+            }
+        }
+    </script>
+
+</body>
+</html>

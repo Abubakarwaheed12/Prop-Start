@@ -3218,10 +3218,584 @@ article.on {
 .goToCourseBtn:hover {
   transform: scale(1.03);
 }
-.video_mask{
-  border-radius: 25px; 
-  overflow: hidden; 
-  
+.video_mask {
+  border-radius: 25px;
+  overflow: hidden;
+}
+
+/* new css  */
+.mangaeHeightAllSec {
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.propStartQuizTxt {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.propStartQuizTxt h1 {
+  margin-bottom: 0;
+  color: #0d4949;
+  font-family: "Urbanist";
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 600;
+  text-align: center;
+}
+.propQuizBtn01 {
+  margin-top: 30px;
+  border-radius: 50px;
+  background: #f4bf36;
+  color: #0d4949;
+  text-align: center;
+  font-family: "Urbanist";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 50px; /* 343.75% */
+  text-transform: capitalize;
+  padding: 0px 30px 0px 30px;
+  border: none;
+}
+
+.quizTxtMainDiv {
+  display: flex;
+  justify-content: space-between;
+}
+.quizOneTxtDiv {
+  border-top: 2px solid #323232;
+  width: 100%;
+  max-width: 240px;
+  padding-top: 8px;
+  height: auto;
+  min-height: 250px;
+}
+.quizOneTxtDiv h4 {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: "Urbanist";
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+}
+.quizOneTxtDiv p {
+  margin-bottom: 0;
+  color: #000;
+  font-family: "Urbanist";
+  font-size: 19.487px;
+  font-style: normal;
+  font-weight: 500;
+  /* line-height: 36.649px; */
+  letter-spacing: -0.605px;
+  margin-top: 20px;
+}
+.textAlignEndTxt {
+  text-align: end;
+}
+.quizOneTxtLastDiv {
+  width: 100% !important;
+  max-width: 808px !important;
+  height: auto;
+  min-height: 220px;
+  background-color: #f0f0f0;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between !important;
+  padding: 0 104px;
+  position: relative;
+  border-radius: unset !important;
+  position: unset !important;
+}
+.quizOneTxtLastDiv button {
+  color: #fff;
+  background-color: #121212;
+}
+
+.quizOneTxtLastDiv .circcleFill {
+  position: relative;
+  left: auto;
+  top: auto;
+}
+.quizOneTxtLastDiv p {
+  margin-bottom: 0;
+  color: #000;
+  font-family: "Urbanist";
+  font-size: 18.487px;
+  font-style: normal;
+  font-weight: 500;
+  /* line-height: 36.649px; */
+  letter-spacing: -0.605px;
+  width: 100%;
+  max-width: 240px;
+}
+.progress-container {
+  top: 65px;
+  background-color: rgba(150, 150, 150, 0.6);
+  height: 71%;
+  width: 6px;
+  position: absolute;
+  left: 402px;
+  transition: background-color 0.2s ease;
+}
+
+#scroll-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0; /* Initial height */
+  width: 6px; /* Adjust the width of the scroll bar */
+  background-color: #bbbbbb; /* Default color */
+  transition: height 0.2s ease, background-color 0.2s ease;
+  opacity: 1; /* Initial opacity set to 1 */
+}
+
+#scroll-bar.green {
+  background-color: #f4bf36; /* Change the color of the scroll bar when scrolling */
+}
+
+.circcleFill {
+  width: 50px;
+  height: 50px;
+  background-color: #bbbbbb;
+  border-radius: 50%;
+  position: absolute;
+  left: -20px;
+  transition: background-color 0.2s ease;
+  opacity: 1; /* Initial opacity set to 1 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#circle1 {
+  top: 0px;
+}
+
+#circle2 {
+  top: 252px;
+}
+
+#circle3 {
+  top: 498px;
+}
+
+#circle4 {
+  top: 749px;
+}
+
+#circle5 {
+  top: 997px;
+}
+
+.circcleFill.green {
+  background-color: #f4bf36; /* Change the color of the circles when scrolling */
+}
+
+.circcleFill img {
+  width: 26px;
+  height: 26px;
+}
+
+.quizAllTxtMainSec {
+  padding: 90px 0 20px 0;
+  width: 100%;
+  max-width: 808px;
+  margin: 0 auto;
+  position: relative;
+}
+.quizOneTxtFirstDiv {
+  width: 100%;
+  max-width: 608px;
+  margin: 0 auto;
+}
+.home_section_four {
+  padding: 140px 0;
+}
+/* Define the fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the fade-in animation to quiz elements */
+.quizTxtMainDiv,
+.quizOneTxtLastDiv {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Delay the animation for each quiz element */
+.quizOneTxtFirstDiv .quizTxtMainDiv:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.quizOneTxtFirstDiv .quizTxtMainDiv:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+.quizOneTxtLastDiv {
+  animation-delay: 0.6s;
+}
+
+/* wixs course css  */
+.wixsCourse_section_one {
+  padding: 180px 0 130px 0;
+}
+.headingDivCourse02 h1 {
+  margin-bottom: 0;
+  color: #0d4949;
+  font-family: "Urbanist";
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal; /* 86.957% */
+}
+.headingDivCourse02 p {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: "Urbanist";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal; /* 150% */
+  letter-spacing: -0.32px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+}
+.carbonImg01 {
+  width: auto;
+  height: 25px;
+}
+.clockTopImg01 {
+  width: auto;
+  height: 20px;
+}
+.directorImg01 {
+  width: 100%;
+  border-radius: 23px;
+  margin-top: 2rem;
+}
+.registerBtnNew {
+  border-radius: 50px;
+  background-color: #17e093;
+  color: #fff;
+  text-align: center;
+  font-family: "Urbanist";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 28px 0;
+  border: none;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 5rem;
+  transition: all 300ms ease-in-out;
+}
+.registerBtnNew:hover {
+  transform: scale(1.06);
+}
+.BottomCardMainDiv {
+  margin-top: 10rem;
+  height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 50px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.BottomCardMainDiv::-webkit-scrollbar{
+  width: 0;
+}
+.courseCardBottom02 {
+  width: 100%;
+  max-width: 330px;
+  border-radius: 23px;
+  background: #f9f9f9 !important;
+  height: auto;
+  min-height: 450px;
+  padding: 15px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.courseCardBottomImg02 img {
+  border-radius: 23px;
+  width: 100%;
+  max-width: 330px;
+  height: auto;
+  min-height: 450px;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+.courseCardBottom02 h6 {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: "Urbanist";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 42px; /* 233.333% */
+  letter-spacing: -0.36px;
+}
+.courseCardBottom02 p {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: "Urbanist";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}
+.courseCardBottom02 ul {
+  padding-left: 23px;
+}
+.courseCardBottom02 ul li {
+  color: #323232;
+  font-family: "Urbanist";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.overFlowCardContainer {
+  position: relative;
+}
+.onlyMemberSection {
+  margin-top: 15rem;
+}
+.memberImg01 {
+  width: 100%;
+  border-radius: 23px;
+  margin-top: 2rem;
+}
+.newVideosSection01 {
+  margin-top: 10rem;
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.videos01Card {
+  width: 100%;
+  max-width: 374px;
+  border-radius: 8px;
+  height: auto;
+  min-height: 450px;
+  padding: 20px 15px;
+  background: rgba(114, 196, 114, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.videos01Card h1 {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: "Urbanist";
+  font-size: 59px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  letter-spacing: -0.36px;
+}
+
+.videos01Card p {
+  margin-bottom: 0;
+  color: #323232;
+  font-family: "Urbanist";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.scrollCardImg {
+  width: 100%;
+}
+.scrollCardImg path {
+  fill: #000 !important;
+}
+:root {
+  --cards: 4;
+  --cardHeight: 80vh;
+  /* --cardTopPadding: 1.5em; */
+  --cardMargin: 4vw;
+}
+
+.newVideosSection01 {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#scrollCards {
+  list-style: none;
+  padding-left: 0;
+  /* display: grid; */
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--cards), var(--cardHeight));
+  gap: var(--cardMargin);
+  padding-bottom: calc(var(--cards) * var(--cardTopPadding));
+  margin-top: var(--cardMargin);
+}
+
+#card1 {
+  --index: 1;
+}
+#card2 {
+  margin-left: 25%;
+  --index: 2;
+}
+#card3 {
+  --index: 3;
+  margin-left: 50%;
+}
+#card4 {
+  --index: 4;
+  margin-left: 75%;
+}
+
+.scrollCard01 {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  /* min-height: 400px !important; */
+  position: sticky;
+  top: 0;
+  padding-top: calc(var(--index) * var(--cardTopPadding));
+}
+
+.scrollCard01Body {
+  box-sizing: border-box;
+  /* padding: 30px; */
+  border-radius: 50px;
+  /* box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.3); */
+  height: var(--cardHeight);
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  transition: all 0.5s;
+}
+.registerBtnLast {
+  margin-top: 10rem;
+}
+.newVideosSection02 {
+  display: none;
+}
+.panel,
+.last-panel {
+  flex: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+}
+.gsap-marker-scroller-start{
+  z-index: -1 !important;
+  display: none !important;
+}
+.gsap-marker-scroller-end{
+  z-index: -1 !important;
+  display: none !important;
+}
+.gsap-marker-start{
+  z-index: -1 !important;
+  display: none !important;
+}
+.gsap-marker-end{
+  z-index: -1 !important;
+  display: none !important;
+}
+
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1330px;
+  }
+  .side_circle {
+    top: -20px;
+  }
+
+  .buyend_image_sec {
+    justify-content: center;
+  }
+
+  .footer_main_section_div {
+    padding: 190px 280px 74px 280px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .lecture_card002 img {
+    min-height: 308px;
+  }
+
+  .beyond_row {
+    gap: 150px;
+  }
+  .section_3_row {
+    gap: 130px;
+  }
+  .container {
+    max-width: 1500px;
+  }
+  .learning_text_section h6 {
+    font-size: 78px;
+  }
+  .learning_text_section p {
+    font-size: 20px;
+  }
+  .buyend_image {
+    height: 445px;
+  }
+  .beyond_text_div h5 {
+    font-size: 68px;
+  }
+  .beyond_text_div p {
+    font-size: 22px;
+    max-width: 417px;
+  }
+  .invest_text_div h5 {
+    font-size: 68px;
+    max-width: 410px;
+  }
+  .invest_text_div p {
+    font-size: 22px;
+    max-width: 460px;
+  }
+  .propstart_text h4 {
+    font-size: 46px;
+  }
+  .journey_start_section h4 {
+    font-size: 72px;
+    width: 426px;
+  }
+}
+@media screen and (min-width: 1915px) {
+  .lecture_card002 img {
+    min-height: 384px;
+  }
+
+  .container {
+    max-width: 1600px;
+  }
+}
+@media screen and (min-width: 1980px) {
+  .home_section_five {
+    height: 100vh;
+  }
 }
 @media screen and (min-width: 2100px) {
   .learning_text_section h6 {
@@ -3291,84 +3865,11 @@ article.on {
     font-size: 17px;
   }
 }
-@media screen and (min-width: 1980px) {
-  .home_section_five {
-    height: 100vh;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .lecture_card002 img {
-    min-height: 308px;
-  }
 
-  .beyond_row {
-    gap: 150px;
+@media screen and (max-width: 1870px) {
+  .scrollCard01 {
+    max-width: 345px;
   }
-  .section_3_row {
-    gap: 130px;
-  }
-  .container {
-    max-width: 1500px;
-  }
-  .learning_text_section h6 {
-    font-size: 78px;
-  }
-  .learning_text_section p {
-    font-size: 20px;
-  }
-  .buyend_image {
-    height: 445px;
-  }
-  .beyond_text_div h5 {
-    font-size: 68px;
-  }
-  .beyond_text_div p {
-    font-size: 22px;
-    max-width: 417px;
-  }
-  .invest_text_div h5 {
-    font-size: 68px;
-    max-width: 410px;
-  }
-  .invest_text_div p {
-    font-size: 22px;
-    max-width: 460px;
-  }
-  .propstart_text h4 {
-    font-size: 46px;
-  }
-  .journey_start_section h4 {
-    font-size: 72px;
-    width: 426px;
-  }
-}
-@media screen and (min-width: 1400px) {
-  .container {
-    max-width: 1330px;
-  }
-  .side_circle {
-    top: -20px;
-  }
-
-  .buyend_image_sec {
-    justify-content: center;
-  }
-
-  .footer_main_section_div {
-    padding: 190px 280px 74px 280px;
-  }
-}
-
-@media screen and (min-width: 1915px) {
-  .lecture_card002 img {
-    min-height: 384px;
-  }
-
-  .container {
-    max-width: 1600px;
-  }
-}
-@media screen and (max-width: 1915px) {
 }
 @media screen and (max-width: 1670px) {
   .prop_logo_section img {
@@ -3387,6 +3888,15 @@ article.on {
   }
 }
 @media screen and (max-width: 1600px) {
+  .videos01Card h1 {
+    font-size: 57px;
+  }
+  .scrollCard01 {
+    max-width: 304px;
+  }
+  .videos01Card {
+    min-height: 400px;
+  }
   .lecture_card002 img {
     min-height: 307px;
   }
@@ -3417,6 +3927,139 @@ article.on {
 }
 
 @media screen and (max-width: 1400px) {
+  .scrollCard01 {
+    max-width: 263px;
+  }
+  .BottomCardMainDiv {
+    margin-top: 8rem;
+  }
+  .onlyMemberSection {
+    margin-top: 10rem;
+  }
+  .newVideosSection01 {
+    margin-top: 8rem;
+  }
+  .videos01Card h1 {
+    font-size: 41px;
+  }
+
+  .videos01Card {
+    max-width: 260px;
+    min-height: 320px;
+  }
+  .videos01Card p {
+    font-size: 15px;
+  }
+  .registerBtnNew {
+    font-size: 19px;
+    padding: 24px 0;
+    max-width: 370px;
+  }
+  .registerBtnLast {
+    margin-top: 8rem;
+  }
+  .courseCardBottom02 h6 {
+    font-size: 20px;
+  }
+  .courseCardBottom02 p {
+    font-size: 13px;
+  }
+  .courseCardBottom02 ul li {
+    font-size: 13px;
+  }
+  .courseCardBottom02 {
+    max-width: 297px;
+    min-height: 400px;
+  }
+  .courseCardBottomImg02 img {
+    max-width: 297px;
+    min-height: 400px;
+  }
+  .wixsCourse_section_one {
+    padding: 150px 0 110px 0;
+  }
+  .headingDivCourse02 h1 {
+    font-size: 46px;
+  }
+  .carbonImg01 {
+    height: 23px;
+  }
+  .clockTopImg01 {
+    height: 17px;
+  }
+  .headingDivCourse02 p {
+    font-size: 20px;
+  }
+  .propStartQuizTxt h1 {
+    font-size: 54px;
+    text-align: center;
+  }
+  .propQuizBtn01 {
+    font-size: 15px;
+    line-height: 46px;
+    padding: 0px 27px 0px 28px;
+  }
+  .propStartQuizTxt {
+    max-width: 340px;
+  }
+  .quizOneTxtDiv h4 {
+    font-size: 32px;
+  }
+  .quizOneTxtDiv p {
+    font-size: 17.487px;
+    margin-top: 15px;
+  }
+  .quizOneTxtDiv {
+    max-width: 220px;
+    min-height: 226px;
+  }
+  .quizOneTxtLastDiv p {
+    font-size: 17.487px;
+    max-width: 220px;
+  }
+  .quizOneTxtLastDiv {
+    max-width: 808px !important;
+    min-height: 200px;
+    padding: 0 101px;
+  }
+  .circcleFill {
+    width: 47px;
+    height: 47px;
+  }
+  .circcleFill img {
+    width: 22px;
+    height: 25px;
+  }
+  .quizAllTxtMainSec {
+    max-width: 760px;
+  }
+  .progress-container {
+    height: 72%;
+    width: 6px;
+    left: 376px;
+  }
+  #circle2 {
+    top: 232px;
+  }
+  #circle3 {
+    top: 454px;
+  }
+  #circle4 {
+    top: 685px;
+  }
+  #circle5 {
+    top: 908px;
+  }
+  .quizOneTxtLastDiv {
+    max-width: 738px !important;
+    padding: 0px 74px;
+  }
+  #scroll-bar.green {
+    height: 949px;
+  }
+  .quizOneTxtFirstDiv {
+    max-width: 590px;
+  }
   .courses_section_one {
     margin-top: 70px;
   }
@@ -3647,6 +4290,112 @@ article.on {
   }
 }
 @media screen and (max-width: 1200px) {
+  .scrollCard01 {
+    max-width: 231px;
+  }
+  .wixsCourse_section_one {
+    padding: 135px 0 100px 0;
+  }
+  .headingDivCourse02 h1 {
+    font-size: 43px;
+  }
+  .headingDivCourse02 p {
+    font-size: 19px;
+  }
+  .carbonImg01 {
+    height: 22px;
+  }
+  .clockTopImg01 {
+    height: 16px;
+  }
+  .quizOneTxtDiv h4 {
+    font-size: 27px;
+  }
+  .quizOneTxtDiv p {
+    font-size: 16.487px;
+    margin-top: 12px;
+  }
+  .registerBtnNew {
+    font-size: 18px;
+    padding: 22px 0;
+    max-width: 329px;
+    margin-top: 4rem;
+  }
+  .onlyMemberSection {
+    margin-top: 8rem;
+  }
+  .videos01Card {
+    max-width: 220px;
+    min-height: 290px;
+    padding: 15px 12px;
+  }
+  .videos01Card h1 {
+    font-size: 35px;
+  }
+  .videos01Card p {
+    font-size: 13px;
+  }
+  .registerBtnLast {
+    margin-top: 5rem !important;
+  }
+  .courseCardBottom02 {
+    max-width: 254px;
+    min-height: 346px;
+    padding: 13px 15px;
+  }
+  .courseCardBottomImg02 img {
+    max-width: 254px;
+    min-height: 346px;
+  }
+  .courseCardBottom02 ul li {
+    font-size: 12px;
+    margin-top: 7px;
+  }
+  .BottomCardMainDiv {
+    margin-top: 7rem;
+    gap: 35px;
+  }
+  .courseCardBottom02 p {
+    font-size: 12px;
+  }
+  .quizOneTxtDiv {
+    max-width: 207px;
+    min-height: 220px;
+    padding-top: 6px;
+  }
+  .quizOneTxtLastDiv p {
+    font-size: 16.487px;
+    max-width: 206px;
+  }
+  .propQuizBtn01 {
+    font-size: 14px;
+    line-height: 44px;
+  }
+  .quizOneTxtFirstDiv {
+    max-width: 570px;
+  }
+  #circle2 {
+    top: 223px;
+  }
+  #circle3 {
+    top: 441px;
+  }
+  #circle4 {
+    top: 663px;
+  }
+  #circle5 {
+    top: 883px;
+  }
+  .quizOneTxtLastDiv {
+    max-width: 692px !important;
+    padding: 0px 63px;
+  }
+  .propStartQuizTxt h1 {
+    font-size: 47px;
+  }
+  .propStartQuizTxt {
+    max-width: 295px;
+  }
   .wellcomeMsj {
     font-size: 21px;
   }
@@ -4135,12 +4884,126 @@ article.on {
   } */
 }
 @media screen and (max-width: 992px) {
+  .newVideosSection01 {
+    display: none;
+  }
+  .newVideosSection02 {
+    display: block;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+  }
+  .memberImg01 {
+    margin-top: 1.5rem;
+  }
+  .wixsCourse_section_one {
+    padding: 125px 0 80px 0;
+  }
+  .onlyMemberSection {
+    margin-top: 6rem;
+  }
+  .registerBtnNew {
+    font-size: 17px;
+    padding: 20px 0;
+    max-width: 289px;
+    margin-top: 3rem;
+  }
+  .headingDivCourse02 h1 {
+    font-size: 38px;
+  }
+  .headingDivCourse02 p {
+    font-size: 17px;
+  }
+  .directorImg01 {
+    margin-top: 1.5rem;
+  }
+  .newVideosSection01 {
+    margin-top: 4rem;
+    flex-wrap: wrap;
+  }
+  
+  /* .panel {
+    width: 48%;
+  } */
+  .videos01Card {
+    min-height: 289px;
+    margin-top: 1rem;
+  }
+  .propStartQuizTxt h1 {
+    font-size: 44px;
+  }
+  .propStartQuizTxt {
+    max-width: 290px;
+  }
+  .propQuizBtn01 {
+    font-size: 13px;
+    line-height: 40px;
+  }
+  .quizOneTxtDiv h4 {
+    font-size: 25px;
+  }
+  .quizOneTxtDiv p {
+    font-size: 15.487px;
+    margin-top: 4px;
+  }
+  .quizOneTxtDiv {
+    max-width: 199px;
+    min-height: 208px;
+    padding-top: 5px;
+  }
+  .progress-container {
+    height: 74%;
+    width: 5px;
+    left: 344px;
+  }
+
+  #scroll-bar {
+    width: 5px;
+  }
+  .circcleFill {
+    width: 46px;
+    height: 46px;
+    left: -21px;
+  }
+  .quizAllTxtMainSec {
+    max-width: 710px;
+    padding: 90px 0 0px 0;
+  }
+  .quizOneTxtLastDiv p {
+    font-size: 15.487px;
+    max-width: 192px;
+  }
+  .quizOneTxtLastDiv {
+    max-width: 665px !important;
+    padding: 0px 63px;
+    min-height: 174px;
+  }
+
+  .quizOneTxtFirstDiv {
+    max-width: 540px;
+  }
+  #circle2 {
+    top: 210px;
+  }
+  #circle3 {
+    top: 420px;
+  }
+  #circle4 {
+    top: 628px;
+  }
+  .quizOneTxtLastDiv {
+    padding: 0px 41px;
+  }
+  #circle5 {
+    top: 832px;
+  }
   .lecture_card001 p {
     font-size: 12px;
-}
-.lecture_card001 h6 {
-  font-size: 19px;
-}
+  }
+  .lecture_card001 h6 {
+    font-size: 19px;
+  }
   .wellcomeMsj {
     font-size: 20px;
   }
@@ -4833,6 +5696,72 @@ article.on {
   }
 }
 @media screen and (max-width: 768px) {
+  .newVideosSection02 {
+    justify-content: center;
+  }
+  .headingDivCourse02 p {
+    font-size: 15px;
+    gap: 4px;
+  }
+  .headingDivCourse02 h1 {
+    font-size: 33px;
+  }
+  .registerBtnNew {
+    font-size: 16px;
+    padding: 17px 0;
+    max-width: 225px;
+  }
+  .carbonImg01 {
+    height: 20px;
+  }
+  .onlyMemberSection {
+    margin-top: 5rem;
+  }
+  .clockTopImg01 {
+    height: 15px;
+  }
+  .newVideosSection01 {
+    justify-content: space-around;
+  }
+  .courseCardBottom02 h6 {
+    font-size: 19px;
+  }
+  .BottomCardMainDiv {
+    height: auto;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    gap: 22px;
+    justify-content: center;
+  }
+  .courseCardBottom02 p {
+    font-size: 11px;
+  }
+  .courseCardBottom02 {
+    max-width: 224px;
+    min-height: 326px;
+    padding: 13px 13px;
+  }
+  .courseCardBottomImg02 img {
+    max-width: 224px;
+    min-height: 326px;
+  }
+  .courseCardBottom02 ul {
+    padding-left: 17px;
+  }
+  .courseCardBottom02 ul li {
+    font-size: 11px;
+    margin-top: 6px;
+  }
+  .propStartQuizTxt h1 {
+    font-size: 39px;
+  }
+  .propStartQuizTxt {
+    max-width: 250px;
+  }
+
+  .progress-container {
+    left: 257px;
+  }
   .courses_section_one {
     margin-top: 65px;
   }
@@ -5440,6 +6369,106 @@ article.on {
   }
 }
 @media screen and (max-width: 578px) {
+  .newVideosSection02 {
+    margin-top: 4rem;
+  }
+  .videos01Card {
+    min-height: 300px;
+  }
+  .videos01Card {
+    max-width: 269px;
+  }
+  .directorImg01 {
+    border-radius: 20px;
+    height: auto;
+    min-height: 33vh;
+  }
+  .courseCardBottom02 {
+    max-width: 250px;
+    border-radius: 20px;
+  }
+  .memberImg01 {
+    border-radius: 20px;
+    height: 280px;
+  }
+  .courseCardBottomImg02 img {
+    max-width: 250px;
+    border-radius: 20px;
+  }
+  .BottomCardMainDiv {
+    margin-top: 4rem;
+    gap: 26px;
+  }
+  .onlyMemberSection {
+    margin-top: 4rem;
+  }
+  .newVideosSection01 {
+    margin-top: 3rem;
+  }
+  .registerBtnNew {
+    font-size: 14px;
+    padding: 14px 0;
+    max-width: 189px;
+    margin-top: 3.5rem;
+  }
+  .headingDivCourse02 h1 {
+    font-size: 30px;
+  }
+  .headingDivCourse02 p {
+    font-size: 14px;
+  }
+  .carbonImg01 {
+    height: 19px;
+  }
+  .clockTopImg01 {
+    height: 13px;
+  }
+  .wixsCourse_section_one {
+    padding: 110px 0 60px 0;
+  }
+  .home_section_four {
+    padding: 100px 0;
+  }
+  .home_section_four {
+    width: 100%;
+    max-width: 442px;
+    margin: 0 auto;
+  }
+  .quizOneTxtDiv h4 {
+    font-size: 21px;
+  }
+  .quizOneTxtDiv p {
+    font-size: 13.487px;
+    margin-top: 1px;
+  }
+  .quizOneTxtDiv {
+    max-width: 147px;
+    min-height: 181px;
+    padding-top: 4px;
+  }
+  .progress-container {
+    left: 208px;
+    height: 72%;
+  }
+  .quizOneTxtLastDiv {
+    padding: 0px 35px;
+  }
+  .quizOneTxtLastDiv p {
+    font-size: 14.487px;
+    max-width: 177px;
+  }
+  #circle2 {
+    top: 185px;
+  }
+  #circle3 {
+    top: 364px;
+  }
+  #circle4 {
+    top: 546px;
+  }
+  #circle5 {
+    top: 724px;
+  }
   .wellcomeMsj {
     font-size: 17px;
   }
@@ -6287,6 +7316,35 @@ article.on {
   }
 }
 @media screen and (max-width: 450px) {
+  .quizOneTxtDiv h4 {
+    font-size: 17px;
+  }
+  .quizOneTxtDiv p {
+    font-size: 12.487px;
+  }
+  .quizOneTxtDiv {
+    max-width: 113px;
+    min-height: 181px;
+    padding-top: 4px;
+  }
+  .progress-container {
+    left: 157px;
+    /* height: 72%; */
+  }
+  .quizOneTxtLastDiv p {
+    font-size: 12.487px;
+    max-width: 154px;
+  }
+  .quizOneTxtLastDiv {
+    padding: 0px 28px;
+  }
+  .propQuizBtn01 {
+    font-size: 11px;
+    line-height: 38px;
+  }
+  .home_section_four {
+    max-width: 341px;
+  }
   .timeInput_unDisabled span {
     display: none;
   }
