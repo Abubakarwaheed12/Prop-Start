@@ -875,7 +875,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .account_form {
-  padding-top: 54px;
+  padding-top: 0;
 }
 
 .checkbox_input_group label {
@@ -2893,7 +2893,7 @@ article.on {
 }
 /* payment css  */
 .payment_section_with_card {
-  padding: 49px 30px 78px 30px;
+  padding: 40px 30px 78px 30px;
   background-color: #fff;
   /* height: 100vh;
   overflow-y: scroll; */
@@ -2905,7 +2905,7 @@ article.on {
   padding: 0 0 0 20px;
 }
 .payment_text_div {
-  margin-top: 29px;
+  margin-top: 17px;
 }
 
 .payment_text_div h4 {
@@ -3132,16 +3132,13 @@ article.on {
 }
 .overlay_image {
   position: absolute;
-  background: linear-gradient(
-    180deg,
-    #000 -5.63%,
-    rgba(217, 217, 217, 0) 44.69%
-  );
+background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69%);
   height: 100%;
   width: 100%;
   transform: rotate(180deg);
-  border-radius: 10px;
+  border-radius: 23px;
 }
+
 .lecture_card002_desc {
   position: absolute;
   bottom: 12px;
@@ -3150,7 +3147,7 @@ article.on {
 .lecture_card002_desc p {
   color: #fff;
   font-family: Urbanist;
-  font-size: 8px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 600;
   line-height: normal; /* 525% */
@@ -3160,7 +3157,7 @@ article.on {
 .lecture_card002_desc h6 {
   color: #fff;
   font-family: Urbanist;
-  font-size: 14px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: normal; /* 300% */
@@ -3168,10 +3165,10 @@ article.on {
   margin-bottom: 0;
   margin-top: 4px;
 }
-.course_lecture_desc_sec span {
+.lecture_card002_desc span {
   color: #fff;
-  font-family: Urbanist;
-  font-size: 8px;
+  font-family: 'Urbanist';
+  font-size: 10px;
   font-style: normal;
   font-weight: 600;
   line-height: normal; /* 525% */
@@ -3233,7 +3230,7 @@ article.on {
 .propStartQuizTxt {
   margin: 0 auto;
   width: 100%;
-  max-width: 400px;
+  max-width: 370px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3533,6 +3530,9 @@ article.on {
   flex-direction: column;
   justify-content: space-between;
 }
+.courseCardBottomImg02{
+  position: relative;
+}
 .courseCardBottomImg02 img {
   border-radius: 23px;
   width: 100%;
@@ -3582,11 +3582,16 @@ article.on {
   width: 100%;
   border-radius: 23px;
   margin-top: 2rem;
+  object-fit: cover;
 }
 .newVideosSection01 {
   margin-top: 10rem;
   /* display: flex;
   justify-content: space-between; */
+}
+.payBtn002{
+  margin-top: 1rem !important;
+  
 }
 
 .videos01Card {
@@ -4000,7 +4005,7 @@ article.on {
     padding: 0px 27px 0px 28px;
   }
   .propStartQuizTxt {
-    max-width: 340px;
+    max-width: 330px;
   }
   .quizOneTxtDiv h4 {
     font-size: 32px;
@@ -4234,7 +4239,7 @@ article.on {
 }
 @media screen and (max-width: 1376px) {
   .prop_logo_section img {
-    height: 1100px;
+    height: 1170px;
     object-fit: cover;
   }
   .payment_section_with_card {
@@ -4934,7 +4939,7 @@ article.on {
     font-size: 44px;
   }
   .propStartQuizTxt {
-    max-width: 290px;
+    max-width: 270px;
   }
   .propQuizBtn01 {
     font-size: 13px;
@@ -5756,7 +5761,7 @@ article.on {
     font-size: 39px;
   }
   .propStartQuizTxt {
-    max-width: 250px;
+    max-width: 240px;
   }
 
   .progress-container {

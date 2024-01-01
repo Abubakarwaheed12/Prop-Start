@@ -181,8 +181,8 @@
   <div class="home_section_four">
     <div class="container">
       <div class="propStartQuizTxt">
-        <h1>Right For Is PropStart You?</h1>
-        <a href="#">
+        <h1>Is PropStart Right For You?</h1>
+        <a href="{% url 'quiz-1' %}">
           <button type='button' class="propQuizBtn01">Take Quiz</button>
         </a>
       </div >
@@ -235,7 +235,7 @@
             </p>
           </div>
           <div>
-            <a href="#">
+            <a href="{% url 'quiz-1' %}">
               <button type='button' class="propQuizBtn01">Take Quiz</button>
             </a>
           </div>
@@ -307,11 +307,6 @@
 </div>
 <!-- end -->
 
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-  crossorigin="anonymous"
-></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
 <!-- Load fullPage.js first -->
 <script src="{% static 'js/fullpage.js' %}"></script>
@@ -380,17 +375,8 @@
       e.preventDefault();
       // Add any additional actions here if needed
     });
-  // Add a scroll listener to handle video playback
   $(document).on('scroll', function() {
     const video = document.getElementById("myVideo");
-    const videoSection = document.querySelector('.section');
-
-    // Get the top and bottom positions of the video and section
-    const videoTop = video.getBoundingClientRect().top;
-    const videoBottom = video.getBoundingClientRect().bottom;
-    const sectionTop = videoSection.getBoundingClientRect().top;
-    const sectionBottom = videoSection.getBoundingClientRect().bottom;
-
     // Check if the video is in the current section
     if (videoTop >= sectionTop && videoBottom <= sectionBottom) {
       video.play(); // Video is in view, play it
