@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 </head>
-
 <body>
     <!-- Register Account Step 1 Start-->
     <div class="account_section_one">
@@ -210,7 +209,7 @@
                                      </div>
                                      
                                  </form>
-                                 <div id="paypal-button-container-P-93T981851F7159130MVFUVXI"></div>
+                                 <div class="payBtn002" id="paypal-button-container-P-93T981851F7159130MVFUVXI"></div>
                             </article>
                             <!-- paypal tab item term and register button  -->
                          {% comment %} <div class="step1_item">
@@ -399,29 +398,42 @@
 
 
     {% comment %} paypal {% endcomment %}
-    PropStart Pro:
+    {% comment %} PropStart Pro: {% endcomment %}
 
 
 
-<script src="https://www.paypal.com/sdk/js?client-id=AcPikrXW0Cy_sVQQDYx-zi2wIHZ5NTyTyPoj3ouIIoWXNaDPxG-Xt7ZrHeiWK1gYsESz1IBfdXT5nfiN&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-<script>
-  paypal.Buttons({
-      style: {
-          shape: 'pill',
-          color: 'silver',
-          layout: 'horizontal',
-          label: 'subscribe'
-      },
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({
-          /* Creates the subscription */
-          plan_id: 'P-93T981851F7159130MVFUVXI'
-        });
-      },
-      onApprove: function(data, actions) {
-        alert(data.subscriptionID); // You can add optional success message for the subscriber here
-      }
-  }).render('#paypal-button-container-P-93T981851F7159130MVFUVXI'); // Renders the PayPal button
+    <script src="https://www.paypal.com/sdk/js?client-id=AcPikrXW0Cy_sVQQDYx-zi2wIHZ5NTyTyPoj3ouIIoWXNaDPxG-Xt7ZrHeiWK1gYsESz1IBfdXT5nfiN&vault=true&intent=subscription"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var paypalContainer = document.querySelector('.payBtn002');
+    
+        if (paypalContainer) {
+          // Render PayPal buttons
+          paypal.Buttons({
+            style: {
+              shape: 'pill',
+              color: 'silver',
+              layout: 'horizontal',
+              label: 'subscribe'
+            },
+            createSubscription: function (data, actions) {
+              return actions.subscription.create({
+                plan_id: 'P-93T981851F7159130MVFUVXI'
+              });
+            },
+            onApprove: function (data, actions) {
+              alert(data.subscriptionID);
+            }
+          }).render('.payBtn002');
+    
+          // Center the PayPal container using margin: 0 auto;
+          paypalContainer.style.margin = '0 auto';
+        } else {
+          console.error("Container with class 'payBtn002' not found");
+        }
+      });
+    </script>
+    
 </script>
 </body>
 </html>
