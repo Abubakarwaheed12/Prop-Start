@@ -73,7 +73,7 @@
                 <a
                   href="{% if request.user.is_authenticated %}{% url 'pre_order' %}{% else %}{% url 'signup' %}{%endif %}"
                 >
-                  <p><span>Pre-Order</span></p>
+                  {% comment %} <p><span>Pre-Order</span></p> {% endcomment %}
                 </a>
                 <a href="{% url 'quiz-1' %}">
                   <p><span>Take Quiz</span></p>

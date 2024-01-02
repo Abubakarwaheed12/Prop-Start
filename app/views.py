@@ -17,6 +17,7 @@ from vendor.gclander.client import GoogleAPIClient
 from courses.models import(
     Cousre,
     premium_course,
+    Lectures,
 )
 from .emails import(
     send_book_call_email,
@@ -381,7 +382,13 @@ def cources_pricing(request):
 
 #new add
 def propstart_course(request):
-    return render(request,"course/course_wixs.html")
+    Leccture_first = Lectures.objects.all().first()
+
+    context = {
+        "lecture":Leccture_first
+    }
+
+    return render(request,"course/course_wixs.html", context)
 
 # dashboard page 
 @login_required

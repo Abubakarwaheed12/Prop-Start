@@ -1,5 +1,6 @@
 {% extends "base/navbar.html" %} {% load static %} {% block title %}PropStart{% endblock %} {% block css %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
 {% endblock css %} {% block content %}
 <div class="wixsCourse_section_one">
   <div class="container overFlowCardContainer">
@@ -18,17 +19,25 @@
             class="clockTopImg01"
             src="{% static '/images/time.svg' %}"
             alt=""
+            
         /></span>
         4 hours
       </p>
     </div>
     <div class="row">
       <div class="col-12">
-        <img
+         <img
           class="directorImg01"
           src="{% static '/images/jaredImg.webp' %}"
           alt=""
-        />
+          id = "thumbnail-img"
+        /> 
+        <input type="hidden" id="furl" value="{{ lecture.video.url }}">
+          <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="directorImg01" autoplay muted onplay="swapThumbnailWithVideo()">
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+
+          </video>
 
         <div class="text-center">
           <a href="{% url 'signup' %}">
@@ -1404,6 +1413,9 @@
 {% block js %} 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+<!-- jquery cdn -->
+
 <script>
   gsap.registerPlugin(ScrollTrigger);
 
@@ -1425,6 +1437,40 @@
     });
   });
 </script>
+
+<!-- jquery cdn -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.plyr.io/3.6.8/plyr.js"></script>
+
+<script>
+   var video = document.getElementById('video-player');
+   video.addEventListener('contextmenu', function (e) {
+     e.preventDefault();
+   });
+   
+   document.addEventListener('DOMContentLoaded', () => {
+     const furl = $("#furl").val(); 
+     const videoPlayer = document.getElementById('video-player');
+     videoPlayer.setAttribute('src', furl);
+     const player = new Plyr(videoPlayer, {
+       autoplay: true,
+   }); 
+  });
+  
+  
+  </script>
+
+  <script>
+    function swapThumbnailWithVideo() {
+      var thumbnailImg = document.getElementById('thumbnail-img');
+      var videoPlayer = document.getElementById('video-player');
+  
+      thumbnailImg.style.display = 'none';
+      videoPlayer.style.display = 'block';
+    }
+  </script>
+
+
 {% endblock js %}
 
 
