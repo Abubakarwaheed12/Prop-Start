@@ -209,11 +209,11 @@
                                      </div>
                                      
                                  </form>
-                                 <div class="">
-                                    <div class="payBtn002 d-flex justify-content-center" id="paypal-button-container-P-93T981851F7159130MVFUVXI">
-
-                                    </div>
+                                 <div class="paypal-style" >
+                                 <div class="payBtn002" >
+                                    
                                  </div>
+                                </div>
                             </article>
                             <!-- paypal tab item term and register button  -->
                          {% comment %} <div class="step1_item">
@@ -408,34 +408,35 @@
 
     <script src="https://www.paypal.com/sdk/js?client-id=AcPikrXW0Cy_sVQQDYx-zi2wIHZ5NTyTyPoj3ouIIoWXNaDPxG-Xt7ZrHeiWK1gYsESz1IBfdXT5nfiN&vault=true&intent=subscription"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var paypalContainer = document.querySelector('.payBtn002');
-    
-        if (paypalContainer) {
-          // Render PayPal buttons
-          paypal.Buttons({
-            style: {
-              shape: 'pill',
-              color: 'silver',
-              layout: 'horizontal',
-              label: 'subscribe'
-            },
-            createSubscription: function (data, actions) {
-              return actions.subscription.create({
-                plan_id: 'P-93T981851F7159130MVFUVXI'
-              });
-            },
-            onApprove: function (data, actions) {
-              alert(data.subscriptionID);
+        document.addEventListener('DOMContentLoaded', function () {
+            var paypalContainer = document.querySelector('.payBtn002');
+        
+            if (paypalContainer) {
+                // Render PayPal buttons
+                paypal.Buttons({
+                    style: {
+                        shape: 'pill',
+                        color: 'silver',
+                        layout: 'horizontal',
+                        label: 'subscribe'
+                    },
+                    createSubscription: function (data, actions) {
+                        return actions.subscription.create({
+                            plan_id: 'P-93T981851F7159130MVFUVXI'
+                        });
+                    },
+                    onApprove: function (data, actions) {
+                        alert(data.subscriptionID);
+                    }
+                }).render('.payBtn002');
+        
+                // Center the PayPal container using margin: 0 auto;
+                paypalContainer.style.margin = '0 auto';
+            } else {
+                console.error("Container with class 'payBtn002' not found");
             }
-          }).render('.payBtn002');
-    
-          // Center the PayPal container using margin: 0 auto;
-          paypalContainer.style.margin = '0 auto';
-        } else {
-          console.error("Container with class 'payBtn002' not found");
-        }
-      });
+        });
+        
     </script>
     
 </script>

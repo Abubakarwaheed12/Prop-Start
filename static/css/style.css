@@ -7739,6 +7739,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     display: block;
   } */
 }
+
 @media screen and (max-width: 335px) {
   .timeInput_div {
     gap: 17px;
@@ -7780,5 +7781,25 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   }
   .invest_text_div p {
     font-size: 16px;
+  }
+}
+
+
+
+@media screen and (max-width: 1300px) {
+  .paypal-style{
+    margin: 0 200px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .paypal-style{
+    margin: 0 100px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .paypal-style{
+    margin: 0 0px;
   }
 }
