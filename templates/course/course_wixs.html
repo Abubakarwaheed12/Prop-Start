@@ -34,8 +34,8 @@
         />  {% endcomment %}
         <input type="hidden" id="furl" value="{{ lecture.video.url }}">
          <div class="videoPlayerDiv">
-          <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="directorImg01" autoplay muted >
-            <source src="" type="video/mp4">
+          <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload"  autoplay muted class="directorImg01" >
+            <source src="{{ lecture.video.url }}" type="video/mp4">
             Your browser does not support the video tag.
 
           </video>
