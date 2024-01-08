@@ -26,18 +26,20 @@
     </div>
     <div class="row">
       <div class="col-12">
-         <img
+         {% comment %} <img
           class="directorImg01"
           src="{% static '/images/jaredImg.webp' %}"
           alt=""
           id = "thumbnail-img"
-        /> 
+        />  {% endcomment %}
         <input type="hidden" id="furl" value="{{ lecture.video.url }}">
+         <div class="videoPlayerDiv">
           <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="directorImg01" autoplay muted onplay="swapThumbnailWithVideo()">
             <source src="" type="video/mp4">
             Your browser does not support the video tag.
 
           </video>
+         </div>
 
         <div class="text-center">
           <a href="{% url 'signup' %}">
@@ -1421,11 +1423,12 @@
 
   let sections = gsap.utils.toArray(".panel");
   let mm = gsap.matchMedia();
-
+  
   mm.add("(min-width:767px)", () => {
-    let scrollTween = gsap.to(sections, {
-      xPercent: (i) => (i + 1 == sections.length ? -100 * (i - 1) : -100 * i),
-      duration: (i) => (i + 1 == sections.length ? 0.5 * (i - 1) : 0.5 * i),
+    // Scroll for the first three cards
+    gsap.to(sections.slice(0, sections.length - 1), {
+      xPercent: (i) => -100 * i,
+      duration: 0.5,
       ease: "none",
       scrollTrigger: {
         trigger: ".BottomCardMainDiv",
@@ -1435,7 +1438,23 @@
         end: "+=3000 bottom",
       },
     });
+  
+    // Apply transform to the last card without pinning
+    gsap.to(sections[sections.length - 1], {
+      xPercent: -398,
+      duration: 0.1,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".BottomCardMainDiv",
+        markers: true,
+        scrub: 0.1,
+        start: "top top",
+        end: "+=3000 bottom",
+      },
+    });
   });
+  
+  
 </script>
 
 <!-- jquery cdn -->
