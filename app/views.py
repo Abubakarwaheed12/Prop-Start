@@ -382,7 +382,7 @@ def cources_pricing(request):
 
 #new add
 def propstart_course(request):
-    Leccture_first = Lectures.objects.all().first()
+    Leccture_first = Lectures.objects.all().last()
 
     context = {
         "lecture":Leccture_first
