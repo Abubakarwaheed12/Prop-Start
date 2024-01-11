@@ -180,7 +180,7 @@
   <!-- Is PropStart Right for you Start -->
   <div class="home_section_four">
     <div class="container">
-      <div class="propStartQuizTxt">
+      <div class="propStartQuizTxt" data-aos="fade-up" data-aos-duration="2500">
         <h1>Is PropStart Right For You?</h1>
         <a href="{% url 'quiz-1' %}">
           <button type='button' class="propQuizBtn01">Take Quiz</button>
@@ -189,7 +189,7 @@
       <div class="quizAllTxtMainSec">
         <div class="quizOneTxtFirstDiv">
           <div class='quizTxtMainDiv'>
-            <div class='quizOneTxtDiv'>
+            <div class='quizOneTxtDiv' data-aos="fade-up" data-aos-duration="1000">
               <h4>01. Education</h4>
               <p>
                 Smart learning starts by enrolling in our program. Invest in yourself and learn how to be the rich dad.
@@ -199,7 +199,7 @@
            </div>
            <div class='quizTxtMainDiv'>
             <div class='quizOneTxtDiv' style='border : none;'></div>
-            <div class='quizOneTxtDiv textAlignEndTxt'>
+            <div class='quizOneTxtDiv textAlignEndTxt' data-aos="fade-up" data-aos-duration="1500">
               <h4>02. Consult</h4>
               <p>
                 Elevate your vision in a tailored strategy session. Together with our experts, design a property plan that's uniquely yours.
@@ -207,7 +207,7 @@
             </div>
            </div>
            <div class='quizTxtMainDiv'>
-            <div class='quizOneTxtDiv'>
+            <div class='quizOneTxtDiv' data-aos="fade-up" data-aos-duration="2000">
               <h4>03. Invest</h4>
               <p>
                 Unlock access to PropStarts nationwide investment channels and be paired with one of our exclusive opportunities
@@ -216,19 +216,19 @@
             <div class='quizOneTxtDiv' style='border : none;'></div>
            </div>
            <div class='quizTxtMainDiv'>
-            <div class='quizOneTxtDiv' style='border : none;'></div>
-            <div class='quizOneTxtDiv textAlignEndTxt'>
+            <div class='quizOneTxtDiv setup5Empty' style='border : none;'></div>
+            <div class='quizOneTxtDiv textAlignEndTxt setup5Empty' data-aos="fade-up" data-aos-duration="2500">
               <h4>04. Grow</h4>
               <p>
                 Expand your property portfolio, step by step, until your aspirations become achievements.
               </p>
             </div>
            </div>
-           <div class='quizOneTxtDiv' style="min-height : auto;">
+           <div class='quizOneTxtDiv' style="min-height : auto;" data-aos="fade-up" data-aos-duration="3000">
             <h4>05. Freedom</h4>
           </div>
         </div>
-        <div class='quizOneTxtLastDiv circcleFill'>
+        <div class='quizOneTxtLastDiv circcleFill' data-aos="fade-up" data-aos-duration="3000">
           <div>
             <p>
               Your portfolio becomes the key to your dreams. Whether it's your dream home, financial freedom, or uncharted adventures, seize your future with confidence.
@@ -242,7 +242,7 @@
         </div>
         
         <!-- Scroll bar element -->
-        <div class="progress-container">
+        <div class="progress-container" data-aos="fade-up" data-aos-duration="1000">
           <div class="barMainDiv" id="scroll-bar">
             <div class="circcleFill" id="circle1">
               <img src="{% static 'images/01.svg' %}" alt="">
@@ -320,7 +320,7 @@
     window.location.href = " {% url 'on_boarding_text' %} ";
   });
   //scroll bar
-  document.addEventListener("DOMContentLoaded", function () {
+  {% comment %} document.addEventListener("DOMContentLoaded", function () {
     const body = document.body;
 
     // Update the scroll bar on window scroll
@@ -362,7 +362,7 @@
         circle.classList.toggle("green", isVisible);
       });
     }
-  });
+  }); {% endcomment %}
   
   
   
