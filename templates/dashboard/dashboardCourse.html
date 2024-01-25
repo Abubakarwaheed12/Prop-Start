@@ -34,10 +34,10 @@
               {% if first_lesson %}
                 {% with first_lecture=first_lesson.lectures.last %}
                   {% if first_lecture %}
-                  <input type="hidden" id="furl" value="{{ first_lecture.video.url }}">
+                  <input type="hidden" id="furl" value="{{ first_lecture.url_1 }}">
                   <div class="video_mask">
                     <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="dashboard_course_img" autoplay muted>
-                      <source src="{{ first_lecture.video.url }}" type="video/mp4">
+                      <source src="{{ first_lecture.url_1 }}" type="video/mp4">
                       Your browser does not support the video tag.
                     </video>
                   </div>
@@ -86,7 +86,7 @@
                     {% for lec in less.lectures.all %}
                     <p class="dashboard_accordion_body_p">
                       {{forloop.counter}}
-                      <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.video.url }}');">{{lec.name}}</a>
+                      <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.url_1 }}');">{{lec.name}}</a>
                     </p>
                     {% endfor %}
                   </div>
@@ -128,7 +128,7 @@
                     {% for lec in less.lectures.all %}
                     <p class="dashboard_accordion_body_p">
                       {{forloop.counter}}
-                      <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.video.url }}');">{{lec.name}}</a>
+                      <a href="javascript:void(0);" onclick="changeVideoSource('{{ lec.url_1 }}');">{{lec.name}}</a>
                     </p>
                     {% endfor %}
                   </div>

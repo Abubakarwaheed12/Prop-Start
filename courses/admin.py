@@ -8,10 +8,7 @@ from courses.models import(
     premium_course
 )
 
-from .forms import (
-    LectureForm,
-    PremiumForm
-)
+
 
 # Register your models here.
 
@@ -31,7 +28,7 @@ admin.site.register(Cousre, CourseModelAdmin)
 class LecturesInline(admin.StackedInline):
     model = Lectures
     extra = 1  
-    form = LectureForm
+    # form = LectureForm
      
 
 @admin.register(Lesson)
@@ -44,4 +41,4 @@ class LessonInline(admin.ModelAdmin):
 @admin.register(premium_course)
 class PremiumAdmin(admin.ModelAdmin):
     list_display=('id', 'name', 'lecture_description', 'created_at', 'updated_at')
-    form = PremiumForm
+    # form = PremiumForm

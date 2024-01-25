@@ -80,8 +80,9 @@ class Lectures(models.Model):
     lesson = models.ForeignKey(Lesson , on_delete=models.CASCADE, related_name="lectures")
     name =  models.CharField(max_length=200, help_text="Enter the Lecture Name.",)
     lecture_description = models.TextField(null=True , blank=True)
-    video_url = models.URLField(null=True, blank=True)
-    video = models.FileField(upload_to="lectures",help_text="please upload the lecture vide!")
+    url_1 = models.URLField(help_text="please enter the url of the video", default="https://propstart.s3.amazonaws.com/lectures/PropStart_Trailer.mp4") 
+    url_2 = models.URLField(help_text="please enter the url of the video", null=True, blank=True)
+    url_3 = models.URLField(help_text="please enter the url of the video", null=True, blank=True)
     document = models.FileField(upload_to="course_documents", help_text="please upload the document related video!", null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -100,8 +101,9 @@ class Lectures(models.Model):
 class premium_course(models.Model):
     name =  models.CharField(max_length=200, help_text="Enter the Lecture Name.",)
     lecture_description = models.TextField(null=True , blank=True)
-    video_url = models.URLField(null=True, blank=True)
-    video = models.FileField(upload_to="premium_lectures",help_text="please upload the lecture vide!")
+    url_1 = models.URLField(help_text="please enter the url of the video", default="https://propstart.s3.amazonaws.com/lectures/PropStart_Trailer.mp4") 
+    url_2 = models.URLField(null=True, blank=True, help_text="please enter the url of the video")
+    url_3 = models.URLField(help_text="please enter the url of the video", null=True, blank=True)
     document = models.FileField(upload_to="premium_course_documents", help_text="please upload the document related video!", null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)

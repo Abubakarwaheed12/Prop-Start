@@ -14,10 +14,10 @@
           <div class="col-lg-9 col-md-9 col-sm-12 col-12 mt-4">
             {% for c in course %}
             {% if course.first %}
-                  <input type="hidden" id="furl" value="{{ course.first.video.url }}">
+                  <input type="hidden" id="furl" value="{{ course.first.url_1 }}">
                   <div class="video_mask">
                     <video controls id="video-player" preload="none"  oncontextmenu="return false;" controlsList="nodownload" class="dashboard_course_img" autoplay muted>
-                      <source src="{{ course.first.video.url }}" type="video/mp4">
+                      <source src="{{ course.first.url_1 }}" type="video/mp4">
                       Your browser does not support the video tag.
                     </video>
                   </div>
