@@ -8,14 +8,8 @@
   <div class="section_2 mangaeHeightAllSec">
     <div class="container" style="position: relative">
       <div class="row">
-        <div
-          class="col-lg-6 col-md-6 col-sm-12 col-12 learning_text_main_section"
-        >
-          <div
-            class="learning_text_section"
-            data-aos="fade-up"
-            data-aos-duration="3000"
-          >
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 learning_text_main_section">
+          <div class="learning_text_section" data-aos="fade-up" data-aos-duration="3000">
             <h6>
               Smart Learning Strategic Buying
             </h6>
@@ -27,34 +21,27 @@
 
             <div class="learning_text_button">
 
-              
-              
+
+
               <a href="{% url 'propstart_course' %}">
-              <button type="button" class="pre_order_button">Learn More</button>
+                <button type="button" class="pre_order_button">Learn More</button>
               </a>
-              
+
               {% comment %} <a href="{% url 'signup' %}">
                 <button type="button" class="pre_order_button">Sign Up</button>
-                </a> {% endcomment %}
-              
+              </a> {% endcomment %}
+
 
               </a>
               <a href="{% url 'on_boarding_text' %}">
-                <button
-                  type="submit"
-                  class="pre_order_button"
-                  style="background: #0d4949"
-                >
+                <button type="submit" class="pre_order_button" style="background: #0d4949">
                   Book a Call
                 </button>
               </a>
             </div>
           </div>
         </div>
-        <div
-          class="col-lg-6 col-md-6 col-sm-12 col-12 two_images_div"
-          style="position: relative"
-        >
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 two_images_div" style="position: relative">
           <!-- <img src="{% static 'images/rafiki.png' %}" alt="" class="rafiki_image"> -->
           <!-- <img src="{% static 'images/Group 21.svg' %}" alt="" class="arrow_bottom_image"> -->
           <div class="scrollcontainer">
@@ -65,24 +52,20 @@
             <div class="chevron"></div>
           </div>
           <div class="video-container">
-            <div
-              class="video-wrapper"
-              id="video-wrapper"
-              data-aos="fade-up"
-              data-aos-duration="3000"
-            >
+            <div class="video-wrapper" id="video-wrapper" data-aos="fade-up" data-aos-duration="3000">
               <!-- <video muted autoplay="true" loop
                 id="myVideo" class="rafiki_image">
               <source src="{% static 'videos/IMG_0712 (2).mp4' %}" type="video">
             </video> -->
-            {% comment %} <img src="{% static 'videos/IMG_0712 (2).gif' %}" class="rafiki_image mobileGif01" alt=""> {% endcomment %}
-            <video autoplay muted loop playsinline preload="auto" id="myVideo" class="rafiki_image mobileVideoR">
-              <source src="{% static 'videos/IMG_0712 (2).mp4' %}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            
-            
-            
+              {% comment %} <img src="{% static 'videos/IMG_0712 (2).gif' %}" class="rafiki_image mobileGif01" alt="">
+              {% endcomment %}
+              <video autoplay muted loop playsinline preload="auto" id="myVideo" class="rafiki_image mobileVideoR">
+                <source src="{% static 'videos/IMG_0712 (2).mp4' %}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+
+
+
 
               <!-- <img
                 src="{% static 'videos/first_gif1.gif' %}"
@@ -102,20 +85,11 @@
     <div class="container">
       <div class="beyond_row">
         <div class=" buyend_image_sec">
-          <img
-            src="{% static 'videos/gift1.gif' %}"
-            alt=""
-            class="buyend_image"
-            data-aos="fade-up"
-            data-aos-duration="3000"
-          />
+          <img src="{% static 'videos/gift1.gif' %}" alt="" class="buyend_image" data-aos="fade-up"
+            data-aos-duration="3000" />
         </div>
         <div class="">
-          <div
-            class="beyond_text_main_section"
-            data-aos="fade-up"
-            data-aos-duration="2500"
-          >
+          <div class="beyond_text_main_section" data-aos="fade-up" data-aos-duration="2500">
             <div class="beyond_text_div">
               <h5>Beyond the Conventional Classroom</h5>
               <p>
@@ -124,7 +98,7 @@
               </p>
             </div>
 
-            {% if  request.user.is_authenticated %}
+            {% if request.user.is_authenticated %}
             <a href="{% url 'courses' %}" style="text-decoration: none">
               <button type="submit" class="pre_order_button2">Learn More</button>
             </a>
@@ -145,11 +119,7 @@
     <div class="container">
       <div class="section_3_row">
         <div class="">
-          <div
-            class="invest_text_main_section"
-            data-aos="fade-up"
-            data-aos-duration="2500"
-          >
+          <div class="invest_text_main_section" data-aos="fade-up" data-aos-duration="2500">
             <div class="invest_text_div">
               <h5>Invest Without Compromise</h5>
               <p>
@@ -164,13 +134,8 @@
           </div>
         </div>
         <div class="buyend_image_sec">
-          <img
-            src="{% static 'videos/gift2.gif' %}"
-            alt=""
-            class="buyend_image"
-            data-aos="fade-up"
-            data-aos-duration="3000"
-          />
+          <img src="{% static 'videos/gift2.gif' %}" alt="" class="buyend_image" data-aos="fade-up"
+            data-aos-duration="3000" />
         </div>
       </div>
     </div>
@@ -179,13 +144,13 @@
 
   <!-- Is PropStart Right for you Start -->
   <div class="home_section_four">
-    <div class="container">
+    <div class="">
       <div class="propStartQuizTxt" data-aos="fade-up" data-aos-duration="2500">
         <h1>Is PropStart Right For You?</h1>
         <a href="{% url 'quiz-1' %}">
           <button type='button' class="propQuizBtn01">Take Quiz</button>
         </a>
-      </div >
+      </div>
       <div class="quizAllTxtMainSec">
         <div class="quizOneTxtFirstDiv">
           <div class='quizTxtMainDiv'>
@@ -224,85 +189,65 @@
               </p>
             </div>
            </div>
-           <div class='quizOneTxtDiv' style="min-height : auto;" data-aos="fade-up" data-aos-duration="3000">
-            <h4>05. Freedom</h4>
+          <div class="quizTxtMainDiv">
+            <div class='quizOneTxtDiv quizOneTxtDivBottom' data-aos="fade-up" data-aos-duration="3000">
+              <h4>05. Freedom</h4>
+              <p >
+                Your portfolio becomes the key to your dreams. Whether it's your dream home, financial freedom, or
+                uncharted adventures, seize your future with confidence.
+              </p>
+            </div>
+            <div class='quizOneTxtDiv setup5Empty setup5Quiz' style='border : none;' data-aos="fade-up" data-aos-duration="3000">
+              <a href="{% url 'quiz-1' %}">
+                <button type='button' class="propQuizBtn02">Take Quiz</button>
+              </a></div>
           </div>
+          <!-- <div class='quizOneTxtLastDiv' data-aos="fade-up" data-aos-duration="3000">
+            <div>
+              <p>
+                Your portfolio becomes the key to your dreams. Whether it's your dream home, financial freedom, or
+                uncharted adventures, seize your future with confidence.
+              </p>
+            </div>
+            <div>
+              <a href="{% url 'quiz-1' %}">
+                <button type='button' class="propQuizBtn01">Take Quiz</button>
+              </a>
+            </div>
+          </div> -->
         </div>
-        <div class='quizOneTxtLastDiv circcleFill' data-aos="fade-up" data-aos-duration="3000">
-          <div>
-            <p>
-              Your portfolio becomes the key to your dreams. Whether it's your dream home, financial freedom, or uncharted adventures, seize your future with confidence.
-            </p>
-          </div>
-          <div>
-            <a href="{% url 'quiz-1' %}">
-              <button type='button' class="propQuizBtn01">Take Quiz</button>
-            </a>
-          </div>
-        </div>
+
         
-        <!-- Scroll bar element -->
-        <div class="progress-container" data-aos="fade-up" data-aos-duration="1000">
-          <div class="barMainDiv" id="scroll-bar">
-            <div class="circcleFill" id="circle1">
-              <img src="{% static 'images/01.svg' %}" alt="">
-            </div>
-            <div class="circcleFill" id="circle2">
-              <img src="{% static 'images/02.svg' %}" alt="">
-            </div>
-            <div class="circcleFill" id="circle3">
-              <img src="{% static 'images/03.svg' %}" alt="">
-            </div>
-            <div class="circcleFill" id="circle4">
-              <img src="{% static 'images/004.svg' %}" alt="">
-            </div>
-            <div class="circcleFill" id="circle5">
-              <img src="{% static 'images/05.svg' %}" alt="">
-            </div>
-          </div>
+      </div>
+      <div class="scrollMainSection">
+        {% include './quizScroll.html' %}
+      </div>
     </div>
   </div>
-  </div>
-</div>
   <!-- End -->
 
   <!-- Your Journey Starts Here  Start -->
- <div class="">
-  <div class="home_section_five">
-    <div class="container">
-      <div
-        class="journey_start_section"
-        data-aos="fade-up"
-        data-aos-duration="3000"
-      >
-        <h4>Your Journey Starts Here</h4>
-        <div
-          class="journey_start_button_group"
-          data-aos="fade-up"
-          data-aos-duration="3000"
-        >
-          <a href="{% url 'signup' %}">
-            <button
-              type="submit"
-              class="journey_start_button journey_start_button_sign"
-            >
-              Sign Up
-            </button>
-          </a>
-          <a href="{% url 'on_boarding_text' %}">
-            <button
-              type="submit"
-              class="journey_start_button journey_start_button_call"
-              style="background: none"
-            >
-              Book a Call
-            </button>
-          </a>
+  <div class="">
+    <div class="home_section_five">
+      <div class="container">
+        <div class="journey_start_section" data-aos="fade-up" data-aos-duration="3000">
+          <h4>Your Journey Starts Here</h4>
+          <div class="journey_start_button_group" data-aos="fade-up" data-aos-duration="3000">
+            <a href="{% url 'signup' %}">
+              <button type="submit" class="journey_start_button journey_start_button_sign">
+                Sign Up
+              </button>
+            </a>
+            <a href="{% url 'on_boarding_text' %}">
+              <button type="submit" class="journey_start_button journey_start_button_call" style="background: none">
+                Book a Call
+              </button>
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
- </div>
   {% endblock content %} {% block footer %} {% include "base/footer.html" %} {% endblock footer %} {% block js %}
 </div>
 <!-- end -->
@@ -363,19 +308,19 @@
       });
     }
   }); {% endcomment %}
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   // video play button js
-    var video = document.getElementById('myVideo');
-    video.addEventListener('click', function(e) {
-      e.preventDefault();
-      // Add any additional actions here if needed
-    });
-  $(document).on('scroll', function() {
+  var video = document.getElementById('myVideo');
+  video.addEventListener('click', function (e) {
+    e.preventDefault();
+    // Add any additional actions here if needed
+  });
+  $(document).on('scroll', function () {
     const video = document.getElementById("myVideo");
     // Check if the video is in the current section
     if (videoTop >= sectionTop && videoBottom <= sectionBottom) {
