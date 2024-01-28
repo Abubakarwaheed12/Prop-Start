@@ -11,23 +11,25 @@
   padding: 0;
   margin: 0;
 }
+
 body::-webkit-scrollbar {
   width: 10px;
 }
+
 body::-webkit-scrollbar-track {
   background-color: #eceef2;
 }
+
 body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #fff;
-  background-image: -webkit-linear-gradient(
-    top,
-    #e4f5fc 0%,
-    #bfe8f9 50%,
-    #9fd8ef 51%,
-    #17e093 100%
-  );
+  background-image: -webkit-linear-gradient(top,
+      #e4f5fc 0%,
+      #bfe8f9 50%,
+      #9fd8ef 51%,
+      #17e093 100%);
 }
+
 /* navbar css */
 .section_1 {
   background-color: rgba(255, 255, 255, 1);
@@ -69,11 +71,13 @@ body::-webkit-scrollbar-thumb {
   font-style: normal;
   font-family: "Urbanist";
 }
+
 .nav_link span {
   width: max-content;
   position: relative;
   cursor: pointer;
 }
+
 /* hover css  */
 .nav_link span::after {
   content: "";
@@ -240,14 +244,17 @@ body::-webkit-scrollbar-thumb {
   height: 390px;
   object-fit: cover;
 }
+
 .beyond_row {
   display: flex;
   justify-content: center;
 }
+
 .section_3_row {
   display: flex;
   justify-content: center;
 }
+
 .beyond_text_div h5 {
   margin-bottom: 0;
   color: #0d4949;
@@ -371,6 +378,7 @@ body::-webkit-scrollbar-thumb {
   max-width: 512px;
   /* height: 511.999px; */
 }
+
 /* .buyend_image_container {
   padding: 0 60px;
 } */
@@ -381,11 +389,13 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   text-transform: capitalize;
 }
+
 .appendeTxtDiv {
   min-height: 266px;
   /* display: flex;
   flex-direction: column; */
 }
+
 .propstart_text h4 {
   color: #0d4949;
   font-family: "Urbanist";
@@ -498,9 +508,11 @@ body::-webkit-scrollbar-thumb {
 .footer_main_section {
   background-color: #000;
 }
+
 .footer_main_section_div {
   padding: 160px 448.751px 74px 448px;
 }
+
 .footer_logo_img {
   width: 151.249px;
   transition: all 300ms ease;
@@ -509,6 +521,7 @@ body::-webkit-scrollbar-thumb {
 .footer_logo_img:hover {
   transform: scale(1.08);
 }
+
 .footer_item h5 {
   color: #fff;
   font-family: "Urbanist";
@@ -517,18 +530,22 @@ body::-webkit-scrollbar-thumb {
   font-weight: 400;
   margin-bottom: 0;
 }
+
 .profile_img {
   margin-top: 4.5rem;
 }
+
 .footer_item a {
   text-decoration: none;
   display: block;
   width: max-content;
 }
+
 .footer_item a p span {
   width: max-content;
   position: relative;
 }
+
 .footer_item a p span::after {
   content: "";
   position: absolute;
@@ -541,9 +558,11 @@ body::-webkit-scrollbar-thumb {
   transition-timing-function: ease-in-out;
   transform: scaleX(0);
 }
+
 .footer_item a p span:hover:after {
   transform: scaleX(1);
 }
+
 .footer_item p {
   margin-bottom: 0;
   color: #fff;
@@ -949,9 +968,11 @@ body::-webkit-scrollbar-thumb {
   transform: scale(1.05);
   opacity: 0.8;
 }
+
 .payment_btn001:hover {
   transform: scale(1) !important;
 }
+
 .or_text {
   margin-top: 25px;
   margin-bottom: 0;
@@ -1095,10 +1116,12 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   position: relative;
 }
+
 #phone::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 .iti--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
   background: none !important;
 }
@@ -1225,24 +1248,26 @@ body::-webkit-scrollbar-thumb {
   /* box-shadow: 0px 0px 19.06189px 0px rgba(0, 0, 0, 0.07); */
   box-shadow: 0px 1px 10.06189px 3px rgba(0, 0, 0, 0.07);
 }
+
 .select_menu::-webkit-scrollbar {
   width: 5px;
 }
+
 .select_menu::-webkit-scrollbar-track {
   background-color: #eceef2;
 }
+
 .select_menu::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #fff;
-  background-image: -webkit-linear-gradient(
-    top,
-    #e4f5fc 0%,
-    #bfe8f9 50%,
-    #9fd8ef 51%,
-    #17e093 100%
-  );
+  background-image: -webkit-linear-gradient(top,
+      #e4f5fc 0%,
+      #bfe8f9 50%,
+      #9fd8ef 51%,
+      #17e093 100%);
 }
-.select_menu > li {
+
+.select_menu>li {
   padding: 10px 15px;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -1253,7 +1278,7 @@ body::-webkit-scrollbar-thumb {
   line-height: normal;
 }
 
-.select_menu > li:hover {
+.select_menu>li:hover {
   background-color: #444;
   color: #fff;
 }
@@ -1298,7 +1323,8 @@ body::-webkit-scrollbar-thumb {
   font-size: 17px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 111.111% */
+  line-height: 20px;
+  /* 111.111% */
 }
 
 .paypal_p_active p {
@@ -1327,26 +1353,31 @@ body::-webkit-scrollbar-thumb {
 .paypal_btn_2.active {
   background: rgba(23, 224, 147, 0.1);
 }
+
 .paypal_checkbox {
   width: 23px;
   height: 23px;
   border: 2px solid #e6e6e6;
 }
+
 .paypal_checkbox[type="radio"] {
   appearance: none;
   padding: 9px;
   border-radius: 50%;
 }
+
 .paypal_checkbox[type="radio"]:checked {
   background-color: #17e093;
   border: 2px solid #fff !important;
   box-shadow: 0px 0px 0px 2px #17e093;
 }
+
 .credit_card_form {
   border: 1px solid #e0e0e0;
   border-top: none;
   padding: 6px 26px 24px 26px;
 }
+
 /* .paypal_checkbox:focus {
   box-shadow: none;
 } */
@@ -1382,6 +1413,7 @@ article.on {
   left: 21px;
   bottom: 22px;
 }
+
 .mm_yy_cvv_text {
   position: absolute;
   right: 21px;
@@ -1394,6 +1426,7 @@ article.on {
   line-height: normal;
   margin-bottom: 0;
 }
+
 .card_image_group img {
   width: 23.929px;
   height: 16px;
@@ -1859,9 +1892,11 @@ article.on {
   -webkit-touch-callout: none;
   touch-action: none;
 }
+
 .text_append_h401 {
   box-sizing: content-box;
 }
+
 .video-container {
   position: relative;
 }
@@ -1892,6 +1927,7 @@ article.on {
   cursor: pointer;
   transition: all 300ms ease;
 }
+
 .footer_icon_span:hover {
   transform: scale(1.2);
 }
@@ -2079,6 +2115,7 @@ article.on {
   left: 301px;
   z-index: 10;
 }
+
 .img03 {
   width: 48.658px;
   position: absolute;
@@ -2094,6 +2131,7 @@ article.on {
   left: 85px;
   z-index: 10;
 }
+
 .img05 {
   width: 38.323px;
   position: absolute;
@@ -2101,6 +2139,7 @@ article.on {
   left: 222px;
   z-index: 10;
 }
+
 .icon_number h6 {
   color: #0d4949;
   font-family: "Inter";
@@ -2210,6 +2249,7 @@ article.on {
   flex-direction: column;
   gap: 10px;
 }
+
 .number_li_email p {
   line-height: 25px;
 }
@@ -2272,12 +2312,14 @@ article.on {
   transition: all 300ms ease;
   -webkit-transition: all 1s ease-in-out 0.1s;
 }
+
 #calendarId {
   display: none;
   position: absolute;
   z-index: 99;
   top: 124px;
 }
+
 .clockDive {
   display: flex;
   flex-direction: column;
@@ -2286,12 +2328,14 @@ article.on {
   filter: drop-shadow(0px 0px 19.25px rgba(0, 0, 0, 0.07));
   padding: 0 26px;
 }
+
 .timeInput_div {
   display: flex;
   padding: 22px 13.75px;
   align-items: center;
   gap: 48px;
 }
+
 .timeInput_div p {
   width: 50.875px;
   height: 33px;
@@ -2304,6 +2348,7 @@ article.on {
   line-height: normal;
   margin-bottom: 0;
 }
+
 .timeInput_unDisabled {
   display: flex;
   align-items: center;
@@ -2312,6 +2357,7 @@ article.on {
   border-top: 0.688px solid #8b8b8b;
   border-bottom: 0.688px solid #8b8b8b;
 }
+
 .timeInput_unDisabled span {
   color: #454545;
   text-align: center;
@@ -2320,14 +2366,17 @@ article.on {
   font-style: normal;
   font-weight: 600;
 }
+
 #ampm {
   margin-left: 31px;
 }
+
 .unDisable_time_input::-webkit-outer-spin-button,
 .unDisable_time_input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 .unDisable_time_input {
   width: 50.875px;
   height: 33px;
@@ -2345,9 +2394,11 @@ article.on {
   border-radius: 4px;
   outline: none;
 }
+
 .unDisable_time_input::placeholder {
   color: #454545 !important;
 }
+
 #ampmInput {
   width: 63.25px;
   height: 33px;
@@ -2362,11 +2413,13 @@ article.on {
   background: none;
   outline: none;
 }
+
 .timeInput_unDisabled::-webkit-outer-spin-button,
 .timeInput_unDisabled::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 #clockShow {
   display: none;
   position: absolute;
@@ -2375,7 +2428,8 @@ article.on {
 }
 
 .sections-container {
-  scroll-snap-type: y mandatory; /* Enable vertical snap scrolling */
+  scroll-snap-type: y mandatory;
+  /* Enable vertical snap scrolling */
 }
 
 .right_of_you_icon:hover {
@@ -2386,18 +2440,22 @@ article.on {
   transition: all 300ms ease;
   -webkit-transition: all 0.4s ease-in-out;
 }
+
 .colorAdd02 {
   transition: all 300ms ease;
   -webkit-transition: all 0.4s ease-in-out;
 }
+
 .colorAdd03 {
   transition: all 300ms ease;
   -webkit-transition: all 0.4s ease-in-out;
 }
+
 .colorAdd04 {
   transition: all 300ms ease;
   -webkit-transition: all 0.4s ease-in-out;
 }
+
 .colorAdd05 {
   transition: all 300ms ease;
   -webkit-transition: all 0.4s ease-in-out;
@@ -2409,14 +2467,17 @@ article.on {
   cursor: pointer;
   filter: drop-shadow(1px 6px 2px rgb(0 0 0 / 0.4));
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 /* @keyframes fadeOut {
   0% { opacity: 1; }
   100% { opacity: 0; }
@@ -2427,6 +2488,7 @@ article.on {
   cursor: pointer;
   filter: drop-shadow(rgba(0, 0, 0, 0.4) 0px -6px 2px);
 }
+
 .colorAdd03:hover {
   /* fill: #02774a; */
   fill: #7ab9e5;
@@ -2434,12 +2496,14 @@ article.on {
   /* filter: drop-shadow(-1px 7px 3px rgba(0, 0, 0, 0.4)); */
   filter: drop-shadow(5px -1px 3px rgba(0, 0, 0, 0.4));
 }
+
 .colorAdd04:hover {
   /* fill: #0c1313; */
   fill: #7ab9e5;
   cursor: pointer;
   filter: drop-shadow(5px 2px 2px rgb(0 0 0 / 0.4));
 }
+
 .colorAdd05:hover {
   /* fill: #02774a; */
   fill: #7ab9e5;
@@ -2477,6 +2541,7 @@ article.on {
   top: 114px;
   z-index: 8;
 }
+
 /* .text_append_h4 {
   max-height: 0;
   overflow: hidden;
@@ -2507,6 +2572,7 @@ article.on {
   top: 28px;
   right: 173px;
 }
+
 .edit_txt {
   display: flex;
   align-items: center;
@@ -2527,6 +2593,7 @@ article.on {
   margin-bottom: 0;
   margin-top: 10rem;
 }
+
 .table_heading_txt {
   color: black;
   font-family: "Urbanist";
@@ -2536,6 +2603,7 @@ article.on {
   line-height: 24px;
   margin-bottom: 3rem;
 }
+
 .table_thead th {
   color: black;
   font-family: "Urbanist";
@@ -2543,6 +2611,7 @@ article.on {
   font-style: normal;
   font-weight: 600;
 }
+
 .table_tbody td {
   color: black;
   font-family: "Urbanist";
@@ -2550,6 +2619,7 @@ article.on {
   font-style: normal;
   font-weight: 400;
 }
+
 .no_found_txt {
   color: black;
   font-family: "Urbanist";
@@ -2558,14 +2628,17 @@ article.on {
   font-weight: 500;
   margin-bottom: 0;
 }
+
 .table_main_sec {
   margin-bottom: 7rem;
 }
+
 .date-item.previous-month,
 .date-item.past-date {
   color: lightgray;
   cursor: not-allowed;
 }
+
 .calendar_main_div {
   width: 100%;
   border-radius: 14.977px;
@@ -2573,12 +2646,14 @@ article.on {
   box-shadow: 0px 0px 19.06189px 0px rgba(0, 0, 0, 0.07);
   padding: 27px;
 }
+
 .calendar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 17px;
 }
+
 .days-of-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -2589,33 +2664,40 @@ article.on {
   font-size: 16.339px;
   font-style: normal;
   font-weight: 400;
-  line-height: 21.785px; /* 133.333% */
+  line-height: 21.785px;
+  /* 133.333% */
   margin-top: 27px;
 }
+
 .month_header {
   color: var(--Dark-Gray-1, #121212);
   font-family: Inter;
   font-size: 19.062px;
   font-style: normal;
   font-weight: 500;
-  line-height: 27.231px; /* 142.857% */
+  line-height: 27.231px;
+  /* 142.857% */
 }
+
 .dates {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
   margin-top: 27px;
 }
+
 .current-date {
   color: #17e093 !important;
   font-weight: 600 !important;
 }
+
 .next_pervious_btn {
   background: none;
   border: none;
   color: var(--Dark-Gray-1, #121212);
   font-size: 27px;
 }
+
 .date-item {
   text-align: center;
   padding: 10px;
@@ -2627,6 +2709,7 @@ article.on {
   font-style: normal;
   font-weight: 400;
 }
+
 .on_boarding_calendar {
   padding: 0 !important;
   width: 100%;
@@ -2635,20 +2718,24 @@ article.on {
 .on_boarding_text_div {
   padding: 5rem 0;
 }
+
 .on_boarding_text_div p {
   color: rgba(13, 73, 73, 0.6);
   font-family: "Urbanist";
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 133.333% */
+  line-height: 24px;
+  /* 133.333% */
   letter-spacing: -0.396px;
   margin-top: 1rem;
 }
+
 .on_boarding_text_div_main {
   padding-left: 80px !important;
   padding-right: 80px !important;
 }
+
 .on_boarding_text_div h6 {
   color: #0d4949;
   font-family: "Urbanist";
@@ -2657,14 +2744,17 @@ article.on {
   font-weight: 600;
   margin-top: 2rem;
 }
+
 .thead_p {
   margin-bottom: 0;
 }
+
 .footer_desc_p {
   border-top: 1px solid #fff;
   padding: 20px;
   margin-top: 2rem;
 }
+
 .footer_desc_p p {
   color: #ffff;
   font-family: "Urbanist";
@@ -2674,11 +2764,13 @@ article.on {
   text-align: center;
   margin-bottom: 0;
 }
+
 .footer_main_section .fp-tableCell {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .error-message {
   color: red;
   font-family: "Urbanist";
@@ -2687,13 +2779,16 @@ article.on {
   font-weight: 400;
   padding: 10px 0 0 0;
 }
+
 .beyond_text_main_section {
   padding-top: 30px;
 }
+
 .pricing_section_one {
   margin-top: 11rem;
   margin-bottom: 10rem;
 }
+
 .pricing_section_one h3 {
   text-align: center;
   color: #0d4949;
@@ -2703,6 +2798,7 @@ article.on {
   font-weight: 600;
   margin-bottom: 108px;
 }
+
 .property_starter_card {
   border-radius: 16.291px;
   background-color: #fff;
@@ -2711,6 +2807,7 @@ article.on {
   position: relative;
   z-index: 3;
 }
+
 .most_popular_btn {
   color: #323232;
   text-align: center;
@@ -2727,6 +2824,7 @@ article.on {
   top: -24px;
   padding: 7px 0 18px 0px;
 }
+
 .property_starter_text001 {
   width: 100%;
   max-width: 98.56px;
@@ -2737,6 +2835,7 @@ article.on {
   font-weight: 700;
   line-height: normal;
 }
+
 .property_starter_text002 {
   width: 100%;
   max-width: 128.56px;
@@ -2744,6 +2843,7 @@ article.on {
   align-items: end;
   position: relative;
 }
+
 .property_starter_text002 h5 {
   margin-bottom: 0;
   color: #323232;
@@ -2754,6 +2854,7 @@ article.on {
   font-weight: 800;
   line-height: normal;
 }
+
 .property_starter_text002 p {
   margin-bottom: 0;
   color: rgba(50, 50, 50, 0.5);
@@ -2765,15 +2866,18 @@ article.on {
   display: flex;
   justify-content: end;
 }
+
 .property_starter_card_item001 {
   display: flex;
   justify-content: space-between;
 }
+
 .monthly_text {
   position: absolute;
   right: 0;
   bottom: -7px;
 }
+
 .starter_button01 {
   border: none;
   border-radius: 17.515px;
@@ -2785,35 +2889,45 @@ article.on {
   font-size: 17.92px;
   font-style: normal;
   font-weight: 600;
-  line-height: 48.168px; /* 268.793% */
+  line-height: 48.168px;
+  /* 268.793% */
   text-transform: capitalize;
   margin-top: 28px;
   transition: all 300ms ease-in-out;
 }
+
 .starter_button01:hover {
   transform: scale(1.06);
 }
+
 .skill_span {
   color: #0f8282;
 }
+
 .property_starter_card003 {
   background-color: #0d4949;
 }
+
 .property_starter_card003 .property_starter_text002 h5 {
   color: #fff;
 }
+
 .property_starter_card003 .property_starter_text001 {
   color: #fff;
 }
+
 .property_starter_card003 .property_starter_text002 p {
   color: rgba(255, 255, 255, 0.5);
 }
+
 .pro_span {
   color: #17e093;
 }
+
 .skill_button01 {
   background-color: #0f8282;
 }
+
 .pro_button01 {
   background-color: #17e093;
 }
@@ -2822,6 +2936,7 @@ article.on {
   margin-top: 110px;
   margin-bottom: 200px;
 }
+
 .pricing_section_two h2 {
   color: var(--neutral-800, #170f49);
   font-feature-settings: "clig" off, "liga" off;
@@ -2829,11 +2944,13 @@ article.on {
   font-size: 36px;
   font-style: normal;
   font-weight: 700;
-  line-height: 26.643px; /* 74.008% */
+  line-height: 26.643px;
+  /* 74.008% */
   letter-spacing: -0.792px;
   text-align: center;
   margin-bottom: 52px;
 }
+
 .cources_detail_card {
   padding: 33px 31px;
   border-radius: 20px;
@@ -2843,14 +2960,17 @@ article.on {
   align-items: center;
   min-height: 225px;
 }
+
 .circle_tick_image {
   width: 60px;
   /* height: 60px; */
 }
+
 .circle_tick_image_faq {
   width: 129px;
   height: 60px;
 }
+
 .cources_detail_card h6 {
   color: #0d4949;
   text-align: center;
@@ -2862,6 +2982,7 @@ article.on {
   margin-bottom: 0;
   margin-top: 16px;
 }
+
 .cources_detail_card p {
   margin-bottom: 0;
   margin-top: 16px;
@@ -2871,8 +2992,10 @@ article.on {
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 142.857% */
+  line-height: 20px;
+  /* 142.857% */
 }
+
 .most_button {
   color: #000;
   text-align: center;
@@ -2891,6 +3014,7 @@ article.on {
   right: 13px;
   top: 14px;
 }
+
 /* payment css  */
 .payment_section_with_card {
   padding: 40px 30px 0px 30px;
@@ -2900,10 +3024,12 @@ article.on {
   width: 50%;
   /* max-width: 900px; */
 }
-#buttons-container{
-  display : flex !important;
+
+#buttons-container {
+  display: flex !important;
   justify-content: center !important;
 }
+
 /* 
 .account_section_payment001 {
   padding: 0 0 0 20px;
@@ -2922,6 +3048,7 @@ article.on {
   line-height: normal;
   text-align: center;
 }
+
 .payment_text_div p {
   margin-bottom: 0;
   color: rgba(13, 73, 73, 0.6);
@@ -2930,9 +3057,11 @@ article.on {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px; /* 175% */
+  line-height: 28px;
+  /* 175% */
   margin-top: 4px;
 }
+
 .payment_condition_p {
   color: #0d4949;
   text-align: center;
@@ -2940,19 +3069,23 @@ article.on {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px; /* 175% */
+  line-height: 28px;
+  /* 175% */
   margin-bottom: 0;
   margin-top: 16px;
 }
+
 .payment_condition_p a {
   font-weight: 600;
   color: #0d4949;
   text-decoration: none;
 }
+
 .paypal_text_div2 img {
   width: 42px;
   height: 36px;
 }
+
 .prop_logo_section {
   /* background-image: url(/static/images/1\ 3.svg);
   background-repeat: no-repeat; */
@@ -2960,29 +3093,36 @@ article.on {
   /* max-width: 900px; */
   position: relative;
 }
+
 .prop_logo_section img {
   width: 100%;
   /* height: 1171px; */
 }
+
 .payment_input {
   padding: 18px 19px 21px 27px !important;
   font-size: 13px !important;
 }
+
 .payment_label {
   font-size: 14px !important;
 }
+
 .cvc_card_input {
   padding-left: 56px !important;
   padding-right: 111px !important;
 }
+
 .payment_input_and_image_section {
   display: flex;
 }
+
 .mini_input_section {
   display: flex;
   gap: 22px;
   justify-content: space-between;
 }
+
 /* .manage_cont_width {
   display: flex;
   justify-content: center;
@@ -2996,6 +3136,7 @@ article.on {
   width: 100%;
   max-width: 720px;
 }
+
 .pro_price_div {
   background-color: #e8fcf4;
   padding: 30px 45px 33px 31px;
@@ -3004,6 +3145,7 @@ article.on {
   justify-content: space-between;
   border-bottom: 1px solid #e0e0e0;
 }
+
 .pro_price_div h5 {
   color: #000;
   text-align: center;
@@ -3014,6 +3156,7 @@ article.on {
   line-height: normal;
   margin-bottom: 0;
 }
+
 .pro_price_div p {
   margin-bottom: 0;
   color: rgba(0, 0, 0, 0.5);
@@ -3024,6 +3167,7 @@ article.on {
   line-height: normal;
   margin-top: 4px;
 }
+
 .pro_price_div h4 {
   margin-bottom: 0;
   color: #000;
@@ -3034,14 +3178,17 @@ article.on {
   font-weight: 800;
   line-height: normal;
 }
+
 .pro_price_div002 {
   border: none;
   background: none;
 }
+
 .pro_price_div03 {
   background: none;
   border-bottom: none;
 }
+
 .pro_price_div03 h6 {
   margin-bottom: 0;
   color: #000;
@@ -3051,15 +3198,19 @@ article.on {
   font-weight: 600;
   line-height: normal;
 }
+
 .postal_code_input {
   width: 100%;
 }
+
 .calendly-inline-widget {
   overflow: hidden !important;
 }
+
 .courseDescBottom span {
   font-weight: 600;
 }
+
 .courseDescBottom {
   color: #8b8b8b;
   font-family: "Urbanist";
@@ -3073,15 +3224,18 @@ article.on {
 #myVideo {
   pointer-events: none;
 }
+
 .mobileGif01 {
   display: none;
 }
+
 .course_lecture_desc_sec {
   display: flex;
   gap: 16px;
   /* flex-wrap: wrap; */
   justify-content: space-between;
 }
+
 .lecture_card001 {
   padding: 15px 18px;
   border-radius: 6px;
@@ -3094,9 +3248,11 @@ article.on {
   flex-direction: column;
   justify-content: space-between;
 }
+
 .course_lecture_desc_sec {
   display: flex;
 }
+
 .lecture_card001 h6 {
   margin-bottom: 0;
   color: #323232;
@@ -3104,9 +3260,11 @@ article.on {
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
-  line-height: normal; /* 233.333% */
+  line-height: normal;
+  /* 233.333% */
   letter-spacing: -0.36px;
 }
+
 .lecture_card001 p {
   margin-bottom: 0;
   color: #323232;
@@ -3116,6 +3274,7 @@ article.on {
   font-weight: 400;
   margin-top: 7px;
 }
+
 .lecture_card002 {
   width: 100%;
   max-width: 292px;
@@ -3124,9 +3283,11 @@ article.on {
   position: relative;
   transition: 0.25s ease-in-out;
 }
+
 .lecture_card002:hover {
   transform: translatey(-2.5%);
 }
+
 .lecture_card002 img {
   width: 100%;
   max-width: 292px;
@@ -3134,9 +3295,10 @@ article.on {
   border-radius: 6px;
   object-fit: cover;
 }
+
 .overlay_image {
   position: absolute;
-background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69%);
+  background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69%);
   height: 100%;
   width: 100%;
   transform: rotate(180deg);
@@ -3148,58 +3310,70 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   bottom: 12px;
   left: 13px;
 }
+
 .lecture_card002_desc p {
   color: #fff;
   font-family: Urbanist;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
-  line-height: normal; /* 525% */
+  line-height: normal;
+  /* 525% */
   letter-spacing: -0.16px;
   margin-bottom: 0;
 }
+
 .lecture_card002_desc h6 {
   color: #fff;
   font-family: Urbanist;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
-  line-height: normal; /* 300% */
+  line-height: normal;
+  /* 300% */
   letter-spacing: -0.28px;
   margin-bottom: 0;
   margin-top: 4px;
 }
+
 .lecture_card002_desc span {
   color: #fff;
   font-family: 'Urbanist';
   font-size: 10px;
   font-style: normal;
   font-weight: 600;
-  line-height: normal; /* 525% */
+  line-height: normal;
+  /* 525% */
   letter-spacing: -0.16px;
 }
+
 .lecture_card001 ul {
   margin-bottom: 0;
   padding-left: 18px;
 }
+
 .lecture_card001 ul li {
   font-size: 12px;
 }
+
 .wellcomeMsj {
   color: #0d4949;
   font-family: "Urbanist";
   font-size: 23px;
   font-style: normal;
   font-weight: 500;
-  line-height: 30px; /* 166.667% */
+  line-height: 30px;
+  /* 166.667% */
   letter-spacing: -0.36px;
   text-align: center;
 }
+
 .goToCourseBtnDiv {
   /* display: flex; */
   justify-content: center;
   margin: 0 auto;
 }
+
 .goToCourseBtn {
   width: 40%;
   border-radius: 50px;
@@ -3216,9 +3390,11 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   margin-top: 30px;
   transition: all 300ms ease-in-out;
 }
+
 .goToCourseBtn:hover {
   transform: scale(1.03);
 }
+
 .video_mask {
   border-radius: 25px;
   overflow: hidden;
@@ -3231,6 +3407,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   display: flex;
   align-items: center;
 }
+
 .propStartQuizTxt {
   margin: 0 auto;
   width: 100%;
@@ -3239,6 +3416,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   flex-direction: column;
   align-items: center;
 }
+
 .propStartQuizTxt h1 {
   margin-bottom: 0;
   color: #0d4949;
@@ -3248,6 +3426,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   font-weight: 600;
   text-align: center;
 }
+
 .propQuizBtn01 {
   margin-top: 30px;
   border-radius: 50px;
@@ -3258,58 +3437,69 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: 50px; /* 343.75% */
+  line-height: 50px;
+  /* 343.75% */
   text-transform: capitalize;
   padding: 0px 30px 0px 30px;
   border: none;
   transition: all 300ms ease-in-out;
 }
+
 .propQuizBtn01:hover {
   transform: scale(1.08);
   opacity: 0.8;
 }
+
 .quizTxtMainDiv {
   display: flex;
   justify-content: space-between;
 }
+
 .quizOneTxtDiv {
   border-top: 2px solid #323232;
   width: 100%;
-  max-width: 240px;
-  padding-top: 8px;
+  max-width: 195px;
+  padding-top: 2px;
   height: auto;
-  min-height: 250px;
-  
+  min-height: 146px;
+
 }
+
+.quizOneTxtDivBottom p {
+  margin-top: 11px !important;
+}
+
 .quizOneTxtDiv h4 {
   margin-bottom: 0;
   color: #323232;
   font-family: "Urbanist";
-  font-size: 36px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 700;
-  line-height: 40px;
+  line-height: normal;
 }
+
 .quizOneTxtDiv p {
   margin-bottom: 0;
   color: #000;
   font-family: "Urbanist";
-  font-size: 19.487px;
+  font-size: 13.487px;
   font-style: normal;
-  font-weight: 500;
-  /* line-height: 36.649px; */
+  font-weight: 400;
   letter-spacing: -0.605px;
-  margin-top: 20px;
+  margin-top: 5px;
 }
+
 .textAlignEndTxt {
   text-align: end;
 }
+
 .quizOneTxtLastDiv {
-  width: 100% !important;
-  max-width: 808px !important;
+  /* width: 100% !important;
+  max-width: 808px !important; */
   height: auto;
-  min-height: 220px;
-  background-color: #f0f0f0;
+  max-width: 213px;
+  /* background-color: #f0f0f0; */
   margin: 10px auto;
   display: flex;
   align-items: center;
@@ -3319,6 +3509,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   border-radius: unset !important;
   position: unset !important;
 }
+
 .quizOneTxtLastDiv button {
   color: #fff;
   background-color: #121212;
@@ -3329,11 +3520,12 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   left: auto;
   top: auto;
 }
+
 .quizOneTxtLastDiv p {
   margin-bottom: 0;
   color: #000;
   font-family: "Urbanist";
-  font-size: 18.487px;
+  font-size: 14.487px;
   font-style: normal;
   font-weight: 500;
   /* line-height: 36.649px; */
@@ -3341,9 +3533,38 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   width: 100%;
   max-width: 240px;
 }
+
+.setup5Quiz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.propQuizBtn02 {
+  margin-top: 30px;
+  border-radius: 50px;
+  background: #121212;
+  color: #FFF;
+  text-align: center;
+  font-family: "Urbanist";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 35px;
+  text-transform: capitalize;
+  padding: 0px 24px 0px 24px;
+  border: none;
+  transition: all 300ms ease-in-out;
+}
+
+.propQuizBtn02:hover {
+  transform: scale(1.08);
+  opacity: 0.8;
+}
+
 .progress-container {
   top: 65px;
-  background-color: #f4bf36; 
+  background-color: #f4bf36;
   height: 71%;
   width: 6px;
   position: absolute;
@@ -3355,26 +3576,32 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   position: absolute;
   top: 0;
   left: 0;
-  height: 0; /* Initial height */
-  width: 6px; /* Adjust the width of the scroll bar */
-  background-color: #bbbbbb; /* Default color */
+  height: 0;
+  /* Initial height */
+  width: 6px;
+  /* Adjust the width of the scroll bar */
+  background-color: #bbbbbb;
+  /* Default color */
   transition: height 0.2s ease, background-color 0.2s ease;
-  opacity: 1; /* Initial opacity set to 1 */
+  opacity: 1;
+  /* Initial opacity set to 1 */
 }
 
 #scroll-bar.green {
-  background-color: #f4bf36; /* Change the color of the scroll bar when scrolling */
+  background-color: #f4bf36;
+  /* Change the color of the scroll bar when scrolling */
 }
 
 .circcleFill {
   width: 50px;
   height: 50px;
-  background-color: #f4bf36; 
+  background-color: #f4bf36;
   border-radius: 50%;
   position: absolute;
   left: -21px;
   transition: background-color 0.2s ease;
-  opacity: 1; /* Initial opacity set to 1 */
+  opacity: 1;
+  /* Initial opacity set to 1 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3401,7 +3628,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
 }
 
 .circcleFill.green {
-  background-color: #f4bf36; 
+  background-color: #f4bf36;
 }
 
 .circcleFill img {
@@ -3409,27 +3636,54 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   height: 26px;
 }
 
-.quizAllTxtMainSec {
-  padding: 90px 0 20px 0;
-  width: 100%;
-  max-width: 808px;
-  margin: 0 auto;
-  position: relative;
+.backimage01 {
+  background-image: url(../images/yellow.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  /* Adjust the size as needed */
+  height: 300px;
+  /* Adjust the height as needed */
+  /* You can also use the following to cover the entire viewport */
+  /* height: 100vh; */
 }
+
+.wixui-button__label {
+  text-decoration: none !important;
+}
+
+.quizAllTxtMainSec {
+  /* padding: 90px 0 20px 0; */
+  /* width: 100%;
+  max-width: 808px;
+  margin: 0 auto; */
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: none;
+}
+
 .quizOneTxtFirstDiv {
   width: 100%;
-  max-width: 608px;
-  margin: 0 auto;
+  /* max-width: 520px; */
+  position: absolute;
+  z-index: 999999;
+  top: 96px;
 }
+
 .home_section_four {
-  padding: 140px 0;
+  padding: 140px 0 0 0;
 }
+
 /* Define the fade-in animation */
 @keyframes fadeIn {
   0% {
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -3459,6 +3713,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
 .wixsCourse_section_one {
   padding: 180px 0 130px 0;
 }
+
 .headingDivCourse02 h1 {
   margin-bottom: 0;
   color: #0d4949;
@@ -3466,8 +3721,10 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   font-size: 56px;
   font-style: normal;
   font-weight: 800;
-  line-height: normal; /* 86.957% */
+  line-height: normal;
+  /* 86.957% */
 }
+
 .headingDivCourse02 p {
   margin-bottom: 0;
   color: #323232;
@@ -3475,26 +3732,31 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
-  line-height: normal; /* 150% */
+  line-height: normal;
+  /* 150% */
   letter-spacing: -0.32px;
   display: flex;
   align-items: center;
   gap: 7px;
   margin-top: 10px;
 }
+
 .carbonImg01 {
   width: auto;
   height: 25px;
 }
+
 .clockTopImg01 {
   width: auto;
   height: 20px;
 }
+
 .directorImg01 {
   width: 100%;
   border-radius: 23px;
   margin-top: 2rem;
 }
+
 .registerBtnNew {
   border-radius: 50px;
   background-color: #17e093;
@@ -3512,9 +3774,11 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   margin-top: 5rem;
   transition: all 300ms ease-in-out;
 }
+
 .registerBtnNew:hover {
   transform: scale(1.06);
 }
+
 .BottomCardMainDiv {
   margin-top: 10rem;
   height: 100vh;
@@ -3524,9 +3788,11 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   overflow-x: hidden;
   overflow-y: scroll;
 }
-.BottomCardMainDiv::-webkit-scrollbar{
+
+.BottomCardMainDiv::-webkit-scrollbar {
   width: 0;
 }
+
 .courseCardBottom02 {
   width: 100%;
   max-width: 330px;
@@ -3539,9 +3805,11 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   flex-direction: column;
   justify-content: space-between;
 }
-.courseCardBottomImg02{
+
+.courseCardBottomImg02 {
   position: relative;
 }
+
 .courseCardBottomImg02 img {
   border-radius: 23px;
   width: 100%;
@@ -3552,6 +3820,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   position: relative;
   z-index: 0;
 }
+
 .courseCardBottom02 h6 {
   margin-bottom: 0;
   color: #323232;
@@ -3559,9 +3828,11 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   font-size: 26px;
   font-style: normal;
   font-weight: 600;
-  line-height: 42px; /* 233.333% */
+  line-height: 42px;
+  /* 233.333% */
   letter-spacing: -0.36px;
 }
+
 .courseCardBottom02 p {
   margin-bottom: 0;
   color: #323232;
@@ -3570,9 +3841,11 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   font-style: normal;
   font-weight: 500;
 }
+
 .courseCardBottom02 ul {
   padding-left: 23px;
 }
+
 .courseCardBottom02 ul li {
   color: #323232;
   font-family: "Urbanist";
@@ -3581,26 +3854,31 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   font-weight: 500;
   margin-top: 10px;
 }
+
 .overFlowCardContainer {
   position: relative;
 }
+
 .onlyMemberSection {
   margin-top: 10rem;
 }
+
 .memberImg01 {
   width: 100%;
   border-radius: 23px;
   margin-top: 2rem;
   object-fit: cover;
 }
+
 .newVideosSection01 {
   margin-top: 10rem;
   /* display: flex;
   justify-content: space-between; */
 }
-.payBtn002{
+
+.payBtn002 {
   margin-top: 1rem !important;
-  
+
 }
 
 .videos01Card {
@@ -3636,12 +3914,15 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   font-weight: 500;
   margin-top: 10px;
 }
+
 .scrollCardImg {
   width: 100%;
 }
+
 .scrollCardImg path {
   fill: #000 !important;
 }
+
 :root {
   --cards: 4;
   --cardHeight: 80vh;
@@ -3668,14 +3949,17 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
 #card1 {
   --index: 1;
 }
+
 #card2 {
   margin-left: 25%;
   --index: 2;
 }
+
 #card3 {
   --index: 3;
   margin-left: 50%;
 }
+
 #card4 {
   --index: 4;
   margin-left: 75%;
@@ -3702,12 +3986,15 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   align-items: end;
   transition: all 0.5s;
 }
+
 .registerBtnLast {
   margin-top: 10rem;
 }
+
 .newVideosSection02 {
   display: none;
 }
+
 .panel,
 .last-panel {
   flex: none;
@@ -3718,35 +4005,72 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   position: relative;
   box-sizing: border-box;
 }
-.gsap-marker-scroller-start{
+
+.gsap-marker-scroller-start {
   z-index: -1 !important;
   display: none !important;
 }
-.gsap-marker-scroller-end{
+
+.gsap-marker-scroller-end {
   z-index: -1 !important;
   display: none !important;
 }
-.gsap-marker-start{
+
+.gsap-marker-start {
   z-index: -1 !important;
   display: none !important;
 }
-.gsap-marker-end{
+
+.gsap-marker-end {
   z-index: -1 !important;
   display: none !important;
 }
-.plyr--video{
+
+.plyr--video {
   border-radius: 23px;
 }
-.videoPlayerDiv{
+
+.videoPlayerDiv {
   margin-top: 2rem;
 }
-.paypal-style{
+
+.paypal-style {
   margin: 0 60px;
 }
+
+.scrollMainSection {
+  margin-top: 4rem !important;
+  margin-bottom: 6rem !important;
+}
+
+.wixui-button {
+  height: 38px !important;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-family: "Urbanist";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 50px;
+  min-width: 100% !important;
+  transition: all 300ms ease-in-out !important;
+}
+
+.wixui-button:hover {
+  transform: scale(1.08) !important;
+  /* opacity: 0.8 !important; */
+}
+/* .gydiew .TFOeq0 {
+  width: 100px !important;
+} */
+
+
 @media screen and (min-width: 1400px) {
   .container {
     max-width: 1330px;
   }
+
   .side_circle {
     top: -20px;
   }
@@ -3759,6 +4083,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     padding: 190px 280px 74px 280px;
   }
 }
+
 @media screen and (min-width: 1600px) {
   .lecture_card002 img {
     min-height: 308px;
@@ -3767,44 +4092,56 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .beyond_row {
     gap: 150px;
   }
+
   .section_3_row {
     gap: 130px;
   }
+
   .container {
     max-width: 1500px;
   }
+
   .learning_text_section h6 {
     font-size: 78px;
   }
+
   .learning_text_section p {
     font-size: 20px;
   }
+
   .buyend_image {
     height: 445px;
   }
+
   .beyond_text_div h5 {
     font-size: 68px;
   }
+
   .beyond_text_div p {
     font-size: 22px;
     max-width: 417px;
   }
+
   .invest_text_div h5 {
     font-size: 68px;
     max-width: 410px;
   }
+
   .invest_text_div p {
     font-size: 22px;
     max-width: 460px;
   }
+
   .propstart_text h4 {
     font-size: 46px;
   }
+
   .journey_start_section h4 {
     font-size: 72px;
     width: 426px;
   }
 }
+
 @media screen and (min-width: 1915px) {
   .lecture_card002 img {
     min-height: 384px;
@@ -3814,75 +4151,96 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     max-width: 1600px;
   }
 }
+
 @media screen and (min-width: 1980px) {
   .home_section_five {
     height: 100vh;
   }
 }
+
 @media screen and (min-width: 2100px) {
   .learning_text_section h6 {
     font-size: 81px;
     width: 100%;
     max-width: 600px;
   }
+
   .navbar_brand img {
     width: 172.249px;
     height: 60px;
   }
+
   .nav_link {
     font-size: 20px;
   }
+
   .user_name_and_iamge h6 {
     font-size: 20px;
   }
+
   .buyend_image {
     height: 460px;
   }
+
   .beyond_text_div h5 {
     font-size: 68px;
   }
+
   .beyond_text_div p {
     font-size: 22px;
     max-width: 464px;
   }
+
   .learning_text_section p {
     font-size: 21px;
   }
+
   .invest_text_div h5 {
     font-size: 68px;
   }
+
   .invest_text_div p {
     font-size: 21px;
     max-width: 464px;
   }
+
   .beyond_row {
     justify-content: space-evenly;
   }
+
   .section_3_row {
     justify-content: space-evenly;
   }
+
   .beyond_text_div {
     width: 600px;
   }
+
   .propstart_text h4 {
     font-size: 51px;
   }
+
   .journey_start_section h4 {
     font-size: 75px;
     width: 444px;
   }
+
   .info_item_section h5 {
     font-size: 54px;
   }
+
   .lesson_plan_section h4 {
     font-size: 18px;
   }
+
   .accordion_button_one {
     font-size: 17px;
   }
+
   .video_desc {
     font-size: 20px;
   }
+
   .instructor_text h6 {
     font-size: 17px;
   }
@@ -3893,7 +4251,9 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     max-width: 345px;
   }
 }
+
 @media screen and (max-width: 1670px) {
+
   /* .prop_logo_section img {
     height: 120vh;
     object-fit: cover;
@@ -3904,36 +4264,45 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .payment_section_with_card::-webkit-scrollbar {
     width: 0px;
   }
+
   .payment_show_card {
     max-width: 700px;
   }
 }
+
 @media screen and (max-width: 1600px) {
   .videos01Card h1 {
     font-size: 57px;
   }
+
   .scrollCard01 {
     max-width: 304px;
   }
+
   .videos01Card {
     min-height: 400px;
   }
+
   .lecture_card002 img {
     min-height: 307px;
   }
+
   .lecture_card001 p {
     font-size: 11px;
   }
 }
+
 @media screen and (max-width: 1527px) {
   .propstart_text h4 {
     font-size: 40px;
     max-width: 234px;
   }
+
   .imageHovered {
     max-width: 500px;
     font-size: 21px;
   }
+
   /* .prop_logo_section img {
     height: 100vh;
     object-fit: cover;
@@ -3951,15 +4320,19 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .scrollCard01 {
     max-width: 263px;
   }
+
   .BottomCardMainDiv {
     margin-top: 8rem;
   }
+
   .onlyMemberSection {
     margin-top: 10rem;
   }
+
   .newVideosSection01 {
     margin-top: 8rem;
   }
+
   .videos01Card h1 {
     font-size: 41px;
   }
@@ -3968,135 +4341,162 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     max-width: 260px;
     min-height: 320px;
   }
+
   .videos01Card p {
     font-size: 15px;
   }
+
   .registerBtnNew {
     font-size: 19px;
     padding: 24px 0;
     max-width: 370px;
   }
+
   .registerBtnLast {
     margin-top: 8rem;
   }
+
   .courseCardBottom02 h6 {
     font-size: 20px;
   }
+
   .courseCardBottom02 p {
     font-size: 13px;
   }
+
   .courseCardBottom02 ul li {
     font-size: 13px;
   }
+
   .courseCardBottom02 {
     max-width: 297px;
     min-height: 400px;
   }
+
   .courseCardBottomImg02 img {
     max-width: 297px;
     min-height: 400px;
   }
+
   .wixsCourse_section_one {
     padding: 150px 0 110px 0;
   }
+
   .headingDivCourse02 h1 {
     font-size: 46px;
   }
+
   .carbonImg01 {
     height: 23px;
   }
+
   .clockTopImg01 {
     height: 17px;
   }
+
   .headingDivCourse02 p {
     font-size: 20px;
   }
+
   .propStartQuizTxt h1 {
     font-size: 54px;
     text-align: center;
   }
+
   .propQuizBtn01 {
     font-size: 15px;
     line-height: 46px;
     padding: 0px 27px 0px 28px;
   }
+
   .propStartQuizTxt {
     max-width: 330px;
   }
-  .quizOneTxtDiv h4 {
-    font-size: 32px;
-  }
-  .quizOneTxtDiv p {
-    font-size: 17.487px;
-    margin-top: 15px;
-  }
-  .quizOneTxtDiv {
-    max-width: 220px;
-    min-height: 226px;
-  }
+
+
+
+
   .quizOneTxtLastDiv p {
     font-size: 17.487px;
     max-width: 220px;
   }
+
   .quizOneTxtLastDiv {
     max-width: 808px !important;
     min-height: 200px;
     padding: 0 101px;
   }
+
   .circcleFill {
     width: 47px;
     height: 47px;
   }
+
   .circcleFill img {
     width: 22px;
     height: 25px;
   }
-  .quizAllTxtMainSec {
+
+  /* .quizAllTxtMainSec {
     max-width: 760px;
-  }
+  } */
+
   .progress-container {
     height: 72%;
     width: 6px;
     left: 376px;
   }
+
   #circle2 {
     top: 232px;
   }
+
   #circle3 {
     top: 454px;
   }
+
   #circle4 {
     top: 685px;
   }
+
   #circle5 {
     top: 908px;
   }
+
   .quizOneTxtLastDiv {
     max-width: 738px !important;
     padding: 0px 74px;
   }
+
   #scroll-bar.green {
     height: 949px;
   }
-  .quizOneTxtFirstDiv {
+
+  /* .quizOneTxtFirstDiv {
     max-width: 590px;
-  }
+  } */
+
   .courses_section_one {
     margin-top: 70px;
   }
+
   .wellcomeMsj {
     font-size: 22px;
   }
+
   .lecture_card002 img {
     min-height: 256px;
   }
+
   .lecture_card001 p {
     font-size: 10px;
   }
+
   .imageHovered {
     max-width: 430px;
     font-size: 18px;
   }
+
   .appendeTxtDiv {
     min-height: 190px;
   }
@@ -4104,18 +4504,22 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .invest_text_main_section {
     padding-left: 0;
   }
+
   .img05 {
     width: 34.323px;
     top: 60px;
     left: 205px;
   }
+
   .section_1 {
     padding: 15.75px 0 15.24px 0;
   }
+
   .home_section_five {
     height: 85vh;
     /* margin-top: 86px; */
   }
+
   .propstart_text h4 {
     font-size: 33px;
     max-width: 194px;
@@ -4152,6 +4556,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     right: 228.9px;
     rotate: -3deg;
   }
+
   .subtractImg05 {
     width: 232.39px;
     height: 180.286px;
@@ -4207,6 +4612,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     bottom: 93px;
     left: 119px;
   }
+
   .icon_number04 {
     bottom: 20px;
     left: 66px;
@@ -4253,52 +4659,66 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     padding: 165px 140.751px 74px 140px;
   }
 }
+
 @media screen and (max-width: 1376px) {
   .payment_section_with_card {
     padding: 40px 30px 39px 30px;
-}
+  }
+
   .prop_logo_section img {
     height: 1125px;
     object-fit: cover;
   }
+
   .payment_section_with_card {
     height: auto;
     overflow-y: hidden;
   }
+
   .pro_price_div h5 {
     font-size: 27px;
   }
+
   .pro_price_div p {
     font-size: 18px;
   }
+
   .pro_price_div h4 {
     font-size: 27px;
   }
+
   .pro_price_div03 h6 {
     font-size: 20px;
   }
+
   .pro_price_div {
     padding: 27px 45px 30px 31px;
   }
+
   .payment_show_card {
     max-width: 560px;
   }
+
   .credit_card_form {
     padding: 6px 20px 24px 20px;
   }
+
   .mini_input_section {
     display: flex;
     gap: 18px;
   }
 }
+
 @media screen and (max-width: 1300px) {
   .payment_input_and_image_section {
     flex-direction: column;
   }
+
   .payment_section_with_card {
     width: 100%;
     max-width: 100%;
   }
+
   .prop_logo_section {
     width: 100%;
     max-width: 100%;
@@ -4306,133 +4726,185 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     min-height: 600px;
     background-color: #0d4949;
   }
+
   .prop_logo_section img {
     display: none;
   }
+
   .account_section_payment001 {
     padding: 0;
   }
 }
+
 @media screen and (max-width: 1200px) {
+  .wixui-button {
+    font-size: 12px;
+  }
+  .wixui-button {
+    height: 30px !important;
+  }
+
+  .quizOneTxtDiv {
+    min-height: 127px;
+    max-width: 180px;
+  }
+
+  .quizAllTxtMainSec {
+    max-width: 444px;
+  }
+
+  .quizOneTxtDivBottom p {
+    margin-top: 10px !important;
+    line-height: normal;
+  }
+
+  .propQuizBtn02 {
+    font-size: 12px;
+    line-height: 33px;
+  }
+
   .scrollCard01 {
     max-width: 231px;
   }
+
   .wixsCourse_section_one {
     padding: 135px 0 100px 0;
   }
+
   .headingDivCourse02 h1 {
     font-size: 43px;
   }
+
   .headingDivCourse02 p {
     font-size: 19px;
   }
+
   .carbonImg01 {
     height: 22px;
   }
+
   .clockTopImg01 {
     height: 16px;
   }
-  .quizOneTxtDiv h4 {
-    font-size: 27px;
-  }
-  .quizOneTxtDiv p {
-    font-size: 16.487px;
-    margin-top: 12px;
-  }
+
+
+
   .registerBtnNew {
     font-size: 18px;
     padding: 22px 0;
     max-width: 329px;
     margin-top: 4rem;
   }
+
   .onlyMemberSection {
     margin-top: 8rem;
   }
+
   .videos01Card {
     max-width: 220px;
     min-height: 290px;
     padding: 15px 12px;
   }
+
   .videos01Card h1 {
     font-size: 35px;
   }
+
   .videos01Card p {
     font-size: 13px;
   }
+
   .registerBtnLast {
     margin-top: 5rem !important;
   }
+
   .courseCardBottom02 {
     max-width: 254px;
     min-height: 346px;
     padding: 13px 15px;
   }
+
   .courseCardBottomImg02 img {
     max-width: 254px;
     min-height: 346px;
   }
+
   .courseCardBottom02 ul li {
     font-size: 12px;
     margin-top: 7px;
   }
+
   .BottomCardMainDiv {
     margin-top: 7rem;
     gap: 35px;
   }
+
   .courseCardBottom02 p {
     font-size: 12px;
   }
-  .quizOneTxtDiv {
-    max-width: 207px;
-    min-height: 220px;
-    padding-top: 6px;
-  }
+
+
+
   .quizOneTxtLastDiv p {
     font-size: 16.487px;
     max-width: 206px;
   }
+
   .propQuizBtn01 {
     font-size: 14px;
     line-height: 44px;
   }
-  .quizOneTxtFirstDiv {
+
+  /* .quizOneTxtFirstDiv {
     max-width: 570px;
-  }
+  } */
+
   #circle2 {
     top: 223px;
   }
+
   #circle3 {
     top: 441px;
   }
+
   #circle4 {
     top: 663px;
   }
+
   #circle5 {
     top: 883px;
   }
+
   .quizOneTxtLastDiv {
     max-width: 692px !important;
     padding: 0px 63px;
   }
+
   .propStartQuizTxt h1 {
     font-size: 47px;
   }
+
   .propStartQuizTxt {
     max-width: 295px;
   }
+
   .wellcomeMsj {
     font-size: 21px;
   }
+
   .lecture_card002 img {
     min-height: 215px;
   }
+
   .lecture_card001 p {
     font-size: 8px;
   }
+
   .imageHovered {
     max-width: 400px;
     font-size: 16px;
   }
+
   .appendeTxtDiv {
     min-height: 200px;
   }
@@ -4440,53 +4912,68 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .payment_section_with_card {
     padding: 30px 20px 60px 20px;
   }
+
   .property_starter_card {
     padding: 19px 15px 19px 15px;
   }
+
   .property_starter_text001 {
     font-size: 18.019px;
   }
+
   .property_starter_text002 h5 {
     font-size: 40.131px;
   }
+
   .property_starter_text002 p {
     font-size: 10.261px;
   }
+
   .starter_button01 {
     font-size: 13.92px;
     line-height: 39.168px;
   }
+
   .circle_tick_image_faq {
     width: 100px;
     height: 55px;
   }
+
   .cources_detail_card {
     padding: 33px 25px;
     min-height: 241px;
   }
+
   .circle_tick_image {
     width: 50px;
   }
+
   .cources_detail_card h6 {
     font-size: 20px;
   }
+
   .pricing_section_one h3 {
     font-size: 65px;
   }
+
   .title001 h5 {
     font-size: 66.262px;
   }
+
   .title001 h6 {
     font-size: 23.804px;
   }
+
   .pricing_card_button {
     font-size: 18.353px;
     line-height: 54.134px;
   }
+
   .buyend_image {
     max-width: 525px;
     height: 348px;
   }
+
   .footer_desc_p p {
     font-size: 17px;
   }
@@ -4497,6 +4984,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     top: 33px;
     right: 17px;
   }
+
   .subtractImg02 {
     width: 143.483px;
     height: 268.941px;
@@ -4504,6 +4992,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     top: 97px;
     rotate: -1deg;
   }
+
   .subtractImg03 {
     width: 285.655px;
     height: 119.169px;
@@ -4511,25 +5000,32 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     right: 48px;
     rotate: -3deg;
   }
+
   .on_boarding_text_div {
     padding: 4rem 0;
   }
+
   .on_boarding_text_div p {
     font-size: 17px;
   }
+
   .on_boarding_text_div h6 {
     font-size: 18px;
   }
+
   .calendar_main_div {
     padding: 27px 20px;
   }
+
   .date-item {
     font-size: 14.339px;
   }
+
   .days-of-week {
     font-size: 14.339px;
     margin-top: 24px;
   }
+
   .dates {
     margin-top: 24px;
   }
@@ -4564,6 +5060,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     width: 43.658px;
     bottom: 96px;
   }
+
   .img04 {
     width: 40.862px;
     top: 144px;
@@ -4785,6 +5282,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .footer_main_section_div {
     padding: 164px 80.751px 74px 80px;
   }
+
   .footer_item h5 {
     font-size: 20px;
   }
@@ -4863,9 +5361,11 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .learning_text_button {
     margin-top: 35px;
   }
+
   .rafiki_image {
     height: 330px;
   }
+
   .arrow_bottom_image {
     width: 42px;
     bottom: -21px;
@@ -4907,10 +5407,21 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     height: 290px;
   } */
 }
+
 @media screen and (max-width: 992px) {
+  .quizOneTxtFirstDiv {
+    top: 54px;
+  }
+
+  .scrollMainSection {
+    margin-top: 2rem !important;
+    margin-bottom: 4rem !important;
+  }
+
   .newVideosSection01 {
     display: none;
   }
+
   .newVideosSection02 {
     display: block;
     display: flex;
@@ -4918,35 +5429,43 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     flex-wrap: wrap;
     margin-top: 5rem;
   }
+
   .memberImg01 {
     margin-top: 1.5rem;
   }
+
   .wixsCourse_section_one {
     padding: 125px 0 80px 0;
   }
+
   .onlyMemberSection {
     margin-top: 6rem;
   }
+
   .registerBtnNew {
     font-size: 17px;
     padding: 20px 0;
     max-width: 289px;
     margin-top: 3rem;
   }
+
   .headingDivCourse02 h1 {
     font-size: 38px;
   }
+
   .headingDivCourse02 p {
     font-size: 17px;
   }
+
   .directorImg01 {
     margin-top: 1.5rem;
   }
+
   .newVideosSection01 {
     margin-top: 4rem;
     flex-wrap: wrap;
   }
-  
+
   /* .panel {
     width: 48%;
   } */
@@ -4954,28 +5473,56 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     min-height: 289px;
     margin-top: 1rem;
   }
+
   .propStartQuizTxt h1 {
     font-size: 44px;
   }
+
   .propStartQuizTxt {
     max-width: 270px;
   }
+
   .propQuizBtn01 {
     font-size: 13px;
     line-height: 40px;
   }
-  .quizOneTxtDiv h4 {
-    font-size: 25px;
+
+
+  .quizAllTxtMainSec {
+    max-width: 374px;
   }
-  .quizOneTxtDiv p {
-    font-size: 15.487px;
-    margin-top: 4px;
-  }
+
   .quizOneTxtDiv {
-    max-width: 199px;
-    min-height: 208px;
-    padding-top: 5px;
+    max-width: 171px;
+    min-height: 107px;
+    padding-top: 2px;
   }
+
+  .quizOneTxtDiv h4 {
+    font-size: 18px;
+  }
+
+  .quizOneTxtDiv p {
+    font-size: 12.487px;
+    margin-top: 1px;
+  }
+
+  .quizOneTxtDivBottom p {
+    margin-top: 9px !important;
+    line-height: normal;
+  }
+
+  .quizOneTxtDivBottom {
+    margin-top: -10px !important;
+  }
+
+  .propQuizBtn02 {
+    font-size: 11px;
+    line-height: 30px;
+    margin-top: 17px;
+    padding: 0px 20px 0px 20px;
+  }
+
   .progress-container {
     height: 74%;
     width: 5px;
@@ -4985,73 +5532,92 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   #scroll-bar {
     width: 5px;
   }
+
   .circcleFill {
     width: 46px;
     height: 46px;
     left: -21px;
   }
-  .quizAllTxtMainSec {
+
+  /* .quizAllTxtMainSec {
     max-width: 710px;
     padding: 90px 0 0px 0;
-  }
+  } */
+
   .quizOneTxtLastDiv p {
     font-size: 15.487px;
     max-width: 192px;
   }
+
   .quizOneTxtLastDiv {
     max-width: 665px !important;
     padding: 0px 63px;
     min-height: 174px;
   }
 
-  .quizOneTxtFirstDiv {
+  /* .quizOneTxtFirstDiv {
     max-width: 540px;
-  }
+  } */
+
   #circle2 {
     top: 210px;
   }
+
   #circle3 {
     top: 420px;
   }
+
   #circle4 {
     top: 628px;
   }
+
   .quizOneTxtLastDiv {
     padding: 0px 41px;
   }
+
   #circle5 {
     top: 832px;
   }
+
   .lecture_card001 p {
     font-size: 12px;
   }
+
   .lecture_card001 h6 {
     font-size: 19px;
   }
+
   .wellcomeMsj {
     font-size: 20px;
   }
+
   .goToCourseBtn {
     width: 55%;
     font-size: 19px;
     padding: 18px 0;
   }
+
   .lecture_card002 {
     min-height: 336px;
   }
+
   .course_lecture_desc_sec {
     flex-wrap: wrap;
   }
+
   .lecture_card002 img {
     min-height: 336px;
   }
+
   .lecture_card001 {
     min-height: 336px;
   }
+
   .imageHovered {
     max-width: 400px;
     font-size: 15px;
   }
+
   .appendeTxtDiv {
     min-height: 210px;
   }
@@ -5059,45 +5625,58 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .courseDescBottom {
     margin-top: 25px;
   }
+
   .pro_price_div h5 {
     font-size: 25px;
   }
+
   .pro_price_div p {
     font-size: 17px;
   }
+
   .pro_price_div h4 {
     font-size: 25px;
   }
+
   .pro_price_div03 h6 {
     font-size: 19px;
   }
+
   .pro_price_div {
     padding: 25px 45px 27px 31px;
   }
+
   .paypal_text_div2 img {
     width: 39px;
     height: 36px;
   }
+
   .pricing_section_one h3 {
     font-size: 60px;
   }
+
   .pricing_section_one {
     margin-bottom: 8rem;
   }
+
   .pricing_section_two {
     margin-top: 100px;
     margin-bottom: 150px;
   }
+
   .beyond_row {
     gap: 40px;
   }
+
   .section_3_row {
     gap: 40px;
   }
+
   .buyend_image {
     max-width: 425px;
     height: 286px;
   }
+
   /* .buyend_image {
     height: 90%;
   } */
@@ -5106,6 +5685,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     top: 55px;
     left: 182px;
   }
+
   .footer_desc_p p {
     font-size: 16px;
   }
@@ -5114,46 +5694,60 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     padding-left: 40px;
     padding-top: 0;
   }
+
   .on_boarding_text_div p {
     font-size: 16px;
   }
+
   .on_boarding_text_div {
     padding: 3rem 0;
   }
+
   .on_boarding_text_div h6 {
     font-size: 16px;
   }
+
   .disable_time_input {
     font-size: 24.5px;
   }
+
   .unDisable_time_input {
     font-size: 24.5px;
   }
+
   .timeInput_unDisabled span {
     font-size: 24.5px;
   }
+
   #ampmInput {
     font-size: 20.5px;
   }
+
   .timeInput_unDisabled {
     gap: 16px;
     padding: 22px 7.75px;
   }
+
   #ampm {
     margin-left: 22px;
   }
+
   .timeInput_div p {
     font-size: 24.5px;
   }
+
   .timeInput_disabled {
     gap: 41px;
   }
+
   #calendarId {
     top: 109px;
   }
+
   #clockShow {
     top: 109px;
   }
+
   .calendar {
     padding: 0 35px;
   }
@@ -5179,6 +5773,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     bottom: 41px;
     right: 50px;
   }
+
   .subtractImg04 {
     width: 139.942px;
     height: 237.438px;
@@ -5216,21 +5811,25 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     top: 144px;
     left: 294px;
   }
+
   .img02 {
     width: 44.814px;
     bottom: 95px;
     left: 255px;
   }
+
   .img03 {
     width: 38.658px;
     bottom: 89px;
     left: 109px;
   }
+
   .img04 {
     width: 41.862px;
     top: 134px;
     left: 69px;
   }
+
   .icon_number01 {
     top: -37px;
     left: 181px;
@@ -5255,16 +5854,19 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     top: 118px;
     left: -25px;
   }
+
   .scrollcontainer {
     position: absolute;
     bottom: -20px;
     left: 0;
   }
+
   .chevron {
     position: absolute;
     width: 1.9rem;
     height: 0.2rem;
   }
+
   .mybtnpay1 {
     font-size: 25px !important;
   }
@@ -5396,20 +5998,25 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .paypal_btn {
     padding: 20px 26px 22px 26px;
   }
+
   .paypal_btn_2 {
     padding: 15px 26px 15px 26px;
   }
+
   .paypal_checkbox[type="radio"] {
     padding: 10px;
   }
+
   .mm_yy_cvv_text {
     bottom: 20px;
     font-size: 13px;
   }
+
   .cvc_card_input {
     padding-left: 50px !important;
     padding-right: 100px !important;
   }
+
   .paypal_text_div p {
     font-size: 17px;
   }
@@ -5595,6 +6202,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .footer_main_section_div {
     padding: 134px 0px 0px 0px;
   }
+
   .footer_logo_img {
     width: 133.249px;
   }
@@ -5625,6 +6233,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     font-size: 28px;
     max-width: 167px;
   }
+
   .take_quiz_button {
     font-size: 15px;
     width: 150px;
@@ -5670,6 +6279,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     font-size: 41px;
     max-width: 253px;
   }
+
   .pre_order_button2 {
     font-size: 14px;
     width: 130px;
@@ -5719,37 +6329,65 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     align-items: center;
   }
 }
+
 @media screen and (max-width: 768px) {
+ 
+  .wixui-button {
+    min-width: 56% !important;
+}
+  .quizOneTxtDiv {
+    max-width: 190px;
+    min-height: 205px;
+    padding-top: 5px;
+  }
+
+  #comp-lqeicyrd {
+    display: none !important;
+  }
+
+  #comp-lpc8a2f9 {
+    display: none !important;
+  }
+
   .newVideosSection02 {
     justify-content: center;
   }
+
   .headingDivCourse02 p {
     font-size: 15px;
     gap: 4px;
   }
+
   .headingDivCourse02 h1 {
     font-size: 33px;
   }
+
   .registerBtnNew {
     font-size: 16px;
     padding: 17px 0;
     max-width: 225px;
   }
+
   .carbonImg01 {
     height: 20px;
   }
+
   .onlyMemberSection {
     margin-top: 5rem;
   }
+
   .clockTopImg01 {
     height: 15px;
   }
+
   .newVideosSection01 {
     justify-content: space-around;
   }
+
   .courseCardBottom02 h6 {
     font-size: 19px;
   }
+
   .BottomCardMainDiv {
     height: auto;
     margin-top: 5rem;
@@ -5757,28 +6395,35 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     gap: 22px;
     justify-content: center;
   }
+
   .courseCardBottom02 p {
     font-size: 11px;
   }
+
   .courseCardBottom02 {
     max-width: 224px;
     min-height: 326px;
     padding: 13px 13px;
   }
+
   .courseCardBottomImg02 img {
     max-width: 224px;
     min-height: 326px;
   }
+
   .courseCardBottom02 ul {
     padding-left: 17px;
   }
+
   .courseCardBottom02 ul li {
     font-size: 11px;
     margin-top: 6px;
   }
+
   .propStartQuizTxt h1 {
     font-size: 39px;
   }
+
   .propStartQuizTxt {
     max-width: 240px;
   }
@@ -5786,112 +6431,144 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .progress-container {
     left: 257px;
   }
+
   .courses_section_one {
     margin-top: 65px;
   }
+
   .wellcomeMsj {
     font-size: 18px;
   }
+
   .goToCourseBtn {
     width: 70%;
     font-size: 19px;
     padding: 17px 0;
   }
+
   .lecture_card001 {
     margin: 20px auto auto auto;
   }
+
   .lecture_card002 {
     margin: 20px auto auto auto;
   }
+
   .imageHovered {
     text-align: center;
   }
+
   .mm_yy_cvv_text {
     bottom: 22px;
     font-size: 12px;
   }
+
   .pro_price_div h5 {
     font-size: 24px;
   }
+
   .pro_price_div p {
     font-size: 16px;
   }
+
   .pro_price_div h4 {
     font-size: 24px;
   }
+
   .pro_price_div03 h6 {
     font-size: 18px;
   }
+
   .payment_show_card {
     max-width: 515px;
   }
+
   .pro_price_div {
     padding: 23px 42px 25px 29px;
   }
+
   .payment_condition_p {
     font-size: 14px;
   }
+
   .mini_input_section {
     display: unset;
   }
+
   .paypal_text_div2 img {
     width: 38px;
     height: 27px;
   }
+
   .starter_button01:hover {
     transform: scale(1.03);
   }
+
   .pricing_card_button {
     line-height: 60.134px;
   }
+
   .pricing_section_one h3 {
     margin-bottom: 80px;
     font-size: 55px;
   }
+
   .beyond_row {
     gap: 0;
     flex-direction: column;
   }
+
   .section_3_row {
     gap: 0;
     flex-direction: column-reverse;
   }
+
   .beyond_text_main_section {
     padding-top: 0;
   }
+
   .img05 {
     width: 32.323px;
     top: 65px;
     left: 206px;
   }
+
   body::-webkit-scrollbar {
     width: 7px;
   }
+
   .footer_desc_p p {
     font-size: 15px;
   }
+
   .table_main_sec {
     overflow-x: scroll;
   }
+
   .table_main_sec::-webkit-scrollbar {
     height: 7px;
     background-color: #dfdada;
     border-radius: 10px;
   }
+
   .table_main_sec::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: #b3b3b3;
   }
+
   .thead_p {
     min-width: 120px;
   }
+
   .timeInput_div p {
     font-size: 21.5px;
   }
+
   .home_section_five {
     padding: 0 !important;
     height: 100vh;
   }
+
   .on_boarding_text_div_main {
     padding-left: 50px !important;
     padding-right: 50px !important;
@@ -5900,42 +6577,55 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .unDisable_time_input {
     font-size: 21.5px;
   }
+
   .timeInput_unDisabled span {
     font-size: 21.5px;
   }
+
   #ampmInput {
     font-size: 18.5px;
   }
+
   .timeInput_unDisabled {
     gap: 13px;
   }
+
   .timeInput_disabled {
     gap: 33px;
   }
+
   .calendar {
     padding: 0px 26px;
   }
+
   .learning_text_section {
     align-items: center;
   }
+
   .journey_start_section {
     padding-top: 0;
   }
+
   .table_main_sec {
     margin-bottom: 5rem;
   }
+
   .table_thead th {
     font-size: 16px;
   }
+
   .table_tbody td {
     font-size: 15px;
   }
+
   .table_heading_txt {
     font-size: 26px;
   }
+
   .no_found_txt {
     font-size: 16px;
   }
+
   .subtractImg01 {
     width: 170.006px;
     height: 193.215px;
@@ -5950,6 +6640,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     top: 102px;
     rotate: 0deg;
   }
+
   .subtractImg03 {
     width: 281.655px;
     height: 115.169px;
@@ -5957,6 +6648,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     right: 54px;
     rotate: 0deg;
   }
+
   .subtractImg04 {
     width: 143.942px;
     height: 251.438px;
@@ -6005,6 +6697,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     bottom: 97px;
     left: 271px;
   }
+
   .img03 {
     width: 38.658px;
     bottom: 101px;
@@ -6046,14 +6739,17 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     margin-top: 4rem;
     flex-direction: column;
   }
+
   .rafiki_image {
     margin-top: 9rem;
     height: auto;
   }
+
   .scrollcontainer {
     position: unset;
     margin-left: -31px;
   }
+
   .chevron {
     width: 1.9rem;
     height: 0.1rem;
@@ -6277,9 +6973,11 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     text-align: center;
     margin-top: 2rem;
   }
+
   .imageHovered {
     font-size: 17px;
   }
+
   .propstart_text {
     display: flex;
     flex-direction: column;
@@ -6290,19 +6988,23 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     align-items: center;
     margin-top: 80px;
   }
+
   .invest_text_main_section {
     padding-top: 0;
   }
+
   .invest_text_div h5 {
     font-size: 38px;
     max-width: 229px;
     text-align: center;
   }
+
   .invest_text_div {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+
   .invest_text_div p {
     max-width: 400px;
     text-align: center;
@@ -6392,125 +7094,179 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     padding: 70px 0px 0 0px;
   }
 }
+
 @media screen and (max-width: 578px) {
+  #comp-lpc7yqot :is(p, h1, h2, h3, h4, h5, h6, ul, ol, span[data-attr-richtext-marker]) {
+    font-size: 20px !important;
+  }
+
+  #comp-lpc838mr :is(p, h1, h2, h3, h4, h5, h6, ul, ol, span[data-attr-richtext-marker]) {
+    font-size: 20px !important;
+  }
+
+  #comp-lpc861ur :is(p, h1, h2, h3, h4, h5, h6, ul, ol, span[data-attr-richtext-marker]) {
+    font-size: 20px !important;
+  }
+
+  #comp-lpc85lv5 :is(p, h1, h2, h3, h4, h5, h6, ul, ol, span[data-attr-richtext-marker]) {
+    font-size: 20px !important;
+  }
+
+  #comp-lpc87hvu :is(p, h1, h2, h3, h4, h5, h6, ul, ol, span[data-attr-richtext-marker]) {
+    font-size: 20px !important;
+  }
+
+  .wixui-button {
+    height: 31px !important;
+    min-width: 98% !important;
+}
+
   .newVideosSection02 {
     margin-top: 4rem;
   }
+
   .videos01Card {
     min-height: 300px;
   }
+
   .videos01Card {
     max-width: 269px;
   }
+
   .directorImg01 {
     border-radius: 20px;
     height: auto;
     min-height: 33vh;
   }
+
   .courseCardBottom02 {
     max-width: 250px;
     border-radius: 20px;
   }
+
   .memberImg01 {
     border-radius: 20px;
     height: 280px;
   }
+
   .courseCardBottomImg02 img {
     max-width: 250px;
     border-radius: 20px;
   }
+
   .BottomCardMainDiv {
     margin-top: 4rem;
     gap: 26px;
   }
+
   .onlyMemberSection {
     margin-top: 4rem;
   }
+
   .newVideosSection01 {
     margin-top: 3rem;
   }
+
   .registerBtnNew {
     font-size: 14px;
     padding: 14px 0;
     max-width: 189px;
     margin-top: 3.5rem;
   }
+
   .headingDivCourse02 h1 {
     font-size: 30px;
   }
+
   .headingDivCourse02 p {
     font-size: 14px;
   }
+
   .carbonImg01 {
     height: 19px;
   }
+
   .clockTopImg01 {
     height: 13px;
   }
+
   .wixsCourse_section_one {
     padding: 110px 0 60px 0;
   }
+
   .home_section_four {
-    padding: 100px 0;
+    padding: 100px 0 0 0;
   }
+
   .home_section_four {
     width: 100%;
     max-width: 442px;
     margin: 0 auto;
   }
-  .quizOneTxtDiv h4 {
-    font-size: 21px;
-  }
-  .quizOneTxtDiv p {
-    font-size: 13.487px;
-    margin-top: 1px;
-  }
+
+
+
+
+
   .quizOneTxtDiv {
     max-width: 147px;
     min-height: 181px;
     padding-top: 4px;
   }
+
   .progress-container {
     left: 208px;
     height: 72%;
   }
+
   .quizOneTxtLastDiv {
     padding: 0px 35px;
     min-height: 144px;
   }
+
   .quizOneTxtLastDiv p {
     font-size: 14.487px;
     max-width: 177px;
   }
+
   #circle2 {
     top: 185px;
   }
+
   #circle3 {
     top: 364px;
   }
+
   #circle4 {
     top: 546px;
   }
+
   #circle5 {
     top: 724px;
   }
+
   .wellcomeMsj {
     font-size: 17px;
   }
+
   .goToCourseBtn {
     width: 70%;
     font-size: 18px;
     padding: 16px 0;
   }
+
   .appendeTxtDiv {
     min-height: 195px;
   }
+
   .imageHovered {
     font-size: 16px;
   }
+
   .mobileGif01 {
     display: block;
   }
+
   /* .mobileVideoR {
     display: none;
   } */
@@ -6518,101 +7274,130 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     padding: 15px;
     min-height: 450px;
   }
+
   .pro_price_div h5 {
     font-size: 22px;
   }
+
   .pro_price_div p {
     font-size: 14px;
   }
+
   .pro_price_div h4 {
     font-size: 20px;
   }
+
   .pro_price_div03 h6 {
     font-size: 16px;
   }
+
   .payment_show_card {
     position: unset;
   }
+
   .pro_price_div {
     padding: 23px 30px 25px 29px;
   }
+
   .circle_tick_image_faq {
     width: 130px;
     height: 60px;
   }
+
   .cources_detail_card h6 {
     font-size: 19px;
   }
+
   .cources_detail_card {
     padding: 30px 20px;
   }
+
   .property_starter_card {
     padding: 19px 15px 19px 15px;
     width: 100%;
   }
+
   .property_starter_text001 {
     font-size: 18.019px;
   }
+
   .property_starter_text002 h5 {
     font-size: 40.131px;
   }
+
   .property_starter_text002 p {
     font-size: 10.261px;
   }
+
   .starter_button01 {
     font-size: 13.92px;
     line-height: 42.168px;
   }
+
   .circle_tick_image {
     width: 70px;
   }
+
   .pricing_section_two {
     margin-top: 90px;
     margin-bottom: 120px;
   }
+
   .pricing_card001 {
     padding: 55px 22px 35px 22px;
   }
+
   .title001 h6 {
     font-size: 22.804px;
   }
+
   .title001 h5 {
     font-size: 62.262px;
   }
+
   .pricing_card_button {
     line-height: 55.134px;
   }
+
   .pricing_card_button:hover {
     transform: scale(1.02);
     /* opacity: 0.5; */
   }
+
   .pricing_section_one h3 {
     margin-bottom: 20px;
     font-size: 47px;
   }
+
   .pricing_section_one {
     margin-top: 9rem;
     margin-bottom: 6rem;
   }
+
   .pricing_section_two h2 {
     font-size: 33px;
   }
+
   .footer_desc_p {
     padding: 15px;
   }
+
   .footer_desc_p p {
     font-size: 13px;
   }
+
   /* .home_section_five {
     margin-top: 60px;
   } */
   .timeInput_div {
     gap: 24px;
   }
+
   .timeInput_unDisabled {
     gap: 8px;
     padding: 22px 13.75px;
   }
+
   #ampm {
     margin-left: 16px;
   }
@@ -6620,42 +7405,54 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .on_boarding_text_div p {
     font-size: 14px;
   }
+
   .on_boarding_text_div h6 {
     font-size: 15px;
     margin-top: 1rem;
   }
+
   .disable_time_input {
     font-size: 21.5px;
   }
+
   .on_boarding_text_div_main {
     padding-left: 30px !important;
     padding-right: 30px !important;
   }
+
   .date-item {
     padding: 7px;
   }
+
   .calendar {
     padding: 0px 19px;
   }
+
   .footer_sections {
     margin-top: -8px;
   }
+
   .table_main_sec {
     margin-bottom: 4rem;
   }
+
   .table_thead th {
     font-size: 14px;
   }
+
   .table_tbody td {
     font-size: 13px;
   }
+
   .table_heading_txt {
     font-size: 22px;
     margin-bottom: 2rem;
   }
+
   .no_found_txt {
     font-size: 15px;
   }
+
   .profile_heading_txt {
     font-size: 27px;
     margin-top: 8rem;
@@ -6666,16 +7463,19 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     height: 130px !important;
     margin-bottom: 2rem;
   }
+
   .edit_txt {
     left: 0;
     top: 150px;
   }
+
   .subtractImg01 {
     width: 138.006px;
     height: 186.215px;
     top: 7px;
     right: 28px;
   }
+
   .subtractImg02 {
     width: 114.483px;
     height: 222.941px;
@@ -6689,12 +7489,15 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     bottom: 30px;
     right: 39px;
   }
+
   .icon_number h6 {
     font-size: 24.704px;
   }
+
   .icon_text {
     font-size: 9.283px;
   }
+
   .subtractImg04 {
     width: 136.942px;
     height: 192.438px;
@@ -6749,6 +7552,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     top: 121px;
     left: 249px;
   }
+
   .img02 {
     width: 38.814px;
     bottom: 70px;
@@ -6766,6 +7570,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     top: 116px;
     left: 54px;
   }
+
   .img05 {
     width: 28.323px;
     top: 46px;
@@ -6776,6 +7581,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     top: -36px;
     left: 148px;
   }
+
   .icon_number02 {
     left: 310px;
     top: 108px;
@@ -6785,6 +7591,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     left: 230px;
     bottom: 2px;
   }
+
   .icon_number04 {
     bottom: 12px;
     left: 49px;
@@ -6822,9 +7629,11 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .footer_main_section_div {
     padding: 74px 25px 74px 25px;
   }
+
   .footer_main_section .fp-tableCell {
     display: unset;
   }
+
   .circle_parent {
     width: 21.702px;
     height: 21.702px;
@@ -6975,7 +7784,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     height: 17px;
   }
 
-  .select_menu > li {
+  .select_menu>li {
     font-size: 13px;
   }
 
@@ -7226,6 +8035,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     flex-direction: column;
     align-items: center;
   }
+
   .back_a_button2 {
     font-size: 15px;
     width: 125px;
@@ -7287,25 +8097,32 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     display: none;
   }
 }
+
 @media screen and (max-width: 470px) {
+
   .mm_yy_cvv_text {
     bottom: 19px;
     font-size: 11px;
   }
+
   .payment_text_div h4 {
     font-size: 26px;
   }
+
   .payment_text_div p {
     font-size: 14px;
   }
+
   .payment_input {
     padding: 17px 22px 18px 27px !important;
     font-size: 12px !important;
   }
+
   .cvc_card_input {
     padding-left: 44px !important;
     padding-right: 88px !important;
   }
+
   .timeInput_div {
     gap: 20px;
   }
@@ -7313,19 +8130,24 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   #ampm {
     margin-left: 0;
   }
+
   .clockDive {
     padding: 0 6px;
   }
+
   .timeInput_div p {
     font-size: 18.5px;
   }
+
   #ampmInput {
     font-size: 16.5px;
     width: 50.25px;
   }
+
   .timeInput_unDisabled {
     gap: 20px;
   }
+
   .timeInput_disabled {
     gap: 20px;
   }
@@ -7333,69 +8155,104 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .unDisable_time_input {
     font-size: 18.5px;
   }
+
   .timeInput_unDisabled span {
     font-size: 18.5px;
   }
+
   .disable_time_input {
     font-size: 18.5px;
   }
 }
+
 @media screen and (max-width: 450px) {
-  .quizOneTxtDiv h4 {
-    font-size: 17px;
+  #comp-lpc87hvu {
+    width: 40.697303% !important;
   }
-  .quizOneTxtDiv p {
-    font-size: 12.487px;
+
+  #comp-lpc7yqot :is(p, h1, h2, h3, h4, h5, h6, ul, ol, span[data-attr-richtext-marker]) {
+    font-size: 15px !important;
   }
+
+  #comp-lpc838mr :is(p, h1, h2, h3, h4, h5, h6, ul, ol, span[data-attr-richtext-marker]) {
+    font-size: 15px !important;
+  }
+
+  #comp-lpc861ur :is(p, h1, h2, h3, h4, h5, h6, ul, ol, span[data-attr-richtext-marker]) {
+    font-size: 15px !important;
+  }
+
+  #comp-lpc85lv5 :is(p, h1, h2, h3, h4, h5, h6, ul, ol, span[data-attr-richtext-marker]) {
+    font-size: 15px !important;
+  }
+
+  #comp-lpc87hvu :is(p, h1, h2, h3, h4, h5, h6, ul, ol, span[data-attr-richtext-marker]) {
+    font-size: 15px !important;
+  }
+
   .quizOneTxtDiv {
     max-width: 113px;
     min-height: 181px;
     padding-top: 4px;
   }
+
   .progress-container {
     left: 157px;
     /* height: 72%; */
   }
+
   .quizOneTxtLastDiv p {
     font-size: 12.487px;
     max-width: 154px;
   }
+
   .quizOneTxtLastDiv {
     padding: 0px 28px;
   }
+
   .propQuizBtn01 {
     font-size: 11px;
     line-height: 33px;
   }
+
   .home_section_four {
     max-width: 341px;
   }
+
   .timeInput_unDisabled span {
     display: none;
   }
 }
+
 @media screen and (max-width: 400px) {
   .propstart_text_section {
     margin-top: 25px;
   }
+
   .prop_logo_section {
     padding: 14px;
   }
+
   .pro_price_div h5 {
     font-size: 20px;
   }
+
   .pro_price_div p {
     font-size: 13px;
   }
+
   .pro_price_div h4 {
     font-size: 18px;
   }
+
   .pro_price_div03 h6 {
     font-size: 14px;
   }
+
   .payment_show_card {
     position: unset;
   }
+
   .pro_price_div {
     padding: 23px 15px 25px 15px;
   }
@@ -7405,6 +8262,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     top: 88px;
     left: 188px;
   }
+
   .img02 {
     width: 29.814px;
     bottom: 56px;
@@ -7416,103 +8274,127 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     bottom: 55px;
     left: 69px;
   }
+
   .img04 {
     width: 27.862px;
     top: 84px;
     left: 44px;
     /* height: 27px; */
   }
+
   .img05 {
     width: 21.323px;
     top: 35px;
     left: 120px;
   }
+
   .icon_number h6 {
     font-size: 19.704px;
   }
+
   .icon_number01 {
     top: -27px;
     left: 116px;
   }
+
   .icon_number02 {
     left: 237px;
     top: 82px;
   }
+
   .icon_number03 {
     left: 172px;
     bottom: -1px;
   }
+
   .icon_number04 {
     bottom: 14px;
     left: 47px;
   }
+
   .icon_number05 {
     top: 71px;
     left: -20px;
   }
+
   .subtractImg01 {
     width: 103.006px;
     height: 114.215px;
     top: 18px;
     right: 22px;
   }
+
   .subtractImg02 {
     width: 83.483px;
     height: 150.941px;
     right: 20px;
     top: 62px;
   }
+
   .subtractImg03 {
     width: 158.655px;
     height: 70.169px;
     bottom: 25px;
     right: 35px;
   }
+
   .subtractImg04 {
     width: 86.942px;
     height: 146.438px;
     bottom: 35px;
     right: 134.9px;
   }
+
   .subtractImg05 {
     width: 129.39px;
     height: 105.286px;
     top: 19px;
     right: 93px;
   }
+
   .icon_text {
     font-size: 7.283px;
   }
+
   .on_boarding_text_div_main {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
+
   #calendarId {
     top: 103px;
   }
+
   #clockShow {
     top: 103px;
   }
+
   .calendar_main_div {
     padding: 20px 10px;
   }
+
   .days-of-week {
     font-size: 13.339px;
     margin-top: 20px;
   }
+
   .next_pervious_btn {
     font-size: 25px;
   }
+
   .date-item {
     font-size: 13.339px;
     padding: 5px;
   }
+
   .calendar_main_div {
     max-width: 100%;
   }
+
   .month_header {
     font-size: 16.062px;
   }
+
   .nav_button_group {
     gap: 10px;
   }
@@ -7709,6 +8591,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .invest_text_main_section {
     margin-top: 50px;
   }
+
   .beyond_text_main_section {
     margin-top: 50px;
   }
@@ -7738,6 +8621,7 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
     left: 12px;
   }
 }
+
 @media screen and (max-width: 350px) {
   /* .right_of_you {
     display: none;
@@ -7752,18 +8636,22 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .timeInput_div {
     gap: 17px;
   }
+
   .timeInput_unDisabled {
     padding: 22px 13px;
     gap: 17px;
   }
+
   .unDisable_time_input {
     font-size: 16.5px;
     width: 46.875px;
   }
+
   .disable_time_input {
     font-size: 16.5px;
     width: 46.875px;
   }
+
   #ampmInput {
     font-size: 14.5px;
     width: 44.25px;
@@ -7774,19 +8662,24 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
   .learning_text_section h6 {
     font-size: 35px;
   }
+
   .learning_text_section p {
     font-size: 16px;
   }
+
   .beyond_text_div h5 {
     font-size: 35px;
   }
+
   .beyond_text_div p {
     font-size: 16px;
   }
+
   .invest_text_div h5 {
     font-size: 35px;
     max-width: 211px;
   }
+
   .invest_text_div p {
     font-size: 16px;
   }
@@ -7795,19 +8688,19 @@ background: linear-gradient(180deg, #000 -5.63%, rgba(217, 217, 217, 0.00) 44.69
 
 
 @media screen and (max-width: 1300px) {
-  .paypal-style{
+  .paypal-style {
     margin: 0 200px;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  .paypal-style{
+  .paypal-style {
     margin: 0 100px;
   }
 }
 
 @media screen and (max-width: 700px) {
-  .paypal-style{
+  .paypal-style {
     margin: 0 0px;
   }
 }
